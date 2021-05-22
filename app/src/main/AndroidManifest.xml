@@ -16,7 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".src.main.MainActivity"/>
+        <activity android:name=".src.main.SignInActivity"/>
     </application>
 
 </manifest>
