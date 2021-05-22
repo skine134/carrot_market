@@ -1,6 +1,6 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/android,kotlin,java,androidstudio
-# Edit at https://www.toptal.com/developers/gitignore?templates=android,kotlin,java,androidstudio
+# Created by https://www.toptal.com/developers/gitignore/api/android,androidstudio,kotlin,java,windows,linux
+# Edit at https://www.toptal.com/developers/gitignore?templates=android,androidstudio,kotlin,java,windows,linux
 
 ### Android ###
 # Built application files
@@ -132,6 +132,47 @@ hs_err_pid*
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 
+### Linux ###
+*~
+
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+# .nfs files are created when an open file is removed but is still being accessed
+.nfs*
+
+### Windows ###
+# Windows thumbnail cache files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+
+# Dump file
+*.stackdump
+
+# Folder config file
+[Dd]esktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
 ### AndroidStudio ###
 # Covers files to be ignored for android development using Android Studio.
 
@@ -162,7 +203,6 @@ hs_err_pid*
 /*/*/build
 /*/*/production
 *.ipr
-*~
 *.swp
 
 # Keystore files
@@ -208,8 +248,6 @@ obj/
 ._*
 .Spotlight-V100
 .Trashes
-ehthumbs.db
-Thumbs.db
 
 # Legacy Eclipse project files
 .classpath
@@ -244,4 +282,4 @@ fabric.properties
 
 !/gradle/wrapper/gradle-wrapper.jar
 
-# End of https://www.toptal.com/developers/gitignore/api/android,kotlin,java,androidstudio
+# End of https://www.toptal.com/developers/gitignore/api/android,androidstudio,kotlin,java,windows,linux
