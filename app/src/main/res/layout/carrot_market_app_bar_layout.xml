@@ -2,10 +2,10 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/sign_in_app_bar"
+    android:id="@+id/sign_up_app_bar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:layout_constraintBottom_toTopOf="@id/sign_in_content_view"
+    app:layout_constraintBottom_toTopOf="@id/sign_up_content_view"
     app:layout_constraintTop_toTopOf="parent">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -24,7 +24,7 @@
                 android:id="@+id/back_button"
                 style="@style/BackButton"/>
             <TextView
-                android:text="@string/sign_in_app_bar_title"
+                android:text="@string/sign_up_app_bar_title"
                 style="@style/Title"
                 />
         </androidx.appcompat.widget.Toolbar>
