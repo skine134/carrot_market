@@ -101,7 +101,7 @@ class SignupActivity : BaseActivity<SignUpLayoutBinding>(SignUpLayoutBinding::in
             intent.putExtra(context.getString(R.string.sign_up_to_sign_in_intent_key),textView.text.toString())
             //TODO: 서버로 핸드폰 번호 전송 및 auth number 발급 요청.
             startActivity(intent)
-//            finish()
+            finish()
         }
     }
     private fun filterPhoneNumber(phoneNumber:String):String

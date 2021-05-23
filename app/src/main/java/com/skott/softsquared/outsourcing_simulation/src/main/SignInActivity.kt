@@ -2,9 +2,8 @@ package com.skott.softsquared.outsourcing_simulation.src.main
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -12,12 +11,11 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
-import com.skott.config.authTime
+import com.skott.config.ApplicationClass.Companion.X_ACCESS_TOKEN
+import com.skott.config.ApplicationClass.Companion.sSharedPreferences
 import com.skott.config.BaseActivity
 import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.SignInLayoutBinding
-import java.sql.Timestamp
-import java.time.LocalDateTime
 import java.util.*
 import kotlin.concurrent.fixedRateTimer
 
@@ -38,6 +36,7 @@ class SignInActivity : BaseActivity<SignInLayoutBinding>(SignInLayoutBinding::in
         setInputEvent(binding.signInCellphoneEditText,binding.signInTakeAuthNumberButton)
         authTimer = getAuthNumberTimerEvent(binding.signInAuthTimer)
         setTakeAuthNumberEvent(binding.signInTakeAuthNumberButton,binding.signInAuthTimer)
+        setAcceptAndStartIntentEvent(binding.signInAcceptAndStartButton)
     }
     private fun setPhoneNumber(editText: EditText, phoneNumber: String) {
         editText.setText(phoneNumber)
@@ -140,9 +139,15 @@ class SignInActivity : BaseActivity<SignInLayoutBinding>(SignInLayoutBinding::in
         }
 
     }
-    private fun setSignInButton()
+    private fun setAcceptAndStartIntentEvent(button:Button)
     {
-
+        button.setOnClickListener{
+            val nextActivity = if(sSharedPreferences.getString(X_ACCESS_TOKEN,"").equals("")) MainActivity::class.java else CreateProfileActivity::class.java
+//            val nextActivity = MainActivity::class.java
+            val intent = Intent(this,nextActivity)
+            startActivity(intent)
+            finish()
+        }
     }
     private fun getRemainTime(remainSeconds:Int) : String
     {
