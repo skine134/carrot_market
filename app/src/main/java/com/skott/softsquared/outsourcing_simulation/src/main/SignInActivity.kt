@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -142,7 +143,8 @@ class SignInActivity : BaseActivity<SignInLayoutBinding>(SignInLayoutBinding::in
     private fun setAcceptAndStartIntentEvent(button:Button)
     {
         button.setOnClickListener{
-            val nextActivity = if(sSharedPreferences.getString(X_ACCESS_TOKEN,"").equals("")) MainActivity::class.java else CreateProfileActivity::class.java
+            val nextActivity = if(sSharedPreferences.getString(X_ACCESS_TOKEN,"").equals("")) CreateProfileActivity::class.java else MainActivity::class.java
+            Log.d("nextActivity",if(sSharedPreferences.getString(X_ACCESS_TOKEN,"").equals("")) "mainActivity" else "createProfileActivity")
 //            val nextActivity = MainActivity::class.java
             val intent = Intent(this,nextActivity)
             startActivity(intent)

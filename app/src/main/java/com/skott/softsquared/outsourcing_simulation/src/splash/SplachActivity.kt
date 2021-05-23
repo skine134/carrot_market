@@ -14,8 +14,9 @@ import com.skott.softsquared.outsourcing_simulation.src.main.MainActivity
 class SplashActivity : BaseActivity<SplasherLayoutBinding>(SplasherLayoutBinding::inflate) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val nextActivity = if(sSharedPreferences.getString(X_ACCESS_TOKEN,"").equals(""))SignupActivity::class.java else MainActivity::class.java
+        sSharedPreferences = applicationContext.getSharedPreferences("carrot_market", MODE_PRIVATE)
         Handler(Looper.getMainLooper()).postDelayed({
+            val nextActivity = if(sSharedPreferences.getString(X_ACCESS_TOKEN,"").equals(""))SignupActivity::class.java else MainActivity::class.java
             startActivity(Intent(this, nextActivity))
             finish()
         }, 1500)

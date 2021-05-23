@@ -2,6 +2,6 @@
 <resources>
     <string name="create_profile_app_bar_title">프로필 설정</string>
     <string name="create_profile_next_button">다음</string>
-    <string name="create_profile_nickname_hint">닉네임</string>
+    <string name="profile_nickname_hint">닉네임</string>
     <string name="please_typing_nickname">닉네임을 입력해주세요.</string>
 </resources>
