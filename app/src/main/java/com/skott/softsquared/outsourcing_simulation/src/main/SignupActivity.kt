@@ -13,7 +13,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
-import com.skott.config.config.BaseActivity
+import com.skott.config.BaseActivity
 import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.SignInLayoutBinding
 import com.skott.softsquared.outsourcing_simulation.databinding.SignUpLayoutBinding
@@ -31,7 +31,7 @@ class SignupActivity : BaseActivity<SignUpLayoutBinding>(SignUpLayoutBinding::in
         setBackButtonEvent(binding.backButton)
         setInputEvent(binding.signUpCellphoneEditText,binding.signUpTakeAuthNumberButton)
         setFindIdForEmailIntentEvent(binding.signUpFindIdForEmailTextView)
-        setSignInIntentEvent(binding.signUpTakeAuthNumberButton)
+        setSignInIntentEvent(binding.signUpTakeAuthNumberButton,binding.signUpCellphoneEditText)
     }
     private fun setBackButtonEvent(button:ImageButton)
     {
@@ -94,22 +94,20 @@ class SignupActivity : BaseActivity<SignUpLayoutBinding>(SignUpLayoutBinding::in
             startActivity(intent)
         }
     }
-    private fun setSignInIntentEvent(button:Button)
+    private fun setSignInIntentEvent(button:Button,textView: TextView)
     {
         button.setOnClickListener{
             val intent = Intent(this,SignInActivity::class.java)
+            intent.putExtra(context.getString(R.string.sign_up_to_sign_in_intent_key),textView.text.toString())
             //TODO: 서버로 핸드폰 번호 전송 및 auth number 발급 요청.
             startActivity(intent)
-            finish()
+//            finish()
         }
     }
     private fun filterPhoneNumber(phoneNumber:String):String
     {
 
         val textArray = phoneNumber.replace(" ", "").toMutableList()
-        //전화번호 최대길이 이상 못받게, 숫자만 받게
-        if(textArray.count()>=11)
-            return phoneNumber
         when (textArray.count()) {
             4, 5, 6, 7
             -> {
@@ -134,9 +132,5 @@ class SignupActivity : BaseActivity<SignUpLayoutBinding>(SignUpLayoutBinding::in
 
     override fun onBackPressed() {
         showNotBackToast()
-    }
-    override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
-        val focusView = getCurrentFocus()
-        return super.dispatchTouchEvent(ev)
     }
 }

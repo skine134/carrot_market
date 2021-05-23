@@ -1,4 +1,4 @@
-package com.skott.config.config
+package com.skott.config
 
 import android.content.Context
 import android.os.Bundle

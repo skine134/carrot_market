@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import com.skott.softsquared.outsourcing_simulation.src.main.SignupActivity
-import com.skott.config.config.BaseActivity
+import com.skott.config.BaseActivity
 import com.skott.softsquared.outsourcing_simulation.databinding.SplasherLayoutBinding
 
 class SplashActivity : BaseActivity<SplasherLayoutBinding>(SplasherLayoutBinding::inflate) {

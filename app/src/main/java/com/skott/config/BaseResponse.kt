@@ -1,4 +1,4 @@
-package com.skott.config.config
+package com.skott.config
 
 import com.google.gson.annotations.SerializedName
 
