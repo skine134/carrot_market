@@ -1,3 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="number_regex">"""\[^0-9]\g"""</string>
 </resources>

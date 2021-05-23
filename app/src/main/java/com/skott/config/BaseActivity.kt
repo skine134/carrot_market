@@ -1,8 +1,11 @@
 package com.skott.config.config
 
 import android.content.Context
+import android.media.Image
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.widget.Button
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
@@ -14,7 +17,6 @@ abstract class BaseActivity<B : ViewBinding>(private val inflate: (LayoutInflate
     protected lateinit var binding: B
         private set
     lateinit var mLoadingDialog: LoadingDialog
-
     // 뷰 바인딩 객체를 받아서 inflate해서 화면을 만들어줌.
     // 즉 매번 onCreate에서 setContentView를 하지 않아도 됨.
     override fun onCreate(savedInstanceState: Bundle?) {

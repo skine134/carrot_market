@@ -16,6 +16,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".src.main.SignupActivity"/>
+        <activity android:name=".src.main.FindIdForEmailActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="find_id_for_email"/>
+            </intent-filter>
+        </activity>
         <activity android:name=".src.main.SignInActivity"/>
     </application>
 

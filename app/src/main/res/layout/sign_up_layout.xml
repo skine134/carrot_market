@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".src.main.SignInActivity">
+    tools:context=".src.main.SignupActivity">
 
     <!--TODO 시간나면 app_Bar는 커스텀 뷰로-->
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -89,9 +89,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="12dp"
-            android:background="@drawable/sign_up_take_auth_number_shape"
+            android:background="@drawable/take_auth_number_selector"
             android:layout_marginTop="7dp"
             android:gravity="center"
+            android:enabled="false"
             app:layout_constraintTop_toBottomOf="@id/sign_up_cellphone_edit_text"
             app:layout_constraintBottom_toTopOf="@id/sign_up_is_change_phone_number_text_view"
             android:text="@string/sign_up_take_auth_number_button"
