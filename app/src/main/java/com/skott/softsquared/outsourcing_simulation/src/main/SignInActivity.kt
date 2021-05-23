@@ -143,9 +143,9 @@ class SignInActivity : BaseActivity<SignInLayoutBinding>(SignInLayoutBinding::in
     private fun setAcceptAndStartIntentEvent(button:Button)
     {
         button.setOnClickListener{
-            val nextActivity = if(sSharedPreferences.getString(X_ACCESS_TOKEN,"").equals("")) CreateProfileActivity::class.java else MainActivity::class.java
-            Log.d("nextActivity",if(sSharedPreferences.getString(X_ACCESS_TOKEN,"").equals("")) "mainActivity" else "createProfileActivity")
-//            val nextActivity = MainActivity::class.java
+//            val nextActivity = if(sSharedPreferences.getString(X_ACCESS_TOKEN,"").equals("")) CreateProfileActivity::class.java else MainActivity::class.java
+//            Log.d("nextActivity",if(sSharedPreferences.getString(X_ACCESS_TOKEN,"").equals("")) "mainActivity" else "createProfileActivity")
+            val nextActivity = MainActivity::class.java
             val intent = Intent(this,nextActivity)
             startActivity(intent)
             finish()

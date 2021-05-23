@@ -1,6 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/main_top_coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="3dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintVertical_bias="0"
+        >
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/pure_trans"
+            app:elevation="0dp"
+            >
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/main_app_bar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center|start"
+                android:padding="10dp"
+                android:orientation="horizontal"
+                >
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <fragment
+        android:id="@+id/main_content_fragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        class="com.skott.softsquared.outsourcing_simulation.src.main.fragments.MainFragment"
+        app:layout_constraintTop_toBottomOf="@id/main_top_coordinator"
+        app:layout_constraintBottom_toTopOf="@id/main_bottom_frame_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:elevation="3dp"
+        />
+    <FrameLayout
+        android:id="@+id/main_bottom_frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:elevation="0dp"
+            app:itemTextColor="@color/carrot_market_main_bottom_back"
+            app:itemIconTint="@color/carrot_market_main_bottom_back"
+            app:labelVisibilityMode="labeled"
+            app:menu="@menu/main_bottom_menu"
+        />
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
