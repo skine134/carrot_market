@@ -4,9 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -18,10 +16,12 @@ import com.skott.config.ApplicationClass
 import com.skott.config.BaseActivity
 import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.SignInLayoutBinding
-import com.skott.softsquared.outsourcing_simulation.src.main.CreateProfileActivity
+import com.skott.softsquared.outsourcing_simulation.src.main.createprofile.CreateProfileActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.MainActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.signin.models.SigninRequest
 import com.skott.softsquared.outsourcing_simulation.src.main.signin.models.SigninResponse
+import com.skott.softsquared.outsourcing_simulation.src.main.signup.models.CertificationsRequest
+import com.skott.softsquared.outsourcing_simulation.src.main.signup.models.CertificationsResponse
 import java.util.*
 import kotlin.concurrent.fixedRateTimer
 
@@ -62,12 +62,14 @@ class SignInActivity : BaseActivity<SignInLayoutBinding>(SignInLayoutBinding::in
         setAcceptAndStartIntentEvent(
             binding.signInAcceptAndStartButton,
             binding.signInAuthNumberEditText,
+            binding.signInCellphoneEditText,
             binding.signInWarningTextView
         )
     }
 
     private fun setPhoneNumber(editText: EditText, phoneNumber: String) {
         editText.setText(phoneNumber)
+        editText.isEnabled=false
     }
 
     private fun setBackButtonEvent(button: ImageButton) {
@@ -163,6 +165,7 @@ class SignInActivity : BaseActivity<SignInLayoutBinding>(SignInLayoutBinding::in
         button.setOnClickListener {
             this.authTimer.cancel()
             this.authTimer = getAuthNumberTimerEvent(timerTextView)
+            signInService.tryGetCertifications(CertificationsRequest(phoneNumber.replace(" ","")))
             phoneNumberEditText.isEnabled=false
         }
 
@@ -170,18 +173,20 @@ class SignInActivity : BaseActivity<SignInLayoutBinding>(SignInLayoutBinding::in
 
     private fun setAcceptAndStartIntentEvent(
         button: Button,
-        editText: EditText,
+        authEditext: EditText,
+        phonenumberEditText:EditText,
         textView: TextView
     ) {
 
         button.setOnClickListener {
 
-            if (certificationNumber.equals(editText.text.toString())) {
+            if (certificationNumber.equals(authEditext.text.toString())) {
                 val jwt = ApplicationClass.sSharedPreferences.getString(context.getString(R.string.jwt_key),"")
                 if(jwt.equals(""))
                 {
 
-                    val intent = Intent(this,CreateProfileActivity::class.java)
+                    val intent = Intent(this, CreateProfileActivity::class.java)
+                    intent.putExtra(context.getString(R.string.sign_in_to_create_profile_phone_number_intent_key),phonenumberEditText.text.toString().replace(" ",""))
                     startActivity(intent)
                     finish()
                 }
@@ -221,7 +226,16 @@ class SignInActivity : BaseActivity<SignInLayoutBinding>(SignInLayoutBinding::in
         finish()
     }
 
-    override fun jwtErrorListener(messae: String) {
-        showCustomToast(messae)
+    override fun certificationsResponseListener(response: CertificationsResponse) {
+        certificationNumber=response.authNumber
+        showCustomToast(certificationNumber)
+    }
+
+    override fun certificationsResponseErrorListener(message: String) {
+        showCustomToast(message)
+    }
+
+    override fun jwtErrorListener(message: String) {
+        showCustomToast(message)
     }
 }

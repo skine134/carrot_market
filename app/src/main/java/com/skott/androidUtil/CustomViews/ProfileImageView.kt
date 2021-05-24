@@ -3,8 +3,10 @@ package com.skott.androidUtil.CustomViews
 import android.content.Context
 import android.graphics.drawable.ShapeDrawable
 import android.graphics.drawable.shapes.OvalShape
+import android.media.Image
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.skott.softsquared.outsourcing_simulation.R
@@ -40,6 +42,9 @@ class ProfileImageView(context: Context, attrs:AttributeSet) : ConstraintLayout(
             Toast.makeText(context,"test",Toast.LENGTH_SHORT).show()
         }
     }
-
+    fun getImageView():ImageView
+    {
+        return binding.profileImage
+    }
 
 }
