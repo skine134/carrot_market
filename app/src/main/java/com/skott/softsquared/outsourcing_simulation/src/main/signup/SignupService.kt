@@ -1,6 +1,7 @@
 package com.skott.softsquared.outsourcing_simulation.src.main.signup
 
 import com.skott.androidUtil.Lib.getAPIHandler
+import com.skott.softsquared.outsourcing_simulation.BuildConfig
 import com.skott.softsquared.outsourcing_simulation.src.BaseModel
 import com.skott.softsquared.outsourcing_simulation.src.main.signin.SignInActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.signup.models.CertificationsRequest
@@ -12,7 +13,7 @@ import retrofit2.Response
 class SignupService(val view: SignupActivity)
 {
     fun tryGetCertifications(certificationsRequest: CertificationsRequest){
-        val certificationRetrofitInterface = getAPIHandler("https://www.carrot-c.shop",SignupRetrofitInterface::class)
+        val certificationRetrofitInterface = getAPIHandler(BuildConfig.SERVER_URL,SignupRetrofitInterface::class)
         certificationRetrofitInterface.getCertifications(certificationsRequest).enqueue(object :
             Callback<BaseModel<CertificationsResponse>> {
             override fun onResponse(

@@ -3,6 +3,7 @@
     <string name="sign_in_app_bar_title">회원가입/로그인</string>
     <string name="sign_in_auth_number_input_hint">인증 번호를 입력해주세요</string>
     <string name="sign_in_warning">어떤 경우에도 타인에게 공유하지 마세요!</string>
+    <string name="sign_in_incorrect_auth_number">인증번호가 틀립니다</string>
     <string name="sign_in_accept_link">이용약관 및 개인정보취급방침</string>
     <string name="sign_in_re_take_auth_number_button">인증문자 다시 받기</string>
     <string name="sign_in_accept_and_start_button">동의하고 시작하기</string>

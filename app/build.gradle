@@ -11,6 +11,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
+        buildConfigField "String", "SERVER_URL", properties['server_url']
         applicationId "com.skott.softsquared.outsourcing_simulation"
         minSdkVersion 26
         targetSdkVersion 30

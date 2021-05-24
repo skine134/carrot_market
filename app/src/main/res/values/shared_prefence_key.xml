@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_key">"CARROT_MARKET_C_JWT"</string>
+    <string name="jwt_key">"X-ACCESS-TOKEN"</string>
+
+</resources>
