@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".src.main.SignupActivity">
+    tools:context=".src.main.signup.SignupActivity">
 
     <!--TODO 시간나면 app_Bar는 커스텀 뷰로-->
     <androidx.coordinatorlayout.widget.CoordinatorLayout
