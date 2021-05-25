@@ -14,10 +14,11 @@ import com.skott.softsquared.outsourcing_simulation.src.config.ApplicationClass.
 import com.skott.softsquared.outsourcing_simulation.src.config.BaseActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.create_profile.models.SignupRequest
 import com.skott.softsquared.outsourcing_simulation.src.main.create_profile.models.SignupResponse
-import com.skott.softsquared.outsourcing_simulation.src.main.home_profile.ProfileFragment
 import com.skott.softsquared.outsourcing_simulation.src.main.home.HomeActivity
-import com.skott.softsquared.outsourcing_simulation.src.main.signin.models.SigninRequest
-import com.skott.softsquared.outsourcing_simulation.src.main.signin.models.SigninResponse
+import com.skott.softsquared.outsourcing_simulation.src.main.profile.ProfileFragment
+import com.skott.softsquared.outsourcing_simulation.src.main.signin.models.SignInRequest
+import com.skott.softsquared.outsourcing_simulation.src.main.signin.models.SignInResponse
+import com.skott.softsquared.outsourcing_simulation.src.util.custom_views.ProfileImageView
 
 class CreateProfileActivity :
     BaseActivity<CreateProfileLayoutBinding>(CreateProfileLayoutBinding::inflate),
@@ -29,6 +30,7 @@ class CreateProfileActivity :
     private lateinit var phonenumber: String
     private lateinit var nickname: EditText
     private lateinit var profilImage: ImageView
+    private lateinit var profileImageView:ProfileImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         context = this
@@ -36,17 +38,16 @@ class CreateProfileActivity :
             intent.getStringExtra(context.getString(R.string.sign_in_to_create_profile_phone_number_intent_key))!!
                 .toString()
         editor = sSharedPreferences.edit()
-        nickname =
-            (supportFragmentManager.findFragmentById(R.id.create_profile_content_fragment) as ProfileFragment).profileEditTextListener()
-        profilImage =
-            (supportFragmentManager.findFragmentById(R.id.create_profile_content_fragment) as ProfileFragment).profileImageListener()
+        profileImageView = (supportFragmentManager.findFragmentById(R.id.create_profile_content_fragment) as ProfileFragment).profileImageViewListener()
+        nickname = (supportFragmentManager.findFragmentById(R.id.create_profile_content_fragment) as ProfileFragment).profileNicknameListener()
+        profilImage = profileImageView.findViewById(R.id.profile_image)
         nextIntent = Intent(this, HomeActivity::class.java)
         setMainIntentEvent(binding.createProfileNextButton, phonenumber, nickname)
         createProfileService = CreateProfileService(this)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        showCustomToast(data!!.dataString!!)
+        profileImageView.imageSelectListener(data!!.dataString!!)
         super.onActivityResult(requestCode, resultCode, data)
     }
     private fun setMainIntentEvent(button: Button, phonenumber: String, editText: EditText) {
@@ -65,7 +66,7 @@ class CreateProfileActivity :
         }
     }
 
-    override fun onSignInSuccess(signinResponse: SigninResponse) {
+    override fun onSignInSuccess(signinResponse: SignInResponse) {
         //TODO jwt 값이 들어오면 변겅.
         if(!signinResponse.jwt.equals(""))
         {
@@ -78,7 +79,7 @@ class CreateProfileActivity :
     }
 
     override fun onSignUpSuccess(signupResponse: SignupResponse) {
-        createProfileService.trySignIn(SigninRequest(phonenumber))
+        createProfileService.trySignIn(SignInRequest(phonenumber))
     }
 
     override fun onSignInFailure(message: String) {
@@ -90,7 +91,7 @@ class CreateProfileActivity :
     }
 
     interface ProfileDataInterface {
-        fun profileImageListener(): ImageView
-        fun profileEditTextListener(): EditText
+        fun profileImageViewListener():ProfileImageView
+        fun profileNicknameListener():EditText
     }
 }

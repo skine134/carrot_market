@@ -16,6 +16,7 @@ import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.SignInLayoutBinding
 import com.skott.softsquared.outsourcing_simulation.src.config.ApplicationClass
 import com.skott.softsquared.outsourcing_simulation.src.config.BaseActivity
+import com.skott.softsquared.outsourcing_simulation.src.config.CERTIFICATIONS_TIME
 import com.skott.softsquared.outsourcing_simulation.src.main.create_profile.CreateProfileActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.home.HomeActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.signin.models.SignInRequest
@@ -145,7 +146,7 @@ class SignInActivity : BaseActivity<SignInLayoutBinding>(SignInLayoutBinding::in
     }
 
     private fun getAuthNumberTimerEvent(textView: TextView): Timer {
-        this.authTime = com.skott.softsquared.outsourcing_simulation.src.config.authTime
+        this.authTime = CERTIFICATIONS_TIME
         return fixedRateTimer(period = 1000) {
             --authTime
 
