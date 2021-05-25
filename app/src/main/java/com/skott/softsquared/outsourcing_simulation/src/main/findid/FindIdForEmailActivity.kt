@@ -1,4 +1,4 @@
-package com.skott.softsquared.outsourcing_simulation.src.main
+package com.skott.softsquared.outsourcing_simulation.src.main.findid
 
 import com.skott.softsquared.outsourcing_simulation.src.config.BaseActivity
 import com.skott.softsquared.outsourcing_simulation.databinding.FindIdForEmailLayoutBinding

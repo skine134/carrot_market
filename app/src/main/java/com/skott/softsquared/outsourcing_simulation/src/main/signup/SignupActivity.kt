@@ -17,7 +17,7 @@ import android.widget.TextView
 import com.skott.softsquared.outsourcing_simulation.src.config.BaseActivity
 import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.SignUpLayoutBinding
-import com.skott.softsquared.outsourcing_simulation.src.main.FindIdForEmailActivity
+import com.skott.softsquared.outsourcing_simulation.src.main.findid.FindIdForEmailActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.signin.SignInActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.signup.models.SignUpRequest
 import com.skott.softsquared.outsourcing_simulation.src.main.signup.models.SignUpResponse

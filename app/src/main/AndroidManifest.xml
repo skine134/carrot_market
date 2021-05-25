@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".src.main.signup.SignupActivity"/>
-        <activity android:name=".src.main.FindIdForEmailActivity">
+        <activity android:name=".src.main.findid.FindIdForEmailActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
