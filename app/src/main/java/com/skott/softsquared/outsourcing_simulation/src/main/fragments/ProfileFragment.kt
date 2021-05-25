@@ -1,5 +1,6 @@
 package com.skott.softsquared.outsourcing_simulation.src.main.fragments
 
+import android.content.Intent
 import android.widget.EditText
 import android.widget.ImageView
 import com.skott.config.BaseFragment
@@ -15,5 +16,10 @@ class ProfileFragment : BaseFragment<ProfileFragmentBinding>(ProfileFragmentBind
 
     override fun profileEditTextListener(): EditText {
         return binding.profileNicknameEditText
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        binding.profileImageView.imageSelectListener(data!!.data.toString())
+        super.onActivityResult(requestCode, resultCode, data)
     }
 }
