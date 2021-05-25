@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.drawable.ShapeDrawable
 import android.graphics.drawable.shapes.OvalShape
 import android.util.AttributeSet
+import android.util.Log
 import android.view.LayoutInflater
 import android.widget.ImageView
 import android.widget.Toast
@@ -31,7 +32,6 @@ class ProfileImageView(context: Context, attrs:AttributeSet) : ConstraintLayout(
         tmp.paint.color = context.getColor(R.color.white)
         binding.profileImage.background = tmp
         binding.profileImage.clipToOutline = true
-//        binding.profileImageUpdateButton.layoutParams.width = binding.profileImage.width/10
         binding.profileImageUpdateButton.background = tmp
         binding.profileImageUpdateButton.clipToOutline = true
     }

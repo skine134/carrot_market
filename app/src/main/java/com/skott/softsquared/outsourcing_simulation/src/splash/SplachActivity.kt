@@ -10,18 +10,21 @@ import com.skott.softsquared.outsourcing_simulation.src.main.signup.SignupActivi
 import com.skott.config.BaseActivity
 import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.SplasherLayoutBinding
+import com.skott.softsquared.outsourcing_simulation.src.main.create_profile.CreateProfileActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.home.HomeActivity
 
 class SplashActivity : BaseActivity<SplasherLayoutBinding>(SplasherLayoutBinding::inflate) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         sSharedPreferences = applicationContext.getSharedPreferences(this.getString(R.string.default_key), MODE_PRIVATE)
-        sSharedPreferences.edit().remove(this.getString(R.string.jwt_key))
-        sSharedPreferences.edit().commit()
+//        sSharedPreferences.edit().remove(this.getString(R.string.jwt_key))
+//        sSharedPreferences.edit().commit()
         Handler(Looper.getMainLooper()).postDelayed({
-            val nextActivity = if(sSharedPreferences.getString(this.getString(R.string.jwt_key),"").equals("")) SignupActivity::class.java else HomeActivity::class.java
-//            val nextActivity = HomeActivity::class.java
-            startActivity(Intent(this, nextActivity))
+//            val nextActivity = if(sSharedPreferences.getString(this.getString(R.string.jwt_key),"").equals("")) SignupActivity::class.java else HomeActivity::class.java
+            val nextActivity = CreateProfileActivity::class.java
+            val intent = Intent(this, nextActivity)
+            intent.putExtra(this.getString(R.string.sign_in_to_create_profile_phone_number_intent_key),"01056974181")
+            startActivity(intent)
             finish()
         }, 1500)
     }
