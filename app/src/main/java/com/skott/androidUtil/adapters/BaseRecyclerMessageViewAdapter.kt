@@ -1,8 +1,8 @@
-package com.skott.androidUtil.Adapters
+package com.skott.androidUtil.adapters
 
 import android.content.Context
 import androidx.recyclerview.widget.RecyclerView
-import com.skott.androidUtil.CustomViews.RecyclerMessageView
+import com.skott.androidUtil.custom_views.RecyclerMessageView
 
 abstract class BaseRecyclerMessageViewAdapter<T,VH : RecyclerView.ViewHolder>(val context: Context, val arrayList:ArrayList<T>, val recyclerMessageView: RecyclerMessageView) :RecyclerView.Adapter<VH>() {
     override fun getItemCount() = arrayList.size

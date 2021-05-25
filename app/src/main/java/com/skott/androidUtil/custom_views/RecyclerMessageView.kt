@@ -1,4 +1,4 @@
-package com.skott.androidUtil.CustomViews
+package com.skott.androidUtil.custom_views
 
 import android.content.Context
 import android.util.AttributeSet
@@ -8,7 +8,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.RecyclerMessageViewFragmentBinding
 
-class RecyclerMessageView(context: Context, attrs: AttributeSet?) :
+class RecyclerMessageView(context: Context, attrs: AttributeSet?=null) :
     ConstraintLayout(context, attrs) {
     var message: String = ""
     lateinit var messageTextView: TextView
@@ -17,9 +17,10 @@ class RecyclerMessageView(context: Context, attrs: AttributeSet?) :
 
     init {
         attrs?.run {
-            context.obtainStyledAttributes(this, R.styleable.RecycleListView)
+            context.obtainStyledAttributes(this, R.styleable.RecyclerMessageView)
         }?.run {
-            message = getString(R.styleable.RecyclerMessageView_message)!!
+            message = getString(R.styleable.RecyclerMessageView_message)?:""
+
         }
         init()
     }

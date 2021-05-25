@@ -1,15 +1,12 @@
 package com.skott.config
 
 import android.content.Context
-import android.media.Image
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.widget.Button
-import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
-import com.skott.androidUtil.CustomViews.LoadingDialog
+import com.skott.androidUtil.custom_views.LoadingDialog
 
 // 액티비티의 기본을 작성, 뷰 바인딩 활용
 abstract class BaseActivity<B : ViewBinding>(private val inflate: (LayoutInflater) -> B) :

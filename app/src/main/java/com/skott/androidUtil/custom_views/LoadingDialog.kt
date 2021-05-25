@@ -1,10 +1,7 @@
-package com.skott.androidUtil.CustomViews
+package com.skott.androidUtil.custom_views
 
 import android.app.Dialog
 import android.content.Context
-import android.graphics.drawable.ColorDrawable
-import android.os.Bundle
-import android.view.Window
 
 class LoadingDialog(context: Context) : Dialog(context) {
 //    private lateinit var binding: DialogLoadingBinding

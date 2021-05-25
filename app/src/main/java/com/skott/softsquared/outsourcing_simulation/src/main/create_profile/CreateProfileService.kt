@@ -1,10 +1,10 @@
-package com.skott.softsquared.outsourcing_simulation.src.main.createprofile
+package com.skott.softsquared.outsourcing_simulation.src.main.create_profile
 
 import com.skott.androidUtil.Lib.getAPIHandler
 import com.skott.softsquared.outsourcing_simulation.BuildConfig
 import com.skott.softsquared.outsourcing_simulation.src.BaseModel
-import com.skott.softsquared.outsourcing_simulation.src.main.createprofile.models.SignupRequest
-import com.skott.softsquared.outsourcing_simulation.src.main.createprofile.models.SignupResponse
+import com.skott.softsquared.outsourcing_simulation.src.main.create_profile.models.SignupRequest
+import com.skott.softsquared.outsourcing_simulation.src.main.create_profile.models.SignupResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

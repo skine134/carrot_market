@@ -16,8 +16,8 @@ import com.skott.config.ApplicationClass
 import com.skott.config.BaseActivity
 import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.SignInLayoutBinding
-import com.skott.softsquared.outsourcing_simulation.src.main.createprofile.CreateProfileActivity
-import com.skott.softsquared.outsourcing_simulation.src.main.MainActivity
+import com.skott.softsquared.outsourcing_simulation.src.main.create_profile.CreateProfileActivity
+import com.skott.softsquared.outsourcing_simulation.src.main.home.HomeActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.signin.models.SigninRequest
 import com.skott.softsquared.outsourcing_simulation.src.main.signin.models.SigninResponse
 import com.skott.softsquared.outsourcing_simulation.src.main.signup.models.CertificationsRequest
@@ -47,11 +47,6 @@ class SignInActivity : BaseActivity<SignInLayoutBinding>(SignInLayoutBinding::in
                 .toString()
         //TODO test 아닐 때 지워야함.
         showCustomToast(certificationNumber)
-        ApplicationClass.sSharedPreferences =
-            applicationContext.getSharedPreferences(
-                context.getString(R.string.default_key),
-                MODE_PRIVATE
-            )
         editor = ApplicationClass.sSharedPreferences.edit()
         signInService = SigninService(this)
         setPhoneNumber(binding.signInCellphoneEditText, phoneNumber)
@@ -226,7 +221,7 @@ class SignInActivity : BaseActivity<SignInLayoutBinding>(SignInLayoutBinding::in
     override fun jwtListener(signinResponse: SigninResponse) {
         editor.putString(context.getString(R.string.jwt_key), signinResponse.jwt)
         editor.apply()
-        val nextActivity = MainActivity::class.java
+        val nextActivity = HomeActivity::class.java
         val intent = Intent(this,nextActivity)
         startActivity(intent)
         finish()

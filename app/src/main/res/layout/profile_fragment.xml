@@ -7,7 +7,7 @@
     android:paddingHorizontal="10dp"
     >
         <!-- TODO 프로필 등록 커스텀뷰로 만들 것-->
-        <com.skott.androidUtil.CustomViews.ProfileImageView
+        <com.skott.androidUtil.custom_views.ProfileImageView
             android:id="@+id/profile_image_view"
             android:layout_width="100dp"
             android:layout_height="0dp"

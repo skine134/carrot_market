@@ -1,9 +1,8 @@
-package com.skott.androidUtil.CustomViews
+package com.skott.androidUtil.custom_views
 
 import android.content.Context
 import android.graphics.drawable.ShapeDrawable
 import android.graphics.drawable.shapes.OvalShape
-import android.media.Image
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.ImageView

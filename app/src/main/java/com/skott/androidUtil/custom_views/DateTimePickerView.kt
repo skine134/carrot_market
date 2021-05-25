@@ -1,4 +1,4 @@
-package com.skott.androidUtil.CustomViews
+package com.skott.androidUtil.custom_views
 
 import android.content.Context
 import android.util.AttributeSet
@@ -7,7 +7,6 @@ import android.widget.NumberPicker
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.skott.softsquared.outsourcing_simulation.databinding.DateTimePickerLayoutBinding
 import java.util.*
-import kotlin.math.min
 
 class DateTimePickerView(context: Context, attrs: AttributeSet?) :
     ConstraintLayout(context, attrs) {
