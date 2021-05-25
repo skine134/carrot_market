@@ -24,9 +24,14 @@
                 android:id="@+id/main_app_bar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center|end"
+                android:gravity="center|start"
                 android:orientation="horizontal"
                 android:padding="10dp">
+
+                <TextView
+                    style="@style/Title"
+                    android:text="@string/main_near_by_app_bar_title" />
+
 
                 <ImageButton
                     android:id="@+id/alert_button"
@@ -37,39 +42,29 @@
                     android:src="@drawable/alert" />
 
                 <ImageButton
-                    android:id="@+id/filter_button"
+                    android:id="@+id/image_scan_button"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="end"
                     android:background="@color/pure_trans"
-                    android:src="@drawable/filter" />
+                    android:src="@drawable/scan_image" />
 
                 <ImageButton
-                    android:id="@+id/search_image_button"
+                    android:id="@+id/post_button"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="end"
                     android:background="@color/pure_trans"
-                    android:src="@drawable/search" />
+                    android:src="@drawable/post" />
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <com.skott.androidUtil.CustomViews.RecyclerMessageView
-        android:id="@+id/product_list"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/main_top_coordinator" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/carrot_market_floating_button"
-        android:src="@drawable/plus_10"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:tint="@android:color/white" />
 </androidx.constraintlayout.widget.ConstraintLayout>

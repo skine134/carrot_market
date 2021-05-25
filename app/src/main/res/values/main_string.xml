@@ -1,3 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <string name="main_neighbor_news_app_bar_title">동네소식</string>
+    <string name="main_chat_app_bar_title">채팅</string>
+    <string name="main_near_by_app_bar_title">내 근처</string>
+    <string name="main_my_carrot_app_bar_title">나의 당근</string>
 </resources>

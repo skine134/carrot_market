@@ -56,7 +56,8 @@ class SignInActivity : BaseActivity<SignInLayoutBinding>(SignInLayoutBinding::in
         signInService = SigninService(this)
         setPhoneNumber(binding.signInCellphoneEditText, phoneNumber)
         setBackButtonEvent(binding.backButton)
-        setInputEvent(binding.signInCellphoneEditText, binding.signInTakeAuthNumberButton)
+        setPhoneInputEvent(binding.signInCellphoneEditText, binding.signInTakeAuthNumberButton)
+        setAuthInputEvent(binding.signInAuthNumberEditText,binding.signInAcceptAndStartButton)
         authTimer = getAuthNumberTimerEvent(binding.signInAuthTimer)
         setTakeAuthNumberEvent(binding.signInTakeAuthNumberButton, binding.signInAuthTimer,binding.signInCellphoneEditText)
         setAcceptAndStartIntentEvent(
@@ -71,14 +72,19 @@ class SignInActivity : BaseActivity<SignInLayoutBinding>(SignInLayoutBinding::in
         editText.setText(phoneNumber)
         editText.isEnabled=false
     }
-
     private fun setBackButtonEvent(button: ImageButton) {
         button.setOnClickListener {
             showNotBackToast()
         }
     }
-
-    private fun setInputEvent(inputField: EditText, button: Button) {
+    private fun setAuthInputEvent(editText: EditText,button:Button)
+    {
+        editText.setOnKeyListener { v, keyCode, event ->
+            button.isEnabled = editText.text.toString().isNotEmpty()
+            return@setOnKeyListener false
+        }
+    }
+    private fun setPhoneInputEvent(inputField: EditText, button: Button) {
         inputField.setOnKeyListener(object : View.OnKeyListener {
             override fun onKey(v: View?, keyCode: Int, event: KeyEvent): Boolean {
                 val editText = v as EditText

@@ -17,5 +17,6 @@
     <color name="carrot_market_main_bottom_back">#B3232325</color>
     <color name="carrot_market_highlight">#B3FCEADE</color>
     <color name="carrot_market_primary">#D2D3D8</color>
+    <color name="carrot_market_floating_button">#FE7E36</color>
     <color name="carrot_market_loading_dialog">#FE7E35</color>
 </resources>
