@@ -46,7 +46,7 @@
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
     <fragment
         android:id="@+id/create_profile_content_fragment"
-        class="com.skott.softsquared.outsourcing_simulation.src.main.fragments.ProfileFragment"
+        class="com.skott.softsquared.outsourcing_simulation.src.main.home_profile.ProfileFragment"
         tools:layout="@layout/profile_fragment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

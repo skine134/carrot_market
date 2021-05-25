@@ -1,4 +1,4 @@
-package com.skott.softsquared.outsourcing_simulation.src.main.fragments
+package com.skott.softsquared.outsourcing_simulation.src.main.home_profile
 
 import android.widget.EditText
 import android.widget.ImageView

@@ -14,7 +14,7 @@ import com.skott.softsquared.outsourcing_simulation.src.config.ApplicationClass.
 import com.skott.softsquared.outsourcing_simulation.src.config.BaseActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.create_profile.models.SignupRequest
 import com.skott.softsquared.outsourcing_simulation.src.main.create_profile.models.SignupResponse
-import com.skott.softsquared.outsourcing_simulation.src.main.fragments.ProfileFragment
+import com.skott.softsquared.outsourcing_simulation.src.main.home_profile.ProfileFragment
 import com.skott.softsquared.outsourcing_simulation.src.main.home.HomeActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.signin.models.SigninRequest
 import com.skott.softsquared.outsourcing_simulation.src.main.signin.models.SigninResponse

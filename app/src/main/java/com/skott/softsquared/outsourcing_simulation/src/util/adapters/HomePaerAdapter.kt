@@ -3,7 +3,11 @@ package com.skott.softsquared.outsourcing_simulation.src.util.adapters
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.skott.softsquared.outsourcing_simulation.src.main.fragments.*
+import com.skott.softsquared.outsourcing_simulation.src.main.home_product_list.*
+import com.skott.softsquared.outsourcing_simulation.src.main.home_chat.ChatFragment
+import com.skott.softsquared.outsourcing_simulation.src.main.home_my_carrot.MyCarrotFragment
+import com.skott.softsquared.outsourcing_simulation.src.main.home_near_by.NearByFragment
+import com.skott.softsquared.outsourcing_simulation.src.main.home_neighbor_news.NeighborNewsFragment
 
 class HomePaerAdapter(fragmentManager: FragmentManager) :FragmentPagerAdapter(fragmentManager,
     BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT){
