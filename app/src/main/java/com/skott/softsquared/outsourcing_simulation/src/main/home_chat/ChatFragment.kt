@@ -6,5 +6,3 @@ import com.skott.softsquared.outsourcing_simulation.databinding.ChatFragmentBind
 
 class ChatFragment : BaseFragment<ChatFragmentBinding>(ChatFragmentBinding::bind, R.layout.chat_fragment) {
 }
-// 1. ui 생산성
-// 2. https://developer88.tistory.com/239

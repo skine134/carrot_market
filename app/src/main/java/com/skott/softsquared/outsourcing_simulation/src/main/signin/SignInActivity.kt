@@ -20,8 +20,8 @@ import com.skott.softsquared.outsourcing_simulation.src.main.create_profile.Crea
 import com.skott.softsquared.outsourcing_simulation.src.main.home.HomeActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.signin.models.SigninRequest
 import com.skott.softsquared.outsourcing_simulation.src.main.signin.models.SigninResponse
-import com.skott.softsquared.outsourcing_simulation.src.main.signup.models.CertificationsRequest
-import com.skott.softsquared.outsourcing_simulation.src.main.signup.models.CertificationsResponse
+import com.skott.softsquared.outsourcing_simulation.src.main.signup.models.SignUpRequest
+import com.skott.softsquared.outsourcing_simulation.src.main.signup.models.SignUpResponse
 import java.util.*
 import kotlin.concurrent.fixedRateTimer
 
@@ -166,7 +166,7 @@ class SignInActivity : BaseActivity<SignInLayoutBinding>(SignInLayoutBinding::in
         button.setOnClickListener {
             this.authTimer.cancel()
             this.authTimer = getAuthNumberTimerEvent(timerTextView)
-            signInService.tryGetCertifications(CertificationsRequest(phoneNumber.replace(" ","")))
+            signInService.tryGetCertifications(SignUpRequest(phoneNumber.replace(" ","")))
             phoneNumberEditText.isEnabled=false
         }
 
@@ -227,7 +227,7 @@ class SignInActivity : BaseActivity<SignInLayoutBinding>(SignInLayoutBinding::in
         finish()
     }
 
-    override fun certificationsResponseListener(response: CertificationsResponse) {
+    override fun certificationsResponseListener(response: SignUpResponse) {
         certificationNumber=response.authNumber
         showCustomToast(certificationNumber)
     }

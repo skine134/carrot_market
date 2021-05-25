@@ -1,8 +1,8 @@
 package com.skott.softsquared.outsourcing_simulation.src.main.signup
 
-import com.skott.softsquared.outsourcing_simulation.src.main.signup.models.CertificationsResponse
+import com.skott.softsquared.outsourcing_simulation.src.main.signup.models.SignUpResponse
 
 interface SignupActivityView {
-    fun certificationsResponseListener(response:CertificationsResponse)
-    fun certificationsResponseErrorListener(message:String)
+    fun onCertificationsSuccess(response:SignUpResponse)
+    fun onCertificationsFailure(message:String)
 }

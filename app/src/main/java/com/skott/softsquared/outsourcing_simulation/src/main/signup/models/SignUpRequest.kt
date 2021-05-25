@@ -1,3 +1,6 @@
 package com.skott.softsquared.outsourcing_simulation.src.main.signup.models
 
-data class CertificationsResponse(val authNumber:String)
+data class SignUpRequest
+(
+    val userPhonenum:String
+)

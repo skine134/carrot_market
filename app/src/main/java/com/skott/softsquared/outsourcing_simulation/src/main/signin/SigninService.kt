@@ -6,8 +6,8 @@ import com.skott.softsquared.outsourcing_simulation.src.BaseModel
 import com.skott.softsquared.outsourcing_simulation.src.main.signin.models.SigninRequest
 import com.skott.softsquared.outsourcing_simulation.src.main.signin.models.SigninResponse
 import com.skott.softsquared.outsourcing_simulation.src.main.signup.SignupRetrofitInterface
-import com.skott.softsquared.outsourcing_simulation.src.main.signup.models.CertificationsRequest
-import com.skott.softsquared.outsourcing_simulation.src.main.signup.models.CertificationsResponse
+import com.skott.softsquared.outsourcing_simulation.src.main.signup.models.SignUpRequest
+import com.skott.softsquared.outsourcing_simulation.src.main.signup.models.SignUpResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -36,19 +36,19 @@ class SigninService(val view:SignInActivity) {
         })
 
     }
-    fun tryGetCertifications(certificationsRequest: CertificationsRequest){
+    fun tryGetCertifications(signUpRequest: SignUpRequest){
         val certificationRetrofitInterface = getAPIHandler(BuildConfig.SERVER_URL,
             SignupRetrofitInterface::class)
-        certificationRetrofitInterface.getCertifications(certificationsRequest).enqueue(object :
-            Callback<BaseModel<CertificationsResponse>> {
+        certificationRetrofitInterface.getCertifications(signUpRequest).enqueue(object :
+            Callback<BaseModel<SignUpResponse>> {
             override fun onResponse(
-                call: Call<BaseModel<CertificationsResponse>>,
-                response: Response<BaseModel<CertificationsResponse>>
+                call: Call<BaseModel<SignUpResponse>>,
+                response: Response<BaseModel<SignUpResponse>>
             ) {
                 view.certificationsResponseListener(response.body()!!.result)
             }
 
-            override fun onFailure(call: Call<BaseModel<CertificationsResponse>>, t: Throwable) {
+            override fun onFailure(call: Call<BaseModel<SignUpResponse>>, t: Throwable) {
                 view.certificationsResponseErrorListener(t.message?:"통신 오류")
             }
         })
