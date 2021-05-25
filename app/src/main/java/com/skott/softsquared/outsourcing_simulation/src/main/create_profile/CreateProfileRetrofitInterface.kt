@@ -9,7 +9,7 @@ import retrofit2.http.POST
 
 interface CreateProfileRetrofitInterface {
     @POST("/signup")
-    fun getJwt(
+    fun postJwt(
         @Body signupRequest: SignupRequest
     ): Call<BaseModel<SignupResponse>>
 }

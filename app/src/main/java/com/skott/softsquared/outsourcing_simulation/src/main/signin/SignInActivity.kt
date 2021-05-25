@@ -12,8 +12,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
-import com.skott.config.ApplicationClass
-import com.skott.config.BaseActivity
+import com.skott.softsquared.outsourcing_simulation.src.config.ApplicationClass
+import com.skott.softsquared.outsourcing_simulation.src.config.BaseActivity
 import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.SignInLayoutBinding
 import com.skott.softsquared.outsourcing_simulation.src.main.create_profile.CreateProfileActivity
@@ -145,7 +145,7 @@ class SignInActivity : BaseActivity<SignInLayoutBinding>(SignInLayoutBinding::in
     }
 
     private fun getAuthNumberTimerEvent(textView: TextView): Timer {
-        this.authTime = com.skott.config.authTime
+        this.authTime = com.skott.softsquared.outsourcing_simulation.src.config.authTime
         return fixedRateTimer(period = 1000) {
             --authTime
 

@@ -1,4 +1,4 @@
-package com.skott.androidUtil.custom_views
+package com.skott.softsquared.outsourcing_simulation.src.util.custom_views
 
 import android.app.Dialog
 import android.content.Context

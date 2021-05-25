@@ -4,6 +4,8 @@ import com.skott.softsquared.outsourcing_simulation.src.main.signin.models.Signi
 import com.skott.softsquared.outsourcing_simulation.src.main.signup.models.CertificationsResponse
 
 interface SigninActivityView {
+
+    //PostJwtListener
     fun jwtListener(signinResponse: SigninResponse)
     fun jwtErrorListener(message:String)
     fun certificationsResponseListener(response: CertificationsResponse)

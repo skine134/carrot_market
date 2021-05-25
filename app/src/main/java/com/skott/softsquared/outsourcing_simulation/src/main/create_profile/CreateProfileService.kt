@@ -1,8 +1,9 @@
 package com.skott.softsquared.outsourcing_simulation.src.main.create_profile
 
-import com.skott.androidUtil.Lib.getAPIHandler
+import com.skott.softsquared.outsourcing_simulation.src.util.lib.getAPIHandler
 import com.skott.softsquared.outsourcing_simulation.BuildConfig
 import com.skott.softsquared.outsourcing_simulation.src.BaseModel
+import com.skott.softsquared.outsourcing_simulation.src.config.ApplicationClass
 import com.skott.softsquared.outsourcing_simulation.src.main.create_profile.models.SignupRequest
 import com.skott.softsquared.outsourcing_simulation.src.main.create_profile.models.SignupResponse
 import com.skott.softsquared.outsourcing_simulation.src.main.signin.SigninRetrofitInterface
@@ -13,10 +14,10 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class CreateProfileService(val view: CreateProfileActivity) {
-    fun trySignup(signupRequest: SignupRequest)
+    fun trySignUp(signupRequest: SignupRequest)
     {
-        val api = getAPIHandler(BuildConfig.SERVER_URL,CreateProfileRetrofitInterface::class)
-        api.getJwt(signupRequest).enqueue(object: Callback<BaseModel<SignupResponse>> {
+        val api = ApplicationClass.sRetrofit.create(CreateProfileRetrofitInterface::class.java)
+        api.postJwt(signupRequest).enqueue(object: Callback<BaseModel<SignupResponse>> {
             override fun onResponse(
                 call: Call<BaseModel<SignupResponse>>,
                 response: Response<BaseModel<SignupResponse>>
@@ -24,22 +25,22 @@ class CreateProfileService(val view: CreateProfileActivity) {
                 //TODO 나중에 jwt 들어오면 jwt값 저장.
                 if(response.body()!!.code!=1000)
                 {
-                    view.signUpErrorListener(response.body()!!.message)
+                    view.onSignUpFailure(response.body()!!.message)
                     return
                 }
-                view.signupResponseListener(    response.body()!!.result)
+                view.onSignUpSuccess(    response.body()!!.result)
             }
 
             override fun onFailure(call: Call<BaseModel<SignupResponse>>, t: Throwable) {
-                view.signUpErrorListener(t.message?:"에러 발생")
+                view.onSignUpFailure(t.message?:"에러 발생")
             }
 
         })
     }
 
-    fun tryGetJwt(signinRequest: SigninRequest)
+    fun trySignIn(signinRequest: SigninRequest)
     {
-        val signInInterface= getAPIHandler(BuildConfig.SERVER_URL, SigninRetrofitInterface::class)
+        val signInInterface= ApplicationClass.sRetrofit.create(SigninRetrofitInterface::class.java)
         signInInterface.postSignin(signinRequest).enqueue(object:
             Callback<BaseModel<SigninResponse>> {
             override fun onResponse(
@@ -48,14 +49,14 @@ class CreateProfileService(val view: CreateProfileActivity) {
             ) {
                 if(response.body()!!.code!=1000)
                 {
-                    view.signInErrorListener(response.body()!!.message)
+                    view.onSignInFailure(response.body()!!.message)
                     return
                 }
-                view.jwtListener(response.body()!!.result)
+                view.onSignInSuccess(response.body()!!.result)
             }
 
             override fun onFailure(call: Call<BaseModel<SigninResponse>>, t: Throwable) {
-                view.signInErrorListener(t.message?:"에러 발생")
+                view.onSignInFailure(t.message?:"에러 발생")
             }
         })
 

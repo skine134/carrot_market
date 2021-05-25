@@ -1,7 +1,7 @@
-package com.skott.config
+package com.skott.softsquared.outsourcing_simulation.src.config
 
-import com.skott.config.ApplicationClass.Companion.X_ACCESS_TOKEN
-import com.skott.config.ApplicationClass.Companion.sSharedPreferences
+import com.skott.softsquared.outsourcing_simulation.src.config.ApplicationClass.Companion.X_ACCESS_TOKEN
+import com.skott.softsquared.outsourcing_simulation.src.config.ApplicationClass.Companion.sSharedPreferences
 import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response

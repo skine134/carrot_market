@@ -1,4 +1,4 @@
-package com.skott.androidUtil.Lib
+package com.skott.softsquared.outsourcing_simulation.src.util.lib
 
 import android.content.Context
 import android.graphics.LightingColorFilter

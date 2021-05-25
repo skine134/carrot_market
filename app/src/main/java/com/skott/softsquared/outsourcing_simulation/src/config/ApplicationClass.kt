@@ -1,9 +1,9 @@
-package com.skott.config
+package com.skott.softsquared.outsourcing_simulation.src.config
 
 import android.app.Application
 import android.content.SharedPreferences
-import android.util.Log
-import com.skott.config.XAccessTokenInterceptor
+import com.skott.softsquared.outsourcing_simulation.BuildConfig
+import com.skott.softsquared.outsourcing_simulation.R
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -12,13 +12,7 @@ import java.util.concurrent.TimeUnit
 
 // 앱이 실행될때 1번만 실행이 됩니다.
 class ApplicationClass : Application() {
-    val API_URL = "https://members.softsquared.com/"
-
-    // 테스트 서버 주소
-    // val API_URL = "http://dev-api.test.com/"
-
-    // 실 서버 주소
-    // val API_URL = "http://api.test.com/"
+    val API_URL = BuildConfig.SERVER_URL
 
     // 코틀린의 전역변수 문법
     companion object {
@@ -36,7 +30,7 @@ class ApplicationClass : Application() {
     override fun onCreate() {
         super.onCreate()
         sSharedPreferences =
-            applicationContext.getSharedPreferences("SOFTSQUARED_TEMPLATE_APP", MODE_PRIVATE)
+            applicationContext.getSharedPreferences(this.getString(R.string.default_key), MODE_PRIVATE)
         // 레트로핏 인스턴스 생성
         initRetrofitInstance()
     }

@@ -4,8 +4,8 @@ import com.skott.softsquared.outsourcing_simulation.src.main.create_profile.mode
 import com.skott.softsquared.outsourcing_simulation.src.main.signin.models.SigninResponse
 
 interface CreateProfileView {
-    fun jwtListener(signinResponse: SigninResponse)
-    fun signUpErrorListener(message:String)
-    fun signupResponseListener(signupResponse: SignupResponse)
-    fun signInErrorListener(message:String)
+    fun onSignInSuccess(signinResponse: SigninResponse)
+    fun onSignInFailure(message:String)
+    fun onSignUpSuccess(signupResponse: SignupResponse)
+    fun onSignUpFailure(message:String)
 }

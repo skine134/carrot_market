@@ -8,16 +8,14 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
-import com.skott.config.ApplicationClass
-import com.skott.config.ApplicationClass.Companion.sSharedPreferences
-import com.skott.config.BaseActivity
 import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.CreateProfileLayoutBinding
-import com.skott.softsquared.outsourcing_simulation.src.main.home.HomeActivity
+import com.skott.softsquared.outsourcing_simulation.src.config.ApplicationClass.Companion.sSharedPreferences
+import com.skott.softsquared.outsourcing_simulation.src.config.BaseActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.create_profile.models.SignupRequest
 import com.skott.softsquared.outsourcing_simulation.src.main.create_profile.models.SignupResponse
 import com.skott.softsquared.outsourcing_simulation.src.main.fragments.ProfileFragment
-import com.skott.softsquared.outsourcing_simulation.src.main.signin.SigninService
+import com.skott.softsquared.outsourcing_simulation.src.main.home.HomeActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.signin.models.SigninRequest
 import com.skott.softsquared.outsourcing_simulation.src.main.signin.models.SigninResponse
 
@@ -47,6 +45,10 @@ class CreateProfileActivity :
         createProfileService = CreateProfileService(this)
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        showCustomToast(data!!.dataString!!)
+        super.onActivityResult(requestCode, resultCode, data)
+    }
     private fun setMainIntentEvent(button: Button, phonenumber: String, editText: EditText) {
         button.setOnClickListener {
             val nickname = editText.text.toString()
@@ -59,11 +61,11 @@ class CreateProfileActivity :
                 showCustomToast(context.getString(R.string.create_profile_check_nickname_max))
                 return@setOnClickListener
             } else
-                createProfileService.trySignup(SignupRequest(phonenumber, nickname))
+                createProfileService.trySignUp(SignupRequest(phonenumber, nickname))
         }
     }
 
-    override fun jwtListener(signinResponse: SigninResponse) {
+    override fun onSignInSuccess(signinResponse: SigninResponse) {
         //TODO jwt 값이 들어오면 변겅.
         if(!signinResponse.jwt.equals(""))
         {
@@ -75,15 +77,15 @@ class CreateProfileActivity :
         finish()
     }
 
-    override fun signupResponseListener(signupResponse: SignupResponse) {
-        createProfileService.tryGetJwt(SigninRequest(phonenumber))
+    override fun onSignUpSuccess(signupResponse: SignupResponse) {
+        createProfileService.trySignIn(SigninRequest(phonenumber))
     }
 
-    override fun signInErrorListener(message: String) {
+    override fun onSignInFailure(message: String) {
         showCustomToast(message)
     }
 
-    override fun signUpErrorListener(message: String) {
+    override fun onSignUpFailure(message: String) {
         showCustomToast(message)
     }
 

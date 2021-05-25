@@ -1,4 +1,4 @@
-package com.skott.config
+package com.skott.softsquared.outsourcing_simulation.src.config
 
 import com.google.gson.annotations.SerializedName
 

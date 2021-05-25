@@ -1,4 +1,4 @@
-package com.skott.androidUtil.custom_views
+package com.skott.softsquared.outsourcing_simulation.src.util.custom_views
 
 import android.app.Activity
 import android.content.Context
@@ -10,9 +10,6 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentManager
 import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.ProfileImageViewBinding
 

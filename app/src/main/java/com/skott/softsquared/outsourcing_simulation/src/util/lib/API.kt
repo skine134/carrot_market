@@ -1,4 +1,4 @@
-package com.skott.androidUtil.Lib
+package com.skott.softsquared.outsourcing_simulation.src.util.lib
 
 import com.google.gson.GsonBuilder
 import retrofit2.Retrofit

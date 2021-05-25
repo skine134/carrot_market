@@ -14,7 +14,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
-import com.skott.config.BaseActivity
+import com.skott.softsquared.outsourcing_simulation.src.config.BaseActivity
 import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.SignUpLayoutBinding
 import com.skott.softsquared.outsourcing_simulation.src.main.FindIdForEmailActivity

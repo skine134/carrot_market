@@ -1,10 +1,9 @@
-package com.skott.androidUtil.Lib
+package com.skott.softsquared.outsourcing_simulation.src.util.lib
 
 import android.content.Context
 import android.widget.BaseAdapter
 import android.widget.ImageButton
 import android.widget.ListPopupWindow
-import com.skott.softsquared.outsourcing_simulation.R
 
 
 private fun getPopupMenu(context : Context, adapter: BaseAdapter, button : ImageButton, width:Int, height:Int,bias:Int=-100) : ListPopupWindow {
