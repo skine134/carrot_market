@@ -16,8 +16,6 @@ import com.skott.softsquared.outsourcing_simulation.src.main.create_profile.mode
 import com.skott.softsquared.outsourcing_simulation.src.main.create_profile.models.SignupResponse
 import com.skott.softsquared.outsourcing_simulation.src.main.home.HomeActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.profile.ProfileFragment
-import com.skott.softsquared.outsourcing_simulation.src.main.signin.models.SignInRequest
-import com.skott.softsquared.outsourcing_simulation.src.main.signin.models.SignInResponse
 import com.skott.softsquared.outsourcing_simulation.src.util.custom_views.ProfileImageView
 
 class CreateProfileActivity :
@@ -66,26 +64,16 @@ class CreateProfileActivity :
         }
     }
 
-    override fun onSignInSuccess(signinResponse: SignInResponse) {
-        //TODO jwt 값이 들어오면 변겅.
-        if(!signinResponse.jwt.equals(""))
+    override fun onSignUpSuccess(signupResponse: SignupResponse) {
+        if(!signupResponse.jwt.equals(""))
         {
-            editor.putString(context.getString(R.string.jwt_key),signinResponse.jwt)
+            editor.putString(context.getString(R.string.jwt_key),signupResponse.jwt)
             editor.apply()
         }
         startActivity(nextIntent)
         showCustomToast("회원 가입 성공!")
         finish()
     }
-
-    override fun onSignUpSuccess(signupResponse: SignupResponse) {
-        createProfileService.trySignIn(SignInRequest(phonenumber))
-    }
-
-    override fun onSignInFailure(message: String) {
-        showCustomToast(message)
-    }
-
     override fun onSignUpFailure(message: String) {
         showCustomToast(message)
     }
