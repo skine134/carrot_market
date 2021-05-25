@@ -16,8 +16,10 @@ class SplashActivity : BaseActivity<SplasherLayoutBinding>(SplasherLayoutBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         sSharedPreferences = applicationContext.getSharedPreferences(this.getString(R.string.default_key), MODE_PRIVATE)
+        sSharedPreferences.edit().remove(this.getString(R.string.jwt_key))
+        sSharedPreferences.edit().commit()
         Handler(Looper.getMainLooper()).postDelayed({
-            val nextActivity = if(sSharedPreferences.getString(X_ACCESS_TOKEN,"").equals("")) SignupActivity::class.java else HomeActivity::class.java
+            val nextActivity = if(sSharedPreferences.getString(this.getString(R.string.jwt_key),"").equals("")) SignupActivity::class.java else HomeActivity::class.java
 //            val nextActivity = HomeActivity::class.java
             startActivity(Intent(this, nextActivity))
             finish()

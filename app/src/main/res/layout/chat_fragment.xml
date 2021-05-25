@@ -29,6 +29,11 @@
                 android:padding="10dp"
                 android:orientation="horizontal"
                 >
+
+                <TextView
+                    android:text="@string/main_chat_app_bar_title"
+                    style="@style/Title"
+                    />
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
