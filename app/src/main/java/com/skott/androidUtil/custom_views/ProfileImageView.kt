@@ -16,6 +16,9 @@ import androidx.fragment.app.FragmentManager
 import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.ProfileImageViewBinding
 
+interface ImageResultEvent{
+    fun imageSelectListener(uriString:String)
+}
 class ProfileImageView(context: Context, attrs:AttributeSet) : ConstraintLayout(context,attrs),ImageResultEvent{
     private lateinit var binding:ProfileImageViewBinding
     private lateinit var imageData:String
