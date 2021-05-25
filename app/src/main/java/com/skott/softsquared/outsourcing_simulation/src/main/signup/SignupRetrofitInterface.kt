@@ -1,6 +1,6 @@
 package com.skott.softsquared.outsourcing_simulation.src.main.signup
 
-import com.skott.softsquared.outsourcing_simulation.src.BaseModel
+import com.skott.softsquared.outsourcing_simulation.src.BaseResponse
 import com.skott.softsquared.outsourcing_simulation.src.main.signup.models.SignUpRequest
 import com.skott.softsquared.outsourcing_simulation.src.main.signup.models.SignUpResponse
 import retrofit2.Call
@@ -12,5 +12,5 @@ interface SignupRetrofitInterface
     @POST("/certifications")
     fun postCertifications(
         @Body params: SignUpRequest
-    ): Call<BaseModel<SignUpResponse>>
+    ): Call<BaseResponse<SignUpResponse>>
 }

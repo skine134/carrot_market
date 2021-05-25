@@ -1,10 +1,9 @@
 package com.skott.softsquared.outsourcing_simulation.src.main.signin
 
-import com.skott.softsquared.outsourcing_simulation.src.util.lib.getAPIHandler
-import com.skott.softsquared.outsourcing_simulation.BuildConfig
-import com.skott.softsquared.outsourcing_simulation.src.BaseModel
-import com.skott.softsquared.outsourcing_simulation.src.main.signin.models.SigninRequest
-import com.skott.softsquared.outsourcing_simulation.src.main.signin.models.SigninResponse
+import com.skott.softsquared.outsourcing_simulation.src.config.ApplicationClass
+import com.skott.softsquared.outsourcing_simulation.src.config.BaseResponse
+import com.skott.softsquared.outsourcing_simulation.src.main.signin.models.SignInRequest
+import com.skott.softsquared.outsourcing_simulation.src.main.signin.models.SignInResponse
 import com.skott.softsquared.outsourcing_simulation.src.main.signup.SignupRetrofitInterface
 import com.skott.softsquared.outsourcing_simulation.src.main.signup.models.SignUpRequest
 import com.skott.softsquared.outsourcing_simulation.src.main.signup.models.SignUpResponse
@@ -12,44 +11,43 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class SigninService(val view:SignInActivity) {
-    fun tryGetJwt(signinRequest: SigninRequest)
+class SignInService(val view:SignInActivity) {
+    fun tryGetJwt(signinRequest: SignInRequest)
     {
-        val signInInterface= getAPIHandler(BuildConfig.SERVER_URL,SigninRetrofitInterface::class)
-        signInInterface.postSignin(signinRequest).enqueue(object:
-            Callback<BaseModel<SigninResponse>> {
+        val api = ApplicationClass.sRetrofit.create(SignInRetrofitInterface::class.java)
+        api.postSignIn(signinRequest).enqueue(object:
+            Callback<BaseResponse<SignInResponse>> {
             override fun onResponse(
-                call: Call<BaseModel<SigninResponse>>,
-                response: Response<BaseModel<SigninResponse>>
+                call: Call<BaseResponse<SignInResponse>>,
+                response: Response<BaseResponse<SignInResponse>>
             ) {
                 if(response.body()!!.code!=1000)
                 {
-                    view.jwtErrorListener(response.body()!!.message)
+                    view.onSignInFailure(response.body()!!.message?:"에러 발생")
                     return
                 }
-                view.jwtListener(response.body()!!.result)
+                view.onSignInSuccess(response.body()!!.result!!)
             }
 
-            override fun onFailure(call: Call<BaseModel<SigninResponse>>, t: Throwable) {
-                view.jwtErrorListener(t.message?:"에러 발생")
+            override fun onFailure(call: Call<BaseResponse<SignInResponse>>, t: Throwable) {
+                view.onSignInFailure(t.message?:"에러 발생")
             }
         })
 
     }
     fun tryGetCertifications(signUpRequest: SignUpRequest){
-        val certificationRetrofitInterface = getAPIHandler(BuildConfig.SERVER_URL,
-            SignupRetrofitInterface::class)
-        certificationRetrofitInterface.getCertifications(signUpRequest).enqueue(object :
-            Callback<BaseModel<SignUpResponse>> {
+        val api =  ApplicationClass.sRetrofit.create(SignupRetrofitInterface::class.java)
+        api.postCertifications(signUpRequest).enqueue(object :
+            Callback<BaseResponse<SignUpResponse>> {
             override fun onResponse(
-                call: Call<BaseModel<SignUpResponse>>,
-                response: Response<BaseModel<SignUpResponse>>
+                call: Call<BaseResponse<SignUpResponse>>,
+                response: Response<BaseResponse<SignUpResponse>>
             ) {
-                view.certificationsResponseListener(response.body()!!.result)
+                view.onCertificationsSuccess(response.body()!!.result!!)
             }
 
-            override fun onFailure(call: Call<BaseModel<SignUpResponse>>, t: Throwable) {
-                view.certificationsResponseErrorListener(t.message?:"통신 오류")
+            override fun onFailure(call: Call<BaseResponse<SignUpResponse>>, t: Throwable) {
+                view.onCertificationsFailure(t.message?:"통신 오류")
             }
         })
     }

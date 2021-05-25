@@ -12,14 +12,14 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
-import com.skott.softsquared.outsourcing_simulation.src.config.ApplicationClass
-import com.skott.softsquared.outsourcing_simulation.src.config.BaseActivity
 import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.SignInLayoutBinding
+import com.skott.softsquared.outsourcing_simulation.src.config.ApplicationClass
+import com.skott.softsquared.outsourcing_simulation.src.config.BaseActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.create_profile.CreateProfileActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.home.HomeActivity
-import com.skott.softsquared.outsourcing_simulation.src.main.signin.models.SigninRequest
-import com.skott.softsquared.outsourcing_simulation.src.main.signin.models.SigninResponse
+import com.skott.softsquared.outsourcing_simulation.src.main.signin.models.SignInRequest
+import com.skott.softsquared.outsourcing_simulation.src.main.signin.models.SignInResponse
 import com.skott.softsquared.outsourcing_simulation.src.main.signup.models.SignUpRequest
 import com.skott.softsquared.outsourcing_simulation.src.main.signup.models.SignUpResponse
 import java.util.*
@@ -34,7 +34,7 @@ class SignInActivity : BaseActivity<SignInLayoutBinding>(SignInLayoutBinding::in
     private var authTime = 0
     private lateinit var certificationNumber: String
     private lateinit var editor: SharedPreferences.Editor
-    private lateinit var signInService:SigninService
+    private lateinit var signInService:SignInService
     private lateinit var phoneNumber: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,7 +48,7 @@ class SignInActivity : BaseActivity<SignInLayoutBinding>(SignInLayoutBinding::in
         //TODO test 아닐 때 지워야함.
         showCustomToast(certificationNumber)
         editor = ApplicationClass.sSharedPreferences.edit()
-        signInService = SigninService(this)
+        signInService = SignInService(this)
         setPhoneNumber(binding.signInCellphoneEditText, phoneNumber)
         setBackButtonEvent(binding.backButton)
         setPhoneInputEvent(binding.signInCellphoneEditText, binding.signInTakeAuthNumberButton)
@@ -192,7 +192,7 @@ class SignInActivity : BaseActivity<SignInLayoutBinding>(SignInLayoutBinding::in
                     finish()
                 }
                 else
-                    signInService.tryGetJwt(SigninRequest(phoneNumber.replace(" ", "")))
+                    signInService.tryGetJwt(SignInRequest(phoneNumber.replace(" ", "")))
             }
             else {
                 textView.text = context.getString(R.string.sign_in_incorrect_auth_number)
@@ -218,8 +218,8 @@ class SignInActivity : BaseActivity<SignInLayoutBinding>(SignInLayoutBinding::in
         showNotBackToast()
     }
 
-    override fun jwtListener(signinResponse: SigninResponse) {
-        editor.putString(context.getString(R.string.jwt_key), signinResponse.jwt)
+    override fun onSignInSuccess(signInResponse: SignInResponse) {
+        editor.putString(context.getString(R.string.jwt_key), signInResponse.jwt)
         editor.apply()
         val nextActivity = HomeActivity::class.java
         val intent = Intent(this,nextActivity)
@@ -227,16 +227,16 @@ class SignInActivity : BaseActivity<SignInLayoutBinding>(SignInLayoutBinding::in
         finish()
     }
 
-    override fun certificationsResponseListener(response: SignUpResponse) {
+    override fun onCertificationsSuccess(response: SignUpResponse){
         certificationNumber=response.authNumber
         showCustomToast(certificationNumber)
     }
 
-    override fun certificationsResponseErrorListener(message: String) {
+    override fun onSignInFailure(message: String){
         showCustomToast(message)
     }
 
-    override fun jwtErrorListener(message: String) {
+    override fun onCertificationsFailure(message: String) {
         showCustomToast(message)
     }
 }
