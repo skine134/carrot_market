@@ -17,6 +17,9 @@ import com.skott.softsquared.outsourcing_simulation.src.main.home.HomeActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.create_profile.models.SignupRequest
 import com.skott.softsquared.outsourcing_simulation.src.main.create_profile.models.SignupResponse
 import com.skott.softsquared.outsourcing_simulation.src.main.fragments.ProfileFragment
+import com.skott.softsquared.outsourcing_simulation.src.main.signin.SigninService
+import com.skott.softsquared.outsourcing_simulation.src.main.signin.models.SigninRequest
+import com.skott.softsquared.outsourcing_simulation.src.main.signin.models.SigninResponse
 
 class CreateProfileActivity :
     BaseActivity<CreateProfileLayoutBinding>(CreateProfileLayoutBinding::inflate),
@@ -56,20 +59,28 @@ class CreateProfileActivity :
                 showCustomToast(context.getString(R.string.create_profile_check_nickname_max))
                 return@setOnClickListener
             } else
-                createProfileService.tryGetJwt(SignupRequest(phonenumber, nickname))
+                createProfileService.trySignup(SignupRequest(phonenumber, nickname))
         }
     }
 
-    override fun jwtListener(signupResponse: SignupResponse) {
+    override fun jwtListener(signinResponse: SigninResponse) {
         //TODO jwt 값이 들어오면 변겅.
-//        if(!signupResponse.jwt.equals(""))
-//        {
-//            editor.putString(context.getString(R.string.jwt_key),signupResponse.jwt)
-//            editor.apply()
-//        }
+        if(!signinResponse.jwt.equals(""))
+        {
+            editor.putString(context.getString(R.string.jwt_key),signinResponse.jwt)
+            editor.apply()
+        }
         startActivity(nextIntent)
         showCustomToast("회원 가입 성공!")
         finish()
+    }
+
+    override fun signupResponseListener(signupResponse: SignupResponse) {
+        createProfileService.tryGetJwt(SigninRequest(phonenumber))
+    }
+
+    override fun signInErrorListener(message: String) {
+        showCustomToast(message)
     }
 
     override fun signUpErrorListener(message: String) {

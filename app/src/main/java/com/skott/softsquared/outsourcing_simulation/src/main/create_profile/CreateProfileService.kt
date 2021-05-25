@@ -5,12 +5,15 @@ import com.skott.softsquared.outsourcing_simulation.BuildConfig
 import com.skott.softsquared.outsourcing_simulation.src.BaseModel
 import com.skott.softsquared.outsourcing_simulation.src.main.create_profile.models.SignupRequest
 import com.skott.softsquared.outsourcing_simulation.src.main.create_profile.models.SignupResponse
+import com.skott.softsquared.outsourcing_simulation.src.main.signin.SigninRetrofitInterface
+import com.skott.softsquared.outsourcing_simulation.src.main.signin.models.SigninRequest
+import com.skott.softsquared.outsourcing_simulation.src.main.signin.models.SigninResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class CreateProfileService(val view: CreateProfileActivity) {
-    fun tryGetJwt(signupRequest: SignupRequest)
+    fun trySignup(signupRequest: SignupRequest)
     {
         val api = getAPIHandler(BuildConfig.SERVER_URL,CreateProfileRetrofitInterface::class)
         api.getJwt(signupRequest).enqueue(object: Callback<BaseModel<SignupResponse>> {
@@ -24,7 +27,7 @@ class CreateProfileService(val view: CreateProfileActivity) {
                     view.signUpErrorListener(response.body()!!.message)
                     return
                 }
-                view.jwtListener(response.body()!!.result)
+                view.signupResponseListener(    response.body()!!.result)
             }
 
             override fun onFailure(call: Call<BaseModel<SignupResponse>>, t: Throwable) {
@@ -32,5 +35,29 @@ class CreateProfileService(val view: CreateProfileActivity) {
             }
 
         })
+    }
+
+    fun tryGetJwt(signinRequest: SigninRequest)
+    {
+        val signInInterface= getAPIHandler(BuildConfig.SERVER_URL, SigninRetrofitInterface::class)
+        signInInterface.postSignin(signinRequest).enqueue(object:
+            Callback<BaseModel<SigninResponse>> {
+            override fun onResponse(
+                call: Call<BaseModel<SigninResponse>>,
+                response: Response<BaseModel<SigninResponse>>
+            ) {
+                if(response.body()!!.code!=1000)
+                {
+                    view.signInErrorListener(response.body()!!.message)
+                    return
+                }
+                view.jwtListener(response.body()!!.result)
+            }
+
+            override fun onFailure(call: Call<BaseModel<SigninResponse>>, t: Throwable) {
+                view.signInErrorListener(t.message?:"에러 발생")
+            }
+        })
+
     }
 }
