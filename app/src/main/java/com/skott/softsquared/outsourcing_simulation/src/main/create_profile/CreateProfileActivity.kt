@@ -35,6 +35,8 @@ class CreateProfileActivity :
             intent.getStringExtra(context.getString(R.string.sign_in_to_create_profile_phone_number_intent_key))!!
                 .toString()
         editor = sSharedPreferences.edit()
+
+        // 프래그먼트의 닉네임과 프로필 이미지 액티비티와 연결.
         nickname =
             (supportFragmentManager.findFragmentById(R.id.create_profile_content_fragment) as ProfileFragment).profileEditTextListener()
         profilImage =
@@ -76,6 +78,7 @@ class CreateProfileActivity :
         showCustomToast(message)
     }
 
+    // 프래그먼트에서 데이터를 받아오기 위한 인터페이스
     interface ProfileDataInterface {
         fun profileImageListener(): ImageView
         fun profileEditTextListener(): EditText
