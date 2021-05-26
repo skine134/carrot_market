@@ -29,10 +29,15 @@
                 android:padding="10dp"
                 android:orientation="horizontal"
                 >
+
+                <TextView
+                    android:text="@string/main_chat_app_bar_title"
+                    style="@style/Title"
+                    />
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-    <com.skott.androidUtil.custom_views.RecyclerMessageView
+    <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.RecyclerMessageView
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"

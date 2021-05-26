@@ -14,25 +14,23 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
-import com.skott.config.BaseActivity
+import com.skott.softsquared.outsourcing_simulation.src.config.BaseActivity
 import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.SignUpLayoutBinding
-import com.skott.softsquared.outsourcing_simulation.src.main.FindIdForEmailActivity
+import com.skott.softsquared.outsourcing_simulation.src.main.findid.FindIdForEmailActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.signin.SignInActivity
-import com.skott.softsquared.outsourcing_simulation.src.main.signup.models.CertificationsRequest
-import com.skott.softsquared.outsourcing_simulation.src.main.signup.models.CertificationsResponse
+import com.skott.softsquared.outsourcing_simulation.src.main.signup.models.SignUpRequest
+import com.skott.softsquared.outsourcing_simulation.src.main.signup.models.SignUpResponse
 
 
 class SignupActivity : BaseActivity<SignUpLayoutBinding>(SignUpLayoutBinding::inflate),SignupActivityView {
     private var preText = ""
     private var currentSelection = 0
     private lateinit var context : Context
-    private lateinit var numberRegex: Regex
     private lateinit var nextIntent:Intent
     private lateinit var signupService: SignupService
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        numberRegex = this.getString(R.string.number_regex).toRegex()
         context = this
         signupService = SignupService(this)
         setBackButtonEvent(binding.backButton)
@@ -107,7 +105,7 @@ class SignupActivity : BaseActivity<SignUpLayoutBinding>(SignUpLayoutBinding::in
         button.setOnClickListener{
             nextIntent = Intent(this, SignInActivity::class.java)
             nextIntent.putExtra(context.getString(R.string.sign_up_to_sign_in_phone_number_intent_key),textView.text.toString())
-            signupService.tryGetCertifications(CertificationsRequest(textView.text.toString().replace(" ","")))
+            signupService.tryGetCertifications(SignUpRequest(textView.text.toString().replace(" ","")))
         }
     }
     private fun filterPhoneNumber(phoneNumber:String):String
@@ -140,13 +138,13 @@ class SignupActivity : BaseActivity<SignUpLayoutBinding>(SignUpLayoutBinding::in
         showNotBackToast()
     }
 
-    override fun certificationsResponseListener(response: CertificationsResponse) {
+    override fun onCertificationsSuccess(response: SignUpResponse) {
         nextIntent.putExtra(context.getString(R.string.sign_up_to_sign_in_certification_intent_key),response.authNumber)
         startActivity(nextIntent)
         finish()
     }
 
-    override fun certificationsResponseErrorListener(message: String) {
+    override fun onCertificationsFailure(message: String) {
         showCustomToast(message)
     }
 }
