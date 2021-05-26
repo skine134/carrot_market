@@ -57,6 +57,8 @@
             android:layout_height="wrap_content"
             android:layout_marginVertical="30dp"
             android:text="@string/my_town_setting_find_town_by_currenct_location_button"
+            android:textColor="@color/white"
+            android:background="@drawable/find_town_by_current_location"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@id/find_near_by_town_text_view"
             />
