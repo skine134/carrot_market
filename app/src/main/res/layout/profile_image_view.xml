@@ -9,6 +9,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:src="@drawable/profile_image"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -17,12 +19,15 @@
         />
     <ImageButton
         android:id="@+id/profile_image_update_button"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:src="@drawable/camera"
         android:background="@color/white"
         android:elevation="1.5dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
         app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintWidth_percent=".3"
         app:layout_constraintBottom_toBottomOf="@id/profile_image"
         app:layout_constraintEnd_toEndOf="@id/profile_image"
         />

@@ -1,11 +1,12 @@
 package com.skott.softsquared.outsourcing_simulation.src.main.signin
 
-import com.skott.softsquared.outsourcing_simulation.src.main.signin.models.SigninResponse
-import com.skott.softsquared.outsourcing_simulation.src.main.signup.models.CertificationsResponse
+import com.skott.softsquared.outsourcing_simulation.src.main.signin.models.SignInResponse
+import com.skott.softsquared.outsourcing_simulation.src.main.signup.models.SignUpResponse
 
 interface SigninActivityView {
-    fun jwtListener(signinResponse: SigninResponse)
-    fun jwtErrorListener(message:String)
-    fun certificationsResponseListener(response: CertificationsResponse)
-    fun certificationsResponseErrorListener(message:String)
+
+    fun onSignInSuccess(signInResponse: SignInResponse)
+    fun onSignInFailure(message:String)
+    fun onCertificationsSuccess(response: SignUpResponse)
+    fun onCertificationsFailure(message:String)
 }
