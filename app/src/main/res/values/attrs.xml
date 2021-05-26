@@ -5,4 +5,9 @@
     <declare-styleable name="RecyclerMessageView">
         <attr name="message" format="string"/>
     </declare-styleable>
+    <declare-styleable name="CarrotMarketAppbar">
+        <attr name="back_button" format="boolean"/>
+        <attr name="android:entries"/>
+        <attr name="title"/>
+    </declare-styleable>
 </resources>

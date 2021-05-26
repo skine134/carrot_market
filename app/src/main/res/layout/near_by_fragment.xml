@@ -35,26 +35,17 @@
 
                 <ImageButton
                     android:id="@+id/alert_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="end"
-                    android:background="@color/pure_trans"
+                    style="@style/AppBarIcon"
                     android:src="@drawable/alert" />
 
                 <ImageButton
                     android:id="@+id/image_scan_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="end"
-                    android:background="@color/pure_trans"
+                    style="@style/AppBarIcon"
                     android:src="@drawable/scan_image" />
 
                 <ImageButton
                     android:id="@+id/post_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="end"
-                    android:background="@color/pure_trans"
+                    style="@style/AppBarIcon"
                     android:src="@drawable/post" />
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>
