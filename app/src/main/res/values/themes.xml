@@ -47,4 +47,18 @@
         <item name="android:paddingStart">10dp</item>
         <item name="android:layout_marginVertical">10dp</item>
     </style>
+
+    <style name="AppBarIcon">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_gravity">end</item>
+        <item name="android:background">@color/pure_trans</item>
+    </style>
+
+    <style name="AppBar">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:elevation">3dp</item>
+    </style>
 </resources>

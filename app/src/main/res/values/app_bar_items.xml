@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="main">
+        <item>@drawable/alert</item>
+        <item>@drawable/filter</item>
+        <item>@drawable/search</item>
+    </integer-array>
+    <integer-array name="my_carrot">
+        <item>@drawable/setting</item>
+    </integer-array>
+    <integer-array name="near_by">
+        <item>@drawable/alert</item>
+        <item>@drawable/scan_image</item>
+        <item>@drawable/post</item>
+    </integer-array>
+    <integer-array name="neighbor_news">
+        <item>@drawable/alert</item>
+        <item>@drawable/bookmark</item>
+        <item>@drawable/search</item>
+    </integer-array>
+
+</resources>
