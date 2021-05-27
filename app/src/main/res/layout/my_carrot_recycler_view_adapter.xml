@@ -23,7 +23,8 @@
         android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/item_image_view"
-        android:textSize="18sp"
+        android:textSize="16sp"
+        android:textStyle="bold"
         android:gravity="center|start"
         tools:text="내 동네 설정" />
 </androidx.constraintlayout.widget.ConstraintLayout>

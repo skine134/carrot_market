@@ -29,7 +29,7 @@ class MyCarrotFragment : BaseFragment<MyCarrotFragmentBinding>(
         val townPostInfoList = ArrayList<MyCarrotListItem>()
         val businessList = ArrayList<MyCarrotListItem>()
         val otherList = ArrayList<MyCarrotListItem>()
-        setListItem()
+        setListItem(mySettingList,townPostInfoList,businessList,otherList)
         mySettingAdapter = MyCarrotRecyclerAdapter(context!!, mySettingList)
         townsPostInfoAdapter = MyCarrotRecyclerAdapter(context!!, townPostInfoList)
         businessAdapter = MyCarrotRecyclerAdapter(context!!, businessList)
