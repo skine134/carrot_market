@@ -9,7 +9,7 @@
         android:id="@+id/main_content_view_pager"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        class="com.skott.softsquared.outsourcing_simulation.src.main.home_product_list.HomeFragment"
+        class="com.skott.softsquared.outsourcing_simulation.src.main.home_product_list.ProductListFragment"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/main_bottom_frame_layout"
         app:layout_constraintStart_toStartOf="parent"

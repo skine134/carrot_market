@@ -13,4 +13,12 @@
     <declare-styleable name="MyTownButtonView">
         <attr name="is_active" format="boolean"/>
     </declare-styleable>
+    <declare-styleable name="IconCounterView">
+        <attr name="type"  format="enum">
+            <enum name="favorite" value="0"/>
+            <enum name="chat" value="1"/>
+            <enum name="multi_chat" value="2"/>
+        </attr>
+        <attr name="count" format="integer"/>
+    </declare-styleable>
 </resources>

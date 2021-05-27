@@ -16,7 +16,7 @@ class HomePaerAdapter(fragmentManager: FragmentManager) :FragmentPagerAdapter(fr
     override fun getItem(position: Int): Fragment {
         return when(position)
         {
-            0 -> HomeFragment()
+            0 -> ProductListFragment()
             1 -> NeighborNewsFragment()
             2 -> NearByFragment()
             3 -> ChatFragment()

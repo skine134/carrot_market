@@ -4,5 +4,5 @@ import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.ProductListFragmentBinding
 import com.skott.softsquared.outsourcing_simulation.src.config.BaseFragment
 
-class HomeFragment:BaseFragment<ProductListFragmentBinding>(ProductListFragmentBinding::bind,R.layout.product_list_fragment) {
+class ProductListFragment:BaseFragment<ProductListFragmentBinding>(ProductListFragmentBinding::bind,R.layout.product_list_fragment) {
 }
