@@ -9,7 +9,7 @@ import com.skott.softsquared.outsourcing_simulation.databinding.MyTownButtonActi
 import com.skott.softsquared.outsourcing_simulation.databinding.MyTownButtonViewBinding
 import com.skott.softsquared.outsourcing_simulation.src.main.my_town_setting.MyTownSetting
 
-class MyTownButtonActiveView(context: Context, attrs:AttributeSet,val myTownSetting:MyTownSetting):LinearLayout(context, attrs) {
+class MyTownButtonActiveView(context: Context, attrs:AttributeSet):LinearLayout(context, attrs) {
     private lateinit var binding: MyTownButtonActiveViewBinding
     init{
         init()
@@ -18,17 +18,13 @@ class MyTownButtonActiveView(context: Context, attrs:AttributeSet,val myTownSett
     {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         binding = MyTownButtonActiveViewBinding.inflate(inflater,this,false)
-        setDeleteEvent(binding.myTownDeleteButton)
         addView(binding.root)
     }
     fun setTown(townName:String)
     {
         binding.myTownName.text = townName
     }
-    private fun setDeleteEvent(button: ImageButton)
-    {
-        button.setOnClickListener{
-            myTownSetting.townDeleteEvent()
-        }
+    fun getBinding(): MyTownButtonActiveViewBinding {
+        return binding
     }
 }

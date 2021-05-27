@@ -55,6 +55,7 @@ class SeekMapView(context: Context, attrs: AttributeSet) : ConstraintLayout(cont
     }
 
     fun setMapFilter(percent: Int) {
+        //TODO: stroke가 나타나고 사라지는 형식으로 바꿔야함.
         if (percent < 33) {
             binding.map10km.colorFilter =
                 LightingColorFilter(getCalCulFilter(percent, MapRange.KM10), 0)

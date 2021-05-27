@@ -8,6 +8,7 @@ import android.graphics.drawable.shapes.OvalShape
 import android.net.Uri
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.skott.softsquared.outsourcing_simulation.R
@@ -22,7 +23,6 @@ class ProfileImageView(context: Context, attrs:AttributeSet) : ConstraintLayout(
     init{
         init()
         drawImageRounding()
-        setUpdateImageButton()
     }
     private fun init()
     {
@@ -39,18 +39,14 @@ class ProfileImageView(context: Context, attrs:AttributeSet) : ConstraintLayout(
         binding.profileImageUpdateButton.background = tmp
         binding.profileImageUpdateButton.clipToOutline = true
     }
-    private fun setUpdateImageButton()
-    {
-        binding.profileImageUpdateButton.setOnClickListener{
-//            Toast.makeText(context,"test",Toast.LENGTH_SHORT).show()
-            val intent = Intent(Intent.ACTION_PICK)
-            intent.setDataAndType(android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI,"image/*")
-            (context as Activity).startActivityForResult(intent,0)
-        }
-    }
+
     fun getImageView():ImageView
     {
         return binding.profileImage
+    }
+    fun getCameraButton():ImageButton
+    {
+        return binding.profileImageUpdateButton
     }
 
     override fun imageSelectListener(uriString: String) {
