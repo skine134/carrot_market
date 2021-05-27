@@ -62,14 +62,14 @@
             app:layout_constraintBottom_toTopOf="@id/my_town_setting_limit_line"
             >
 
-            <View
+            <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.MyTownButtonView
                 android:id="@+id/my_town_first_button"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:layout_marginEnd="10dp"
                 />
-            <View
+            <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.MyTownButtonView
                 android:id="@+id/my_town_second_button"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
