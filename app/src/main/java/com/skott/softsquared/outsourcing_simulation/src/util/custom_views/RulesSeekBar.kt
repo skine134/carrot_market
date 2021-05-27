@@ -1,10 +1,7 @@
 package com.skott.softsquared.outsourcing_simulation.src.util.custom_views
 
 import android.content.Context
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
-import android.graphics.Rect
+import android.graphics.*
 import android.os.Build
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatSeekBar
@@ -42,30 +39,32 @@ class RulerSeekBar(context: Context,attrs: AttributeSet?=null, defStyleAttr:Int=
     private fun init() {
         // Create a brush to draw tick marks
         mRulerPaint = Paint()
-        mRulerPaint.setColor(mRulerColor)
-        mRulerPaint.setAntiAlias(true)
+        mRulerPaint.color = mRulerColor
+        mRulerPaint.isAntiAlias = true
 
-        //Api21 and above call, remove the background behind the slider
-        setSplitTrack(false)
+        //둥글게 만들기 위함.
+        mRulerPaint.xfermode = PorterDuffXfermode(PorterDuff.Mode.DST_IN)
+
+        splitTrack = false
     }
 
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
-        //limit condition check
+
         if (width <= 0 || mRulerCount <= 0) {
             return
         }
 
-        // Get the length of each one
-        val length = (getWidth() - getPaddingLeft() - getPaddingRight() - mRulerCount * mRulerWidth) / (mRulerCount + 1)
+
+        val length = (width - paddingLeft - paddingRight - mRulerCount * mRulerWidth) / (mRulerCount + 1)
 
         // Calculate the top and bottom coordinates of the tick mark
-        val rulerTop = getHeight() / 2 - getMinimumHeight() / 2
-        val rulerBottom = rulerTop + getMinimumHeight()
+        val rulerTop = height / 2 - minimumHeight / 2
+        val rulerBottom = rulerTop + minimumHeight
 
         // Get the position information of the slider
         var thumbRect:Rect? = null
-        if (getThumb() != null) {
+        if (thumb != null) {
             thumbRect = thumb.bounds
         }
 
@@ -113,10 +112,8 @@ class RulerSeekBar(context: Context,attrs: AttributeSet?=null, defStyleAttr:Int=
      */
     fun setRulerColor(mRulerColor:Int) {
         this.mRulerColor = mRulerColor
-        if (mRulerPaint != null) {
-            mRulerPaint.setColor(mRulerColor)
-            requestLayout()
-        }
+        mRulerPaint.color = mRulerColor
+        requestLayout()
     }
 
     /**

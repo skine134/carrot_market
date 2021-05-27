@@ -43,7 +43,7 @@
         android:minHeight="16dp"
         android:progress="10"
         android:progressDrawable="@drawable/rules_seek_bar_shape"
-        android:thumb="@drawable/rules_seek_pointer_shape"
+        android:thumb="@drawable/rules_seek_thumb"
         android:thumbOffset="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

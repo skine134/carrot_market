@@ -46,7 +46,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:paddingHorizontal="20dp"
         app:layout_constraintTop_toBottomOf="@+id/main_top_coordinator"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,11 +53,13 @@
         <android.widget.Button
             android:id="@+id/my_town_setting_find_town_by_currenct_location_button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginVertical="30dp"
+            android:layout_marginHorizontal="20dp"
             android:text="@string/my_town_setting_find_town_by_currenct_location_button"
             android:textColor="@color/white"
             android:background="@drawable/find_town_by_current_location"
+            app:layout_constraintVertical_weight="0.5"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@id/find_near_by_town_text_view"
             />
@@ -67,6 +68,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
+            android:layout_marginHorizontal="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"
@@ -78,6 +80,7 @@
             android:id="@+id/find_town_recycler_message_view"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            app:layout_constraintVertical_weight="7"
             app:layout_constraintTop_toBottomOf="@id/find_near_by_town_text_view"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
