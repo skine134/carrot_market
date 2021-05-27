@@ -68,6 +68,7 @@ class CreateProfileActivity :
         if(!signupResponse.jwt.equals(""))
         {
             editor.putString(context.getString(R.string.jwt_key),signupResponse.jwt)
+            editor.putString(context.getString(R.string.phone_number_key),phonenumber)
             editor.apply()
         }
         startActivity(nextIntent)

@@ -221,6 +221,7 @@ class SignInActivity : BaseActivity<SignInLayoutBinding>(SignInLayoutBinding::in
 
     override fun onSignInSuccess(signInResponse: SignInResponse) {
         editor.putString(context.getString(R.string.jwt_key), signInResponse.jwt)
+        editor.putString(context.getString(R.string.phone_number_key),phoneNumber.replace(" ",""))
         editor.apply()
         val nextActivity = HomeActivity::class.java
         val intent = Intent(this,nextActivity)

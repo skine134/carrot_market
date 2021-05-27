@@ -2,5 +2,6 @@
 <resources>
     <string name="default_key">"CARROT_MARKET_C"</string>
     <string name="jwt_key">"X-ACCESS-TOKEN"</string>
+    <string name="phone_number_key">"PHONE_NUMBER"</string>
 
 </resources>
