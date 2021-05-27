@@ -10,4 +10,4 @@
     android:maxHeight="65dip"
     android:minWidth="65dip"
     android:minHeight="65dip"
-    app:SpinKit_Color="@color/carrot_market_loading_dialog" />
+    app:SpinKit_Color="@color/carrot_market_default_color" />

@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.recyclerview.widget.RecyclerView
 import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.RecyclerMessageViewFragmentBinding
 
@@ -16,13 +17,13 @@ class RecyclerMessageView(context: Context, attrs: AttributeSet?=null) :
     private lateinit var binding: RecyclerMessageViewFragmentBinding
 
     init {
-        attrs?.run {
+        init()
+        attrs.run {
             context.obtainStyledAttributes(this, R.styleable.RecyclerMessageView)
-        }?.run {
-            message = getString(R.styleable.RecyclerMessageView_message)?:""
+        }.run {
+            message = getString(R.styleable.RecyclerMessageView_message)!!
 
         }
-        init()
     }
 
     private fun init() {
@@ -31,5 +32,12 @@ class RecyclerMessageView(context: Context, attrs: AttributeSet?=null) :
         messageTextView = binding.recyclerTextMessage
         addView(binding.root)
     }
-
+    fun getRecyclerView():RecyclerView
+    {
+        return binding.recyclerView
+    }
+    fun getTextView():TextView
+    {
+        return binding.recyclerTextMessage
+    }
 }

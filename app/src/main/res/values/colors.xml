@@ -18,8 +18,6 @@
     <color name="carrot_market_highlight">#B3FCEADE</color>
     <color name="carrot_market_primary">#D2D3D8</color>
     <color name="carrot_market_default_color">#FE7E35</color>
-    <color name="carrot_market_floating_button">#FE7E36</color>
-    <color name="carrot_market_loading_dialog">#FE7E35</color>
     <color name="carrot_market_guide_line">#EFEFEF</color>
     <!--            SIGN_UP               -->
 
@@ -41,4 +39,7 @@
 
     <color name="my_carrot_bg">#F3F4F8</color>
     <color name="my_carrot_shot_cut_bg">#FFE8DA</color>
+
+    <!--            PRODUCT_LIST       -->
+    <color name="please_town_auth">#F2F3F7</color>
 </resources>

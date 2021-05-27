@@ -2,7 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/main_top_coordinator"
@@ -54,24 +55,45 @@
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-    <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.RecyclerMessageView
-        android:id="@+id/product_list"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
         app:layout_constraintTop_toBottomOf="@id/main_top_coordinator"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:descendantFocusability="blocksDescendants"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:paddingBottom="0dp"
+            >
 
-        app:layout_constraintVertical_bias="0.0"
-        app:message="@string/main_not_found_list" />
+            <fragment
+                android:id="@+id/please_auth_town"
+                class="com.skott.softsquared.outsourcing_simulation.src.main.home_product_list.PleaseTownAuthFragment"
+                android:layout_width="match_parent"
+                android:layout_height="170dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="15dp"
+                tools:layout="@layout/please_town_auth_fragment" />
+
+            <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.RecyclerMessageView
+                android:id="@+id/product_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/please_auth_town"
+                app:message="@string/main_not_found_list" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        android:backgroundTint="@color/carrot_market_floating_button"
+        android:backgroundTint="@color/carrot_market_default_color"
         android:src="@drawable/plus_10"
         app:borderWidth="0dp"
         app:elevation="2dp"
