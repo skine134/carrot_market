@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.SplasherLayoutBinding
 import com.skott.softsquared.outsourcing_simulation.src.config.ApplicationClass
@@ -27,7 +28,9 @@ class SplashActivity : BaseActivity<SplasherLayoutBinding>(SplasherLayoutBinding
 
             if (!sSharedPreferences.getString(this.getString(R.string.jwt_key), "").equals(""))
             {
-                signInService.tryGetJwt(SignInRequest(sSharedPreferences.getString(this.getString(R.string.phone_number_key),"")!!))
+                val phone = sSharedPreferences.getString(this.getString(R.string.phone_number_key),"")!!
+                Log.d("phone_number",phone)
+                signInService.tryGetJwt(SignInRequest(phone))
                 return@postDelayed
             }
             val nextActivity = SignupActivity::class.java
@@ -43,6 +46,7 @@ class SplashActivity : BaseActivity<SplasherLayoutBinding>(SplasherLayoutBinding
         editor.apply()
         val nextActivity = HomeActivity::class.java
         val intent = Intent(this, nextActivity)
+        showCustomToast("로그인 성공")
         startActivity(intent)
         finish()
     }
