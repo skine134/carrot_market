@@ -10,4 +10,7 @@
         <attr name="android:entries"/>
         <attr name="title"/>
     </declare-styleable>
+    <declare-styleable name="MyTownButtonView">
+        <attr name="is_active" format="boolean"/>
+    </declare-styleable>
 </resources>

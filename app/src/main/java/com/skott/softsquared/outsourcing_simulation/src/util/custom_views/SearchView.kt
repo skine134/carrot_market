@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.skott.softsquared.outsourcing_simulation.databinding.SearchViewBinding
 
-class SearchView(context: Context, attrs:AttributeSet, defStyleAttr:Int=0) :ConstraintLayout(context,attrs,defStyleAttr){
+class SearchView(context: Context, attrs:AttributeSet) :ConstraintLayout(context,attrs){
     private lateinit var binding:SearchViewBinding
     init{
         init()

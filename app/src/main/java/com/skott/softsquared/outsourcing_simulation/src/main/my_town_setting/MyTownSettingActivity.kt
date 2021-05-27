@@ -5,7 +5,7 @@ import com.skott.softsquared.outsourcing_simulation.databinding.MyTownSettingBin
 import com.skott.softsquared.outsourcing_simulation.src.config.BaseActivity
 import com.skott.softsquared.outsourcing_simulation.src.util.custom_views.MyTownButtonView
 
-class MyTownSetting :BaseActivity<MyTownSettingBinding>(MyTownSettingBinding::inflate){
+class MyTownSettingActivity :BaseActivity<MyTownSettingBinding>(MyTownSettingBinding::inflate){
     private var activeTownCount = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

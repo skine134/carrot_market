@@ -1,6 +1,7 @@
-package com.skott.softsquared.outsourcing_simulation.src.main.seek_map
+package com.skott.softsquared.outsourcing_simulation.src.main.my_town_setting
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,8 +19,9 @@ class SeekMapFragment : BaseFragment<SeekMapFragmentBinding>(SeekMapFragmentBind
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        super.onCreateView(inflater, container, savedInstanceState)
         setSeekBarEvent(binding.myTownSetRangeProgressBar,binding.myTownVisualImageView)
-        return super.onCreateView(inflater, container, savedInstanceState)
+        return binding.root
     }
     private fun setSeekBarEvent(seekBar: RulerSeekBar,seekMapView: SeekMapView)
     {
@@ -34,8 +36,15 @@ class SeekMapFragment : BaseFragment<SeekMapFragmentBinding>(SeekMapFragmentBind
 
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
                 val value= currentPercent/33
-                //TODO 동작을 확실하게 모르므로 보류.
-                seekBar!!.progress = value*33
+                Log.d("test1",value.toString())
+                when(value)
+                {
+                    in 0..16->{seekBar!!.progress=0}
+                    in 16..49->{seekBar!!.progress=33}
+                    in 50..83->{seekBar!!.progress=66}
+                    in 84..100->{seekBar!!.progress=100}
+                }
+                currentPercent = seekBar!!.progress
             }
 
         })

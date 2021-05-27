@@ -59,12 +59,12 @@ class SeekMapView(context: Context, attrs: AttributeSet) : ConstraintLayout(cont
         if (percent < 33) {
             binding.map10km.colorFilter =
                 LightingColorFilter(getCalCulFilter(percent, MapRange.KM10), 0)
-        } else if (33 <= percent && 67 < percent) {
+        } else if (percent in 33..66) {
             binding.map15km.colorFilter =
-                LightingColorFilter(getCalCulFilter(percent, MapRange.KM15), 0)
+                LightingColorFilter(getCalCulFilter(percent, MapRange.KM20), 0)
         } else {
             binding.map20km.colorFilter =
-                LightingColorFilter(getCalCulFilter(percent, MapRange.KM20), 0)
+                LightingColorFilter(getCalCulFilter(percent, MapRange.KM15), 0)
         }
     }
 

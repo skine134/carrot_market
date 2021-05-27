@@ -6,7 +6,7 @@ import android.os.Build
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatSeekBar
 
-class RulerSeekBar(context: Context,attrs: AttributeSet?=null, defStyleAttr:Int=0) : AppCompatSeekBar(context,attrs,defStyleAttr) {
+class RulerSeekBar(context: Context,attrs: AttributeSet?=null) : AppCompatSeekBar(context,attrs) {
 
     /**
      * Tick brush
@@ -36,6 +36,9 @@ class RulerSeekBar(context: Context,attrs: AttributeSet?=null, defStyleAttr:Int=
     /**
      * Initialization
      */
+    init {
+        init()
+    }
     private fun init() {
         // Create a brush to draw tick marks
         mRulerPaint = Paint()

@@ -44,7 +44,6 @@ class MyCarrotFragment : BaseFragment<MyCarrotFragmentBinding>(
         binding.otherList.adapter = otherAdapter
         return binding.root
     }
-
     private fun setListItem(
         mySettingList: ArrayList<MyCarrotListItem>,
         townPostInfoList: ArrayList<MyCarrotListItem>,

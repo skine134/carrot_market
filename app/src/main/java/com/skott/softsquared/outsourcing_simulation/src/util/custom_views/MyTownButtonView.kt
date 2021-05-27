@@ -6,20 +6,26 @@ import android.content.Intent
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.ImageButton
-import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isGone
+import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.MyTownButtonViewBinding
-import com.skott.softsquared.outsourcing_simulation.databinding.MyTownSettingBinding
 import com.skott.softsquared.outsourcing_simulation.src.main.find_town.FindTownActivity
-import com.skott.softsquared.outsourcing_simulation.src.main.my_town_setting.MyTownSetting
+import com.skott.softsquared.outsourcing_simulation.src.main.my_town_setting.MyTownSettingActivity
 
 private const val RESULT_CODE = 200
-class MyTownButtonView(context:Context,attrs:AttributeSet,val myTownSetting: MyTownSetting):ConstraintLayout(context,attrs) {
+class MyTownButtonView(context:Context,attrs:AttributeSet):ConstraintLayout(context,attrs) {
     private lateinit var binding: MyTownButtonViewBinding
+    private lateinit var myTownSetting: MyTownSettingActivity
     private var activeCount=0
     init{
         init()
+        attrs.run {
+            context.obtainStyledAttributes(this, R.styleable.MyTownButtonView)
+        }.run {
+            val isActive = getBoolean(R.styleable.MyTownButtonView_is_active,false)
+            setActive(isActive)
+        }
     }
     fun init()
     {
@@ -28,6 +34,10 @@ class MyTownButtonView(context:Context,attrs:AttributeSet,val myTownSetting: MyT
         setDeleteEvent(binding.myTownActiveView)
         setIntentFindTownEvent(binding.myTownInactiveView)
         addView(binding.root)
+    }
+    fun setActivity(myTownSettingActivity: MyTownSettingActivity)
+    {
+        myTownSetting=myTownSettingActivity
     }
     fun setActive(isActive:Boolean)
     {

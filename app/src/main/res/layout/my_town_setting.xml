@@ -6,13 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<!--    <string name="my_town_setting_title">내 동네 설정</string>-->
-<!--    <string name="my_town_setting_select">동네 선택</string>-->
-<!--    <string name="my_town_setting_my_town_notice">지역은 최소 1개 이상 최대 2개까지 설정 가능해요.</string>-->
-<!--    <string name="my_town_setting_near_by_town">town과 근처 <u>동네 number개</u></string>-->
-<!--    <string name="my_town_setting_town_range_notice">선택한 범위의 게시글만 볼 수 있어요.</string>-->
-<!--    <string name="my_town_setting_town_range_minimum">내동네</string>-->
-<!--    <string name="my_town_setting_town_range_maxmum">근처동네</string>-->
     <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.CarrotMarketAppbar
         android:id="@+id/main_app_bar"
         style="@style/AppBar"
@@ -67,6 +60,7 @@
                 android:id="@+id/my_town_first_button"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                app:is_active="false"
                 android:layout_weight="1"
                 android:layout_marginEnd="10dp"
                 />
@@ -90,7 +84,7 @@
         <fragment
             android:id="@+id/my_town_range_fragment"
             tools:layout="@layout/seek_map_fragment"
-            class="com.skott.softsquared.outsourcing_simulation.src.main.seek_map.SeekMapFragment"
+            class="com.skott.softsquared.outsourcing_simulation.src.main.my_town_setting.SeekMapFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintDimensionRatio="1:1.2"

@@ -1,17 +1,23 @@
 package com.skott.softsquared.outsourcing_simulation.src.main.home_my_carrot
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
+import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.MyCarrotRecyclerViewAdapterBinding
 import com.skott.softsquared.outsourcing_simulation.src.main.home_my_carrot.model.MyCarrotListItem
+import com.skott.softsquared.outsourcing_simulation.src.main.my_town_setting.MyTownSettingActivity
 
-class MyCarrotRecyclerAdapter(context: Context, val arrayList: ArrayList<MyCarrotListItem>) :RecyclerView.Adapter<MyCarrotRecyclerViewHolder>(){
+class MyCarrotRecyclerAdapter(val context: Context, val arrayList: ArrayList<MyCarrotListItem>) :RecyclerView.Adapter<MyCarrotRecyclerViewHolder>(){
     private val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
     private lateinit var binding:MyCarrotRecyclerViewAdapterBinding
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): MyCarrotRecyclerViewHolder {
         binding = MyCarrotRecyclerViewAdapterBinding.inflate(inflater,parent,false)
+        setTownSettingIntentEvent(binding.root,arrayList[position])
         return MyCarrotRecyclerViewHolder(binding)
     }
 
@@ -25,4 +31,12 @@ class MyCarrotRecyclerAdapter(context: Context, val arrayList: ArrayList<MyCarro
         return position
     }
     override fun getItemCount()=arrayList.count()
+    private fun setTownSettingIntentEvent(itemLayout: ConstraintLayout,item: MyCarrotListItem)
+    {
+        if(item.name.equals(context.getString(R.string.my_carrot_my_town_setting)))
+            itemLayout.setOnClickListener {
+                val intent = Intent(context,MyTownSettingActivity::class.java)
+                (context as Activity).startActivity(intent)
+            }
+    }
 }

@@ -22,6 +22,7 @@ class ProfileFragment : BaseFragment<ProfileFragmentBinding>(ProfileFragmentBind
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        super.onCreateView(inflater, container, savedInstanceState)
         setUpdateImageButton(binding.profileImageView.getCameraButton())
         return binding.root
     }

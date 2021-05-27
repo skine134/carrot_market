@@ -2,12 +2,16 @@ package com.skott.softsquared.outsourcing_simulation.src.util.custom_views
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.widget.ImageButton
 import android.widget.LinearLayout
+import androidx.appcompat.widget.Toolbar
+import androidx.core.view.ViewCompat
+import androidx.core.view.isGone
+import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.MyTownButtonActiveViewBinding
-import com.skott.softsquared.outsourcing_simulation.databinding.MyTownButtonViewBinding
-import com.skott.softsquared.outsourcing_simulation.src.main.my_town_setting.MyTownSetting
 
 class MyTownButtonActiveView(context: Context, attrs:AttributeSet):LinearLayout(context, attrs) {
     private lateinit var binding: MyTownButtonActiveViewBinding
