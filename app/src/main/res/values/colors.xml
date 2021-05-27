@@ -14,7 +14,7 @@
 
     <!--            CARROT_MARKET        -->
 
-    <color name="carrot_market_main_bottom_back">#B3212123</color>
+    <color name="carrot_market_main_bottom_back">#B3212020</color>
     <color name="carrot_market_highlight">#B3FCEADE</color>
     <color name="carrot_market_primary">#D2D3D8</color>
     <color name="carrot_market_default_color">#FE7E35</color>
@@ -34,5 +34,11 @@
     <color name="sign_in_incorrect">#FA3434</color>
 
     <!--            MY_TOWN_SETTING       -->
+
     <color name="my_town_setting_stroke">#E8E8E8</color>
+
+    <!--            MY_CARROT       -->
+
+    <color name="my_carrot_bg">#F3F4F8</color>
+    <color name="my_carrot_shot_cut_bg">#FFE8DA</color>
 </resources>

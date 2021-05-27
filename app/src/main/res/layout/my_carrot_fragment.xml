@@ -2,9 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="match_parent"
+    android:background="@color/my_carrot_bg"
+    >
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/main_top_coordinator"
         android:layout_width="match_parent"
@@ -45,12 +47,191 @@
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-    <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.RecyclerMessageView
-        android:layout_width="0dp"
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nested_scroll_view"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/main_top_coordinator"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintBottom_toBottomOf="parent">
+        <LinearLayout
+            android:id="@+id/scroil_list_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:descendantFocusability="blocksDescendants"
+            android:orientation="vertical"
+            >
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/profile_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingTop="20dp"
+                android:paddingHorizontal="20dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/my_setting_list"
+                >
+                <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.ProfileImageView
+                    android:id="@+id/profile_image_view"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/see_profile_button"
+                    app:layout_constraintEnd_toStartOf="@id/my_carrot_nickname"/>
+                <TextView
+                    android:id="@+id/my_carrot_nickname"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    tools:text="안녕"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    app:layout_constraintStart_toEndOf="@id/profile_image_view"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/profile_image_view"
+                    app:layout_constraintBottom_toTopOf="@id/my_carrot_user_info"
+                    />
+                <TextView
+                    android:id="@+id/my_carrot_user_info"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    tools:text="교문2동 #14824526"
+                    app:layout_constraintStart_toEndOf="@id/profile_image_view"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/my_carrot_nickname"
+                    app:layout_constraintBottom_toTopOf="@id/see_profile_button"
+                    />
+                <android.widget.Button
+                    android:id="@+id/see_profile_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/my_carrot_see_profile"
+                    android:background="@drawable/show_profile_shape"
+                    app:layout_constraintTop_toBottomOf="@id/profile_image_view"
+                    app:layout_constraintBottom_toTopOf="@id/product_shot_cut_layout"
+                    />
+                <LinearLayout
+                    android:id="@+id/product_shot_cut_layout"
+                    android:layout_width="match_parent"
+                    android:paddingVertical="5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="15dp"
+                    app:layout_constraintTop_toBottomOf="@id/see_profile_button"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    >
+                    <LinearLayout
+                        android:id="@+id/my_carrot_user_cell_info_layout"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/my_carrot_user_cell_image_view"
+                            android:src="@drawable/profile_cell_log"
+                            android:scaleType="center"
+                            android:background="@drawable/my_carrot_shot_cut_bg_shape"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:id="@+id/my_carrot_user_cell_text_view"
+                            android:text="@string/my_carrot_user_cell"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/my_carrot_user_buy_info_layout"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/my_carrot_user_buy_image_view"
+                            android:src="@drawable/profile_buy_log"
+                            android:scaleType="center"
+                            android:background="@drawable/my_carrot_shot_cut_bg_shape"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:id="@+id/my_carrot_user_buy_text_view"
+                            android:text="@string/my_carrot_user_buy"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/my_carrot_user_favorite_list_layout"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        >
+                        <ImageView
+                            android:id="@+id/my_carrot_user_favorite_image_view"
+                            android:src="@drawable/profile_favorite_list"
+                            android:scaleType="center"
+                            android:background="@drawable/my_carrot_shot_cut_bg_shape"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:id="@+id/my_carrot_user_favorite_text_view"
+                            android:text="@string/my_carrot_user_favorite"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/my_setting_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/profile_view"
+                app:layout_constraintBottom_toTopOf="@id/town_post_info_list"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/town_post_info_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/my_setting_list"
+                app:layout_constraintBottom_toTopOf="@id/business_list"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/business_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/town_post_info_list"
+                app:layout_constraintBottom_toTopOf="@id/other_list"
+                />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/other_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/business_list"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
