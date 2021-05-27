@@ -52,10 +52,6 @@
     <string name="find_id_for_email_call_help_center">문의하기</string>
 
     <!--                 MY_TOWN_SETTING                 -->
-<<<<<<< HEAD
-
-=======
->>>>>>> 5cfc7b4909d15f9b4694ba7c1f3f7c394d95714a
     <string name="my_town_setting_title">내 동네 설정</string>
     <string name="my_town_setting_select">동네 선택</string>
     <string name="my_town_setting_my_town_notice">지역은 최소 1개 이상 최대 2개까지 설정 가능해요.</string>
@@ -63,7 +59,6 @@
     <string name="my_town_setting_town_range_notice">선택한 범위의 게시글만 볼 수 있어요.</string>
     <string name="my_town_setting_town_range_minimum">내동네</string>
     <string name="my_town_setting_town_range_maxmum">근처동네</string>
-<<<<<<< HEAD
     <string name="my_town_setting_find_town_by_currenct_location">내 동네 이름(동,읍,면)으로 검색</string>
     <string name="my_town_setting_find_town_by_currenct_location_button">현재 위치로 찾기</string>
     <string name="my_town_setting_related_town">관련주소 <b>도농동</b></string>
@@ -77,6 +72,4 @@
     <string name="delete_town_check">선택한 지역을 삭제하시겠습니까?</string>
     <string name="delete_town_warning">동네는 최소 1개이상 선택되어있어야합니다. 현재 설정된 동네를 병경하시겠어요?</string>
     <string name="delete_town_warning_ok">네, 변경할게요</string>
-=======
->>>>>>> 5cfc7b4909d15f9b4694ba7c1f3f7c394d95714a
 </resources>
