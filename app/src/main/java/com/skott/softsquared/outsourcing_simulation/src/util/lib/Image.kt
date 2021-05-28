@@ -8,6 +8,7 @@ import android.util.TypedValue
 import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.CenterInside
 import com.bumptech.glide.load.resource.bitmap.GranularRoundedCorners
 import com.bumptech.glide.request.RequestOptions
@@ -28,8 +29,8 @@ fun getRoundedCornerBitmap(
     val roundBottomLeftDp = convertDpToPixel(context, bottomLeftDp)
     val roundBottomRightDp = convertDpToPixel(context, bottomRightDp)
     Glide.with(context).load(uri).apply(
-        RequestOptions().centerInside().transform(
-            CenterInside(),
+        RequestOptions().centerCrop().transform(
+            CenterCrop(),
             GranularRoundedCorners(
                 roundTopRightDp,
                 roundTopLeftDp,

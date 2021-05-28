@@ -28,7 +28,7 @@ class ProductRecyclerViewHolder(val context: Context, val item:ProductItemAdapte
         town.text=productListResponse.dong
         val imageString = productListResponse.pictureUrl.toString()
         if(!imageString.equals("null"))
-            getRoundedAllCornerBitmap(context,imageString,5,image)
+            getRoundedAllCornerBitmap(context,imageString,20,image)
         price.text = context.getString(R.string.product_price).replace("price",productListResponse.price)
         favorite.setCount(productListResponse.numOfLikes)
         chat.setCount(productListResponse.numOfChats)

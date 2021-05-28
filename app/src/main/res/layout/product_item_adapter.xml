@@ -12,7 +12,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="10dp"
-        android:scaleType="centerInside"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toStartOf="@id/seller_town_text_view"
@@ -103,7 +103,7 @@
     <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.IconCounterView
         android:id="@+id/multi_chat_count"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="23dp"
         android:paddingEnd="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/favorite_count"
@@ -112,7 +112,7 @@
     <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.IconCounterView
         android:id="@+id/favorite_count"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="23dp"
         android:paddingEnd="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/chat_count"
@@ -121,7 +121,7 @@
     <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.IconCounterView
         android:id="@+id/chat_count"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="23dp"
         android:paddingEnd="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
