@@ -2,14 +2,14 @@ package com.skott.softsquared.outsourcing_simulation.src.main.create_profile
 
 import com.skott.softsquared.outsourcing_simulation.src.config.ApplicationClass
 import com.skott.softsquared.outsourcing_simulation.src.config.BaseResponse
-import com.skott.softsquared.outsourcing_simulation.src.main.create_profile.models.SignupRequest
+import com.skott.softsquared.outsourcing_simulation.src.main.create_profile.models.SignUpRequest
 import com.skott.softsquared.outsourcing_simulation.src.main.create_profile.models.SignupResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class CreateProfileService(val view: CreateProfileActivity) {
-    fun trySignUp(signupRequest: SignupRequest)
+    fun trySignUp(signupRequest: SignUpRequest)
     {
         val api = ApplicationClass.sRetrofit.create(CreateProfileRetrofitInterface::class.java)
         api.postJwt(signupRequest).enqueue(object: Callback<BaseResponse<SignupResponse>> {

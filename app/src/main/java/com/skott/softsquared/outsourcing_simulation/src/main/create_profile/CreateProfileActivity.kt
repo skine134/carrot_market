@@ -12,7 +12,7 @@ import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.CreateProfileLayoutBinding
 import com.skott.softsquared.outsourcing_simulation.src.config.ApplicationClass.Companion.sSharedPreferences
 import com.skott.softsquared.outsourcing_simulation.src.config.BaseActivity
-import com.skott.softsquared.outsourcing_simulation.src.main.create_profile.models.SignupRequest
+import com.skott.softsquared.outsourcing_simulation.src.main.create_profile.models.SignUpRequest
 import com.skott.softsquared.outsourcing_simulation.src.main.create_profile.models.SignupResponse
 import com.skott.softsquared.outsourcing_simulation.src.main.home.HomeActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.profile.ProfileFragment
@@ -60,7 +60,7 @@ class CreateProfileActivity :
                 showCustomToast(context.getString(R.string.create_profile_check_nickname_max))
                 return@setOnClickListener
             } else
-                createProfileService.trySignUp(SignupRequest(phonenumber, nickname))
+                createProfileService.trySignUp(SignUpRequest(phonenumber, nickname,""))
         }
     }
 

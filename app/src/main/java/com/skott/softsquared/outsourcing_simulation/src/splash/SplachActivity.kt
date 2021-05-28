@@ -30,7 +30,7 @@ class SplashActivity : BaseActivity<SplasherLayoutBinding>(SplasherLayoutBinding
             val intent = Intent(this, nextActivity)
             startActivity(intent)
             finish()
-        }, 1500)
+        }, 1000)
     }
 
 //    override fun onSignInSuccess(signInResponse: SignInResponse) {
