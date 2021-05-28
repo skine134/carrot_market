@@ -11,7 +11,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="pure_trans">#00FFFFFF</color>
-
+    <color name="hint_color">#C4C4C4</color>
     <!--            CARROT_MARKET        -->
 
     <color name="carrot_market_main_bottom_back">#1E1E20</color>
