@@ -1,7 +1,9 @@
 package com.skott.softsquared.outsourcing_simulation.src.splash
 
-interface AutoSiginInView {
+import com.skott.softsquared.outsourcing_simulation.src.splash.model.AutoSignInResponse
 
-//    fun onSignInSuccess(signInResponse: SignInResponse)
-//    fun onSignInFailure(message:String)
+interface AutoSignInInView {
+
+    fun onAutoSignInSuccess(autoSignInResponseArray: ArrayList<AutoSignInResponse>)
+    fun onAutoSignInFailure(message:String)
 }

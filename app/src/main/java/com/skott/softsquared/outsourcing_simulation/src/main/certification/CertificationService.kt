@@ -5,7 +5,6 @@ import com.skott.softsquared.outsourcing_simulation.src.config.BaseResponse
 import com.skott.softsquared.outsourcing_simulation.src.main.certification.models.CertificationResponse
 import com.skott.softsquared.outsourcing_simulation.src.main.certification.models.MobileCheckRequest
 import com.skott.softsquared.outsourcing_simulation.src.main.certification.models.SignInResponse
-import com.skott.softsquared.outsourcing_simulation.src.splash.SignInRetrofitInterface
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
