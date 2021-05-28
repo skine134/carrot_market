@@ -21,7 +21,7 @@ class RecyclerMessageView(context: Context, attrs: AttributeSet?=null) :
         attrs.run {
             context.obtainStyledAttributes(this, R.styleable.RecyclerMessageView)
         }.run {
-            message = getString(R.styleable.RecyclerMessageView_message)!!
+            message = getString(R.styleable.RecyclerMessageView_message)?:""
 
         }
     }

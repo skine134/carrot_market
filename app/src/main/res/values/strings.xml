@@ -23,7 +23,7 @@
 
     <!--                 MY_CARROT                 -->
 
-    <string name="my_carrot_user_info">town code</string>
+    <string name="my_carrot_user_info">town #code</string>
     <string name="my_carrot_see_profile">프로필 보기</string>
     <string name="my_carrot_user_cell">판매내역</string>
     <string name="my_carrot_user_buy">구매내역</string>

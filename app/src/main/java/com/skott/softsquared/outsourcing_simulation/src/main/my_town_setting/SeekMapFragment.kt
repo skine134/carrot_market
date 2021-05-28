@@ -35,7 +35,7 @@ class SeekMapFragment : BaseFragment<SeekMapFragmentBinding>(SeekMapFragmentBind
             }
 
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                val value= currentPercent/33
+                val value= currentPercent
                 Log.d("test1",value.toString())
                 when(value)
                 {
