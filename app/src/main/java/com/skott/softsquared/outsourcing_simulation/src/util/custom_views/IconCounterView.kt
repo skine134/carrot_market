@@ -2,7 +2,9 @@ package com.skott.softsquared.outsourcing_simulation.src.util.custom_views
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
 import android.view.LayoutInflater
+import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isGone
 import com.skott.softsquared.outsourcing_simulation.R
@@ -19,20 +21,20 @@ class IconCounterView(context: Context, attrs: AttributeSet) : ConstraintLayout(
         }.run {
             val type = getInteger(R.styleable.IconCounterView_type, -1)
             val count = getInteger(R.styleable.IconCounterView_count, 0)
+            when (type) {
+                (0) -> { //favorite
+                    binding.icon.setImageResource(R.drawable.home_post_heart)
+                }
+                (1) -> { //chat
+                    binding.icon.setImageResource(R.drawable.home_post_chat)
+                }
+                (2) -> { //multi chat
+                    binding.icon.setImageResource(R.drawable.home_post_chat)
+                }
+            }
             if (count == 0)
                 binding.root.isGone = true
             else {
-                when (type) {
-                    (0) -> { //favorite
-                        binding.icon.setImageResource(R.drawable.home_post_heart)
-                    }
-                    (1) -> { //chat
-                        binding.icon.setImageResource(R.drawable.home_post_chat)
-                    }
-                    (2) -> { //multi chat
-                        binding.icon.setImageResource(R.drawable.home_post_chat)
-                    }
-                }
                 binding.count.text = count.toString()
             }
         }

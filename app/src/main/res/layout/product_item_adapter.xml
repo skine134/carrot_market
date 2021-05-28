@@ -1,123 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="150dp"
     android:padding="20dp"
-    android:paddingEnd="10dp"
-    >
-<ImageView
-    android:id="@+id/product_image_view"
-    android:layout_width="0dp"
-    android:layout_height="0dp"
-    tools:src="@drawable/plus_10"
-    android:scaleType="centerInside"
-    android:layout_marginEnd="10dp"
-    app:layout_constraintHorizontal_chainStyle="packed"
-    app:layout_constraintDimensionRatio="1:1"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toStartOf="@id/seller_town_text_view"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintHorizontal_bias="0"
-    />
+    android:paddingEnd="10dp">
+
+    <ImageView
+        android:id="@+id/product_image_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="10dp"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@id/seller_town_text_view"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/plus_10" />
+
     <TextView
         android:id="@+id/product_name_text_view"
-        tools:text="유니클로 후드티"
-        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintVertical_bias="0"
+        android:ellipsize="end"
+        android:maxLength="12"
+        android:maxLines="2"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/seller_town_text_view"
         app:layout_constraintStart_toStartOf="@id/seller_town_text_view"
-        />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="유니클로 후드티" />
+
     <TextView
         android:id="@+id/seller_town_text_view"
-        tools:text="관앙동"
-        android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/product_image_view"
-        app:layout_constraintEnd_toStartOf="@id/dot"
-        app:layout_constraintTop_toBottomOf="@id/product_name_text_view"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@id/product_price_text_view"
+        app:layout_constraintEnd_toStartOf="@id/dot"
         app:layout_constraintHorizontal_bias="0"
-        />
+        app:layout_constraintStart_toEndOf="@id/product_image_view"
+        app:layout_constraintTop_toBottomOf="@id/product_name_text_view"
+        tools:text="관앙동" />
+
     <TextView
         android:id="@+id/dot"
-        android:text=" · "
-        android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/seller_town_text_view"
-        app:layout_constraintEnd_toStartOf="@id/pull_up_text_view"
-        app:layout_constraintTop_toTopOf="@id/seller_town_text_view"
+        android:layout_height="wrap_content"
+        android:text=" · "
         app:layout_constraintBottom_toBottomOf="@id/seller_town_text_view"
-        />
+        app:layout_constraintEnd_toStartOf="@id/pull_up_text_view"
+        app:layout_constraintStart_toEndOf="@id/seller_town_text_view"
+        app:layout_constraintTop_toTopOf="@id/seller_town_text_view" />
+
     <TextView
         android:id="@+id/pull_up_text_view"
-        tools:text="끌올 "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/dot"
-        app:layout_constraintEnd_toStartOf="@id/product_upload_time_text_view"
-        app:layout_constraintTop_toTopOf="@id/seller_town_text_view"
         app:layout_constraintBottom_toBottomOf="@id/seller_town_text_view"
-        />
+        app:layout_constraintEnd_toStartOf="@id/product_upload_time_text_view"
+        app:layout_constraintStart_toEndOf="@id/dot"
+        app:layout_constraintTop_toTopOf="@id/seller_town_text_view"
+        tools:text="끌올 " />
+
     <TextView
         android:id="@+id/product_upload_time_text_view"
-        tools:text="방금 전"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/pull_up_text_view"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/seller_town_text_view"
         app:layout_constraintBottom_toBottomOf="@id/seller_town_text_view"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintHorizontal_chainStyle="packed"
-        />
+        app:layout_constraintStart_toEndOf="@id/pull_up_text_view"
+        app:layout_constraintTop_toTopOf="@id/seller_town_text_view"
+        tools:text="방금 전" />
+
     <TextView
         android:id="@+id/product_price_text_view"
-        tools:text="10,000원"
-        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        app:layout_constraintStart_toStartOf="@id/seller_town_text_view"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/seller_town_text_view"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="@id/seller_town_text_view"
+        app:layout_constraintTop_toBottomOf="@id/seller_town_text_view"
         app:layout_constraintVertical_bias="0"
-        />
+        tools:text="10,000원" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/icon_guide_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintGuide_percent=".23" />
     <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.IconCounterView
         android:id="@+id/multi_chat_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingEnd="10dp"
-        app:type="multi_chat"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/favorite_count"
-        />
+        app:type="multi_chat" />
+
     <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.IconCounterView
         android:id="@+id/favorite_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingEnd="10dp"
-        app:type="favorite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/chat_count"
-        />
-        <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.IconCounterView
-            android:id="@+id/chat_count"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingEnd="10dp"
-            app:type="chat"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            />
+        app:type="favorite" />
+
+    <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.IconCounterView
+        android:id="@+id/chat_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingEnd="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:type="chat" />
 </androidx.constraintlayout.widget.ConstraintLayout>

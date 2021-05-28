@@ -10,8 +10,9 @@ import com.skott.softsquared.outsourcing_simulation.databinding.ProductListFragm
 import com.skott.softsquared.outsourcing_simulation.src.config.BaseFragment
 import com.skott.softsquared.outsourcing_simulation.src.main.home_product_list.model.ProductListResponse
 
-class ProductListFragment:BaseFragment<ProductListFragmentBinding>(ProductListFragmentBinding::bind,R.layout.product_list_fragment) {
+class ProductListFragment:BaseFragment<ProductListFragmentBinding>(ProductListFragmentBinding::bind,R.layout.product_list_fragment),ProductListView {
     private lateinit var productRecyclerAdapter: ProductRecyclerAdapter
+    private lateinit var productListService: ProductListService
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -19,15 +20,22 @@ class ProductListFragment:BaseFragment<ProductListFragmentBinding>(ProductListFr
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
         val arrayList = ArrayList<ProductListResponse>()
-        setArrayListItem(arrayList)
-        productRecyclerAdapter = ProductRecyclerAdapter(context!!,arrayList,binding.productList)
-        binding.productList.getRecyclerView().layoutManager=LinearLayoutManager(context)
+        productListService= ProductListService(this)
+        productListService.tryGetProductList(villageIdx = 1,rangeLevel = 1,categories = "디지털/가전&가구/인테리어",lastItemIdx =0)
+        productRecyclerAdapter = ProductRecyclerAdapter(requireContext(),arrayList,binding.productList)
+        binding.productList.getRecyclerView().layoutManager=LinearLayoutManager(requireContext())
         binding.productList.getRecyclerView().adapter = productRecyclerAdapter
-        productRecyclerAdapter.notifyChanged()
         return binding.root
     }
-    private fun setArrayListItem(arrayList: ArrayList<ProductListResponse>)
-    {
 
+    override fun onProductListSuccess(arrayList: ArrayList<ProductListResponse>) {
+
+        productRecyclerAdapter.arrayList.addAll(arrayList)
+        showCustomToast("item count : ${productRecyclerAdapter.itemCount}")
+        productRecyclerAdapter.notifyChanged()
+    }
+
+    override fun onProductListFailure(message: String) {
+        showCustomToast(message)
     }
 }

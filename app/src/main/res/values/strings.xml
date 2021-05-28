@@ -20,6 +20,7 @@
     <string name="please_auth_town_fragment_title">따뜻한 거래를 시작해보세요!</string>
     <string name="please_auth_town_fragment_content">지금 동네인증을 하고 town 근처 이웃 count명과 거래하세요.</string>
     <string name="please_auth_town_fragment_start_button">동네인증하고 시작하기</string>
+    <string name="product_price">price원</string>
 
     <!--                 MY_CARROT                 -->
 
