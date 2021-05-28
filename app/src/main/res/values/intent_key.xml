@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="sign_up_to_sign_in_phone_number_intent_key">signUpToSignInPhoneNumberIntentKey</string>
-    <string name="sign_up_to_sign_in_certification_intent_key">signUpToSignInCertificationIntentKey</string>
-    <string name="sign_in_to_create_profile_phone_number_intent_key">SignInToCreateProfilePhoneNumberIntentKey</string>
+    <string name="certificate_to_sign_in_certification_intent_key">certificateToSignInCertificationIntentKey</string>
+    <string name="certificate_to_create_profile_phone_number_intent_key">certificateToCreateProfilePhoneNumberIntentKey</string>
     <string name="profile_fragment_to_create_profile_phone_number_intent_key">profileFragmentToCreateProfilePhoneNumberIntentKey</string>
 </resources>

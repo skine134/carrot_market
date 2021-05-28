@@ -10,6 +10,7 @@ import android.util.Log
 import android.view.*
 import android.widget.ImageButton
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
@@ -58,5 +59,13 @@ class CarrotMarketAppbar(context: Context, attrs:AttributeSet?=null) :Constraint
         val inflate = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         binding = CarrotMarketAppBarLayoutBinding.inflate(inflate,this,false)
         addView(binding.root)
+    }
+    fun getBackButton():ImageButton
+    {
+        return binding.backButton
+    }
+    fun getTitle():TextView
+    {
+        return binding.title
     }
 }

@@ -27,7 +27,7 @@
         android:gravity="center|left"
         android:lines="1"
         android:inputType="text"
-        android:textCursorDrawable="@drawable/sign_up_cursor_shape"
+        android:textCursorDrawable="@drawable/certificate_cursor_shape"
         android:hint="@string/my_town_setting_find_town_by_currenct_location"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@id/search_button"

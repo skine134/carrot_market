@@ -3,4 +3,7 @@
     <item
         android:drawable="@drawable/accept_and_start_enabled_shape"
         android:state_enabled="true"/>
+    <item
+        android:drawable="@drawable/certificate_take_auth_number_disabled_shape"
+        android:state_enabled="false"/>
 </selector>

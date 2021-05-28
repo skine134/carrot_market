@@ -33,7 +33,7 @@ class CreateProfileActivity :
         super.onCreate(savedInstanceState)
         context = this
         phonenumber =
-            intent.getStringExtra(context.getString(R.string.sign_in_to_create_profile_phone_number_intent_key))!!
+            intent.getStringExtra(context.getString(R.string.certificate_to_create_profile_phone_number_intent_key))!!
                 .toString()
         editor = sSharedPreferences.edit()
         profileImageView = (supportFragmentManager.findFragmentById(R.id.create_profile_content_fragment) as ProfileFragment).profileImageViewListener()
@@ -64,6 +64,15 @@ class CreateProfileActivity :
         }
     }
 
+
+    private fun showNotBackToast()
+    {
+        showCustomToast(context.getString(R.string.certificate_not_back))
+    }
+
+    override fun onBackPressed() {
+        showNotBackToast()
+    }
     override fun onSignUpSuccess(signupResponse: SignupResponse) {
         if(!signupResponse.jwt.equals(""))
         {
@@ -78,7 +87,6 @@ class CreateProfileActivity :
     override fun onSignUpFailure(message: String) {
         showCustomToast(message)
     }
-
     // 프래그먼트에서 데이터를 받아오기 위한 인터페이스
     interface ProfileDataInterface {
         fun profileImageViewListener():ProfileImageView

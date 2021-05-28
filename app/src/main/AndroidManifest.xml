@@ -17,7 +17,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".src.main.signup.SignupActivity"/>
+        <activity android:name=".src.main.certification.CertificationActivity"/>
         <activity android:name=".src.main.findid.FindIdForEmailActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -26,7 +26,6 @@
                 <data android:scheme="find_id_for_email"/>
             </intent-filter>
         </activity>
-        <activity android:name=".src.main.signin.SignInActivity"/>
         <activity android:name=".src.main.home.HomeActivity"/>
         <activity android:name=".src.main.create_profile.CreateProfileActivity"/>
         <activity android:name=".src.main.find_town.FindTownActivity"/>
