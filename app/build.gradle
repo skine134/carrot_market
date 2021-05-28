@@ -53,6 +53,9 @@ dependencies {
     //json-serialization
     implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.1'
 
+    // image picker
+    // https://github.com/ParkSangGwon/TedImagePicker
+    implementation 'gun0912.ted:tedimagepicker:1.1.10'
 
     //retrofit
     implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'

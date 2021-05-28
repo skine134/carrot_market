@@ -4,6 +4,7 @@
 
     <string name="app_name">carrot_market</string>
     <string name="check">확인</string>
+    <string name="finish">완료</string>
     <string name="cancel">취소</string>
 
     <!--                 MAIN               -->
@@ -100,4 +101,17 @@
     <string name="delete_town_check">선택한 지역을 삭제하시겠습니까?</string>
     <string name="delete_town_warning">동네는 최소 1개이상 선택되어있어야합니다. 현재 설정된 동네를 병경하시겠어요?</string>
     <string name="delete_town_warning_ok">네, 변경할게요</string>
+
+    <!--                USED_PRODUCT_POST                      -->
+
+    <string name="used_product_posting_title">중고거래 글쓰기</string>
+    <string name="used_product_posting_pickture_count">0/10</string>
+    <string name="used_product_posting_hint_title">제목</string>
+    <string name="used_product_posting_won_sign">₩</string>
+    <string name="used_product_posting_hint_price">가격 (선택사항)</string>
+    <string name="used_product_posting_deal">가격제안 받기</string>
+    <string name="used_product_posting_hint_content">town에 올릴 게시글 내용을 작성해주세요.<br>가품 및 판매금지품목은 게시가 제한될 수 있어요</br></string>
+    <string name="used_product_posting_range">게시글 보여줄 동네 고르기</string>
+    <string name="used_product_posting_category_title">카테고리</string>
+<!--    <string name="used_product_posting_"></string>-->
 </resources>
