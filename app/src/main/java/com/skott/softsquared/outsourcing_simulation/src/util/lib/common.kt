@@ -15,6 +15,7 @@ fun dispatchKeyboardEvent(context: Context,motionEvent:MotionEvent): MotionEvent
             focusView.getGlobalVisibleRect(rect)
             val x = motionEvent.x.toInt()
             val y = motionEvent.y.toInt()
+
             if (!rect.contains(x, y)) {
                 val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
                 imm.hideSoftInputFromWindow(focusView.getWindowToken(), 0)
@@ -23,3 +24,10 @@ fun dispatchKeyboardEvent(context: Context,motionEvent:MotionEvent): MotionEvent
         }
         return motionEvent
 }
+//fun findView(context: Context,x:Int,y:Int):View?
+//{
+//    val viewGroup = context as Activity
+//    for(view in viewGroup.window.do)
+//        return view
+//    return null
+//}

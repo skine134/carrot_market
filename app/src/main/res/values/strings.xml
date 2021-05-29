@@ -12,11 +12,11 @@
     <string name="main_neighbor_news_app_bar_title">동네소식</string>
     <string name="main_chat_app_bar_title">채팅</string>
     <string name="main_near_by_app_bar_title">내 근처</string>
-    <string name="main_my_carrot_app_bar_title">나의 당근</string>
     <string name="main_not_found_list">리스트를 불러올 수 없습니다.</string>
 
     <!--                 PRODUCT_LIST                 -->
 
+    <string name="my_carrot_app_bar_title">나의 당근</string>
     <string name="please_auth_town_fragment_title">따뜻한 거래를 시작해보세요!</string>
     <string name="please_auth_town_fragment_content">지금 동네인증을 하고 town 근처 이웃 count명과 거래하세요.</string>
     <string name="please_auth_town_fragment_start_button">동네인증하고 시작하기</string>
@@ -96,6 +96,7 @@
     <string name="seekmap_town_range_notice">선택한 범위의 게시글만 볼 수 있어요.</string>
     <string name="seekmap_town_range_minimum">내동네</string>
     <string name="seekmap_town_range_maxmum">근처동네</string>
+
     <!--                 FIND_MY_TOWN                 -->
 
     <string name="find_near_by_town">근처동네</string>
@@ -120,4 +121,15 @@
     <string name="used_product_posting_category_title">카테고리</string>
     <string name="used_product_posting_temp_save">입력 중인 게시글이 임시 저장되었습니다.</string>
     <string name="used_product_posting_please_input_primary">제목, 카테고리, 내용은 필수 입력항목이에요</string>
+
+    <!--                PRODUCT_POST                      -->
+
+    <string name="product_detail_app_bar_title">title</string>
+    <string name="product_detail_favorite_and_view_count">관심 3 · 조회 50</string>
+    <string name="product_detail_user_report">이 게시글 신고하기</string>
+    <string name="product_detail_user_other_product">name님의 판매 상품</string>
+    <string name="product_detail_price">price원</string>
+    <string name="product_detail_deal">가격제안하기</string>
+    <string name="product_detail_not_deal">가격제안불가</string>
+    <string name="product_detail_chat">채팅으로 거래하기</string>
 </resources>

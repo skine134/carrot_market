@@ -17,6 +17,7 @@
     <color name="carrot_market_main_bottom_back">#1E1E20</color>
     <color name="carrot_market_highlight">#B3FCEADE</color>
     <color name="carrot_market_primary">#D2D3D8</color>
+    <color name="carrot_market_sub_primary">#9B9CA0</color>
     <color name="carrot_market_default_color">#FE7E35</color>
     <color name="carrot_market_guide_line">#EFEFEF</color>
     <color name="carrot_app_bar_icon_color">#202020</color>

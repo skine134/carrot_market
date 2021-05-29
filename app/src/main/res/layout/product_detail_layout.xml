@@ -96,6 +96,12 @@
                     app:layout_constraintStart_toStartOf="@id/start_guideline"
                     app:layout_constraintEnd_toEndOf="@id/end_guideline">
 
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        app:layout_constraintBottom_toTopOf="@id/product_detail_user_layout"
+                        android:background="@color/carrot_market_guide_line"
+                        />
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/product_detail_user_layout"
                         android:layout_width="0dp"
@@ -116,29 +122,29 @@
                             android:scaleType="centerCrop"
                             app:layout_constraintDimensionRatio="1:1"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintEnd_toStartOf="@id/product_detail_user_nickname"
+                            app:layout_constraintEnd_toStartOf="@id/product_detail_user_nickname_text_view"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintHorizontal_chainStyle="packed"
                             app:layout_constraintHorizontal_bias="0"
                             />
                         <TextView
-                            android:id="@+id/product_detail_user_nickname"
+                            android:id="@+id/product_detail_user_nickname_text_view"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
                             app:layout_constraintStart_toEndOf="@id/product_detail_user_profile_image"
                             app:layout_constraintEnd_toEndOf="@id/product_detail_user_manner_temperator_guideline"
                             app:layout_constraintTop_toTopOf="@id/product_detail_user_profile_image"
-                            app:layout_constraintBottom_toTopOf="@id/product_detail_user_dong"
+                            app:layout_constraintBottom_toTopOf="@id/product_detail_user_dong_text_view"
                             tools:text="하프타임"
                             />
                         <TextView
-                            android:id="@+id/product_detail_user_dong"
+                            android:id="@+id/product_detail_user_dong_text_view"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="12sp"
-                            app:layout_constraintStart_toStartOf="@id/product_detail_user_nickname"
-                            app:layout_constraintTop_toBottomOf="@id/product_detail_user_nickname"
+                            app:layout_constraintStart_toStartOf="@id/product_detail_user_nickname_text_view"
+                            app:layout_constraintTop_toBottomOf="@id/product_detail_user_nickname_text_view"
                             app:layout_constraintBottom_toBottomOf="parent"
                             tools:text="다산동"
                             />
@@ -153,16 +159,93 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        app:layout_constraintBottom_toTopOf="@id/product_detail_user_layout"
+                        app:layout_constraintTop_toBottomOf="@id/product_detail_user_layout"
                         android:background="@color/carrot_market_guide_line"
                         />
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/product_detail_product_content_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
                         app:layout_constraintTop_toBottomOf="@id/product_detail_user_layout"
-                        app:layout_constraintBottom_toTopOf="@id/product_detail_user_report"
+                        app:layout_constraintBottom_toTopOf="@id/product_detail_user_report_text_view"
                         >
+                        <TextView
+                            android:id="@+id/product_detail_content_title_text_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintBottom_toTopOf="@id/product_detail_content_category_text_view"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:layout_marginVertical="5dp"
+                            tools:text="튼튼한 유리 꽃병(깨끗한 좋고)"/>
+                        <TextView
+                            android:id="@+id/product_detail_content_category_text_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/carrot_market_sub_primary"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintBottom_toTopOf="@id/product_detail_content_text_view"
+                            app:layout_constraintTop_toBottomOf="@id/product_detail_content_title_text_view"
+                            app:layout_constraintEnd_toStartOf="@id/title_dot"
+                            app:layout_constraintHorizontal_chainStyle="packed"
+                            app:layout_constraintHorizontal_bias="0"
+                            tools:text="생활/가공식품"/>
+                        <TextView
+                            android:id="@+id/title_dot"
+                            android:text=" · "
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toEndOf="@id/product_detail_content_category_text_view"
+                            app:layout_constraintEnd_toStartOf="@id/product_detail_content_pull_up_text_view"
+                            app:layout_constraintTop_toTopOf="@id/product_detail_content_category_text_view"
+                            app:layout_constraintBottom_toBottomOf="@id/product_detail_content_category_text_view"
+                            />
+                        <TextView
+                            android:id="@+id/product_detail_content_pull_up_text_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/carrot_market_sub_primary"
+                            app:layout_constraintStart_toEndOf="@id/title_dot"
+                            app:layout_constraintEnd_toStartOf="@id/product_detail_content_time_text_view"
+                            app:layout_constraintTop_toTopOf="@id/product_detail_content_category_text_view"
+                            app:layout_constraintBottom_toBottomOf="@id/product_detail_content_category_text_view"
+                            tools:text="끌올"/>
+                        <TextView
+                            android:id="@+id/product_detail_content_time_text_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/carrot_market_sub_primary"
+                            app:layout_constraintStart_toEndOf="@id/product_detail_content_pull_up_text_view"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/product_detail_content_category_text_view"
+                            app:layout_constraintBottom_toBottomOf="@id/product_detail_content_category_text_view"
+                            tools:text="19분 전"/>
+                        <TextView
+                            android:id="@+id/product_detail_content_text_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="17dp"
+                            android:layout_marginVertical="10dp"
+                            app:layout_constraintTop_toBottomOf="@id/product_detail_content_category_text_view"
+                            app:layout_constraintBottom_toTopOf="@id/product_detail_content_favorite_and_view_count_text_view"
+                            tools:text="우에에에엥"/>
+                        <TextView
+                            android:id="@+id/product_detail_content_favorite_and_view_count_text_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:textColor="@color/carrot_market_sub_primary"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/product_detail_content_text_view"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintHorizontal_chainStyle="packed"
+                            app:layout_constraintHorizontal_bias="0"
+                            tools:text="관심 3 · 조회 50"
+                            />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                     <View
@@ -172,7 +255,7 @@
                         android:background="@color/carrot_market_guide_line"
                         />
                     <TextView
-                        android:id="@+id/product_detail_user_report"
+                        android:id="@+id/product_detail_user_report_text_view"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="이 게시글 신고하기"
@@ -185,7 +268,7 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        app:layout_constraintTop_toBottomOf="@id/product_detail_user_report"
+                        app:layout_constraintTop_toBottomOf="@id/product_detail_user_report_text_view"
                         android:background="@color/carrot_market_guide_line"
                         />
                     <TextView
@@ -193,10 +276,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="10dp"
-                        android:text="name님의 판매 상품"
+                        tools:text="name님의 판매 상품"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        app:layout_constraintTop_toBottomOf="@id/product_detail_user_report"
+                        app:layout_constraintTop_toBottomOf="@id/product_detail_user_report_text_view"
                         app:layout_constraintBottom_toTopOf="@id/product_detail_together_see_recycler_view"
                         />
                     <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.RecyclerMessageView
@@ -249,7 +332,7 @@
                     android:layout_height="match_parent">
 
                     <ImageButton
-                        android:id="@+id/product_post_favorite_image_button"
+                        android:id="@+id/product_detail_favorite_image_button"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:background="@color/pure_trans"
@@ -260,13 +343,62 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <View
+                        android:id="@+id/product_detail_price_guideline"
                         android:layout_width="1dp"
                         android:layout_height="0dp"
                         android:layout_marginStart="10dp"
                         android:background="@color/carrot_market_guide_line"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/product_post_favorite_image_button"
+                        app:layout_constraintStart_toEndOf="@id/product_detail_favorite_image_button"
                         app:layout_constraintTop_toTopOf="parent" />
+                    <TextView
+                        android:id="@+id/product_detail_price_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/product_detail_price"
+                        android:layout_marginStart="10dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toTopOf="@id/product_detail_is_deal_text_view"
+                        app:layout_constraintStart_toEndOf="@id/product_detail_price_guideline"
+
+                        />
+                    <TextView
+                        android:id="@+id/product_detail_is_deal_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="false"
+                        android:autoSizeTextType="uniform"
+                        android:text="@string/product_detail_deal"
+                        android:textColor="@color/carrot_market_default_color"
+                        app:layout_constraintTop_toBottomOf="@id/product_detail_price_text_view"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/product_detail_price_text_view"
+                        />
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/chat_guideline"
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.65"
+                        />
+                    <android.widget.Button
+                        android:id="@+id/product_detail_chat_button"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/product_detail_chat_shape"
+                        android:textColor="@color/white"
+                        android:layout_marginHorizontal="3dp"
+                        android:paddingVertical="5dp"
+                        android:text="@string/product_detail_chat"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:minHeight="0dp"
+                        android:minWidth="0dp"
+                        app:layout_constraintStart_toStartOf="@id/chat_guideline"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>
