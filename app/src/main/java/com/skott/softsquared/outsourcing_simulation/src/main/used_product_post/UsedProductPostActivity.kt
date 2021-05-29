@@ -79,8 +79,9 @@ class UsedProductPostActivity :
 
             }
             if (editText.text.toString().length < 3)
-                return@setOnKeyListener true
-            //TODO 관련 카테고리 조회 기능
+                //TODO 관련 카테고리 조회 기능
+                return@setOnKeyListener false
+
 //            showRelateCategories(editText)
             return@setOnKeyListener false
         }
@@ -189,7 +190,6 @@ class UsedProductPostActivity :
         Log.e("api error",message)
         finish()
     }
-
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
         dispatchKeyboardEvent(context,ev!!)
         return super.dispatchTouchEvent(ev)

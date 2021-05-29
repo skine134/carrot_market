@@ -56,6 +56,8 @@ dependencies {
     //json-serialization
     implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.1'
 
+    //image slicer
+    implementation 'com.github.smarteist:autoimageslider:1.4.0'
 //    // image picker
 //    // https://github.com/ParkSangGwon/TedImagePicker
 //    implementation 'gun0912.ted:tedimagepicker:1.1.10'

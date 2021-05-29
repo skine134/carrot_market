@@ -6,6 +6,7 @@ import android.graphics.Rect
 import android.view.MotionEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
 
 fun dispatchKeyboardEvent(context: Context,motionEvent:MotionEvent): MotionEvent {
         val focusView = (context as Activity).currentFocus
