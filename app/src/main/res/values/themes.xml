@@ -5,6 +5,7 @@
         <item name="colorPrimary">@color/carrot_market_primary</item>
         <item name="colorPrimaryVariant">@color/carrot_market_primary</item>
         <item name="colorOnPrimary">@color/carrot_market_primary</item>
+        <item name="android:textColorHint">@color/hint_color</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>

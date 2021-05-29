@@ -1,6 +1,7 @@
 package com.skott.softsquared.outsourcing_simulation.src.main.home_my_carrot
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -173,6 +174,6 @@ class MyCarrotFragment : BaseFragment<MyCarrotFragmentBinding>(
     }
 
     override fun onGetMyCarrotFailure(message: String) {
-        showCustomToast(message)
+        Log.e("api error",message)
     }
 }

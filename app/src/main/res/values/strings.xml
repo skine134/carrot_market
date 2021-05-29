@@ -85,14 +85,17 @@
     <string name="my_town_setting_app_bar_title">내 동네 설정</string>
     <string name="my_town_setting_select">동네 선택</string>
     <string name="my_town_setting_my_town_notice">지역은 최소 1개 이상 최대 2개까지 설정 가능해요.</string>
-    <string name="my_town_setting_near_by_town">town과 근처 <u>동네 number개</u></string>
-    <string name="my_town_setting_town_range_notice">선택한 범위의 게시글만 볼 수 있어요.</string>
-    <string name="my_town_setting_town_range_minimum">내동네</string>
-    <string name="my_town_setting_town_range_maxmum">근처동네</string>
     <string name="my_town_setting_find_town_by_currenct_location">내 동네 이름(동,읍,면)으로 검색</string>
     <string name="my_town_setting_find_town_by_currenct_location_button">현재 위치로 찾기</string>
     <string name="my_town_setting_related_town">관련주소 <b>도농동</b></string>
 
+    <!--                 SeekMap                         -->
+
+    <string name="seekmap_app_bar_title">게시글 보여줄 동네 고르기</string>
+    <string name="seekmap_near_by_town">town과 근처 <u>동네 count개</u></string>
+    <string name="seekmap_town_range_notice">선택한 범위의 게시글만 볼 수 있어요.</string>
+    <string name="seekmap_town_range_minimum">내동네</string>
+    <string name="seekmap_town_range_maxmum">근처동네</string>
     <!--                 FIND_MY_TOWN                 -->
 
     <string name="find_near_by_town">근처동네</string>
@@ -113,6 +116,8 @@
     <string name="used_product_posting_deal">가격제안 받기</string>
     <string name="used_product_posting_hint_content">town에 올릴 게시글 내용을 작성해주세요.<br>가품 및 판매금지품목은 게시가 제한될 수 있어요</br></string>
     <string name="used_product_posting_range">게시글 보여줄 동네 고르기</string>
+    <string name="used_product_posting_selected_range">town과 근처 동네 count개</string>
     <string name="used_product_posting_category_title">카테고리</string>
-<!--    <string name="used_product_posting_"></string>-->
+    <string name="used_product_posting_temp_save">입력 중인 게시글이 임시 저장되었습니다.</string>
+    <string name="used_product_posting_please_input_primary">제목, 카테고리, 내용은 필수 입력항목이에요</string>
 </resources>

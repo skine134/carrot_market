@@ -3,4 +3,6 @@
     <string name="certificate_to_sign_in_certification_intent_key">certificateToSignInCertificationIntentKey</string>
     <string name="certificate_to_create_profile_phone_number_intent_key">certificateToCreateProfilePhoneNumberIntentKey</string>
     <string name="profile_fragment_to_create_profile_phone_number_intent_key">profileFragmentToCreateProfilePhoneNumberIntentKey</string>
+    <string name="seekmap_fragment_to_activity_intent_key">seekMapFragmentToActivityIntentKey</string>
+    <string name="seekmap_activity_to_post_activity_intent_key">seekMapFragmentToPostActivityIntentKey</string>
 </resources>

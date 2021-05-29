@@ -8,6 +8,7 @@ import android.graphics.Typeface
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.UnderlineSpan
+import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -74,8 +75,8 @@ class CertificationActivity : BaseActivity<CertificationLayoutBinding>(Certifica
                 val text = editText.text.toString()
                 val isMaxLength = text.replace(" ","").length>=11
                 button.isEnabled = isMaxLength
-                if(keyCode== KeyEvent.KEYCODE_BACK)
-                    showNotBackToast()
+//                if(keyCode== KeyEvent.KEYCODE_BACK)
+//                    showNotBackToast()
                 if(keyCode== KeyEvent.KEYCODE_ENTER)
                 {
                     val keyBoard = context.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -230,7 +231,7 @@ class CertificationActivity : BaseActivity<CertificationLayoutBinding>(Certifica
     }
 
     override fun onSignUpMobileCheckFailure(message: String) {
-        showCustomToast(message)
+        Log.e("api error",message)
     }
 
     override fun onSignInSuccess(certificateResponse: SignInResponse) {
@@ -245,7 +246,7 @@ class CertificationActivity : BaseActivity<CertificationLayoutBinding>(Certifica
     }
 
     override fun onSignInFailure(message: String){
-        showCustomToast(message)
+        Log.e("api error",message)
     }
     override fun onBackPressed() {
         showNotBackToast()
@@ -258,6 +259,6 @@ class CertificationActivity : BaseActivity<CertificationLayoutBinding>(Certifica
     }
 
     override fun onCertificationsFailure(message: String) {
-        showCustomToast(message)
+        Log.e("api error",message)
     }
 }

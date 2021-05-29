@@ -85,7 +85,7 @@ class CreateProfileActivity :
         finish()
     }
     override fun onSignUpFailure(message: String) {
-        showCustomToast(message)
+        Log.e("api error",message)
     }
     // 프래그먼트에서 데이터를 받아오기 위한 인터페이스
     interface ProfileDataInterface {

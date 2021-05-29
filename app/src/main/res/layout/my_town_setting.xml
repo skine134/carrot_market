@@ -84,7 +84,7 @@
         <fragment
             android:id="@+id/my_town_range_fragment"
             tools:layout="@layout/seek_map_fragment"
-            class="com.skott.softsquared.outsourcing_simulation.src.main.my_town_setting.SeekMapFragment"
+            class="com.skott.softsquared.outsourcing_simulation.src.main.seekmap.SeekMapFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintDimensionRatio="1:1.2"

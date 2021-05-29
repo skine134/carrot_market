@@ -50,6 +50,9 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.12.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
 
+    //keyevent
+    implementation 'gun0912.ted:tedkeyboardobserver:1.0.1'
+
     //json-serialization
     implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.1'
 
