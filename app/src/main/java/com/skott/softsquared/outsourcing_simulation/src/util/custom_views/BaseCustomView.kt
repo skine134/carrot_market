@@ -13,7 +13,7 @@ abstract class BaseCustomView<B: ViewBinding>(private val inflate: (LayoutInflat
     init {
         init()
     }
-    open fun init()
+    fun init()
     {
         binding = inflate(inflater)
         addView(binding.root)

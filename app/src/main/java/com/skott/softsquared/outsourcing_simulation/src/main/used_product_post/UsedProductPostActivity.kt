@@ -52,6 +52,7 @@ class UsedProductPostActivity :
     private lateinit var defineDialog: AlertDialog
     private var scope:Int = 1
     private val pictures = ArrayList<Picture>()
+    private var uriList = ArrayList<String>()
     private lateinit var usedProductPostService:UsedProductPostService
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

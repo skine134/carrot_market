@@ -3,13 +3,32 @@ package com.skott.softsquared.outsourcing_simulation.src.util.lib
 import android.app.Activity
 import android.content.Context
 import android.graphics.Rect
+import android.net.Uri
 import android.util.Log
+import android.util.TypedValue
+import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import android.widget.FrameLayout
+import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewbinding.ViewBinding
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import gun0912.tedimagepicker.builder.TedImagePicker
+
+fun showImagePicker(context: Context,isMultiPick:Boolean,event: (Any) -> Unit)
+{
+    if(isMultiPick)
+        TedImagePicker.with(context)
+            .startMultiImage { uriList -> event(uriList) }
+    else
+        TedImagePicker.with(context)
+            .start { uri -> event(uri) }
+}
 
 fun getScrollListener(event:()->Unit): RecyclerView.OnScrollListener
 {

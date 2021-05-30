@@ -13,6 +13,7 @@
         android:background="@drawable/certificate_edit_text_shape"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
         >
 
@@ -28,7 +29,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/used_product_posting_pickture_count"
-            android:textSize="16sp"
+            android:autoSizeTextType="uniform"
+            android:singleLine="false"
             android:gravity="center"
             />
     </LinearLayout>
@@ -36,7 +38,9 @@
         android:id="@+id/image_recycler_view"
         android:layout_width="0dp"
         android:layout_marginStart="10dp"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="@id/gallery_image_button_layout"
+        app:layout_constraintBottom_toBottomOf="@id/gallery_image_button_layout"
         app:layout_constraintStart_toEndOf="@id/gallery_image_button_layout"
         app:layout_constraintEnd_toEndOf="parent"
         />

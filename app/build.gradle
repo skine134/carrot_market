@@ -64,7 +64,7 @@ dependencies {
     implementation 'com.tbuonomo:dotsindicator:4.2'
 //    // image picker
 //    // https://github.com/ParkSangGwon/TedImagePicker
-//    implementation 'gun0912.ted:tedimagepicker:1.1.10'
+    implementation 'gun0912.ted:tedimagepicker:1.1.10'
 
     //retrofit
     implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
