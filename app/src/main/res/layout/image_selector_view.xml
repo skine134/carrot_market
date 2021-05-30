@@ -5,14 +5,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/gallery_image_button_layout"
         android:layout_width="0dp"
-        android:layout_height="match_parent"
+        android:layout_height="80dp"
         android:orientation="vertical"
         android:background="@drawable/certificate_edit_text_shape"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/image_recycler_view"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
         >
@@ -20,7 +21,8 @@
         <ImageView
             android:id="@+id/image_icon"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:scaleType="center"
             android:src="@drawable/camera"
             android:background="@color/pure_trans"
             />
@@ -29,11 +31,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/used_product_posting_pickture_count"
-            android:autoSizeTextType="uniform"
-            android:singleLine="false"
+            android:textSize="14sp"
             android:gravity="center"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             />
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/image_recycler_view"
         android:layout_width="0dp"

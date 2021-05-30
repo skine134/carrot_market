@@ -38,7 +38,7 @@ class ImageSelectorView(context: Context, attrs:AttributeSet):ConstraintLayout(c
     {
         return binding.imageRecyclerView
     }
-    fun getAddImageButton():LinearLayout
+    fun getAddImageButton():ConstraintLayout
     {
         return binding.galleryImageButtonLayout
     }
