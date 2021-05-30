@@ -1,10 +1,13 @@
 package com.skott.softsquared.outsourcing_simulation.src.main.product_detail
 
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.UnderlineSpan
 import android.util.Log
+import android.view.Window
+import android.view.WindowManager
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.viewpager.widget.ViewPager
 import com.skott.softsquared.outsourcing_simulation.R
@@ -12,8 +15,9 @@ import com.skott.softsquared.outsourcing_simulation.databinding.ProductDetailLay
 import com.skott.softsquared.outsourcing_simulation.src.config.BaseActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.gallery_picker.model.Picture
 import com.skott.softsquared.outsourcing_simulation.src.main.product_detail.model.ProductDetailResponse
-import com.skott.softsquared.outsourcing_simulation.src.main.product_detail.model.SmallProduct
+import com.skott.softsquared.outsourcing_simulation.src.util.lib.SpacesItemDecoration
 import java.text.DecimalFormat
+
 
 class ProductDetailActivity :
     BaseActivity<ProductDetailLayoutBinding>(ProductDetailLayoutBinding::inflate),
@@ -25,6 +29,11 @@ class ProductDetailActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         context = this
+            val w: Window = window
+            w.setFlags(
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+            )
         productDetailService = ProductDetailService(this)
         viewPager = binding.productDetailImageSlider.getViewPager()
         setToolbarEvent()
@@ -73,6 +82,7 @@ class ProductDetailActivity :
             if (productDetailResponse.isOnTop.equals("YES")) context.getString(R.string.product_detail_pull_up) else ""
         binding.productDetailContentTimeTextView.text = productDetailResponse.passedTime
         binding.productDetailUserNicknameTextView.text = productDetailResponse.sellerNickname
+        binding.productDetailTogetherSeeTextView.text = context.getString(R.string.product_detail_seller_item).replace("name",productDetailResponse.sellerNickname)
         binding.productDetailIsDealTextView.text =
             if (productDetailResponse.isNegotiable.equals("YES")) SpannableString(
                 context.getString(
@@ -91,7 +101,15 @@ class ProductDetailActivity :
         binding.productDetailPriceTextView.text = context.getString(R.string.product_detail_price)
             .replace("price", DecimalFormat("###,###").format(productDetailResponse.price.toInt()))
         val recyclerView = binding.productDetailTogetherSeeRecyclerView.getRecyclerView()
-        recyclerView.layoutManager = GridLayoutManager(context, 2)
+        val gridLayoutManager = GridLayoutManager(context, 2).apply{
+            spanSizeLookup = object: GridLayoutManager.SpanSizeLookup() {
+                override fun getSpanSize(position: Int): Int {
+                    return 1
+                }
+            }
+        }
+        recyclerView.layoutManager = gridLayoutManager
+        recyclerView.addItemDecoration(SpacesItemDecoration(2,5, false))
         smallProductAdapter =
             SmallProductAdapter(
                 context,
@@ -107,18 +125,18 @@ class ProductDetailActivity :
         showCustomToast("상품 정보를 불러올 수 없습니다.")
         finish()
     }
-
     private fun setImageToViewPager(pictures: ArrayList<Picture>) {
 
         val imageArray = ArrayList<String>()
         for (item in pictures) {
-            imageArray.add(item.fileUrl)
+            Log.d("picture",item.pictureUrl)
+            imageArray.add(item.pictureUrl)
         }
         val adapter = ImageViewPagerAdapter(context, imageArray)
-
         viewPager.adapter = adapter
-        val dotsIndicator = binding.productDetailImageSlider.getDotIndication()
-        viewPager = binding.productDetailImageSlider.getViewPager()
-        dotsIndicator.setViewPager(viewPager)
+        viewPager.clipToPadding=false
+        val wormDotsIndicator = binding.productDetailImageSlider.getDotIndication()
+        wormDotsIndicator.setViewPager(viewPager)
+
     }
 }

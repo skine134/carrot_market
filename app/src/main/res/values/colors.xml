@@ -44,4 +44,7 @@
 
     <!--            PRODUCT_LIST       -->
     <color name="please_town_auth">#F2F3F7</color>
+    <!--            PRODUCT_DETAIL      -->
+
+    <color name="hint_color_trans">#90D2D3D8</color>
 </resources>

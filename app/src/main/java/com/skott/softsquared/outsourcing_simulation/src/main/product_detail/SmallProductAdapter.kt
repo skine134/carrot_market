@@ -3,6 +3,8 @@ package com.skott.softsquared.outsourcing_simulation.src.main.product_detail
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.recyclerview.widget.GridLayoutManager
 import com.skott.softsquared.outsourcing_simulation.databinding.SmallProductAdapterBinding
 import com.skott.softsquared.outsourcing_simulation.src.main.product_detail.model.SmallProduct
 import com.skott.softsquared.outsourcing_simulation.src.util.adapters.BaseRecyclerMessageViewAdapter
@@ -21,7 +23,9 @@ class SmallProductAdapter(
     }
 
     override fun onBindViewHolder(holder: SmallProductViewHolder, position: Int) {
-        if(arrayList[position].pictureURL!=null)
+        if(arrayList[position].pictureURL!=null) {
             holder.bind(arrayList[position])
+
+        }
     }
 }

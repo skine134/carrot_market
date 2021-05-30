@@ -1,6 +1,7 @@
 package com.skott.softsquared.outsourcing_simulation.src.main.product_detail
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,16 +21,16 @@ class ImageViewPagerAdapter(val context: Context,val imageArray:ArrayList<String
         return view===`object`
     }
 
+    override fun getItemPosition(`object`: Any): Int {
+        return POSITION_NONE
+    }
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
-        super.instantiateItem(container, position)
         binding = ProductDetailImageViewBinding.inflate(inflater,container,false)
-        getRoundedAllCornerBitmap(context,imageArray[position],10,binding.image)
-        (container as ViewPager).addView(binding.root)
+        getRoundedAllCornerBitmap(context,imageArray[position],0,binding.image)
+        container.addView(binding.root)
         return binding.root
     }
-
     override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
-        super.destroyItem(container, position, `object`)
         val vp = container as ViewPager
         val v = `object` as View
         return vp.removeView(v)

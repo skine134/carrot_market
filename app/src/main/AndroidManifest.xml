@@ -33,7 +33,8 @@
         <activity android:name=".src.main.used_product_post.UsedProductPostActivity"
             android:windowSoftInputMode="adjustResize"/>
         <activity android:name="com.skott.softsquared.outsourcing_simulation.src.main.seekmap.SeekMapActivity"/>
-        <activity android:name=".src.main.product_detail.ProductDetailActivity"/>
+        <activity android:name=".src.main.product_detail.ProductDetailActivity"
+                    android:fitsSystemWindows="true"/>
     </application>
 
 </manifest>
