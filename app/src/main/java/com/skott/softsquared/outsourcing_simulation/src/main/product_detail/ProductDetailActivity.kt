@@ -38,8 +38,8 @@ class ProductDetailActivity :
 //        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
 //        actionBar?.hide()
 
-//        val w = window
-//        w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+        val w = window
+        w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
 
 //        window.apply{
 //            this.statusBarColor= context.getColor(R.color.pure_trans)
@@ -120,7 +120,7 @@ class ProductDetailActivity :
             }
         }
         recyclerView.layoutManager = gridLayoutManager
-        recyclerView.addItemDecoration(SpacesItemDecoration(2,5, false))
+        recyclerView.addItemDecoration(SpacesItemDecoration(2,20, false))
         smallProductAdapter =
             SmallProductAdapter(
                 context,

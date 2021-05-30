@@ -13,6 +13,7 @@ import com.skott.softsquared.outsourcing_simulation.databinding.ProductListFragm
 import com.skott.softsquared.outsourcing_simulation.src.main.home_product_list.model.ProductListResponse
 import com.skott.softsquared.outsourcing_simulation.src.util.custom_views.IconCounterView
 import com.skott.softsquared.outsourcing_simulation.src.util.lib.getRoundedAllCornerBitmap
+import java.text.DecimalFormat
 
 class ProductRecyclerViewHolder(val context: Context, val item: ViewBinding) :
     RecyclerView.ViewHolder(item.root) {
@@ -53,7 +54,7 @@ class ProductRecyclerViewHolder(val context: Context, val item: ViewBinding) :
         if (!imageString.equals("null"))
             getRoundedAllCornerBitmap(context, imageString, 20, image)
         price.text =
-            context.getString(R.string.product_price).replace("price", productListResponse.price)
+            context.getString(R.string.product_price).replace("price", DecimalFormat("###,###").format(productListResponse.price.toInt()).toString())
         favorite.setCount(productListResponse.numOfLikes)
         chat.setCount(productListResponse.numOfChats)
         time.text = productListResponse.passedTime

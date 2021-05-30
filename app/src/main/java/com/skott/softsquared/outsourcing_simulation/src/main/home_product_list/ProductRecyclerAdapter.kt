@@ -37,6 +37,8 @@ class ProductRecyclerAdapter(
             return
         holder.bind(arrayList[position-1])
     }
-
     override fun getItemCount() =arrayList.size+1
+    override fun getItemViewType(position: Int): Int {
+        return position
+    }
 }
