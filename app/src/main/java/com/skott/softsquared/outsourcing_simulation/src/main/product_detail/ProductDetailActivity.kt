@@ -1,13 +1,16 @@
 package com.skott.softsquared.outsourcing_simulation.src.main.product_detail
 
+import android.R.attr.spacing
 import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.UnderlineSpan
 import android.util.Log
+import android.view.View
 import android.view.Window
 import android.view.WindowManager
+import android.widget.ImageButton
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.viewpager.widget.ViewPager
 import com.skott.softsquared.outsourcing_simulation.R
@@ -16,6 +19,7 @@ import com.skott.softsquared.outsourcing_simulation.src.config.BaseActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.gallery_picker.model.Picture
 import com.skott.softsquared.outsourcing_simulation.src.main.product_detail.model.ProductDetailResponse
 import com.skott.softsquared.outsourcing_simulation.src.util.lib.SpacesItemDecoration
+import okhttp3.internal.notifyAll
 import java.text.DecimalFormat
 
 
@@ -29,12 +33,18 @@ class ProductDetailActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         context = this
-            val w: Window = window
-            w.setFlags(
-                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-            )
         productDetailService = ProductDetailService(this)
+
+//        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+//        actionBar?.hide()
+
+//        val w = window
+//        w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+
+//        window.apply{
+//            this.statusBarColor= context.getColor(R.color.pure_trans)
+//            decorView.systemUiVisibility= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR or View.SYSTEM_UI_FLAG_FULLSCREEN
+//        }
         viewPager = binding.productDetailImageSlider.getViewPager()
         setToolbarEvent()
         val intentValue = intent.getIntExtra(
@@ -45,6 +55,7 @@ class ProductDetailActivity :
             Log.e("intent error", "")
         else
             productDetailService.tryGetProductDetail(intentValue)
+        setBackButtonEvent(binding.backButton)
     }
 
     fun setToolbarEvent() {
@@ -138,5 +149,10 @@ class ProductDetailActivity :
         val wormDotsIndicator = binding.productDetailImageSlider.getDotIndication()
         wormDotsIndicator.setViewPager(viewPager)
 
+    }
+    private fun setBackButtonEvent(button: ImageButton){
+        button.setOnClickListener{
+            finish()
+        }
     }
 }

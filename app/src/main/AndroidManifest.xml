@@ -9,16 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:name=".src.config.ApplicationClass"
         android:supportsRtl="true"
-        android:theme="@style/Theme.OutSourcingSimulating">
-        <activity android:name=".src.splash.SplashActivity">
+        android:theme="@style/Theme.OutSourcingSimulating"
+        >
+        <activity android:name=".src.splash.SplashActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".src.main.certification.CertificationActivity"/>
-        <activity android:name=".src.main.findid.FindIdForEmailActivity">
+        <activity android:name=".src.main.certification.CertificationActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".src.main.findid.FindIdForEmailActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -26,15 +30,22 @@
                 <data android:scheme="find_id_for_email"/>
             </intent-filter>
         </activity>
-        <activity android:name=".src.main.home.HomeActivity"/>
-        <activity android:name=".src.main.create_profile.CreateProfileActivity"/>
-        <activity android:name=".src.main.find_town.FindTownActivity"/>
-        <activity android:name=".src.main.my_town_setting.MyTownSettingActivity"/>
+        <activity android:name=".src.main.home.HomeActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".src.main.create_profile.CreateProfileActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".src.main.find_town.FindTownActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustNothing"/>
+        <activity android:name=".src.main.my_town_setting.MyTownSettingActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".src.main.used_product_post.UsedProductPostActivity"
-            android:windowSoftInputMode="adjustResize"/>
+            android:windowSoftInputMode="adjustResize"
+            android:screenOrientation="portrait"/>
         <activity android:name="com.skott.softsquared.outsourcing_simulation.src.main.seekmap.SeekMapActivity"/>
         <activity android:name=".src.main.product_detail.ProductDetailActivity"
-                    android:fitsSystemWindows="true"/>
+                    android:fitsSystemWindows="true"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

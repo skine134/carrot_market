@@ -49,6 +49,7 @@
 
     </com.skott.softsquared.outsourcing_simulation.src.util.custom_views.CarrotMarketAppbar>
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nested_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbars="vertical"
@@ -57,10 +58,12 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:descendantFocusability="blocksDescendants"
             android:orientation="vertical"
             android:padding="20dp"
             android:paddingBottom="0dp"
+            android:descendantFocusability="blocksDescendants"
+            android:overScrollMode="never"
+            android:nestedScrollingEnabled="false"
             >
 
             <fragment
@@ -72,12 +75,11 @@
                 android:layout_marginBottom="15dp"
                 tools:layout="@layout/please_town_auth_fragment" />
 
-            <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.RecyclerMessageView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/product_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/please_auth_town"
-                app:message="@string/main_not_found_list" />
+                android:overScrollMode="never"/>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
