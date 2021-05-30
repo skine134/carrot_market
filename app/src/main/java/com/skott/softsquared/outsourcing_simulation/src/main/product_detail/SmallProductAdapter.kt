@@ -21,6 +21,7 @@ class SmallProductAdapter(
     }
 
     override fun onBindViewHolder(holder: SmallProductViewHolder, position: Int) {
-        holder.bind(arrayList[position])
+        if(arrayList[position].pictureURL!=null)
+            holder.bind(arrayList[position])
     }
 }

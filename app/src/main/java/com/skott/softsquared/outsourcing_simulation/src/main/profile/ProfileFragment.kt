@@ -33,7 +33,7 @@ class ProfileFragment : BaseFragment<ProfileFragmentBinding>(ProfileFragmentBind
 //            Toast.makeText(context,"test",Toast.LENGTH_SHORT).show()
             val intent = Intent(Intent.ACTION_PICK)
             intent.setDataAndType(android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI,"image/*")
-            (context as Activity).startActivityForResult(intent,0)
+            (context as Activity).startActivityForResult(intent, 0)
         }
     }
     override fun profileImageViewListener(): ProfileImageView {

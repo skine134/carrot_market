@@ -12,6 +12,7 @@ import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.ProductListFragmentBinding
 import com.skott.softsquared.outsourcing_simulation.src.config.BaseFragment
 import com.skott.softsquared.outsourcing_simulation.src.main.home_product_list.model.ProductListResponse
+import com.skott.softsquared.outsourcing_simulation.src.main.used_product_post.UsedProductCategory
 import com.skott.softsquared.outsourcing_simulation.src.main.used_product_post.UsedProductPostActivity
 
 class ProductListFragment:BaseFragment<ProductListFragmentBinding>(ProductListFragmentBinding::bind,R.layout.product_list_fragment),ProductListView {
@@ -25,7 +26,13 @@ class ProductListFragment:BaseFragment<ProductListFragmentBinding>(ProductListFr
         super.onCreateView(inflater, container, savedInstanceState)
         val arrayList = ArrayList<ProductListResponse>()
         productListService= ProductListService(this)
-        productListService.tryGetProductList(villageIdx = 1,rangeLevel = 1,categories = "디지털/가전&가구/인테리어",lastItemIdx =0)
+        var userCategory = ""
+        for(item in UsedProductCategory.values())
+        {
+            userCategory += item.value+"&"
+        }
+        val allCategory = userCategory.substring(0,userCategory.lastIndex)
+        productListService.tryGetProductList(villageIdx = 1,rangeLevel = 1,categories = allCategory,lastItemIdx =0)
         productRecyclerAdapter = ProductRecyclerAdapter(requireContext(),arrayList,binding.productList)
         binding.productList.getRecyclerView().layoutManager=LinearLayoutManager(requireContext())
         binding.productList.getRecyclerView().adapter = productRecyclerAdapter

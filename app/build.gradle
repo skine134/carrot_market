@@ -41,9 +41,13 @@ android {
         enabled=true
     }
 }
-
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.android.application'
 dependencies {
 
+    implementation platform('com.google.firebase:firebase-bom:28.0.1')
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-storage-ktx'
     // https://github.com/ybq/Android-SpinKit
     implementation 'com.github.ybq:Android-SpinKit:1.4.0'
     // glide

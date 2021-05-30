@@ -127,9 +127,9 @@
     <string name="product_detail_app_bar_title">title</string>
     <string name="product_detail_favorite_and_view_count">관심 favorite · 조회 view</string>
     <string name="product_detail_user_report">이 게시글 신고하기</string>
-    <string name="product_detail_user_other_product">name님의 판매 상품</string>
+    <string name="product_detail_pull_up">끌올</string>
     <string name="product_detail_price">price원</string>
-    <string name="product_detail_deal"><u>가격제안하기</u></string>
+    <string name="product_detail_deal">가격제안하기</string>
     <string name="product_detail_not_deal">가격제안불가</string>
     <string name="product_detail_chat">채팅으로 거래하기</string>
 </resources>

@@ -1,6 +1,5 @@
 package com.skott.softsquared.outsourcing_simulation.src.main.home_product_list
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater

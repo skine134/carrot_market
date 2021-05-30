@@ -14,7 +14,7 @@ class SmallProductViewHolder(val context: Context, binding: SmallProductAdapterB
     var status = ""
     fun bind(smallProduct: SmallProduct)
     {
-        getRoundedAllCornerBitmap(context,smallProduct.pictureURL,10,image)
+        getRoundedAllCornerBitmap(context,smallProduct.pictureURL!!,10,image)
         title.text = smallProduct.title
         price.text = smallProduct.price
         status = smallProduct.status

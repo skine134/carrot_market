@@ -1,10 +1,14 @@
 package com.skott.softsquared.outsourcing_simulation.src.util.lib
 
 import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.graphics.LightingColorFilter
 import android.graphics.drawable.Drawable
 import android.util.DisplayMetrics
+import android.util.Log
 import android.util.TypedValue
+import android.view.View
 import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.bumptech.glide.Glide
@@ -14,6 +18,51 @@ import com.bumptech.glide.load.resource.bitmap.GranularRoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
+import com.skott.softsquared.outsourcing_simulation.src.config.ApplicationClass
+import java.io.ByteArrayOutputStream
+import java.util.*
+
+fun uploadImageToFireBase(imageView: ImageView):String
+{
+    val uuid = UUID.randomUUID().toString()
+    val profileImageRef= ApplicationClass.storageReference.child("image/$uuid")
+    val bitmap = getBitmapFromView(imageView)
+    val baos = ByteArrayOutputStream()
+    var imageUrl = ""
+    bitmap!!.compress(Bitmap.CompressFormat.JPEG,100,baos)
+    val data = baos.toByteArray()
+    var uploadTask = profileImageRef.putBytes(data)
+    uploadTask.addOnProgressListener {
+        val progress = (100.0 * it.bytesTransferred) / it.totalByteCount
+        Log.d("firebase upload progress", "Upload is $progress% done")
+    }.addOnCanceledListener {
+        Log.e("firebase storage error","failure upload image")
+    }.addOnSuccessListener {
+
+    }
+    val urlTask = uploadTask.continueWithTask {
+        if (!it.isSuccessful) {
+            it.exception?.let {
+                throw it
+            }
+        }
+        profileImageRef.downloadUrl
+    }.addOnCompleteListener {
+        if (it.isSuccessful) {
+            imageUrl = it.result!!.path!!
+        } else {
+            Log.e("firebase error","not found download url")
+        }
+    }
+    return imageUrl
+}
+fun getBitmapFromView(view: View): Bitmap?{
+    var bitmap =
+        Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
+    var canvas = Canvas(bitmap)
+    view.draw(canvas)
+    return bitmap
+}
 
 fun getRoundedCornerBitmap(
     context: Context,
