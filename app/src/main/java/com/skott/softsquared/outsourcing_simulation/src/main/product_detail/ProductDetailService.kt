@@ -31,4 +31,27 @@ class ProductDetailService(val view:ProductDetailActivity){
 
         })
     }
+    fun tryGetFavoriteProduct(itemIdx:Int)
+    {
+        val api = ApplicationClass.sRetrofit.create(ProductDetailRetrofitInterface::class.java)
+        api.getFavoriteProduct(itemIdx).enqueue(object:
+            Callback<BaseResponse<String>> {
+            override fun onResponse(
+                call: Call<BaseResponse<String>>,
+                response: Response<BaseResponse<String>>
+            ) {
+                if(response.body()!!.code!=1000)
+                {
+                    view.onGetProductDetailFailure(response.body()!!.message?:"상세 정보 api 에러 발생.")
+                    return
+                }
+                view.onGetFavoriteProductSuccess()
+            }
+
+            override fun onFailure(call: Call<BaseResponse<String>>, t: Throwable) {
+                view.onGetFavoriteProductFailure(t.message?:"관심 목록 api 에러 발생.")
+            }
+
+        })
+    }
 }

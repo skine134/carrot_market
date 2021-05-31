@@ -11,6 +11,7 @@ import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.view.WindowManager
+import android.widget.CheckBox
 import android.widget.ImageButton
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
@@ -35,6 +36,7 @@ class ProductDetailActivity :
     private lateinit var sellerProductsAdapter: SmallProductAdapter
     private lateinit var recommendProductAdapter: SmallProductAdapter
     private lateinit var productDetailService: ProductDetailService
+    private var productId = -1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         context = this
@@ -43,7 +45,56 @@ class ProductDetailActivity :
         binding.backButton.setColorFilter(Color.parseColor("#ffffffff"))
         binding.productDetailShareImageButton.setColorFilter(Color.parseColor("#ffffffff"))
         binding.productDetailMoreImageButton.setColorFilter(Color.parseColor("#ffffffff"))
-        binding.mainAppBar.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
+        setCollapsingToolbarEvent(binding.mainAppBar)
+        setSupportActionBar(binding.mainToolBar)
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(false)
+///      status bar 조절 함수들
+
+//        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+//        actionBar?.hide()
+
+        val w = window
+        w.setFlags(
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+        )
+
+//        window.apply{
+//            this.statusBarColor= context.getColor(R.color.pure_trans)
+//            decorView.systemUiVisibility= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR or View.SYSTEM_UI_FLAG_FULLSCREEN
+//        }
+        viewPager = binding.productDetailImageSlider.getViewPager()
+
+        val intentValue = intent.getIntExtra(
+            context.getString(R.string.home_activity_to_product_detail_activity_intent_key),
+            -1
+        )
+
+        if (intentValue == -1)
+            Log.e("intent error", "")
+        else
+            productDetailService.tryGetProductDetail(intentValue)
+        setToolbarEvent()
+        setBackButtonEvent(binding.backButton)
+        setFavoriteEvent(binding.productDetailFavoriteImageButton)
+    }
+    private fun setFavoriteEvent(checkBox: CheckBox)
+    {
+        checkBox.setOnClickListener{
+                productDetailService.tryGetFavoriteProduct(productId)
+        }
+    }
+    fun setToolbarEvent() {
+        setSupportActionBar(binding.mainToolBar)
+        binding.mainToolBar.setNavigationOnClickListener {
+            onBackPressed()
+        }
+
+    }
+    private fun setCollapsingToolbarEvent(appBarLayout: AppBarLayout)
+    {
+        appBarLayout.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
             val constValue = 51.5
             var calcul = 16+verticalOffset / constValue.toInt()
             Log.d("result",calcul.toString())
@@ -69,55 +120,17 @@ class ProductDetailActivity :
             preOffset=verticalOffset
         }
         )
-        setSupportActionBar(binding.mainToolBar)
-
-        supportActionBar?.setDisplayHomeAsUpEnabled(false)
-//        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
-//        actionBar?.hide()
-
-        val w = window
-        w.setFlags(
-            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-        )
-
-//        window.apply{
-//            this.statusBarColor= context.getColor(R.color.pure_trans)
-//            decorView.systemUiVisibility= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR or View.SYSTEM_UI_FLAG_FULLSCREEN
-//        }
-        viewPager = binding.productDetailImageSlider.getViewPager()
-        setToolbarEvent()
-        val intentValue = intent.getIntExtra(
-            context.getString(R.string.home_activity_to_product_detail_activity_intent_key),
-            -1
-        )
-        if (intentValue == -1)
-            Log.e("intent error", "")
-        else
-            productDetailService.tryGetProductDetail(intentValue)
-        setBackButtonEvent(binding.backButton)
-        binding.productDetailContentView.setOnScrollChangeListener { view: View, i: Int, i1: Int, i2: Int, i3: Int ->
-        }
     }
-
-    fun setToolbarEvent() {
-        setSupportActionBar(binding.mainToolBar)
-        binding.mainToolBar.setNavigationOnClickListener {
-            onBackPressed()
-        }
-
-    }
-
     override fun onGetProductDetailSuccess(productDetailResponse: ProductDetailResponse) {
         /*
         //TODO 아직 처리안한 항목
-          idx	int	Y	1		상품 식별자
           sellerIdx	int	Y	1		판매자 식별자
           sellerMannerTemperature	float	Y	36.5		판매자 매너온도
           status	String	Y	ONSALE		글 상태
           chatNum	int	Y	10		채팅수
           isLiked	String	Y	NO		좋아요 여부
          */
+        productId = productDetailResponse.idx
         if (productDetailResponse.pictures != null && productDetailResponse.pictures.size > 0)
             setImageToViewPager(productDetailResponse.pictures)
         binding.productDetailContentTitleTextView.text = productDetailResponse.title
@@ -135,6 +148,7 @@ class ProductDetailActivity :
             if (productDetailResponse.isOnTop.equals("YES")) context.getString(R.string.product_detail_pull_up) else ""
         binding.productDetailContentTimeTextView.text = productDetailResponse.passedTime
         binding.productDetailUserNicknameTextView.text = productDetailResponse.sellerNickname
+        binding.productDetailFavoriteImageButton.isChecked = productDetailResponse.isLiked.equals("YES")
         binding.productDetailSellerOtherProductTextView.text =
             context.getString(R.string.product_detail_seller_item)
                 .replace("name", productDetailResponse.sellerNickname)
@@ -201,6 +215,17 @@ class ProductDetailActivity :
         Log.e("api error", message)
         showCustomToast("상품 정보를 불러올 수 없습니다.")
         finish()
+    }
+
+    override fun onGetFavoriteProductSuccess() {
+        //TODO 커스텀 토스트 메세지
+        if(binding.productDetailFavoriteImageButton.isChecked)
+            showCustomToast(context.getString(R.string.product_detail_add_favorite))
+    }
+
+    override fun onGetFavoriteProductFailure(message: String) {
+        Log.e("api error", message)
+        showCustomToast("관심목록 등록에 실패 하였습니다.")
     }
 
     private fun setImageToViewPager(picture: ArrayList<Picture>) {

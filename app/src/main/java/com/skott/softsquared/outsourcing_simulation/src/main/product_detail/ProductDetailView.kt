@@ -5,4 +5,6 @@ import com.skott.softsquared.outsourcing_simulation.src.main.product_detail.mode
 interface ProductDetailView {
     fun onGetProductDetailSuccess(productDetailResponse: ProductDetailResponse)
     fun onGetProductDetailFailure(message:String)
+    fun onGetFavoriteProductSuccess()
+    fun onGetFavoriteProductFailure(message:String)
 }
