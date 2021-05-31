@@ -10,5 +10,5 @@ data class UsedProductPostRequest(
     var content: String,
     var villageIdx: Int?,
     var rangeLevel: Int?,
-    var Pictures: ArrayList<Picture>?,
+    var pictures: ArrayList<Picture>?,
 )

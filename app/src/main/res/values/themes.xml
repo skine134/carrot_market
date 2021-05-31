@@ -71,4 +71,12 @@
         <item name="android:background">@color/white</item>
         <item name="android:elevation">3dp</item>
     </style>
+    <style name="collapsingToolbarLayoutCollapsingTitleColor" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="collapsingToolbarLayoutExpandingTitleColor" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/pure_trans</item>
+    </style>
 </resources>

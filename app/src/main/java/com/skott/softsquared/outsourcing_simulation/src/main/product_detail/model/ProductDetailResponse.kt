@@ -16,7 +16,7 @@ data class ProductDetailResponse(
     val isOnTop: String,
     val likeNum: Int,
     val passedTime: String,
-    val Pictures: ArrayList<Picture>,
+    val pictures: ArrayList<Picture>,
     val price: String,
     val recommendedItems: ArrayList<SmallProduct>,
     val sellerIdx: Int,

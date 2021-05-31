@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewGroup.FOCUS_BLOCK_DESCENDANTS
+import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -29,6 +30,7 @@ class ProductListFragment:BaseFragment<ProductListFragmentBinding>(ProductListFr
     private lateinit var productRecyclerAdapter: ProductRecyclerAdapter
     private lateinit var productListService: ProductListService
     private var page =0
+    private lateinit var userCategory:String
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -37,7 +39,7 @@ class ProductListFragment:BaseFragment<ProductListFragmentBinding>(ProductListFr
         super.onCreateView(inflater, container, savedInstanceState)
         val arrayList = ArrayList<ProductListResponse>()
         productListService= ProductListService(this)
-        var userCategory = ""
+        userCategory = ""
         for(item in UsedProductCategory.values())
         {
             userCategory += item.value+"&"
@@ -59,7 +61,6 @@ class ProductListFragment:BaseFragment<ProductListFragmentBinding>(ProductListFr
 
         val allCategory = userCategory.substring(0,userCategory.lastIndex)
         binding.productList.isNestedScrollingEnabled=false
-        productListService.tryGetProductList(villageIdx = 1,rangeLevel = 1,categories = allCategory,lastItemIdx =page)
         val fragment=PleaseTownAuthFragmentBinding.inflate(requireContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater,container,false)
         productRecyclerAdapter = ProductRecyclerAdapter(requireContext(), arrayList,fragment)
         binding.productList.layoutManager=LinearLayoutManager(requireContext())
@@ -77,6 +78,12 @@ class ProductListFragment:BaseFragment<ProductListFragmentBinding>(ProductListFr
         })
         setFabEvent(binding.productListFab)
         return binding.root
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val allCategory = userCategory.substring(0,userCategory.lastIndex)
+        productListService.tryGetProductList(villageIdx = 1,rangeLevel = 1,categories = allCategory,lastItemIdx =page)
     }
     private fun setFabEvent(fab:FloatingActionButton)
     {

@@ -22,7 +22,7 @@ import com.skott.softsquared.outsourcing_simulation.src.main.gallery_picker.mode
 import java.io.ByteArrayOutputStream
 import java.util.*
 
-fun uploadImageToFireBase(imageView: ImageView,event:(Picture: Picture)->Unit)
+fun uploadImageToFireBase(imageView: ImageView,event:(picture: Picture)->Unit)
 {
     val uuid = UUID.randomUUID().toString()
     val profileImageRef= ApplicationClass.storageReference.child("image/$uuid")

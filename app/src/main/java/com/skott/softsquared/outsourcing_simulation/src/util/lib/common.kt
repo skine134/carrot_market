@@ -41,7 +41,7 @@ fun getScrollListener(event: () -> Unit): RecyclerView.OnScrollListener {
             val lastVisibleItemPosition =
                 (recyclerView.layoutManager as LinearLayoutManager?)!!.findLastCompletelyVisibleItemPosition() // 화면에 보이는 마지막 아이템의 position
             val itemTotalCount = recyclerView.adapter!!.itemCount - 5 // 어댑터에 등록된 아이템의 총 개수 -5
-            Log.d("lastVisibleItem", lastVisibleItemPosition.toString())
+//            Log.d("lastVisibleItem", lastVisibleItemPosition.toString())
 
             // 마지막으로 보여진 아이템 position 이
             // 전체 아이템 개수보다 5개 모자란 경우, 데이터를 loadMore 한다

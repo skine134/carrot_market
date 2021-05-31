@@ -133,4 +133,5 @@
     <string name="product_detail_not_deal">가격제안불가</string>
     <string name="product_detail_chat">채팅으로 거래하기</string>
     <string name="product_detail_seller_item">name님의 판매 상품</string>
+    <string name="product_detail_recommend">nickname님, 이건 어때요?</string>
 </resources>

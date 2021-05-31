@@ -20,7 +20,7 @@ interface ImageResultEvent{
 class ProfileImageView(context: Context, attrs:AttributeSet) : ConstraintLayout(context,attrs),ImageResultEvent{
     private lateinit var binding:ProfileImageViewBinding
     private lateinit var imageData:String
-    private lateinit var Picture: Picture
+    private lateinit var picture: Picture
     init{
         init()
         drawImageRounding()
@@ -51,14 +51,14 @@ class ProfileImageView(context: Context, attrs:AttributeSet) : ConstraintLayout(
     }
     fun getPicture():Picture
     {
-        return Picture
+        return picture
     }
     override fun imageSelectListener(uriString: String) {
         if(uriString.equals("")||uriString.equals("null"))
             return
         imageData = uriString
         binding.profileImage.setImageURI(Uri.parse(imageData))
-        uploadImageToFireBase(binding.profileImage){Picture=it}
+        uploadImageToFireBase(binding.profileImage){picture=it}
 
     }
 
