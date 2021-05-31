@@ -1,14 +1,18 @@
 package com.skott.softsquared.outsourcing_simulation.src.main.home_my_carrot
 
+import android.content.Intent
 import android.os.Bundle
+import android.text.Layout
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.MyCarrotFragmentBinding
 import com.skott.softsquared.outsourcing_simulation.src.config.BaseFragment
+import com.skott.softsquared.outsourcing_simulation.src.main.favorite_list.FavoriteListActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.home_my_carrot.model.MyCarrotListItem
 import com.skott.softsquared.outsourcing_simulation.src.main.home_my_carrot.model.MyCarrotResponse
 import com.skott.softsquared.outsourcing_simulation.src.util.lib.getRoundedAllCornerBitmap
@@ -48,6 +52,7 @@ class MyCarrotFragment : BaseFragment<MyCarrotFragmentBinding>(
         binding.townPostInfoList.adapter = townsPostInfoAdapter
         binding.businessList.adapter = businessAdapter
         binding.otherList.adapter = otherAdapter
+        setFavoriteIntentEvent(binding.myCarrotUserFavoriteListLayout)
         return binding.root
     }
 
@@ -153,7 +158,13 @@ class MyCarrotFragment : BaseFragment<MyCarrotFragmentBinding>(
         )
 
     }
-
+    private fun setFavoriteIntentEvent(viewGroup: ViewGroup)
+    {
+        viewGroup.setOnClickListener{
+            val intent= Intent(requireContext(),FavoriteListActivity::class.java)
+            startActivity(intent)
+        }
+    }
     override fun onGetMyCarrotSuccess(response: MyCarrotResponse) {
         var dong = response.dong.toString()
         binding.myCarrotNickname.text = response.nickName

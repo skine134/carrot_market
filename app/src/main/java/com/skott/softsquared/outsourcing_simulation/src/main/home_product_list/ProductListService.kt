@@ -29,17 +29,17 @@ class ProductListService(val view: ProductListFragment) {
                 response: Response<BaseResponse<ArrayList<ProductListResponse>>>
             ) {
                 if(response.body()!!.code!=1000) {
-                    view.onProductListFailure(response.body()!!.message!!)
+                    view.onGetProductListFailure(response.body()!!.message!!)
                     return
                 }
-                view.onProductListSuccess(response.body()!!.result!!)
+                view.onGetProductListSuccess(response.body()!!.result!!)
             }
 
             override fun onFailure(
                 call: Call<BaseResponse<ArrayList<ProductListResponse>>>,
                 t: Throwable
             ) {
-                view.onProductListFailure(t.message?:"상품 리스트 오류 발생")
+                view.onGetProductListFailure(t.message?:"상품 리스트 오류 발생")
             }
 
         })

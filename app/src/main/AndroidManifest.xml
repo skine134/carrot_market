@@ -46,6 +46,9 @@
         <activity android:name=".src.main.product_detail.ProductDetailActivity"
                     android:fitsSystemWindows="true"
             android:screenOrientation="portrait"/>
+        <activity android:name=".src.main.favorite_list.FavoriteListActivity"
+            android:fitsSystemWindows="true"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

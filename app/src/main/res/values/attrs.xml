@@ -9,6 +9,7 @@
         <attr name="back_button" format="boolean"/>
         <attr name="android:entries"/>
         <attr name="title"/>
+        <attr name="is_bottom_line" format="boolean"/>
     </declare-styleable>
     <declare-styleable name="MyTownButtonView">
         <attr name="is_active" format="boolean"/>

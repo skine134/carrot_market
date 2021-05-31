@@ -92,14 +92,14 @@ class ProductListFragment:BaseFragment<ProductListFragmentBinding>(ProductListFr
             startActivity(intent)
         }
     }
-    override fun onProductListSuccess(arrayList: ArrayList<ProductListResponse>) {
+    override fun onGetProductListSuccess(arrayList: ArrayList<ProductListResponse>) {
 
         productRecyclerAdapter.arrayList.addAll(arrayList)
         Log.d("item count ",productRecyclerAdapter.itemCount.toString())
         productRecyclerAdapter.notifyDataSetChanged()
     }
 
-    override fun onProductListFailure(message: String) {
+    override fun onGetProductListFailure(message: String) {
         Log.e("api error",message)
     }
 }

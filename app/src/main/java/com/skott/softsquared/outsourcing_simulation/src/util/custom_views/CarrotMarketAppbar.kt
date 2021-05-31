@@ -53,6 +53,7 @@ class CarrotMarketAppbar(context: Context, attrs:AttributeSet?=null) :Constraint
                     imageButtonArray.add(imageButton)
                 }
             binding.title.text = getString(R.styleable.CarrotMarketAppbar_title)?:""
+            binding.bottomLine.isGone = !getBoolean(R.styleable.CarrotMarketAppbar_is_bottom_line,true)
         }
     }
     fun init(){

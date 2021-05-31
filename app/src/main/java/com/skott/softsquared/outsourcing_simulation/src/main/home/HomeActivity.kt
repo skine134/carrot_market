@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.skott.softsquared.outsourcing_simulation.src.util.adapters.HomePaerAdapter
 import com.skott.softsquared.outsourcing_simulation.src.config.BaseActivity
 import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.HomeLayoutBinding
@@ -12,7 +11,7 @@ import com.skott.softsquared.outsourcing_simulation.databinding.HomeLayoutBindin
 class HomeActivity : BaseActivity<HomeLayoutBinding>(HomeLayoutBinding::inflate) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding.mainContentViewPager.adapter=HomePaerAdapter(supportFragmentManager)
+        binding.mainContentViewPager.adapter= HomePaerAdapter(supportFragmentManager)
         binding.mainContentViewPager.offscreenPageLimit=5
         setViewPagerEvent(binding.mainContentViewPager,binding.homeBottomNavView)
     }

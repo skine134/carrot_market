@@ -34,6 +34,7 @@
                 />
         </androidx.appcompat.widget.Toolbar>
         <View
+            android:id="@+id/bottom_line"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/carrot_market_guide_line"

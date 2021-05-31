@@ -1,4 +1,4 @@
-package com.skott.softsquared.outsourcing_simulation.src.util.adapters
+package com.skott.softsquared.outsourcing_simulation.src.main.home
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
