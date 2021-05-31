@@ -13,16 +13,16 @@ import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
-import com.bumptech.glide.load.resource.bitmap.CenterInside
 import com.bumptech.glide.load.resource.bitmap.GranularRoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
 import com.skott.softsquared.outsourcing_simulation.src.config.ApplicationClass
+import com.skott.softsquared.outsourcing_simulation.src.main.gallery_picker.model.Picture
 import java.io.ByteArrayOutputStream
 import java.util.*
 
-fun uploadImageToFireBase(imageView: ImageView):String
+fun uploadImageToFireBase(imageView: ImageView,event:(Picture: Picture)->Unit)
 {
     val uuid = UUID.randomUUID().toString()
     val profileImageRef= ApplicationClass.storageReference.child("image/$uuid")
@@ -50,11 +50,12 @@ fun uploadImageToFireBase(imageView: ImageView):String
     }.addOnCompleteListener {
         if (it.isSuccessful) {
             imageUrl = it.result!!.path!!
+            event(Picture(uuid,imageUrl))
+            Log.d("imageUrl",imageUrl)
         } else {
             Log.e("firebase error","not found download url")
         }
     }
-    return imageUrl
 }
 fun getBitmapFromView(view: View): Bitmap?{
     var bitmap =

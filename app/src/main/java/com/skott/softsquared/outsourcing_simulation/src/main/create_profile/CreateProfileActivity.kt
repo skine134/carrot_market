@@ -63,8 +63,8 @@ class CreateProfileActivity :
                 return@setOnClickListener
             } else
             {
-                Log.d("fire base url",profileImageView.getImageUrl())
-                createProfileService.trySignUp(SignUpRequest(cellphone, nickname,profileImageView.getImageUrl()))
+                Log.d("fire base url",profileImageView.getPicture().pictureUrl)
+                createProfileService.trySignUp(SignUpRequest(cellphone, nickname,profileImageView.getPicture()))
             }
         }
     }

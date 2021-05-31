@@ -24,7 +24,6 @@ import com.skott.softsquared.outsourcing_simulation.src.util.lib.getListDialog
 import com.skott.softsquared.outsourcing_simulation.src.main.gallery_picker.model.Picture
 import com.skott.softsquared.outsourcing_simulation.src.util.lib.dispatchKeyboardEvent
 import gun0912.tedkeyboardobserver.TedKeyboardObserver
-import gun0912.tedkeyboardobserver.TedRxKeyboardObserver
 
 enum class UsedProductCategory(val value: String) {
     DIGITAL("디지털/가전"),
@@ -143,22 +142,24 @@ class UsedProductPostActivity :
             }
             val price = if(binding.usedProductPostingPriceEditText.text.toString().equals("")) 0 else binding.usedProductPostingPriceEditText.text.toString().toInt()
             val village = if(ApplicationClass.userTownInfoArray.size<=0) 1 else ApplicationClass.userTownInfoArray[0].villageIdx
-            val usedProductPost = UsedProductPostRequest(
-                title = binding.usedProductPostingTitleEditText.text.toString(),
-                category = category,
-                price = price,
-                isNegotiable = if (binding.isDealCheckbox.isChecked) "YES" else "NO",
-                content = binding.usedProductPostingContentEditText.text.toString(),
-                //TODO:0이 아닌 현재 동네 값으로
-                villageIdx = village,
-                rangeLevel = scope,
-                //TODO: gallery에서 가져온 값으로
-                pictures = pictures,
-            )
-            usedProductPostService.tryPostItemUpload(usedProductPost)
+            var Picture:ArrayList<Picture>? = null
+            binding.usedProductImageSelectorView.getAllPicture {
+                Picture = it
+                val usedProductPost = UsedProductPostRequest(
+                    title = binding.usedProductPostingTitleEditText.text.toString(),
+                    category = category,
+                    price = price,
+                    isNegotiable = if (binding.isDealCheckbox.isChecked) "YES" else "NO",
+                    content = binding.usedProductPostingContentEditText.text.toString(),
+                    //TODO:0이 아닌 현재 동네 값으로
+                    villageIdx = village,
+                    rangeLevel = scope,
+                    Pictures = Picture,
+                )
+                usedProductPostService.tryPostItemUpload(usedProductPost)
+            }
         }
     }
-
     private fun showRelateCategories() {
     }
 

@@ -1,14 +1,10 @@
 package com.skott.softsquared.outsourcing_simulation.src.main.product_detail
 
-import android.R.attr.spacing
 import android.content.Context
-import android.os.Build
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.UnderlineSpan
 import android.util.Log
-import android.view.View
-import android.view.Window
 import android.view.WindowManager
 import android.widget.ImageButton
 import androidx.recyclerview.widget.GridLayoutManager
@@ -19,7 +15,6 @@ import com.skott.softsquared.outsourcing_simulation.src.config.BaseActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.gallery_picker.model.Picture
 import com.skott.softsquared.outsourcing_simulation.src.main.product_detail.model.ProductDetailResponse
 import com.skott.softsquared.outsourcing_simulation.src.util.lib.SpacesItemDecoration
-import okhttp3.internal.notifyAll
 import java.text.DecimalFormat
 
 
@@ -79,8 +74,8 @@ class ProductDetailActivity :
   recommendItems	Array	N			추천상품들
   userNickname	String	Y	당근마켓이용자		사용자 닉네임 (화면을 보고 있는 이용자)
          */
-        if (productDetailResponse.pictures.size > 0)
-            setImageToViewPager(productDetailResponse.pictures)
+        if (productDetailResponse.Pictures!=null&&productDetailResponse.Pictures.size > 0)
+            setImageToViewPager(productDetailResponse.Pictures)
         binding.productDetailContentTitleTextView.text = productDetailResponse.title
         binding.productDetailContentFavoriteAndViewCountTextView.text =
             context.getString(R.string.product_detail_favorite_and_view_count)
@@ -136,10 +131,10 @@ class ProductDetailActivity :
         showCustomToast("상품 정보를 불러올 수 없습니다.")
         finish()
     }
-    private fun setImageToViewPager(pictures: ArrayList<Picture>) {
+    private fun setImageToViewPager(Pictures: ArrayList<Picture>) {
 
         val imageArray = ArrayList<String>()
-        for (item in pictures) {
+        for (item in Pictures) {
             Log.d("picture",item.pictureUrl)
             imageArray.add(item.pictureUrl)
         }

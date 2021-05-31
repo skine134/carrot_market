@@ -3,63 +3,66 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="100dp"
+    android:layout_height="100dp"
     >
     <ImageView
         android:id="@+id/selected_image"
         android:layout_width="0dp"
         android:layout_height="0dp"
         tools:src="@drawable/profile_image"
-        android:adjustViewBounds="true"
-        android:scaleType="centerCrop"
+        android:adjustViewBounds="false"
+        android:scaleType="fitXY"
         app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@id/start_horizontal_guideline"
-        app:layout_constraintEnd_toEndOf="@id/finish_horizontal_guideline"
+        android:layout_margin="10dp"
         />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/start_horizontal_guideline"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.1" />
+<!--    app:layout_constraintTop_toBottomOf="@id/close_button"-->
+<!--    app:layout_constraintEnd_toStartOf="@id/close_button"-->
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/finish_horizontal_guideline"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.9" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/start_vertical_guideline"
-        android:layout_width="1dp"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.33" />
+<!--    <androidx.constraintlayout.widget.Guideline-->
+<!--        android:id="@+id/start_horizontal_guideline"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:orientation="vertical"-->
+<!--        app:layout_constraintGuide_percent="0.1" />-->
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/finish_vertical_guideline"
-        android:layout_width="1dp"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.73" />
+<!--    <androidx.constraintlayout.widget.Guideline-->
+<!--        android:id="@+id/finish_horizontal_guideline"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:orientation="vertical"-->
+<!--        app:layout_constraintGuide_percent="0.8" />-->
+
+<!--    <androidx.constraintlayout.widget.Guideline-->
+<!--        android:id="@+id/start_vertical_guideline"-->
+<!--        android:layout_width="1dp"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:orientation="horizontal"-->
+<!--        app:layout_constraintGuide_percent="0.18" />-->
+
+<!--    <androidx.constraintlayout.widget.Guideline-->
+<!--        android:id="@+id/finish_vertical_guideline"-->
+<!--        android:layout_width="1dp"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:orientation="horizontal"-->
+<!--        app:layout_constraintGuide_percent="0.73" />-->
 
     <ImageButton
         android:id="@+id/close_button"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:adjustViewBounds="true"
+        android:adjustViewBounds="false"
         android:background="@color/pure_trans"
         android:elevation="1.5dp"
-        android:scaleType="centerCrop"
+        android:scaleType="centerInside"
         android:src="@drawable/close_image"
-        app:layout_constraintBottom_toTopOf="@+id/start_vertical_guideline"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias="0.2"
         app:layout_constraintWidth_percent=".2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
