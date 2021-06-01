@@ -160,5 +160,32 @@
     <string name="buy_list_app_bar_title">구매내역</string>
     <string name="buy_list_see_comment">작성한 후기 보기</string>
 
+    <!--                APP_SETTING                         -->
+
+    <string name="app_setting_app_bar_title">설정</string>
+    <string name="app_setting_sign_out_dialog_title">로그아웃</string>
+    <string name="app_setting_sign_out_dialog_message">로그아웃 하시겠습니까?</string>
+    <string name="app_setting_alert_setting_title">알림 설정</string>
+    <string name="app_setting_alert_And_sound">알람 및 소리</string>
+    <string name="app_setting_dont_touch_time_setting">방해금지 시간설정</string>
+    <string name="app_setting_vibration">진동</string>
+    <string name="app_setting_session_info_setting">계정 / 정보 관리</string>
+    <string name="app_setting_group_view_user_setting">모아보기 사용자 관리</string>
+    <string name="app_setting_blacklist_user_setting">차단사용자 관리</string>
+    <string name="app_setting_no_show_post_user_setting">게시글 미노출 사용자 관리</string>
+    <string name="app_setting_other_setting">기타 설정</string>
+    <string name="app_setting_other">기타</string>
+    <string name="app_setting_language_setting">언어 설정</string>
+    <string name="app_setting_alert_cache">앱 캐시 정리하기</string>
+    <string name="app_setting_license">오픈소스 라이선스</string>
+    <string name="app_setting_version">버전 6.2.0</string>
+    <string name="app_setting_sign_out">로그아웃</string>
+    <string name="app_setting_delete_user">탈퇴하기</string>
+
+
+
+
+
+
 
 </resources>

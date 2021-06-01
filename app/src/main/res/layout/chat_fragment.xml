@@ -5,44 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:id="@+id/main_top_coordinator"
+    <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.CarrotMarketAppbar
+        android:id="@+id/main_top_app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:elevation="3dp"
-        android:background="@color/white"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintVertical_bias="0"
-        >
-        <com.google.android.material.appbar.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/pure_trans"
-            app:elevation="0dp"
-            >
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/main_app_bar"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center|start"
-                android:padding="10dp"
-                android:orientation="horizontal">
-
-
-                <TextView
-                    android:text="@string/main_chat_app_bar_title"
-                    style="@style/Title"
-                    />
-            </androidx.appcompat.widget.Toolbar>
-        </com.google.android.material.appbar.AppBarLayout>
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        app:title="@string/main_chat_app_bar_title"
+        />
     <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.RecyclerMessageView
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:message="@string/main_not_found_list"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/main_top_coordinator"
+        app:layout_constraintTop_toBottomOf="@id/main_top_app_bar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />

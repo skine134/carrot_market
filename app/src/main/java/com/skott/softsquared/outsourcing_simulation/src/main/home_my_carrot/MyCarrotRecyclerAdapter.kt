@@ -18,6 +18,7 @@ class MyCarrotRecyclerAdapter(val context: Context, val arrayList: ArrayList<MyC
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): MyCarrotRecyclerViewHolder {
         binding = MyCarrotRecyclerViewAdapterBinding.inflate(inflater,parent,false)
         setTownSettingIntentEvent(binding.root,arrayList[position])
+        setAppSettingIntentEvent(binding.root,arrayList[position])
         return MyCarrotRecyclerViewHolder(binding)
     }
 
@@ -34,6 +35,14 @@ class MyCarrotRecyclerAdapter(val context: Context, val arrayList: ArrayList<MyC
     private fun setTownSettingIntentEvent(itemLayout: ConstraintLayout,item: MyCarrotListItem)
     {
         if(item.name.equals(context.getString(R.string.my_carrot_my_town_setting)))
+            itemLayout.setOnClickListener {
+                val intent = Intent(context,MyTownSettingActivity::class.java)
+                (context as Activity).startActivity(intent)
+            }
+    }
+    private fun setAppSettingIntentEvent(itemLayout: ConstraintLayout,item: MyCarrotListItem)
+    {
+        if(item.name.equals(context.getString(R.string.my_carrot_app_setting)))
             itemLayout.setOnClickListener {
                 val intent = Intent(context,MyTownSettingActivity::class.java)
                 (context as Activity).startActivity(intent)

@@ -6,38 +6,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_top_coordinator"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="50dp"
     android:background="@color/white"
     app:layout_constraintVertical_chainStyle="packed"
     app:layout_constraintVertical_bias="0"
     >
+
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/pure_trans"
-        app:elevation="0dp"
-        >
+        app:elevation="0dp">
+
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/main_app_bar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center|start"
-            android:padding="10dp"
             android:orientation="horizontal">
+
             <ImageButton
                 android:id="@+id/back_button"
-                style="@style/BackButton"/>
+                style="@style/BackButton" />
+
             <TextView
                 android:id="@+id/title"
-                tools:text="@string/main_chat_app_bar_title"
                 style="@style/Title"
-                />
+                tools:text="@string/main_chat_app_bar_title" />
         </androidx.appcompat.widget.Toolbar>
+
         <View
             android:id="@+id/bottom_line"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/carrot_market_guide_line"
-            />
+            android:background="@color/carrot_market_guide_line" />
     </com.google.android.material.appbar.AppBarLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

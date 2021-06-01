@@ -44,13 +44,15 @@ fun getListDialog(
 
 fun getAlertDialog(
     context: Context,
+    title:String,
     message:String,
     checkEvent: DialogInterface.OnClickListener,
     cancelEvent: DialogInterface.OnClickListener,
     checkText:String="확인",
     cancelText:String="취소",
-): AlertDialog? {
+): AlertDialog {
     val builder = AlertDialog.Builder(context as Activity)
     builder.setMessage(message).setPositiveButton(checkText,checkEvent).setNeutralButton(cancelText,cancelEvent)
+    builder.setTitle(title)
     return builder.create()
 }

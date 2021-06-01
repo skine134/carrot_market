@@ -12,10 +12,10 @@ import retrofit2.Response
 class CertificationService(val view: CertificationActivity)
 {
 
-    fun tryPostSignIn(MobileCheckRequest: MobileCheckRequest)
+    fun tryPostSignIn(mobileCheckRequest: MobileCheckRequest)
     {
         val api = ApplicationClass.sRetrofit.create(CertificationRetrofitInterface::class.java)
-        api.postSignIn(MobileCheckRequest).enqueue(object:
+        api.postSignIn(mobileCheckRequest).enqueue(object:
             Callback<BaseResponse<SignInResponse>> {
             override fun onResponse(
                 call: Call<BaseResponse<SignInResponse>>,
@@ -44,6 +44,11 @@ class CertificationService(val view: CertificationActivity)
                 call: Call<BaseResponse<String>>,
                 response: Response<BaseResponse<String>>
             ) {
+                if(response.body()!!.code==3001)
+                {
+                    tryPostSignIn(mobileCheckRequest)
+                    return
+                }
                 if(response.body()!!.code!=1000)
                 {
                     view.onSignInFailure(response.body()!!.message?:"에러 발생")

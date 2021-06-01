@@ -1,6 +1,7 @@
 package com.skott.softsquared.outsourcing_simulation.src.main.home_my_carrot
 
 import android.content.Intent
+import android.graphics.Rect
 import android.os.Bundle
 import android.text.Layout
 import android.util.Log
@@ -8,16 +9,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.BuyListItemAdapterBinding
 import com.skott.softsquared.outsourcing_simulation.databinding.MyCarrotFragmentBinding
 import com.skott.softsquared.outsourcing_simulation.src.config.BaseFragment
+import com.skott.softsquared.outsourcing_simulation.src.main.app_setting.AppSettingActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.buy_list.BuyListActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.favorite_list.FavoriteListActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.home_my_carrot.model.MyCarrotListItem
 import com.skott.softsquared.outsourcing_simulation.src.main.home_my_carrot.model.MyCarrotResponse
 import com.skott.softsquared.outsourcing_simulation.src.main.sell_list.SellListActivity
+import com.skott.softsquared.outsourcing_simulation.src.util.lib.convertDpToPixel
 import com.skott.softsquared.outsourcing_simulation.src.util.lib.getRoundedAllCornerBitmap
 
 
@@ -40,6 +45,7 @@ class MyCarrotFragment : BaseFragment<MyCarrotFragmentBinding>(
         val townPostInfoList = ArrayList<MyCarrotListItem>()
         val businessList = ArrayList<MyCarrotListItem>()
         val otherList = ArrayList<MyCarrotListItem>()
+
         myCarrotService = MyCarrotService(this)
         myCarrotService.tryGetMyCarrot()
         setListItem(mySettingList, townPostInfoList, businessList, otherList)
@@ -58,9 +64,9 @@ class MyCarrotFragment : BaseFragment<MyCarrotFragmentBinding>(
         setFavoriteIntentEvent(binding.myCarrotUserFavoriteListLayout)
         setSellIntentEvent(binding.myCarrotUserSellInfoLayout)
         setBuyIntentEvent(binding.myCarrotUserBuyInfoLayout)
+        setSettingIntentEvent(binding.setting)
         return binding.root
     }
-
     private fun setFavoriteIntentEvent(viewGroup: ViewGroup)
     {
         viewGroup.setOnClickListener{
@@ -80,6 +86,13 @@ class MyCarrotFragment : BaseFragment<MyCarrotFragmentBinding>(
     {
         viewGroup.setOnClickListener{
             val intent= Intent(requireContext(),SellListActivity::class.java)
+            startActivity(intent)
+        }
+    }
+    private fun setSettingIntentEvent(imageButton: ImageButton)
+    {
+        imageButton.setOnClickListener{
+            val intent =  Intent(requireContext(),AppSettingActivity::class.java)
             startActivity(intent)
         }
     }
