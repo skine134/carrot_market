@@ -2,6 +2,7 @@ package com.skott.softsquared.outsourcing_simulation.src.main.profile
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,7 @@ import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.ProfileFragmentBinding
 import com.skott.softsquared.outsourcing_simulation.src.main.create_profile.CreateProfileActivity
 import com.skott.softsquared.outsourcing_simulation.src.util.custom_views.ProfileImageView
+import com.skott.softsquared.outsourcing_simulation.src.util.lib.showImagePicker
 
 class ProfileFragment : BaseFragment<ProfileFragmentBinding>(ProfileFragmentBinding::bind, R.layout.profile_fragment),
     CreateProfileActivity.ProfileDataInterface {
@@ -31,9 +33,10 @@ class ProfileFragment : BaseFragment<ProfileFragmentBinding>(ProfileFragmentBind
     {
         button.setOnClickListener{
 //            Toast.makeText(context,"test",Toast.LENGTH_SHORT).show()
-            val intent = Intent(Intent.ACTION_PICK)
-            intent.setDataAndType(android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI,"image/*")
-            (context as Activity).startActivityForResult(intent, 0)
+
+            showImagePicker(requireContext(),false){
+                    binding.profileImageView.imageSelectListener(it.toString())
+            }
         }
     }
     override fun profileImageViewListener(): ProfileImageView {

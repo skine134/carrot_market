@@ -127,10 +127,6 @@ class UsedProductPostActivity :
 
     }
 
-    private fun getGalleryImageEvent() {
-
-    }
-
     private fun submitPostEvent(button: Button) {
         button.setOnClickListener {
             if (binding.usedProductPostingTitleEditText.text.toString()
@@ -141,7 +137,8 @@ class UsedProductPostActivity :
                 return@setOnClickListener
             }
             val price = if(binding.usedProductPostingPriceEditText.text.toString().equals("")) 0 else binding.usedProductPostingPriceEditText.text.toString().toInt()
-            val village = if(ApplicationClass.userTownInfoArray.size<=0) 1 else ApplicationClass.userTownInfoArray[0].villageIdx
+            //TODO 동네 등록
+            val village = 1//if(ApplicationClass.userTownInfoArray.size<=0) 1 else ApplicationClass.userTownInfoArray[0].villageIdx
             var picture:ArrayList<Picture>? = null
             binding.usedProductImageSelectorView.getAllPicture {
                 picture = it

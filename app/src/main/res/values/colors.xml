@@ -53,6 +53,7 @@
     <!--            PRODUCT_DETAIL      -->
 
     <color name="hint_color_trans">#90D2D3D8</color>
+    <color name="not_deal_color">#8F868B94</color>
 
     <!--            DELETE_USER         -->
     <color name="delete_user_yes_disable_button_bg">#CFD4DA</color>

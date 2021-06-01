@@ -15,6 +15,7 @@
     <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.RecyclerMessageView
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="@color/my_carrot_bg"
         app:message="@string/main_not_found_list"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/main_top_app_bar"

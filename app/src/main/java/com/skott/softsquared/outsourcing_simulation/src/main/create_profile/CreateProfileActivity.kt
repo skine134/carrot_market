@@ -48,7 +48,6 @@ class CreateProfileActivity :
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         Log.d("image test",data!!.dataString!!)
-        profileImageView.imageSelectListener(data!!.dataString!!)
     }
     private fun setMainIntentEvent(button: Button, cellphone: String, editText: EditText) {
         button.setOnClickListener {
@@ -58,7 +57,7 @@ class CreateProfileActivity :
                 showCustomToast(context.getString(R.string.create_profile_check_nickname_min))
                 return@setOnClickListener
             }
-            if (20 < nickname.length) {
+            else if (20 < nickname.length) {
                 showCustomToast(context.getString(R.string.create_profile_check_nickname_max))
                 return@setOnClickListener
             } else

@@ -152,8 +152,8 @@ class ProductDetailActivity :
         binding.productDetailSellerOtherProductTextView.text =
             context.getString(R.string.product_detail_seller_item)
                 .replace("name", productDetailResponse.sellerNickname)
-        binding.productDetailIsDealTextView.text =
-            if (productDetailResponse.isNegotiable.equals("YES")) SpannableString(
+
+            if (productDetailResponse.isNegotiable.equals("YES")) binding.productDetailIsDealTextView.text =SpannableString(
                 context.getString(
                     R.string.product_detail_deal
                 )
@@ -164,9 +164,10 @@ class ProductDetailActivity :
                     context.getString(R.string.product_detail_deal).length,
                     0
                 )
-            } else context.getString(
-                R.string.product_detail_not_deal
-            )
+            } else {
+                binding.productDetailIsDealTextView.text = context.getString(R.string.product_detail_not_deal)
+                binding.productDetailIsDealTextView.setTextColor(context.getColor(R.color.not_deal_color))
+            }
         binding.productDetailPriceTextView.text = context.getString(R.string.product_detail_price)
             .replace("price", DecimalFormat("###,###").format(productDetailResponse.price.toInt()))
 

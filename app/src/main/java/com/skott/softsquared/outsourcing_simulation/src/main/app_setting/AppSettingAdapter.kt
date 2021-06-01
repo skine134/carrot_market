@@ -25,6 +25,7 @@ class AppSettingAdapter(val context: Context,val arrayList: ArrayList<String>):R
 
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): AppSettingViewHolder {
         val textView = TextView(context)
+        textView.layoutParams= ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT)
         textView.setTextAppearance(R.style.AppSetting)
         return AppSettingViewHolder(context, textView)
     }

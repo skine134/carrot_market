@@ -67,7 +67,6 @@ class AppSettingActivity : BaseActivity<AppSettingLayoutBinding>(AppSettingLayou
         arrayList.add(context.getString(R.string.app_setting_blacklist_user_setting))
         arrayList.add(context.getString(R.string.app_setting_no_show_post_user_setting))
         arrayList.add(context.getString(R.string.app_setting_other_setting))
-        arrayList.add(context.getString(R.string.app_setting_other))
 
     }
 

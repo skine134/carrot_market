@@ -59,7 +59,6 @@ class ProfileImageView(context: Context, attrs:AttributeSet) : ConstraintLayout(
         imageData = uriString
         binding.profileImage.setImageURI(Uri.parse(imageData))
         uploadImageViewToFireBase(binding.profileImage){picture=it}
-
     }
 
 }
