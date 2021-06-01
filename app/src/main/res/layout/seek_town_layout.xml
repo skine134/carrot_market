@@ -10,14 +10,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="@string/seekmap_app_bar_title"
+        app:title="@string/seek_town_app_bar_title"
         app:back_button="true"
         />
     <fragment
         android:id="@+id/seek_map_view"
-        class="com.skott.softsquared.outsourcing_simulation.src.main.seekmap.SeekMapFragment"
+        class="com.skott.softsquared.outsourcing_simulation.src.main.seek_town.SeekTownFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/seek_map_app_bar"
-        tools:layout="@layout/seek_map_fragment" />
+        tools:layout="@layout/seek_town_fragment" />
 </androidx.constraintlayout.widget.ConstraintLayout>

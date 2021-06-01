@@ -18,11 +18,11 @@ import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.UsedProductPostingLayoutBinding
 import com.skott.softsquared.outsourcing_simulation.src.config.ApplicationClass
 import com.skott.softsquared.outsourcing_simulation.src.config.BaseActivity
-import com.skott.softsquared.outsourcing_simulation.src.main.used_product_post.model.UsedProductPostRequest
-import com.skott.softsquared.outsourcing_simulation.src.main.seekmap.SeekMapActivity
-import com.skott.softsquared.outsourcing_simulation.src.util.lib.getListDialog
 import com.skott.softsquared.outsourcing_simulation.src.main.gallery_picker.model.Picture
+import com.skott.softsquared.outsourcing_simulation.src.main.seek_town.SeekTownActivity
+import com.skott.softsquared.outsourcing_simulation.src.main.used_product_post.model.UsedProductPostRequest
 import com.skott.softsquared.outsourcing_simulation.src.util.lib.dispatchKeyboardEvent
+import com.skott.softsquared.outsourcing_simulation.src.util.lib.getListDialog
 import gun0912.tedkeyboardobserver.TedKeyboardObserver
 
 enum class UsedProductCategory(val value: String) {
@@ -118,7 +118,7 @@ class UsedProductPostActivity :
 
     private fun showSeekMapEvent(layout: ViewGroup) {
         layout.setOnClickListener {
-            val intent=Intent(this,SeekMapActivity::class.java)
+            val intent=Intent(this,SeekTownActivity::class.java)
             startActivityForResult(intent, RESULT_OK)
         }
     }

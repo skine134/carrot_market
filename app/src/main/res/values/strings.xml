@@ -91,11 +91,11 @@
 
     <!--                 SeekMap                         -->
 
-    <string name="seekmap_app_bar_title">게시글 보여줄 동네 고르기</string>
-    <string name="seekmap_near_by_town">town과 근처 <u>동네 count개</u></string>
-    <string name="seekmap_town_range_notice">선택한 범위의 게시글만 볼 수 있어요.</string>
-    <string name="seekmap_town_range_minimum">내동네</string>
-    <string name="seekmap_town_range_maxmum">근처동네</string>
+    <string name="seek_town_app_bar_title">게시글 보여줄 동네 고르기</string>
+    <string name="seek_town_near_by_town">town과 근처 <u>동네 count개</u></string>
+    <string name="seek_town_town_range_notice">선택한 범위의 게시글만 볼 수 있어요.</string>
+    <string name="seek_town_town_range_minimum">내동네</string>
+    <string name="seek_town_town_range_maxmum">근처동네</string>
 
     <!--                 FIND_MY_TOWN                 -->
 

@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.ColorFilter
 import android.graphics.LightingColorFilter
+import android.graphics.PorterDuff
 import android.util.AttributeSet
 import android.util.Log
 import android.view.Gravity
@@ -17,16 +18,16 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.isGone
 import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.CarrotMarketAppBarLayoutBinding
-import com.skott.softsquared.outsourcing_simulation.databinding.SeekMapViewBinding
+import com.skott.softsquared.outsourcing_simulation.databinding.SeekTownViewBinding
 
 enum class MapRange {
-    KM10,
-    KM15,
-    KM20
+    KM2,
+    KM4,
+    KM5
 }
 
 class SeekMapView(context: Context, attrs: AttributeSet) : ConstraintLayout(context, attrs) {
-    private lateinit var binding: SeekMapViewBinding
+    private lateinit var binding: SeekTownViewBinding
 
     init {
         init()
@@ -34,41 +35,52 @@ class SeekMapView(context: Context, attrs: AttributeSet) : ConstraintLayout(cont
 
     fun init() {
         val inflate = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        binding = SeekMapViewBinding.inflate(inflate, this, false)
+        binding = SeekTownViewBinding.inflate(inflate, this, false)
         addView(binding.root)
+    }
+
+    fun getMap1km(): ImageView {
+        return binding.map1km
+    }
+
+    fun getMap2km(): ImageView {
+        return binding.map2km
+    }
+
+    fun getMap4km(): ImageView {
+        return binding.map4km
     }
 
     fun getMap5km(): ImageView {
         return binding.map5km
     }
 
-    fun getMap10km(): ImageView {
-        return binding.map10km
-    }
-
-    fun getMap15km(): ImageView {
-        return binding.map15km
-    }
-
-    fun getMap20km(): ImageView {
-        return binding.map20km
-    }
-
     fun setMapFilter(percent: Int) {
         //TODO: stroke가 나타나고 사라지는 형식으로 바꿔야함.
         if (percent < 33) {
-            binding.map10km.colorFilter =
-                LightingColorFilter(getCalCulFilter(percent, MapRange.KM10), 0)
+            binding.map2km.colorFilter = null
+            binding.map2km.setColorFilter(Color.parseColor(getHexColor(percent,MapRange.KM2)), PorterDuff.Mode.SRC_ATOP)
         } else if (percent in 33..66) {
-            binding.map15km.colorFilter =
-                LightingColorFilter(getCalCulFilter(percent, MapRange.KM20), 0)
+            binding.map4km.colorFilter = null
+            binding.map4km.setColorFilter(Color.parseColor(getHexColor(percent,MapRange.KM4)), PorterDuff.Mode.SRC_ATOP)
         } else {
-            binding.map20km.colorFilter =
-                LightingColorFilter(getCalCulFilter(percent, MapRange.KM15), 0)
+            binding.map5km.colorFilter = null
+            binding.map5km.setColorFilter(Color.parseColor(getHexColor(percent,MapRange.KM5)), PorterDuff.Mode.SRC_ATOP)
         }
     }
 
     fun getCalCulFilter(percent: Int, mapRange: MapRange): Int {
-        return (percent + 1 - (33 * mapRange.ordinal)) / 100 + 128
+        val result = 16*((percent - (33 * mapRange.ordinal)) /33.toFloat())
+        Log.d("percent",percent.toString())
+        Log.d("ordinal", mapRange.ordinal.toString())
+        Log.d("caculResult",result.toString())
+        return if(result>15) 15 else result.toInt()
+    }
+    fun getHexColor(percent:Int, mapRange: MapRange):String
+    {
+        val hexValue = Integer.toString(getCalCulFilter(percent, mapRange),16)
+        val result = "#$hexValue$hexValue"+"000000"
+        Log.d("colorfilterValue",result)
+        return result
     }
 }

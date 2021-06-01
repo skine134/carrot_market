@@ -4,22 +4,22 @@ const val CERTIFICATIONS_TIME = 300
 const val PRODUCT_LIST_PAGE_SIZE = 15
 enum class TOWN_SCOPE{
     CLOSEST {
-        override fun index() = 1
+        override fun index() = 0
         override fun scope() = 1
         override fun seekVale() = 0
     },
     CLOSE {
-        override fun index() = 2
+        override fun index() = 1
         override fun scope() = 2
         override fun seekVale() = 33
     },
     FAR {
-        override fun index() = 3
+        override fun index() = 2
         override fun scope() = 4
         override fun seekVale() = 66
     },
     FARTHEST{
-        override fun index() = 4
+        override fun index() = 3
         override fun scope() = 5
         override fun seekVale() = 100
     };

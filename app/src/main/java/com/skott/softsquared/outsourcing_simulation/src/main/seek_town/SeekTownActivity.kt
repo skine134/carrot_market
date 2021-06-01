@@ -1,14 +1,14 @@
-package com.skott.softsquared.outsourcing_simulation.src.main.seekmap
+package com.skott.softsquared.outsourcing_simulation.src.main.seek_town
 
 import android.content.Context
 import android.os.Bundle
 import android.widget.ImageButton
 import com.skott.softsquared.outsourcing_simulation.R
-import com.skott.softsquared.outsourcing_simulation.databinding.SeekMapLayoutBinding
+import com.skott.softsquared.outsourcing_simulation.databinding.SeekTownLayoutBinding
 import com.skott.softsquared.outsourcing_simulation.src.config.ApplicationClass
 import com.skott.softsquared.outsourcing_simulation.src.config.BaseActivity
 
-class SeekMapActivity:BaseActivity<SeekMapLayoutBinding>(SeekMapLayoutBinding::inflate)
+class SeekTownActivity:BaseActivity<SeekTownLayoutBinding>(SeekTownLayoutBinding::inflate)
 {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:background="@color/carrot_market_default_color"
+    android:background="@drawable/my_town_active_box_shape"
     android:orientation="horizontal"
     android:padding="20dp"
     >

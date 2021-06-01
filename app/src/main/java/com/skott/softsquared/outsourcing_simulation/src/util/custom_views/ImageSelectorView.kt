@@ -90,7 +90,7 @@ class ImageSelectorView(context: Context, attrs: AttributeSet) : ConstraintLayou
                     R.id.selected_image
                 )
             uploadImageToFireBase(item) {
-                arrayList.add(i, Picture(it.fileId,"https://firebasestorage.googleapis.com${it.pictureUrl.replace("image/","image%2F")}?alt=media"))
+                arrayList.add(i, Picture(it.pictureId,"https://firebasestorage.googleapis.com${it.pictureUrl.replace("image/","image%2F")}?alt=media"))
                 count++
             }
         }
