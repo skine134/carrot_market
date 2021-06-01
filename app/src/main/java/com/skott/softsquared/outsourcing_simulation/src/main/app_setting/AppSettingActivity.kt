@@ -17,6 +17,7 @@ import com.skott.softsquared.outsourcing_simulation.src.config.BaseActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.certification.CertificationActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.delete_user.DeleteUserActivity
 import com.skott.softsquared.outsourcing_simulation.src.util.lib.convertDpToPixel
+import com.skott.softsquared.outsourcing_simulation.src.util.lib.convertPixelsToDp
 import com.skott.softsquared.outsourcing_simulation.src.util.lib.getAlertDialog
 
 class AppSettingActivity : BaseActivity<AppSettingLayoutBinding>(AppSettingLayoutBinding::inflate),
@@ -48,9 +49,12 @@ class AppSettingActivity : BaseActivity<AppSettingLayoutBinding>(AppSettingLayou
                 state: RecyclerView.State
             ) {
                 super.getItemOffsets(outRect, view, parent, state)
-                val margin = convertDpToPixel(context,10).toInt()
+                val margin = convertDpToPixel(context,20).toInt()
                 outRect.top = margin
                 outRect.bottom = margin
+
+                val marginHorizontal = convertPixelsToDp(context,10f).toInt()
+                outRect.left = marginHorizontal
             }
         }
         binding.userSettingRecyclerView.addItemDecoration(itemDecoration)

@@ -55,7 +55,7 @@ class ProductRecyclerViewHolder(val context: Context, val item: ViewBinding) :
         town.text = productListResponse.dong
         val imageString = productListResponse.pictureUrl.toString()
         try{
-            getRoundedAllCornerBitmap(context, imageString, 10, image)
+            getRoundedAllCornerBitmap(context, imageString, 6, image)
         }catch (fe:FileNotFoundException){
             image.setImageResource(R.drawable.item_default_image)
 

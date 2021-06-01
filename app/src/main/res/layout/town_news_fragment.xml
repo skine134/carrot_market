@@ -5,62 +5,50 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:id="@+id/main_top_coordinator"
+    <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.CarrotMarketAppbar
+        android:id="@+id/main_app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:elevation="3dp"
-        android:background="@color/white"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintVertical_bias="0"
         >
-        <com.google.android.material.appbar.AppBarLayout
-            android:layout_width="match_parent"
+
+        <ImageButton
+            android:id="@+id/alert_button"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            app:layout_constraintEnd_toStartOf="@id/bookmark_button"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             android:background="@color/pure_trans"
-            app:elevation="0dp"
-            >
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/main_app_bar"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center|start"
-                android:padding="10dp"
-                android:orientation="horizontal"
-                >
-                <ImageButton
-                    android:id="@+id/alert_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="end"
-                    android:background="@color/pure_trans"
-                    android:src="@drawable/alert" />
+            android:src="@drawable/alert" />
 
-                <ImageButton
-                    android:id="@+id/bookmark_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="end"
-                    android:background="@color/pure_trans"
-                    android:src="@drawable/bookmark" />
+        <ImageButton
+            android:id="@+id/bookmark_button"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toStartOf="@id/search_image_button"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@color/pure_trans"
+            android:src="@drawable/bookmark" />
 
-                <ImageButton
-                    android:id="@+id/search_image_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:background="@color/pure_trans"
-                    android:src="@drawable/search" />
-            </androidx.appcompat.widget.Toolbar>
-        </com.google.android.material.appbar.AppBarLayout>
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        <ImageButton
+            android:id="@+id/search_image_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@color/pure_trans"
+            android:src="@drawable/search" />
+    </com.skott.softsquared.outsourcing_simulation.src.util.custom_views.CarrotMarketAppbar>
     <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.RecyclerMessageView
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:message="@string/main_not_found_list"
-        app:layout_constraintTop_toBottomOf="@id/main_top_coordinator"
+        app:layout_constraintTop_toBottomOf="@id/main_app_bar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />

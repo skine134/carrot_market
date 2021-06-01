@@ -182,6 +182,35 @@
     <string name="app_setting_sign_out">로그아웃</string>
     <string name="app_setting_delete_user">탈퇴하기</string>
 
+    <!--                DELETE_USER                        -->
+    <string name="delete_app_bar_title">계정 삭제하기</string>
+    <string name="delete_user_first_message">"… name님과 이별인가요? 너무 아쉬워요."</string>
+    <string name="delete_user_warning_message">계정을 삭제하면 매너온도, 게시글, 관심, 채팅 등 모든 활동 정보가 삭제됩니다. 계졍 삭제 후 7일간 다시 가입할 수 없어요.</string>
+    <string name="delete_user_delete_question_message">name님 계정을 삭제하려는 이유가 궁급해요.</string>
+    <string name="delete_user_please_select_delete_reason">선택해주세요</string>
+    <string name="delete_user_reason_too_many">너무 많이 이용해요</string>
+    <string name="delete_user_reason_too_many_response">앗, 그렇다면 저와 함께 조금 덜 사용하는 방법을 고민해봐요,. 이렇게 떠나시면 너무 슬픈걸요. 계정 삭제 대신 모든 알림을 끄고 잠시 쉬어보는 건 어때요?</string>
+    <string name="delete_user_reason_not_found_wanted_item">사고 싶은 물품이 없어요</string>
+    <string name="delete_user_reason_not_found_wanted_item_response">혹시 사고 싶은 물품을 검색해보고나 키워드 알림으로 등록해보셨나요? 키워드 알림으로 등록하면 물품이 올라오자마자 알림이 온답니다. 키워드를 등록하고 알림을 기다려보세요.\n\n정확한 상품명이 아닌 가방, 운동화 같은 상위 카테고리의 키워드를 등록하면 알림을 더 많이 받을 수 있어요. (예: 자전거, 원피스, 에어컨, 유모차 등)</string>
+    <string name="delete_user_reason_not_found_wanted_item_go_to_search">지금 검색하러 가기</string>
+    <string name="delete_user_reason_not_found_wanted_item_go_to_keyword">지금 키워드 알림 등록하기</string>
+    <string name="delete_user_reason_not_sold_product">물품이 안팔려요</string>
+    <string name="delete_user_reason_not_sold_product_response">판매를 잘할 수 있는 노하우를 몇 가지 알려드릴게요!\n먼저, 글어올리기를 하기 전에 가격을 합리적으로 설정해보세요. 당근마켓에서 유사한 물건을 검색해보는 것도 도움이 된답니다.\n\n판매꿀팁의 더 자세한 내용은 아래 링크를 참고하세요.</string>
+    <string name="delete_user_reason_see_bad_man">비매너 사용자를 만났어요</string>
+    <string name="delete_user_reason_see_bad_man_response">대신 사과드리고 싶어요,. 죄송합니다. 좋지 않은 경험은 저희에게도 책임이 있어요. 비매너평가, 거래후기, 신고하기를 통해서 꼭 알려주세요.\n\n반복적으로 다른 사용자에게 불쾌감을 주는 사용자는 서비스 이용이 제한됩니다. 당근마켓은 사용자여러분들과 함께 따뜻한 거래문화를 만들기 위해 노력하고있어요.</string>
+    <string name="delete_user_reason_see_bad_man_see_notice">비매너 사용자 만났을 때 당근마켓에 알리는 방법</string>
+    <string name="delete_user_reason_create_new_user">새 계정을 만들고 싶어요</string>
+    <string name="delete_user_reason_creaet_new_user_response">혹시 이사했거나 전화번호가 바뀌었나요? 내 게시글 전부를 이사한 동네로 한번에 이동할 수도 있고, 다시 가입하지 않아도 전화번호로 바꿀 수 있어요.</string>
+    <string name="delete_user_reason_move_see_my_post_to_other_town">내 게시글을 다른 동네로 옮기는 방법 알아고비</string>
+    <string name="delete_user_reason_move_see_move_cellphone">전화번호 변경하는 방법 알아보기</string>
+    <string name="delete_user_reason_other">기타</string>
+    <string name="delete_user_other_reason">계정을 삭제하려는 이유를 알려주세요.</string>
+    <string name="delete_user_thank_you_message">말씀해주신 소중한 의견을 반영하여 더 따뜻한 서비스를 만들어 가도록 노력할게요.</string>
+    <string name="delete_user_wait_message">언제나 이 자리에서 기다리고 있을게요. 언제든지 돌아와 주세요. 지금까지 함께여서 진심으로 행복했어요.</string>
+    <string name="delete_user_select_message">정말 계정을 삭제하시겠어요?</string>
+    <string name="delete_user_delete_yes">더 사용해볼래요</string>
+    <string name="delete_user_delete_now">네 삭제할게요</string>
+
 
 
 

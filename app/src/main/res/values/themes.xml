@@ -67,7 +67,8 @@
     </style>
     <style name="AppSetting">
         <item name="android:textSize">16dp</item>
-        <item name="android:padding">10dp</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:layout_marginVertical">8dp</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
     </style>

@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
+    android:layout_height="120dp"
     android:padding="10dp">
 
     <ImageView
@@ -110,7 +110,7 @@
     <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.IconCounterView
         android:id="@+id/multi_chat_count"
         android:layout_width="wrap_content"
-        android:layout_height="23dp"
+        android:layout_height="20dp"
         app:layout_constraintBottom_toBottomOf="@id/product_image_view"
         app:layout_constraintEnd_toStartOf="@id/favorite_count"
         app:type="multi_chat" />
@@ -118,7 +118,7 @@
     <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.IconCounterView
         android:id="@+id/favorite_count"
         android:layout_width="wrap_content"
-        android:layout_height="23dp"
+        android:layout_height="20dp"
         app:layout_constraintBottom_toBottomOf="@id/product_image_view"
         app:layout_constraintEnd_toStartOf="@+id/chat_count"
         app:type="favorite" />
@@ -126,7 +126,7 @@
     <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.IconCounterView
         android:id="@+id/chat_count"
         android:layout_width="wrap_content"
-        android:layout_height="23dp"
+        android:layout_height="20dp"
         app:layout_constraintBottom_toBottomOf="@id/product_image_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:type="chat" />

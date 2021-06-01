@@ -6,12 +6,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_top_coordinator"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
+    android:layout_height="53dp"
     android:background="@color/white"
     app:layout_constraintVertical_chainStyle="packed"
     app:layout_constraintVertical_bias="0"
     >
-
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
@@ -35,11 +34,13 @@
                 style="@style/Title"
                 tools:text="@string/main_chat_app_bar_title" />
         </androidx.appcompat.widget.Toolbar>
-
-        <View
-            android:id="@+id/bottom_line"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/carrot_market_guide_line" />
     </com.google.android.material.appbar.AppBarLayout>
+
+    <View
+        android:id="@+id/bottom_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="bottom"
+        android:background="@color/carrot_market_guide_line"
+        />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

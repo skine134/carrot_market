@@ -52,7 +52,7 @@ class ProductListFragment:BaseFragment<ProductListFragmentBinding>(ProductListFr
                 state: RecyclerView.State
             ) {
                 super.getItemOffsets(outRect, view, parent, state)
-                val margin = convertDpToPixel(requireContext(),20).toInt()
+                val margin = convertDpToPixel(requireContext(),5).toInt()
                 outRect.top = margin
                 outRect.bottom = margin
             }

@@ -2,13 +2,10 @@ package com.skott.softsquared.outsourcing_simulation.src.util.custom_views
 
 import android.app.Activity
 import android.content.Context
-import android.graphics.BitmapFactory
-import android.graphics.Outline
-import android.graphics.Rect
-import android.net.Uri
 import android.util.AttributeSet
 import android.util.Log
-import android.view.*
+import android.view.Gravity
+import android.view.LayoutInflater
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -18,9 +15,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.isGone
 import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.CarrotMarketAppBarLayoutBinding
-import java.io.File
 import java.util.*
-import kotlin.collections.HashMap
 
 class CarrotMarketAppbar(context: Context, attrs:AttributeSet?=null) :ConstraintLayout(context,attrs){
     private lateinit var binding:CarrotMarketAppBarLayoutBinding

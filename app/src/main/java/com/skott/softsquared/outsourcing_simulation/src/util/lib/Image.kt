@@ -160,6 +160,6 @@ fun convertDpToPixel(context: Context, dp: Int): Float {
     )
 }
 
-fun convertPixelsToDp(px: Float, context: Context): Float {
+fun convertPixelsToDp(context: Context,px: Float): Float {
     return px / (context.resources.displayMetrics.densityDpi.toFloat() / DisplayMetrics.DENSITY_DEFAULT)
 }
