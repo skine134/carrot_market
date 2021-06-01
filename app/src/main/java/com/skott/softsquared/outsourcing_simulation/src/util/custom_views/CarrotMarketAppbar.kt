@@ -1,5 +1,6 @@
 package com.skott.softsquared.outsourcing_simulation.src.util.custom_views
 
+import android.app.Activity
 import android.content.Context
 import android.graphics.BitmapFactory
 import android.graphics.Outline
@@ -56,9 +57,16 @@ class CarrotMarketAppbar(context: Context, attrs:AttributeSet?=null) :Constraint
             binding.bottomLine.isGone = !getBoolean(R.styleable.CarrotMarketAppbar_is_bottom_line,true)
         }
     }
+    fun setBackButtonEvent(button: ImageButton)
+    {
+        button.setOnClickListener{
+            (context as Activity).finish()
+        }
+    }
     fun init(){
         val inflate = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         binding = CarrotMarketAppBarLayoutBinding.inflate(inflate,this,false)
+        setBackButtonEvent(binding.backButton)
         addView(binding.root)
     }
     fun getBackButton():ImageButton

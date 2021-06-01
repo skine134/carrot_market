@@ -12,7 +12,7 @@ import retrofit2.Response
 class CertificationService(val view: CertificationActivity)
 {
 
-    fun tryGetJwt(MobileCheckRequest: MobileCheckRequest)
+    fun tryPostSignIn(MobileCheckRequest: MobileCheckRequest)
     {
         val api = ApplicationClass.sRetrofit.create(CertificationRetrofitInterface::class.java)
         api.postSignIn(MobileCheckRequest).enqueue(object:

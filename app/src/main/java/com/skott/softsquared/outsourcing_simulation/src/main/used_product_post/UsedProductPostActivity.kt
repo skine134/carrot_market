@@ -190,7 +190,6 @@ class UsedProductPostActivity :
 
     override fun onPostItemUploadFailure(message:String) {
         Log.e("api error",message)
-        finish()
     }
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
         dispatchKeyboardEvent(context,ev!!)

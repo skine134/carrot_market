@@ -12,7 +12,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.ProfileImageViewBinding
 import com.skott.softsquared.outsourcing_simulation.src.main.gallery_picker.model.Picture
-import com.skott.softsquared.outsourcing_simulation.src.util.lib.uploadImageToFireBase
+import com.skott.softsquared.outsourcing_simulation.src.util.lib.uploadImageViewToFireBase
 
 interface ImageResultEvent{
     fun imageSelectListener(uriString:String)
@@ -58,7 +58,7 @@ class ProfileImageView(context: Context, attrs:AttributeSet) : ConstraintLayout(
             return
         imageData = uriString
         binding.profileImage.setImageURI(Uri.parse(imageData))
-        uploadImageToFireBase(binding.profileImage){picture=it}
+        uploadImageViewToFireBase(binding.profileImage){picture=it}
 
     }
 

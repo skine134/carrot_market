@@ -13,15 +13,15 @@ import com.skott.softsquared.outsourcing_simulation.src.util.lib.getRoundedAllCo
 import java.text.DecimalFormat
 
 class FavoriteProductListViewHolder(val context: Context, binding: FavoriteListAdapterBinding): RecyclerView.ViewHolder(binding.root){
-    private var name: TextView = binding.favoriteListAdapter.productNameTextView
-    private var town: TextView = binding.favoriteListAdapter.sellerTownTextView
-    private var image: ImageView = binding.favoriteListAdapter.productImageView
-    private var price: TextView = binding.favoriteListAdapter.productPriceTextView
-    private var favorite: IconCounterView = binding.favoriteListAdapter.favoriteCount
-    private var chat: IconCounterView = binding.favoriteListAdapter.chatCount
-    private var multiChat: IconCounterView = binding.favoriteListAdapter.multiChatCount
-    private var time: TextView = binding.favoriteListAdapter.productUploadTimeTextView
-    private var pullUp: TextView = binding.favoriteListAdapter.pullUpTextView
+    private var name: TextView = binding.productNameTextView
+    private var town: TextView = binding.sellerTownTextView
+    private var image: ImageView = binding.productImageView
+    private var price: TextView = binding.productPriceTextView
+    private var favorite: IconCounterView = binding.favoriteCount
+    private var chat: IconCounterView = binding.chatCount
+    private var multiChat: IconCounterView = binding.multiChatCount
+    private var time: TextView = binding.productUploadTimeTextView
+    private var pullUp: TextView = binding.pullUpTextView
     private var favoriteCheckBox:CheckBox = binding.favoriteCheckBox
     var status: String = "ONSALE"
 

@@ -95,7 +95,7 @@ class ProductListFragment:BaseFragment<ProductListFragmentBinding>(ProductListFr
     override fun onGetProductListSuccess(arrayList: ArrayList<ProductListResponse>) {
 
         productRecyclerAdapter.arrayList.addAll(arrayList)
-        Log.d("item count ",productRecyclerAdapter.itemCount.toString())
+        Log.d("item_count ",productRecyclerAdapter.itemCount.toString())
         productRecyclerAdapter.notifyDataSetChanged()
     }
 

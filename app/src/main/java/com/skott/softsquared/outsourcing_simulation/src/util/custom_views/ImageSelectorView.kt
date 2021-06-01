@@ -1,7 +1,11 @@
 package com.skott.softsquared.outsourcing_simulation.src.util.custom_views
 
 import android.content.Context
+import android.graphics.BitmapRegionDecoder
+import android.graphics.ImageDecoder
+import android.graphics.Rect
 import android.net.Uri
+import android.provider.MediaStore
 import android.util.AttributeSet
 import android.util.Log
 import android.view.LayoutInflater
@@ -15,7 +19,8 @@ import com.skott.softsquared.outsourcing_simulation.databinding.ImageSelectorVie
 import com.skott.softsquared.outsourcing_simulation.src.main.gallery_picker.model.Picture
 import com.skott.softsquared.outsourcing_simulation.src.util.adapters.GalleryPickerAdapter
 import com.skott.softsquared.outsourcing_simulation.src.util.lib.showImagePicker
-import com.skott.softsquared.outsourcing_simulation.src.util.lib.uploadImageToFireBase
+import com.skott.softsquared.outsourcing_simulation.src.util.lib.uploadBitmapToFireBase
+import com.skott.softsquared.outsourcing_simulation.src.util.lib.uploadImageViewToFireBase
 import kotlin.concurrent.thread
 
 interface PictureListener {
@@ -82,15 +87,19 @@ class ImageSelectorView(context: Context, attrs: AttributeSet) : ConstraintLayou
         if (binding.imageRecyclerView.adapter == null || adapter.itemCount == 0)
             return
         val size = adapter.arrayList.size
-        val arrayList = ArrayList<Picture>(size)
+        val pictureArray = arrayOfNulls<Picture>(size)
         var count = 0
         for (i in 0 until size) {
-            val item =
-                getRecyclerView().layoutManager!!.findViewByPosition(i)!!.findViewById<ImageView>(
-                    R.id.selected_image
-                )
-            uploadImageToFireBase(item) {
-                arrayList.add(i, Picture(it.pictureId,"https://firebasestorage.googleapis.com${it.pictureUrl.replace("image/","image%2F")}?alt=media"))
+            // 이건 android 28 이상
+//            val item = ImageDecoder.decodeBitmap(ImageDecoder.createSource(context.contentResolver,
+//                Uri.parse(adapter.arrayList[i])))
+
+                //TODO declare 안된거로 바꿔야함.
+                val item = MediaStore.Images.Media.getBitmap(context.contentResolver,Uri.parse(adapter.arrayList[i]))
+//             이건 이미지 클 때
+//            val item = BitmapRegionDecoder.newInstance(adapter.arrayList[i],false).decodeRegion(Rect(10,10,50,50),null)
+            uploadBitmapToFireBase(item) {
+                pictureArray[i]= Picture(it.pictureId,"https://firebasestorage.googleapis.com${it.pictureUrl.replace("image/","image%2F")}?alt=media")
                 count++
             }
         }
@@ -99,7 +108,7 @@ class ImageSelectorView(context: Context, attrs: AttributeSet) : ConstraintLayou
             {
                 Thread.sleep(5)
             }
-            event(arrayList)
+            event(pictureArray.toList() as ArrayList<Picture>)
         }
     }
 }

@@ -49,7 +49,6 @@ class CertificationActivity : BaseActivity<CertificationLayoutBinding>(Certifica
         certificateService = CertificationService(this)
         editor = ApplicationClass.sSharedPreferences.edit()
         authTimer = getAuthNumberTimerEvent(binding.certificateAuthTimer)
-        //TODO: 로그아웃 또는 회원 탈퇴시 어떻게?
         setBackButtonEvent(binding.certificateAppBar.getBackButton())
         setCellphoneInputEvent(binding.certificateCellphoneEditText,binding.certificateTakeAuthNumberButton)
         setFindIdForEmailIntentEvent(binding.certificateFindIdForEmailTextView)
@@ -195,12 +194,13 @@ class CertificationActivity : BaseActivity<CertificationLayoutBinding>(Certifica
         phonenumberEditText:EditText
     ) {
 
+        //TODO: 로그아웃 또는 회원 탈퇴시 어떻게?
         button.setOnClickListener {
             mobileCheckRequest=MobileCheckRequest(phonenumberEditText.text.toString().replace(" ", ""),authEditext.text.toString())
             if(ApplicationClass.sSharedPreferences.getString(context.getString(R.string.jwt_key),"").equals(""))
                 certificateService.tryPostSignUpMobileCheck(mobileCheckRequest)
             else
-                certificateService.tryGetJwt(mobileCheckRequest)
+                certificateService.tryPostSignIn(mobileCheckRequest)
         }
     }
 

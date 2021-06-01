@@ -5,14 +5,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="180dp"
-    android:padding="10dp"
     android:background="@color/white"
     >
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/content_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginHorizontal="10dp"
+        android:layout_margin="15dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/change_option_layout"
         app:layout_constraintVertical_bias="0"

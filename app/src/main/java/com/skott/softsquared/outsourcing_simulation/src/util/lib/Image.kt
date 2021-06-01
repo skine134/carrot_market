@@ -22,16 +22,23 @@ import com.skott.softsquared.outsourcing_simulation.src.main.gallery_picker.mode
 import java.io.ByteArrayOutputStream
 import java.util.*
 
-fun uploadImageToFireBase(imageView: ImageView,event:(picture: Picture)->Unit)
+
+fun uploadImageViewToFireBase(imageView: ImageView,event:(picture: Picture)->Unit)
+{
+
+    val bitmap = getBitmapFromView(imageView)
+    uploadBitmapToFireBase(bitmap!!,event)
+}
+
+fun uploadBitmapToFireBase(bitmap: Bitmap,event:(picture: Picture)->Unit)
 {
     val uuid = UUID.randomUUID().toString()
     val profileImageRef= ApplicationClass.storageReference.child("image/$uuid")
-    val bitmap = getBitmapFromView(imageView)
     val baos = ByteArrayOutputStream()
     var imageUrl = ""
-    bitmap!!.compress(Bitmap.CompressFormat.JPEG,100,baos)
+    bitmap.compress(Bitmap.CompressFormat.JPEG,100,baos)
     val data = baos.toByteArray()
-    var uploadTask = profileImageRef.putBytes(data)
+    val uploadTask = profileImageRef.putBytes(data)
     uploadTask.addOnProgressListener {
         val progress = (100.0 * it.bytesTransferred) / it.totalByteCount
         Log.d("firebase upload progress", "Upload is $progress% done")

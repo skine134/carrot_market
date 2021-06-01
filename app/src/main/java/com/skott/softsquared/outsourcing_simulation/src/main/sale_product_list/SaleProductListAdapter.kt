@@ -1,12 +1,17 @@
 package com.skott.softsquared.outsourcing_simulation.src.main.sale_product_list
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.graphics.Rect
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.SaleItemAdapterBinding
+import com.skott.softsquared.outsourcing_simulation.src.main.product_detail.ProductDetailActivity
+import com.skott.softsquared.outsourcing_simulation.src.main.product_detail.ProductDetailService
 import com.skott.softsquared.outsourcing_simulation.src.main.sale_product_list.model.SaleProductListResponse
 import com.skott.softsquared.outsourcing_simulation.src.util.adapters.BaseRecyclerMessageViewAdapter
 import com.skott.softsquared.outsourcing_simulation.src.util.custom_views.RecyclerMessageView
@@ -23,8 +28,13 @@ class SaleProductListAdapter(
 ) {
     val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
     protected lateinit var binding: SaleItemAdapterBinding
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SaleProductListViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, position: Int): SaleProductListViewHolder {
         binding = SaleItemAdapterBinding.inflate(inflater,parent,false)
+        binding.root.setOnClickListener {
+            val intent = Intent(context, ProductDetailActivity::class.java)
+            intent.putExtra(context.getString(R.string.home_activity_to_product_detail_activity_intent_key),arrayList[position].idx)
+            (context as Activity).startActivity(intent)
+        }
         return SaleProductListViewHolder(context,binding)
     }
 

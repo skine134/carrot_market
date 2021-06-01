@@ -25,6 +25,10 @@ abstract class BaseFavoriteListFragment : BaseFragment<FavoriteListFragmentBindi
     ): View? {
          super.onCreateView(inflater, container, savedInstanceState)
         binding.favoriteList.message = emptyMessage
+
+        // show EmptyMessage
+//        binding.favoriteList.notifyChange()
+        //무한 스크롤 이벤트
 //        binding.favoriteList.getRecyclerView().addOnScrollListener(getScrollListener {
 //            service()
 //        })

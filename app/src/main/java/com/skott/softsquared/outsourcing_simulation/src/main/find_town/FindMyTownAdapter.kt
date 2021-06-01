@@ -13,6 +13,9 @@ class FindMyTownAdapter(context: Context,arrayList: ArrayList<FindMyTownResponse
     private lateinit var binding: FindTownNearByTownAdapterBinding
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): FindMyTownViewHolder {
         binding = FindTownNearByTownAdapterBinding.inflate(inflater,parent,false)
+        binding.root.setOnClickListener {
+//            arrayList[position].idx
+        }
         return FindMyTownViewHolder(binding)
     }
 

@@ -16,6 +16,10 @@ class UsedProductPostService(val view:UsedProductPostActivity){
                 call: Call<BaseResponse<String>>,
                 response: Response<BaseResponse<String>>
             ) {
+                if(response.body()!!.code!=1000)
+                {
+                    view.onPostItemUploadFailure(response.body()!!.message!!)
+                }
                 view.onPostItemUploadSuccess()
             }
 
