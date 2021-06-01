@@ -7,18 +7,21 @@ import android.graphics.Rect
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentFactory
 import androidx.recyclerview.widget.RecyclerView
 import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.SaleItemAdapterBinding
 import com.skott.softsquared.outsourcing_simulation.src.main.product_detail.ProductDetailActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.product_detail.ProductDetailService
 import com.skott.softsquared.outsourcing_simulation.src.main.sale_product_list.model.SaleProductListResponse
+import com.skott.softsquared.outsourcing_simulation.src.main.sell_list.SellListActivity
 import com.skott.softsquared.outsourcing_simulation.src.util.adapters.BaseRecyclerMessageViewAdapter
 import com.skott.softsquared.outsourcing_simulation.src.util.custom_views.RecyclerMessageView
 import com.skott.softsquared.outsourcing_simulation.src.util.lib.convertDpToPixel
 
 class SaleProductListAdapter(
-    context: Context,
+    context: Context
+    ,val saleProductListService: SaleProductListService,
     arrayList: ArrayList<SaleProductListResponse>,
     recyclerMessageView: RecyclerMessageView
 ) : BaseRecyclerMessageViewAdapter<SaleProductListResponse, SaleProductListViewHolder>(
@@ -34,6 +37,12 @@ class SaleProductListAdapter(
             val intent = Intent(context, ProductDetailActivity::class.java)
             intent.putExtra(context.getString(R.string.home_activity_to_product_detail_activity_intent_key),arrayList[position].idx)
             (context as Activity).startActivity(intent)
+        }
+        binding.changeReservation.setOnClickListener{
+//            saleProductListService.tryPostDeal()
+        }
+        binding.changeSoldOut.setOnClickListener{
+
         }
         return SaleProductListViewHolder(context,binding)
     }

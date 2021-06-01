@@ -14,7 +14,8 @@ class SaleProductListFragment: BaseSellFragment() ,SaleProductListView{
     private lateinit var adapter: SaleProductListAdapter
     override var tabName: String = ""
     override var emptyMessage = ""
-    override var service = {SaleProductListService(this).tryGetSaleProductList()}
+    private val saleProductListService= SaleProductListService(this)
+    override var service = {saleProductListService.tryGetSaleProductList()}
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -28,7 +29,7 @@ class SaleProductListFragment: BaseSellFragment() ,SaleProductListView{
     }
 
     override fun onGetSaleProductListViewSuccess(saleProductListResponseArray: ArrayList<SaleProductListResponse>) {
-        adapter = SaleProductListAdapter(requireContext(),saleProductListResponseArray,binding.mySellRecyclerMessageView)
+        adapter = SaleProductListAdapter(requireContext(),saleProductListService,saleProductListResponseArray,binding.mySellRecyclerMessageView)
         binding.mySellRecyclerMessageView.getRecyclerView().adapter=adapter
     }
 
