@@ -1,6 +1,7 @@
 package com.skott.softsquared.outsourcing_simulation.src.main.home_product_list
 
 import android.content.Context
+import android.net.Uri
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -10,9 +11,11 @@ import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.PleaseTownAuthFragmentBinding
 import com.skott.softsquared.outsourcing_simulation.databinding.ProductItemAdapterBinding
 import com.skott.softsquared.outsourcing_simulation.databinding.ProductListFragmentBinding
+import com.skott.softsquared.outsourcing_simulation.src.config.ITEM_DEFAULT_URL_STRING
 import com.skott.softsquared.outsourcing_simulation.src.main.home_product_list.model.ProductListResponse
 import com.skott.softsquared.outsourcing_simulation.src.util.custom_views.IconCounterView
 import com.skott.softsquared.outsourcing_simulation.src.util.lib.getRoundedAllCornerBitmap
+import java.io.FileNotFoundException
 import java.text.DecimalFormat
 
 class ProductRecyclerViewHolder(val context: Context, val item: ViewBinding) :
@@ -51,8 +54,12 @@ class ProductRecyclerViewHolder(val context: Context, val item: ViewBinding) :
         name.text = productListResponse.title
         town.text = productListResponse.dong
         val imageString = productListResponse.pictureUrl.toString()
-        if (!imageString.equals("null"))
-            getRoundedAllCornerBitmap(context, imageString, 20, image)
+        try{
+            getRoundedAllCornerBitmap(context, imageString, 10, image)
+        }catch (fe:FileNotFoundException){
+            image.setImageResource(R.drawable.item_default_image)
+
+        }
         price.text =
             context.getString(R.string.product_price).replace("price", DecimalFormat("###,###").format(productListResponse.price.toInt()).toString())
         favorite.setCount(productListResponse.numOfLikes)

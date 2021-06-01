@@ -5,6 +5,7 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.LightingColorFilter
 import android.graphics.drawable.Drawable
+import android.net.Uri
 import android.util.DisplayMetrics
 import android.util.Log
 import android.util.TypedValue
@@ -20,6 +21,7 @@ import com.bumptech.glide.request.transition.Transition
 import com.skott.softsquared.outsourcing_simulation.src.config.ApplicationClass
 import com.skott.softsquared.outsourcing_simulation.src.main.gallery_picker.model.Picture
 import java.io.ByteArrayOutputStream
+import java.io.File
 import java.util.*
 
 
@@ -85,22 +87,41 @@ fun getRoundedCornerBitmap(
     val roundTopRightDp = convertDpToPixel(context, topRightDp)
     val roundBottomLeftDp = convertDpToPixel(context, bottomLeftDp)
     val roundBottomRightDp = convertDpToPixel(context, bottomRightDp)
-    Glide.with(context).load(uri).apply(
-        RequestOptions().centerCrop().transform(
-            CenterCrop(),
-            GranularRoundedCorners(
-                roundTopRightDp,
-                roundTopLeftDp,
-                roundBottomRightDp,
-                roundBottomLeftDp
+    if(uri.contains("http"))
+    {
+        Glide.with(context).load(uri).apply(
+            RequestOptions().centerCrop().transform(
+                CenterCrop(),
+                GranularRoundedCorners(
+                    roundTopRightDp,
+                    roundTopLeftDp,
+                    roundBottomRightDp,
+                    roundBottomLeftDp
+                )
             )
         )
-    )
-        .into(output)
+            .into(output)
+    }
+    else
+    {
+        Glide.with(context).load(
+            File(Uri.parse(uri).path)).apply(
+            RequestOptions().centerCrop().transform(
+                CenterCrop(),
+                GranularRoundedCorners(
+                    roundTopRightDp,
+                    roundTopLeftDp,
+                    roundBottomRightDp,
+                    roundBottomLeftDp
+                )
+            )
+        )
+            .into(output)
+    }
 }
 
 fun getRoundedAllCornerBitmap(context: Context, uri:String, dp: Int, output: ImageView) {
-    return getRoundedCornerBitmap(context, uri, dp, dp, dp, dp, output)
+   getRoundedCornerBitmap(context, uri, dp, dp, dp, dp, output)
 }
 
 fun getRoundedBottomCornerBitmap(context: Context, uri:String, dp: Int, output: ImageView) {

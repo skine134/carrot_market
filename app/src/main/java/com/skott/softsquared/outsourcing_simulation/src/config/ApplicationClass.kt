@@ -2,6 +2,7 @@ package com.skott.softsquared.outsourcing_simulation.src.config
 
 import android.app.Application
 import android.content.SharedPreferences
+import android.net.Uri
 import android.widget.Toast
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
@@ -19,7 +20,6 @@ import java.util.concurrent.TimeUnit
 // 앱이 실행될때 1번만 실행이 됩니다.
 class ApplicationClass : Application() {
     val API_URL = BuildConfig.SERVER_URL
-
     // 코틀린의 전역변수 문법
     companion object {
         // 만들어져있는 SharedPreferences 를 사용해야합니다. 재생성하지 않도록 유념해주세요

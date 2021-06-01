@@ -8,6 +8,8 @@ import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.SaleItemAdapterBinding
 import com.skott.softsquared.outsourcing_simulation.src.main.sale_product_list.model.SaleProductListResponse
 import com.skott.softsquared.outsourcing_simulation.src.util.lib.getRoundedAllCornerBitmap
+import java.io.FileNotFoundException
+import java.lang.Exception
 import java.text.DecimalFormat
 
 class SaleProductListViewHolder(val context: Context, val binding: SaleItemAdapterBinding) :
@@ -22,8 +24,12 @@ class SaleProductListViewHolder(val context: Context, val binding: SaleItemAdapt
         name.text = saleProductListResponse.title
         town.text = saleProductListResponse.dong
         val imageString = saleProductListResponse.pictureUrl.toString()
-        if (!imageString.equals("null"))
-            getRoundedAllCornerBitmap(context, imageString, 20, image)
+        try{
+            getRoundedAllCornerBitmap(context, imageString, 10, image)
+        }catch (fe: Exception){
+            image.setImageResource(R.drawable.item_default_image)
+
+        }
         price.text = context.getString(R.string.product_price).replace(
             "price",
             DecimalFormat("###,###").format(saleProductListResponse.price.toInt()).toString()

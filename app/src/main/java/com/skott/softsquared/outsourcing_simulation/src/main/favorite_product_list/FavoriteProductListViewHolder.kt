@@ -10,6 +10,8 @@ import com.skott.softsquared.outsourcing_simulation.databinding.FavoriteListAdap
 import com.skott.softsquared.outsourcing_simulation.src.main.favorite_product_list.model.FavoriteItemResponse
 import com.skott.softsquared.outsourcing_simulation.src.util.custom_views.IconCounterView
 import com.skott.softsquared.outsourcing_simulation.src.util.lib.getRoundedAllCornerBitmap
+import java.io.FileNotFoundException
+import java.lang.Exception
 import java.text.DecimalFormat
 
 class FavoriteProductListViewHolder(val context: Context, binding: FavoriteListAdapterBinding): RecyclerView.ViewHolder(binding.root){
@@ -31,8 +33,12 @@ class FavoriteProductListViewHolder(val context: Context, binding: FavoriteListA
         name.text = favoriteItemResponse.title
         town.text = favoriteItemResponse.dong
         val imageString = favoriteItemResponse.pictureUrl.toString()
-        if (!imageString.equals("null"))
-            getRoundedAllCornerBitmap(context, imageString, 20, image)
+        try{
+            getRoundedAllCornerBitmap(context, imageString, 10, image)
+        }catch (fe: Exception){
+            image.setImageResource(R.drawable.item_default_image)
+
+        }
         price.text =
             context.getString(R.string.product_price).replace("price", DecimalFormat("###,###").format(favoriteItemResponse.price.toInt()).toString())
         favorite.setCount(favoriteItemResponse.numOfLikes)

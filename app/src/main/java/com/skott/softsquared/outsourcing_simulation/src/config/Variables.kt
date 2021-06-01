@@ -1,6 +1,9 @@
 package com.skott.softsquared.outsourcing_simulation.src.config
 
+import android.net.Uri
+
 const val CERTIFICATIONS_TIME = 300
+val ITEM_DEFAULT_URL_STRING = "item_default_image"
 const val PRODUCT_LIST_PAGE_SIZE = 15
 enum class TOWN_SCOPE{
     CLOSEST {
