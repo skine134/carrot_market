@@ -35,10 +35,6 @@ class MyTownButtonView(context:Context,attrs:AttributeSet):ConstraintLayout(cont
         setIntentFindTownEvent(binding.myTownInactiveView)
         addView(binding.root)
     }
-    fun setActivity(myTownSettingActivity: MyTownSettingActivity)
-    {
-        myTownSetting=myTownSettingActivity
-    }
     fun setActive(isActive:Boolean)
     {
         binding.myTownInactiveView.isGone=isActive

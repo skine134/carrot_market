@@ -16,16 +16,16 @@
         tools:text="경기도 남양주시 다산1동"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/related_town_text_view"
-        />
-    <TextView
-        android:id="@+id/related_town_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        tools:text="@string/my_town_setting_related_town"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/address_text_view"
         app:layout_constraintBottom_toBottomOf="parent"
         />
+<!--    <TextView-->
+<!--        android:id="@+id/related_town_text_view"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="5dp"-->
+<!--        tools:text="@string/my_town_setting_related_town"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/address_text_view"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        />-->
 </androidx.constraintlayout.widget.ConstraintLayout>

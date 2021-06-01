@@ -79,7 +79,6 @@ class SeekTownFragment : BaseFragment<SeekTownFragmentBinding>(
                                 "count",
                                 currentScopeInfo.toString()
                             )
-
                 }
                 else{
                     showCustomToast("동네 인증을 해야 설정이 가능합니다.")
