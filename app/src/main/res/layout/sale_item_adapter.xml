@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    android:padding="10dp"
+    android:background="@color/white"
+    >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/content_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/change_option_layout"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintVertical_weight="3"
+        >
+
+        <ImageView
+            android:id="@+id/product_image_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="10dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@id/seller_town_text_view"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/plus_10" />
+
+        <TextView
+            android:id="@+id/product_name_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:ellipsize="end"
+            android:maxLength="12"
+            android:maxLines="2"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/seller_town_text_view"
+            app:layout_constraintStart_toStartOf="@id/seller_town_text_view"
+            app:layout_constraintTop_toTopOf="@id/product_image_view"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="유니클로 후드티" />
+
+        <TextView
+            android:id="@+id/seller_town_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/product_price_text_view"
+            app:layout_constraintEnd_toStartOf="@id/dot"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@id/product_image_view"
+            app:layout_constraintTop_toBottomOf="@id/product_name_text_view"
+            tools:text="관앙동" />
+
+        <TextView
+            android:id="@+id/dot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" · "
+            app:layout_constraintBottom_toBottomOf="@id/seller_town_text_view"
+            app:layout_constraintEnd_toStartOf="@id/product_upload_time_text_view"
+            app:layout_constraintStart_toEndOf="@id/seller_town_text_view"
+            app:layout_constraintTop_toTopOf="@id/seller_town_text_view" />
+
+
+        <TextView
+            android:id="@+id/product_upload_time_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/seller_town_text_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@id/dot"
+            app:layout_constraintTop_toTopOf="@id/seller_town_text_view"
+            tools:text="방금 전" />
+        <TextView
+            android:id="@+id/sale_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="@id/seller_town_text_view"
+            app:layout_constraintEnd_toStartOf="@id/product_price_text_view"
+            app:layout_constraintTop_toBottomOf="@id/seller_town_text_view"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0"
+            android:visibility="gone"
+            />
+        <TextView
+            android:id="@+id/product_price_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/sale_type"
+            app:layout_constraintTop_toBottomOf="@id/seller_town_text_view"
+            tools:text="10,000원" />
+        <ImageButton
+            android:id="@+id/more_button"
+            android:src="@drawable/more_30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/pure_trans"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/carrot_market_guide_line"
+        app:layout_constraintBottom_toTopOf="@id/change_option_layout"
+        />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/change_option_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/content_view"
+        app:layout_constraintVertical_weight="1"
+        >
+        <TextView
+            android:id="@+id/change_reservation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingVertical="10dp"
+            android:gravity="center"
+            android:text="@string/send_sold_comment"
+            app:layout_constraintEnd_toStartOf="@id/change_sold_out"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="5dp"
+            android:layout_gravity="center"
+            android:background="@color/carrot_market_guide_line"
+            app:layout_constraintStart_toEndOf="@id/change_reservation"
+            />
+        <TextView
+            android:id="@+id/change_sold_out"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingVertical="10dp"
+            android:gravity="center"
+            android:text="@string/send_sold_comment"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/change_reservation"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

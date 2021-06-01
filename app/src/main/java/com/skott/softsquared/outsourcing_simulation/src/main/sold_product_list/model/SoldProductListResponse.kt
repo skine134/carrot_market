@@ -1,6 +1,6 @@
-package com.skott.softsquared.outsourcing_simulation.src.main.favorite_product_list_fragment.model
+package com.skott.softsquared.outsourcing_simulation.src.main.sold_product_list.model
 
-data class FavoriteItemModel(
+class SoldProductListResponse(
     val dong: String,
     val idx: Int,
     val isOnTop: String,
@@ -10,6 +10,5 @@ data class FavoriteItemModel(
     val pictureUrl: Any?,
     val price: String,
     val status: String,
-    val title: String,
-    val isliked:String
+    val title: String
 )

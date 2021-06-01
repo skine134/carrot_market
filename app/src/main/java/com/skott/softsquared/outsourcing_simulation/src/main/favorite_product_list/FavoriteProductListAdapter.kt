@@ -1,18 +1,18 @@
-package com.skott.softsquared.outsourcing_simulation.src.main.favorite_product_list_fragment
+package com.skott.softsquared.outsourcing_simulation.src.main.favorite_product_list
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.skott.softsquared.outsourcing_simulation.databinding.FavoriteListAdapterBinding
-import com.skott.softsquared.outsourcing_simulation.src.main.favorite_product_list_fragment.model.FavoriteItemModel
+import com.skott.softsquared.outsourcing_simulation.src.main.favorite_product_list.model.FavoriteItemResponse
 import com.skott.softsquared.outsourcing_simulation.src.util.adapters.BaseRecyclerMessageViewAdapter
 import com.skott.softsquared.outsourcing_simulation.src.util.custom_views.RecyclerMessageView
 
 class FavoriteProductListAdapter(
     context:Context,
-    arrayList: ArrayList<FavoriteItemModel>,
+    arrayList: ArrayList<FavoriteItemResponse>,
     recyclerMessageView: RecyclerMessageView
-) : BaseRecyclerMessageViewAdapter<FavoriteItemModel, FavoriteProductListViewHolder>(
+) : BaseRecyclerMessageViewAdapter<FavoriteItemResponse, FavoriteProductListViewHolder>(
     context,
     arrayList,
     recyclerMessageView

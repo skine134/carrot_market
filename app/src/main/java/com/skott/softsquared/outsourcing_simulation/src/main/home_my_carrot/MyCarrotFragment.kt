@@ -15,6 +15,7 @@ import com.skott.softsquared.outsourcing_simulation.src.config.BaseFragment
 import com.skott.softsquared.outsourcing_simulation.src.main.favorite_list.FavoriteListActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.home_my_carrot.model.MyCarrotListItem
 import com.skott.softsquared.outsourcing_simulation.src.main.home_my_carrot.model.MyCarrotResponse
+import com.skott.softsquared.outsourcing_simulation.src.main.sell_list.SellListActivity
 import com.skott.softsquared.outsourcing_simulation.src.util.lib.getRoundedAllCornerBitmap
 
 
@@ -53,9 +54,25 @@ class MyCarrotFragment : BaseFragment<MyCarrotFragmentBinding>(
         binding.businessList.adapter = businessAdapter
         binding.otherList.adapter = otherAdapter
         setFavoriteIntentEvent(binding.myCarrotUserFavoriteListLayout)
+        setSellIntentEvent(binding.myCarrotUserSellInfoLayout)
         return binding.root
     }
 
+    private fun setFavoriteIntentEvent(viewGroup: ViewGroup)
+    {
+        viewGroup.setOnClickListener{
+            val intent= Intent(requireContext(),FavoriteListActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun setSellIntentEvent(viewGroup: ViewGroup)
+    {
+        viewGroup.setOnClickListener{
+            val intent= Intent(requireContext(),SellListActivity::class.java)
+            startActivity(intent)
+        }
+    }
     private fun setListItem(
         mySettingList: ArrayList<MyCarrotListItem>,
         townPostInfoList: ArrayList<MyCarrotListItem>,
@@ -157,13 +174,6 @@ class MyCarrotFragment : BaseFragment<MyCarrotFragmentBinding>(
             )
         )
 
-    }
-    private fun setFavoriteIntentEvent(viewGroup: ViewGroup)
-    {
-        viewGroup.setOnClickListener{
-            val intent= Intent(requireContext(),FavoriteListActivity::class.java)
-            startActivity(intent)
-        }
     }
     override fun onGetMyCarrotSuccess(response: MyCarrotResponse) {
         var dong = response.dong.toString()

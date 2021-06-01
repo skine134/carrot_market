@@ -1,11 +1,10 @@
-package com.skott.softsquared.outsourcing_simulation.src.main.favorite_town_life_fragment
+package com.skott.softsquared.outsourcing_simulation.src.main.favorite_town_life
 
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.src.main.favorite_list.BaseFavoriteListFragment
 

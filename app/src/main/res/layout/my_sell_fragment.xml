@@ -4,12 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.RecyclerMessageView
-        android:id="@+id/favorite_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="10dp"
-        android:background="@color/my_carrot_bg"
-        app:message=""
-        />
+<com.skott.softsquared.outsourcing_simulation.src.util.custom_views.RecyclerMessageView
+    android:id="@+id/my_sell_recycler_message_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/my_carrot_bg"
+    />
 </androidx.constraintlayout.widget.ConstraintLayout>

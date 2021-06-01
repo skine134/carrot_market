@@ -1,6 +1,7 @@
 package com.skott.softsquared.outsourcing_simulation.src.util.adapters
 
 import android.content.Context
+import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import com.skott.softsquared.outsourcing_simulation.src.util.custom_views.RecyclerMessageView
 
@@ -11,6 +12,7 @@ abstract class BaseRecyclerMessageViewAdapter<T,VH : RecyclerView.ViewHolder>(va
     }
     fun notifyChanged()
     {
+        Log.d("data_count",itemCount.toString())
         notifyDataSetChanged()
         if(itemCount<=0)
             recyclerMessageView.messageTextView.text = recyclerMessageView.message

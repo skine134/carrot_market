@@ -1,4 +1,4 @@
-package com.skott.softsquared.outsourcing_simulation.src.main.favorite_list
+package com.skott.softsquared.outsourcing_simulation.src.main.sell_list
 
 import android.content.Context
 import android.os.Bundle
@@ -6,26 +6,26 @@ import android.widget.ImageButton
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 import com.skott.softsquared.outsourcing_simulation.R
-import com.skott.softsquared.outsourcing_simulation.databinding.FavoriteListLayoutBinding
+import com.skott.softsquared.outsourcing_simulation.databinding.MySellActivityBinding
 import com.skott.softsquared.outsourcing_simulation.src.config.BaseActivity
 
-class FavoriteListActivity:BaseActivity<FavoriteListLayoutBinding>(FavoriteListLayoutBinding::inflate) {
+class SellListActivity:BaseActivity<MySellActivityBinding>(MySellActivityBinding::inflate) {
     private lateinit var context : Context
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         context=this
-        val viewPagerAdapter = FavoritePagerAdapter(supportFragmentManager,binding.favoriteProductListTabLayout)
-        setViewPagerEvent(binding.favoriteProductListViewPager,binding.favoriteProductListTabLayout)
-        binding.favoriteProductListViewPager.adapter=viewPagerAdapter
-        binding.favoriteProductListTabLayout.setupWithViewPager(binding.favoriteProductListViewPager)
-        binding.favoriteProductListTabLayout.getTabAt(0)!!.text = context.getString(R.string.favorite_list_host_used_product)
-        binding.favoriteProductListTabLayout.getTabAt(1)!!.text = context.getString(R.string.favorite_list_host_town_advertise)
-        binding.favoriteProductListTabLayout.getTabAt(2)!!.text = context.getString(R.string.favorite_list_host_town_life)
-        setBackButtonEvent(binding.favoriteProductListAppBar.getBackButton())
+        val viewPagerAdapter = SellListPagerAdapter(supportFragmentManager,binding.sellListTabLayout)
+        setViewPagerEvent(binding.sellListViewPager,binding.sellListTabLayout)
+        binding.sellListViewPager.adapter=viewPagerAdapter
+        binding.sellListTabLayout.setupWithViewPager(binding.sellListViewPager)
+        binding.sellListTabLayout.getTabAt(0)!!.text = context.getString(R.string.sell_activity_host_sale)
+        binding.sellListTabLayout.getTabAt(1)!!.text = context.getString(R.string.sell_activity_host_sold)
+        binding.sellListTabLayout.getTabAt(2)!!.text = context.getString(R.string.sell_activity_host_hide)
+        setBackButtonEvent(binding.sellListAppBar.getBackButton())
 
     }
-    private fun setBackButtonEvent(button:ImageButton)
+    private fun setBackButtonEvent(button: ImageButton)
     {
         button.setOnClickListener{
             finish()
@@ -55,9 +55,9 @@ class FavoriteListActivity:BaseActivity<FavoriteListLayoutBinding>(FavoriteListL
                 var selectNum = -1
                 when(tab!!.text)
                 {
-                    context.getString(R.string.favorite_list_host_used_product) -> {selectNum=0}
-                    context.getString(R.string.favorite_list_host_town_advertise) -> {selectNum=1}
-                    context.getString(R.string.favorite_list_host_town_life) -> {selectNum=2}
+                    context.getString(R.string.sell_activity_host_sale) -> {selectNum=0}
+                    context.getString(R.string.sell_activity_host_sold) -> {selectNum=1}
+                    context.getString(R.string.sell_activity_host_hide) -> {selectNum=2}
                     else -> return
                 }
                 viewPager.currentItem = selectNum

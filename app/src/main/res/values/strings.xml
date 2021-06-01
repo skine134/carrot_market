@@ -138,12 +138,22 @@
 
     <!--                 FAVORLITE_LIST                          -->
 
-    <string name="favorite_list_app_bar">관심목록</string>
+    <string name="favorite_list_app_bar_title">관심목록</string>
     <string name="favorite_list_host_used_product">중고거래</string>
     <string name="favorite_list_host_town_advertise">동네홍보</string>
     <string name="favorite_list_host_town_life">동네생활</string>
     <string name="favorite_list_not_found_favorite_list">아직 관심을 누른 name이 없아요.</string>
 
+    <!--                SELL_ACTIVITY                           -->
+
+    <string name="sell_activity_app_bar_title">판매내역</string>
+    <string name="sell_activity_host_sale">판매중</string>
+    <string name="sell_activity_host_sold">거래완료</string>
+    <string name="sell_activity_host_hide">숨김</string>
+    <string name="send_sold_comment">거래후기 보내기</string>
+    <string name="change_sold_out">거래완료로 변경</string>
+    <string name="change_reservation">예약중으로 변경</string>
+    <string name="sell_activity_list_not_found_sell_list">name 게시글이 없어요.</string>
 
 
 </resources>

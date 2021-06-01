@@ -1,19 +1,14 @@
-package com.skott.softsquared.outsourcing_simulation.src.main.favorite_product_list_fragment
+package com.skott.softsquared.outsourcing_simulation.src.main.favorite_product_list
 
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.skott.softsquared.outsourcing_simulation.R
-import com.skott.softsquared.outsourcing_simulation.src.config.BaseResponse
 import com.skott.softsquared.outsourcing_simulation.src.main.favorite_list.BaseFavoriteListFragment
-import com.skott.softsquared.outsourcing_simulation.src.main.favorite_product_list_fragment.model.FavoriteItemModel
-import com.skott.softsquared.outsourcing_simulation.src.main.home_product_list.ProductRecyclerAdapter
-import com.skott.softsquared.outsourcing_simulation.src.util.adapters.BaseRecyclerMessageViewAdapter
+import com.skott.softsquared.outsourcing_simulation.src.main.favorite_product_list.model.FavoriteItemResponse
 
 class FavoriteProductListFragment() : BaseFavoriteListFragment(),
     FavoriteProductListView {
@@ -32,9 +27,8 @@ class FavoriteProductListFragment() : BaseFavoriteListFragment(),
         return binding.root
     }
 
-    override fun onGetFavoriteListViewSuccess(favoriteItemModelArray:ArrayList<FavoriteItemModel>) {
-        adapter= FavoriteProductListAdapter(requireContext(),favoriteItemModelArray,binding.favoriteList)
-        binding.favoriteList.getRecyclerView().layoutManager=LinearLayoutManager(context)
+    override fun onGetFavoriteListViewSuccess(favoriteItemResponseArray:ArrayList<FavoriteItemResponse>) {
+        adapter= FavoriteProductListAdapter(requireContext(),favoriteItemResponseArray,binding.favoriteList)
         binding.favoriteList.getRecyclerView().adapter=adapter
     }
 
