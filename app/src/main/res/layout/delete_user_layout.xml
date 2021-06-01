@@ -1,6 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.CarrotMarketAppbar
+        android:id="@+id/main_app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:back_button="true"
+        app:title="@string/delete_app_bar_title"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintVertical_bias="0"
+        />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/delete_user_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingHorizontal="17dp"
+        app:layout_constraintTop_toBottomOf="@id/main_app_bar"
+        app:layout_constraintBottom_toTopOf="@id/center_guideline">
 
+        <TextView
+            android:id="@+id/delete_user_first_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/delete_user_first_message"
+            android:textStyle="bold"
+            android:singleLine="true"
+            android:textSize="20sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/first_message_guideline"
+            />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/first_message_guideline"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.2" />
+        <TextView
+            android:id="@+id/delete_user_warning_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/delete_user_warning_message"
+            app:layout_constraintTop_toBottomOf="@id/first_message_guideline"
+            app:layout_constraintStart_toStartOf="@id/delete_user_first_message"
+            app:layout_constraintBottom_toTopOf="@id/certificate_warning_message_guideline"
+            app:layout_constraintVertical_bias="0"
+            />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/certificate_warning_message_guideline"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
+        <TextView
+            android:id="@+id/delete_user_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/delete_user_delete_question_message"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@id/certificate_warning_message_guideline"
+            app:layout_constraintBottom_toTopOf="@id/delete_user_question_guideline"
+            app:layout_constraintStart_toStartOf="@id/delete_user_first_message"
+            />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/delete_user_question_guideline"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.72" />
+        <LinearLayout
+            android:id="@+id/show_radio_dialog_layout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/delet_user_option_layout_shape"
+            app:layout_constraintTop_toBottomOf="@id/delete_user_question_guideline"
+            app:layout_constraintStart_toStartOf="@id/delete_user_first_message"
+            app:layout_constraintBottom_toBottomOf="parent"
+            >
+            <TextView
+                android:id="@+id/select_reason_text"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:paddingStart="15dp"
+                android:text="@string/delete_user_please_select_delete_reason"
+                android:gravity="center|start"
+                android:layout_weight="9"/>
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="centerInside"
+                android:src="@drawable/down_arrow_30"/>
+        </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/center_guideline"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".5"/>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/delete_user_bottom_content"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:visibility="gone"
+    app:layout_constraintTop_toBottomOf="@id/center_guideline"
+    app:layout_constraintBottom_toBottomOf="parent">
+
+
+    <!--TODO 메세지 보류-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/reason_response_layout"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:paddingHorizontal="17dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/reason_response_barrier"
+        >
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/reason_response_barrier"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:constraint_referenced_ids="reason_response_layout"
+        app:barrierDirection="bottom"
+        />
+    <TextView
+        android:id="@+id/delete_user_delete_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/delete_user_select_message"
+        android:paddingHorizontal="17dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/reason_response_barrier"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+    <LinearLayout
+        android:id="@+id/delete_user_select_button_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingHorizontal="17dp"
+        android:layout_marginVertical="15dp"
+        app:layout_constraintTop_toBottomOf="@id/delete_user_delete_text">
+        <android.widget.Button
+            android:id="@+id/delete_no"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/delete_user_delete_no"
+            android:textStyle="bold"
+            android:background="@drawable/delet_user_option_layout_shape"
+            android:layout_marginEnd="5dp"/>
+
+        <android.widget.Button
+            android:id="@+id/delete_yes"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/delete_user_delete_yes"
+            android:textStyle="bold"
+            android:button="@null"
+            android:background="@drawable/delete_user_button_selector"
+            android:textColor="@color/white"
+            android:layout_marginStart="5dp"
+            />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

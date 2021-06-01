@@ -184,7 +184,7 @@
 
     <!--                DELETE_USER                        -->
     <string name="delete_app_bar_title">계정 삭제하기</string>
-    <string name="delete_user_first_message">"… name님과 이별인가요? 너무 아쉬워요."</string>
+    <string name="delete_user_first_message">… name님과 이별인가요? 너무 아쉬워요.</string>
     <string name="delete_user_warning_message">계정을 삭제하면 매너온도, 게시글, 관심, 채팅 등 모든 활동 정보가 삭제됩니다. 계졍 삭제 후 7일간 다시 가입할 수 없어요.</string>
     <string name="delete_user_delete_question_message">name님 계정을 삭제하려는 이유가 궁급해요.</string>
     <string name="delete_user_please_select_delete_reason">선택해주세요</string>
@@ -208,8 +208,8 @@
     <string name="delete_user_thank_you_message">말씀해주신 소중한 의견을 반영하여 더 따뜻한 서비스를 만들어 가도록 노력할게요.</string>
     <string name="delete_user_wait_message">언제나 이 자리에서 기다리고 있을게요. 언제든지 돌아와 주세요. 지금까지 함께여서 진심으로 행복했어요.</string>
     <string name="delete_user_select_message">정말 계정을 삭제하시겠어요?</string>
-    <string name="delete_user_delete_yes">더 사용해볼래요</string>
-    <string name="delete_user_delete_now">네 삭제할게요</string>
+    <string name="delete_user_delete_no">더 사용해볼래요</string>
+    <string name="delete_user_delete_yes">네 삭제할게요</string>
 
 
 

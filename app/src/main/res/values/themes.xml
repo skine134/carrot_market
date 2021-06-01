@@ -18,6 +18,11 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="MyAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/carrot_market_default_color</item>
+        <item name="colorPrimary">@color/carrot_market_default_color</item>
+
+    </style>
     <style name="AppTheme.Picker" parent="Theme.AppCompat.Light.NoActionBar" >
         <item name="colorControlNormal">@color/teal_200</item>
         <item name="android:textColorPrimary">@color/teal_200</item>

@@ -54,4 +54,8 @@
 
     <color name="hint_color_trans">#90D2D3D8</color>
 
+    <!--            DELETE_USER         -->
+    <color name="delete_user_yes_disable_button_bg">#CFD4DA</color>
+
+    <color name="delete_user_yes_enable_button_bg">#FF4346</color>
 </resources>
