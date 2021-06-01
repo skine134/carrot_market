@@ -52,6 +52,9 @@
         <activity android:name=".src.main.sell_list.SellListActivity"
             android:fitsSystemWindows="true"
             android:screenOrientation="portrait"/>
+        <activity android:name=".src.main.buy_list.BuyListActivity"
+            android:fitsSystemWindows="true"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

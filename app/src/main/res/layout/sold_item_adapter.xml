@@ -124,7 +124,7 @@
         android:layout_height="wrap_content"
         android:paddingVertical="10dp"
         android:gravity="center"
-        android:text="@string/send_sold_comment"
+        android:text="@string/sell_activity_send_sold_comment"
         android:textColor="@color/carrot_market_default_color"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

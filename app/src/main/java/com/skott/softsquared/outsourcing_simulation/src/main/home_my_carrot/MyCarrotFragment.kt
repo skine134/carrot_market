@@ -10,8 +10,10 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.skott.softsquared.outsourcing_simulation.R
+import com.skott.softsquared.outsourcing_simulation.databinding.BuyListItemAdapterBinding
 import com.skott.softsquared.outsourcing_simulation.databinding.MyCarrotFragmentBinding
 import com.skott.softsquared.outsourcing_simulation.src.config.BaseFragment
+import com.skott.softsquared.outsourcing_simulation.src.main.buy_list.BuyListActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.favorite_list.FavoriteListActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.home_my_carrot.model.MyCarrotListItem
 import com.skott.softsquared.outsourcing_simulation.src.main.home_my_carrot.model.MyCarrotResponse
@@ -55,6 +57,7 @@ class MyCarrotFragment : BaseFragment<MyCarrotFragmentBinding>(
         binding.otherList.adapter = otherAdapter
         setFavoriteIntentEvent(binding.myCarrotUserFavoriteListLayout)
         setSellIntentEvent(binding.myCarrotUserSellInfoLayout)
+        setBuyIntentEvent(binding.myCarrotUserBuyInfoLayout)
         return binding.root
     }
 
@@ -66,6 +69,13 @@ class MyCarrotFragment : BaseFragment<MyCarrotFragmentBinding>(
         }
     }
 
+    private fun setBuyIntentEvent(viewGroup: ViewGroup)
+    {
+        viewGroup.setOnClickListener{
+            val intent= Intent(requireContext(),BuyListActivity::class.java)
+            startActivity(intent)
+        }
+    }
     private fun setSellIntentEvent(viewGroup: ViewGroup)
     {
         viewGroup.setOnClickListener{

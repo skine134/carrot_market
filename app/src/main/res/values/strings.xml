@@ -150,10 +150,15 @@
     <string name="sell_activity_host_sale">판매중</string>
     <string name="sell_activity_host_sold">거래완료</string>
     <string name="sell_activity_host_hide">숨김</string>
-    <string name="send_sold_comment">거래후기 보내기</string>
-    <string name="change_sold_out">거래완료로 변경</string>
-    <string name="change_reservation">예약중으로 변경</string>
+    <string name="sell_activity_send_sold_comment">거래후기 보내기</string>
+    <string name="sell_activity_change_sold_out">거래완료로 변경</string>
+    <string name="sell_activity_change_reservation">예약중으로 변경</string>
     <string name="sell_activity_list_not_found_sell_list">name 게시글이 없어요.</string>
+
+    <!--                BUY_LIST                           -->
+
+    <string name="buy_list_app_bar_title">구매내역</string>
+    <string name="buy_list_see_comment">작성한 후기 보기</string>
 
 
 </resources>

@@ -5,18 +5,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="180dp"
-    android:padding="10dp"
     android:background="@color/white"
     >
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/content_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginHorizontal="10dp"
+        android:padding="10dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/change_option_layout"
-        app:layout_constraintVertical_bias="0"
-        app:layout_constraintVertical_weight="3"
+        app:layout_constraintBottom_toTopOf="@id/buy_list_see_comment"
         >
 
         <ImageView
@@ -109,60 +106,29 @@
         <ImageButton
             android:id="@+id/more_button"
             android:src="@drawable/more_30"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:background="@color/pure_trans"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/carrot_market_guide_line"
-        app:layout_constraintBottom_toTopOf="@id/change_option_layout"
+        app:layout_constraintBottom_toTopOf="@id/buy_list_see_comment"
         />
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/change_option_layout"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+    <TextView
+        android:id="@+id/buy_list_see_comment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingVertical="10dp"
+        android:gravity="center"
+        android:text="@string/buy_list_see_comment"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/content_view"
-        app:layout_constraintVertical_weight="1"
-        >
-        <TextView
-            android:id="@+id/change_reservation"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:paddingVertical="10dp"
-            android:gravity="center"
-            android:text="@string/sell_activity_send_sold_comment"
-            app:layout_constraintEnd_toStartOf="@id/change_sold_out"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            />
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:layout_marginVertical="5dp"
-            android:layout_gravity="center"
-            android:background="@color/carrot_market_guide_line"
-            app:layout_constraintStart_toEndOf="@id/change_reservation"
-            />
-        <TextView
-            android:id="@+id/change_sold_out"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:paddingVertical="10dp"
-            android:gravity="center"
-            android:text="@string/sell_activity_send_sold_comment"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/change_reservation"
-            app:layout_constraintEnd_toEndOf="parent"
-            />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
