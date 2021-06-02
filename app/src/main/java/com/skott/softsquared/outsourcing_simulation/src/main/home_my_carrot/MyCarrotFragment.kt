@@ -18,6 +18,7 @@ import com.skott.softsquared.outsourcing_simulation.databinding.MyCarrotFragment
 import com.skott.softsquared.outsourcing_simulation.src.config.BaseFragment
 import com.skott.softsquared.outsourcing_simulation.src.main.app_setting.AppSettingActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.buy_list.BuyListActivity
+import com.skott.softsquared.outsourcing_simulation.src.main.collect_user.CollectUserActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.favorite_list.FavoriteListActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.home_my_carrot.model.MyCarrotListItem
 import com.skott.softsquared.outsourcing_simulation.src.main.home_my_carrot.model.MyCarrotResponse
@@ -96,6 +97,7 @@ class MyCarrotFragment : BaseFragment<MyCarrotFragmentBinding>(
             startActivity(intent)
         }
     }
+
     private fun setListItem(
         mySettingList: ArrayList<MyCarrotListItem>,
         townPostInfoList: ArrayList<MyCarrotListItem>,

@@ -6,7 +6,7 @@ data class CollectUserResponse(
     val nickName: String,
     val numOfChats: Int,
     val numOfLikes: Int,
-    val pictureUrl: String,
+    val pictureUrl: String?,
     val price: Int,
     val siGunGu: String,
     val status: String,

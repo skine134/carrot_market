@@ -16,7 +16,7 @@ class CollectUserViewHolder(val context: Context, binding:CollectUserAdapterBind
     private val price=binding.price
     fun bind(collectUserResponse: CollectUserResponse)
     {
-        if(!collectUserResponse.pictureUrl.equals("")&&!collectUserResponse.pictureUrl.equals("null"))
+        if(collectUserResponse.pictureUrl!=null&&!collectUserResponse.pictureUrl.equals("")&&!collectUserResponse.pictureUrl.equals("null"))
             getRoundedAllCornerBitmap(context,collectUserResponse.pictureUrl,5,image)
         if(!collectUserResponse.pictureUrl.equals("null"))
             price.text=context.getString(R.string.product_detail_price)

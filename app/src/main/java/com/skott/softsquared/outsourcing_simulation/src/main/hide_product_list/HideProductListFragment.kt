@@ -8,8 +8,8 @@ import com.skott.softsquared.outsourcing_simulation.src.main.sell_list.BaseSellF
 
 class HideProductListFragment:BaseSellFragment() {
 
-    override var tabName=""
-    override var emptyMessage=""
+    override var tabName="숨김"
+    override var emptyMessage="아직 숨긴 리스트가 없습니다."
     override var service: () -> Unit={}
     override fun onCreateView(
         inflater: LayoutInflater,

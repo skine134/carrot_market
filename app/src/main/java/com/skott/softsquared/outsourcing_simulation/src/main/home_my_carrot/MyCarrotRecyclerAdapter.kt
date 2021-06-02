@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.MyCarrotRecyclerViewAdapterBinding
 import com.skott.softsquared.outsourcing_simulation.src.main.app_setting.AppSettingActivity
+import com.skott.softsquared.outsourcing_simulation.src.main.collect_user.CollectUserActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.home_my_carrot.model.MyCarrotListItem
 import com.skott.softsquared.outsourcing_simulation.src.main.my_town_setting.MyTownSettingActivity
 
@@ -20,6 +21,7 @@ class MyCarrotRecyclerAdapter(val context: Context, val arrayList: ArrayList<MyC
         binding = MyCarrotRecyclerViewAdapterBinding.inflate(inflater,parent,false)
         setTownSettingIntentEvent(binding.root,arrayList[position])
         setAppSettingIntentEvent(binding.root,arrayList[position])
+        setCollectUserIntentEvent(binding.root,arrayList[position])
         return MyCarrotRecyclerViewHolder(binding)
     }
 
@@ -46,6 +48,16 @@ class MyCarrotRecyclerAdapter(val context: Context, val arrayList: ArrayList<MyC
         if(item.name.equals(context.getString(R.string.my_carrot_app_setting)))
             itemLayout.setOnClickListener {
                 val intent = Intent(context,AppSettingActivity::class.java)
+                (context as Activity).startActivity(intent)
+            }
+    }
+
+
+    private fun setCollectUserIntentEvent(itemLayout: ConstraintLayout,item: MyCarrotListItem)
+    {
+        if(item.name.equals(context.getString(R.string.my_carrot_my_collection_see)))
+            itemLayout.setOnClickListener {
+                val intent = Intent(context,CollectUserActivity::class.java)
                 (context as Activity).startActivity(intent)
             }
     }
