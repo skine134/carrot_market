@@ -46,7 +46,7 @@ class ProfileActivity : BaseActivity<ProfileLayoutBinding>(ProfileLayoutBinding:
             .replace("count", profileResponse.userLocation[0].numOfAuthorization.toString())
         binding.signUpDay.text = context.getString(R.string.profile_active_time).replace("registerDate",profileResponse.registerDate).replace("count",profileResponse.recentActivePeriod)
         binding.actionBadgeText.text=context.getString(R.string.profile_action_badge).replace("count",profileResponse.numOfBadges.toString())
-        binding.soldCommentText.text= context.getString(R.string.sold_count).replace("n",profileResponse.numOfItems.toString())
+        binding.saleProductText.text= context.getString(R.string.sold_count).replace("n",profileResponse.numOfItems.toString())
     }
 
     override fun onGetProfileFailure(message: String) {

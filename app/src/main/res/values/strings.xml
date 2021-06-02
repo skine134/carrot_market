@@ -212,6 +212,7 @@
     <string name="delete_user_delete_yes">네 삭제할게요</string>
 
     <!--            PROFILE         -->
+
     <string name="profile_app_bar_title"><u>프로필</u></string>
     <string name="profile_nickname">name</string>
     <string name="profile_user_code">#code</string>
@@ -232,7 +233,15 @@
     <string name="comment_manner">받은 매너 평가</string>
     <string name="comment_sold">받은 거래 후기</string>
 
+    <!--            BUYER_SELECTOR        -->
 
+    <string name="sold_app_bar_title">구매자 선택</string>
+    <string name="sold_success"><b>거래가 완료됐어요.</b></string>
+    <string name="please_select_buyer">구매자를 선택해주세요.</string>
+    <string name="sold_product">거래한 물걸</string>
+    <string name="sold_product_name">name</string>
+    <string name="not_select_now">지금 안할래요.</string>
+    <string name="find_buyer_in_recent_chat"><u>최근 채팅 목록에서 구매자 찾기</u></string>
 
 
 

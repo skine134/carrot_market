@@ -124,10 +124,9 @@ class MyCarrotFragment : BaseFragment<MyCarrotFragmentBinding>(
         mySettingList.add(
             MyCarrotListItem(
                 R.drawable.profile_set_see,
-                requireContext().getString(R.string.my_carrot_see_profile)
+                requireContext().getString(R.string.my_carrot_my_collection_see)
             )
         )
-
         // townPostInfoList
 
         townPostInfoList.add(
