@@ -4,6 +4,7 @@ import com.skott.softsquared.outsourcing_simulation.src.config.ApplicationClass
 import com.skott.softsquared.outsourcing_simulation.src.config.BaseResponse
 import com.skott.softsquared.outsourcing_simulation.src.main.collect_user.model.CollectUserResponse
 import com.skott.softsquared.outsourcing_simulation.src.main.favorite_product_list.model.FavoriteItemResponse
+import com.skott.softsquared.outsourcing_simulation.src.main.profile.ProfileRetrofitInterface
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -34,4 +35,5 @@ class CollectUserService(val view:CollectUserActivity) {
 
         })
     }
+
 }

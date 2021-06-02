@@ -8,7 +8,7 @@ import com.skott.softsquared.outsourcing_simulation.databinding.CollectUserAdapt
 import com.skott.softsquared.outsourcing_simulation.src.main.collect_user.model.CollectUserResponse
 
 
-class CollectUseAdapter(val context: Context,val arrayList:ArrayList<CollectUserResponse>) :RecyclerView.Adapter<CollectUserViewHolder>(){
+class CollectUserAdapter(val context: Context,val arrayList:ArrayList<CollectUserResponse>) :RecyclerView.Adapter<CollectUserViewHolder>(){
     private lateinit var binding: CollectUserAdapterBinding
     private val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CollectUserViewHolder {
@@ -25,5 +25,4 @@ class CollectUseAdapter(val context: Context,val arrayList:ArrayList<CollectUser
     override fun getItemViewType(position: Int): Int {
         return position
     }
-
 }

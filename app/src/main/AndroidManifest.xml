@@ -70,6 +70,9 @@
         <activity android:name=".src.main.collect_user.CollectUserActivity"
             android:fitsSystemWindows="true"
             android:screenOrientation="portrait"/>
+        <activity android:name=".src.main.collect_user_management.CollectUserManagementActivity"
+            android:fitsSystemWindows="true"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

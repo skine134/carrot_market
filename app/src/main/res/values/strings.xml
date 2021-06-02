@@ -217,7 +217,8 @@
     <string name="profile_nickname">name</string>
     <string name="profile_user_code">#code</string>
     <string name="profile_comment_manner_temperature">매너온도평가하기</string>
-    <string name="profile_manner_product_collect">모아보기</string>
+    <string name="profile_manner_disable_product_collect">모아보기</string>
+    <string name="profile_manner_enable_product_collect">✔ 모아보는중</string>
     <string name="profile_manner_temperature_text"><u>매너온도</u></string>
     <string name="profile_manner_first_temperature">첫 온도 36.5°C</string>
     <string name="profile_manner_current_temperature">count°C</string>
@@ -245,10 +246,21 @@
     <string name="buyer_name">name</string>
     <string name="buyer_town">town</string>
     <string name="last_chat_time">time</string>
-    <!--             COLLECT_USER_SALE_PRODUCT_LAYOUT     -->
+
+    <!--             COLLECT_USER     -->
+
     <string name="collect_user_sale_product_app_bar_title">모아보기</string>
     <string name="collect_user_sale_product_management">관리</string>
+    <string name="collect_user_empty_list">모아보기 중인 사용자가 없습니다.</string>
+    <string name="collect_user_go_to_collect_user">모아보기 알아보기</string>
+    <string name="profile_go_to_collect_user">확인하기</string>
 
+    <!--             COLLECT_USER_MANAGEMENT     -->
 
+    <string name="collect_user_management_app_bar_title">모아보기 사용자 관리</string>
+    <string name="collect_user_management_enable_button">모아보는중</string>
+    <string name="collect_user_management_disable_button">모아보기</string>
+    <string name="collect_user_management_add_message">모아보기에 추가되었습니다.</string>
+    <string name="collect_user_management_delete_message">name님이 모아보기에서 해제되었습니다.</string>
 
 </resources>

@@ -112,14 +112,15 @@
                         android:text="@string/profile_comment_manner_temperature"
                         android:textStyle="bold" />
 
-                    <android.widget.Button
+                    <CheckBox
                         android:id="@+id/product_collect"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginStart="5dp"
+                        android:button="@null"
+                        android:checked="true"
                         android:layout_weight="1"
-                        android:background="@drawable/delet_user_option_layout_shape"
-                        android:text="@string/profile_manner_product_collect"
+                        android:background="@drawable/collect_user_selector"
                         android:textStyle="bold" />
                 </LinearLayout>
 

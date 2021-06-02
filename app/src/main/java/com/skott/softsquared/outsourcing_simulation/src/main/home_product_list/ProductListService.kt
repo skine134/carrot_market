@@ -3,6 +3,7 @@ package com.skott.softsquared.outsourcing_simulation.src.main.home_product_list
 import com.skott.softsquared.outsourcing_simulation.src.config.ApplicationClass
 import com.skott.softsquared.outsourcing_simulation.src.config.BaseResponse
 import com.skott.softsquared.outsourcing_simulation.src.main.home_product_list.model.ProductListResponse
+import com.skott.softsquared.outsourcing_simulation.src.main.profile.ProfileRetrofitInterface
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -44,4 +45,5 @@ class ProductListService(val view: ProductListFragment) {
 
         })
     }
+
 }
