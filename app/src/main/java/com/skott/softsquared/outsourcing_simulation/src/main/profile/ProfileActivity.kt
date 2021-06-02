@@ -3,6 +3,7 @@ package com.skott.softsquared.outsourcing_simulation.src.main.profile
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import androidx.core.os.bundleOf
 import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.ProfileLayoutBinding
@@ -13,14 +14,23 @@ class ProfileActivity : BaseActivity<ProfileLayoutBinding>(ProfileLayoutBinding:
     ProfileView {
     private lateinit var context: Context
     private val profileService = ProfileService(this)
+    private var userIndex=-1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         context = this
-        val intentValue = intent.getIntExtra(context.getString(R.string.profile_intent_key),-1)
-        if(intentValue!=-1)
-            profileService.tryGetProfile(intentValue)
+        userIndex = intent.getIntExtra(context.getString(R.string.profile_intent_key),-1)
+        if(userIndex!=-1)
+            profileService.tryGetProfile(userIndex)
+        else
+            showCustomToast("사용자 정보를 불러오지 못하였습니다.")
+        setCollectSeller(binding.productCollect)
     }
-
+    private fun setCollectSeller(button: Button)
+    {
+        button.setOnClickListener{
+            profileService.tryPostCollectUser(userIndex)
+        }
+    }
     override fun onGetProfileSuccess(profileResponse: ProfileResponse) {
         binding.profileUserInfoNickname.text =
             context.getString(R.string.profile_nickname).replace("name", profileResponse.nickName)
@@ -50,6 +60,14 @@ class ProfileActivity : BaseActivity<ProfileLayoutBinding>(ProfileLayoutBinding:
     }
 
     override fun onGetProfileFailure(message: String) {
+        Log.e("api error", message)
+    }
+
+    override fun onPostCollectUserSuccess() {
+        showCustomToast("모아보기에 추가 되었습니다.")
+    }
+
+    override fun onPostCollectUserFailure(message: String) {
         Log.e("api error", message)
     }
 }

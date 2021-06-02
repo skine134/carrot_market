@@ -34,4 +34,29 @@ class ProfileService(val view:ProfileActivity) {
 
         })
     }
+    fun tryPostCollectUser(index:Int)
+    {
+        val api= ApplicationClass.sRetrofit.create(ProfileRetrofitInterface::class.java)
+        api.postCollectSeller(index).enqueue(object: Callback<BaseResponse<String>> {
+            override fun onResponse(
+                call: Call<BaseResponse<String>>,
+                response: Response<BaseResponse<String>>
+            ) {
+
+                if(response.body()!!.code!=1000)
+                {
+                    view.onPostCollectUserFailure(response.body()!!.message!!)
+                    return
+                }
+                view.onPostCollectUserSuccess()
+
+            }
+
+            override fun onFailure(call: Call<BaseResponse<String>>, t: Throwable) {
+                view.onPostCollectUserFailure(t.message?:"프로필 조회 에러")
+
+            }
+
+        })
+    }
 }
