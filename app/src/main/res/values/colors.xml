@@ -52,7 +52,6 @@
     <!--            PRODUCT_LIST       -->
 
     <color name="please_town_auth">#F2F3F7</color>
-
     <!--            PRODUCT_DETAIL      -->
 
     <color name="hint_color_trans">#90D2D3D8</color>
@@ -64,4 +63,5 @@
     <color name="delete_user_yes_enable_button_bg">#FF4346</color>
     <!--            PROFILE         -->
     <color name="profile_progress">#186EC1</color>
+    <color name="near_by_search_bg">#F2F3F7</color>
 </resources>

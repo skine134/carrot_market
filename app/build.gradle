@@ -45,6 +45,8 @@ apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.android.application'
 dependencies {
 
+    //flexboxlayout : https://github.com/google/flexbox-layout
+    implementation 'com.google.android.flexbox:flexbox:3.0.0'
     //coroutine
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9'
 

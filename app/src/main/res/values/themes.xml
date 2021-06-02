@@ -107,4 +107,11 @@
         <item name="android:layout_marginVertical">20dp</item>
         <item name="android:orientation">horizontal</item>
     </style>
+    <style name="near_by_chip_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="chipBackgroundColor">@color/pure_trans</item>
+        <item name="chipStrokeColor">@color/near_by_search_bg</item>
+        <item name="chipStrokeWidth">2dp</item>
+    </style>
 </resources>
