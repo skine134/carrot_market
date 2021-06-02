@@ -8,7 +8,6 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
-import androidx.core.view.get
 import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.CreateProfileLayoutBinding
 import com.skott.softsquared.outsourcing_simulation.src.config.ApplicationClass.Companion.sSharedPreferences
@@ -16,7 +15,7 @@ import com.skott.softsquared.outsourcing_simulation.src.config.BaseActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.create_profile.models.SignUpRequest
 import com.skott.softsquared.outsourcing_simulation.src.main.create_profile.models.SignupResponse
 import com.skott.softsquared.outsourcing_simulation.src.main.home.HomeActivity
-import com.skott.softsquared.outsourcing_simulation.src.main.profile.ProfileFragment
+import com.skott.softsquared.outsourcing_simulation.src.main.profile_setting.ProfileFragment
 import com.skott.softsquared.outsourcing_simulation.src.util.custom_views.ProfileImageView
 
 class CreateProfileActivity :

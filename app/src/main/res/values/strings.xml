@@ -211,6 +211,27 @@
     <string name="delete_user_delete_no">더 사용해볼래요</string>
     <string name="delete_user_delete_yes">네 삭제할게요</string>
 
+    <!--            PROFILE         -->
+    <string name="profile_app_bar_title"><u>프로필</u></string>
+    <string name="profile_nickname">name</string>
+    <string name="profile_user_code">#code</string>
+    <string name="profile_comment_manner_temperature">매너온도평가하기</string>
+    <string name="profile_manner_product_collect">모아보기</string>
+    <string name="profile_manner_temperature_text"><u>매너온도</u></string>
+    <string name="profile_manner_first_temperature">첫 온도 36.5°C</string>
+    <string name="profile_manner_current_temperature">count°C</string>
+    <string name="profile_remember_wanted_percent">재거래희망률 percent%</string>
+    <string name="profile_satisfy">"n명 중 m명이 만족"</string>
+    <string name="profile_comment_percent">응답률 -%</string>
+    <string name="profile_comment_time">보통 time 이내 응답</string>
+    <string name="profile_auth_count">town count회 인증</string>
+    <string name="profile_active_time">registerDate 가입 (최근 count일 이내 활동)</string>
+    <string name="profile_action_badge">활동 배지 count개</string>
+    <string name="sold_count">판매 상품 n개</string>
+    <string name="town_count">동네 생활</string>
+    <string name="comment_manner">받은 매너 평가</string>
+    <string name="comment_sold">받은 거래 후기</string>
+
 
 
 

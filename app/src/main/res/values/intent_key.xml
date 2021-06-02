@@ -6,4 +6,5 @@
     <string name="seekmap_fragment_to_activity_intent_key">seekMapFragmentToActivityIntentKey</string>
     <string name="seekmap_activity_to_post_activity_intent_key">seekMapFragmentToPostActivityIntentKey</string>
     <string name="home_activity_to_product_detail_activity_intent_key">homeActivityToProductDetailActivityIntentKey</string>
+    <string name="profile_intent_key">ProfileIntentKey</string>
 </resources>

@@ -11,7 +11,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/main_app_bar"
+            android:id="@+id/product_detail_main_app_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/pure_trans"
@@ -26,7 +26,7 @@
                 app:contentScrim="@color/white"
                 app:expandedTitleGravity="center"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
-                app:toolbarId="@id/main_app_bar">
+                app:toolbarId="@id/product_detail_main_app_bar">
 
                 <com.skott.softsquared.outsourcing_simulation.src.util.lib.ImageSliderView
                     android:id="@+id/product_detail_image_slider"

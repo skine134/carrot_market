@@ -59,4 +59,6 @@
     <color name="delete_user_yes_disable_button_bg">#CFD4DA</color>
 
     <color name="delete_user_yes_enable_button_bg">#FF4346</color>
+    <!--            PROFILE         -->
+    <color name="profile_progress">#186EC1</color>
 </resources>

@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.CarrotMarketAppbar
-        android:id="@+id/main_app_bar"
+        android:id="@+id/create_profile_main_app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="3dp"
@@ -31,13 +31,13 @@
 
     <fragment
         android:id="@+id/create_profile_content_fragment"
-        class="com.skott.softsquared.outsourcing_simulation.src.main.profile.ProfileFragment"
-        tools:layout="@layout/profile_fragment"
+        class="com.skott.softsquared.outsourcing_simulation.src.main.profile_setting.ProfileFragment"
+        tools:layout="@layout/profile_setting_fragment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/main_app_bar"
+        app:layout_constraintTop_toBottomOf="@id/create_profile_main_app_bar"
         app:layout_constraintBottom_toBottomOf="parent"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

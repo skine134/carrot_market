@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.CarrotMarketAppbar
+        android:id="@+id/profile_main_app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:back_button="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="프로필">
+
+        <ImageButton
+            android:id="@+id/profile_share"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@color/pure_trans"
+            android:src="@drawable/share"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/profile_more"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/profile_more"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="10dp"
+            android:background="@color/pure_trans"
+            android:src="@drawable/more"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </com.skott.softsquared.outsourcing_simulation.src.util.custom_views.CarrotMarketAppbar>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="17dp"
+        android:paddingTop="17dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintTop_toBottomOf="@id/profile_main_app_bar">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/profile_user_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:descendantFocusability="blocksDescendants"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.ProfileImageView
+                    android:id="@+id/profile_image_view"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    app:layout_constraintBottom_toTopOf="@id/profile_user_info_button_layout"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@id/profile_user_info_nickname"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <TextView
+                    android:id="@+id/profile_user_info_nickname"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/profile_user_info_code"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/profile_image_view"
+                    app:layout_constraintTop_toTopOf="@id/profile_image_view"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    tools:text="안녕" />
+
+                <TextView
+                    android:id="@+id/profile_user_info_code"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/profile_image_view"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/profile_user_info_nickname"
+                    app:layout_constraintTop_toBottomOf="@id/profile_user_info_nickname"
+                    tools:text="#14824526" />
+
+                <LinearLayout
+                    android:id="@+id/profile_user_info_button_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginVertical="15dp"
+                    app:layout_constraintBottom_toTopOf="@id/manner_progress"
+                    app:layout_constraintTop_toBottomOf="@id/profile_image_view">
+
+                    <android.widget.Button
+                        android:id="@+id/comment_manner"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/delet_user_option_layout_shape"
+                        android:text="@string/profile_comment_manner_temperature"
+                        android:textStyle="bold" />
+
+                    <android.widget.Button
+                        android:id="@+id/product_collect"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/delet_user_option_layout_shape"
+                        android:text="@string/profile_manner_product_collect"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/manner_progress"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    app:layout_constraintBottom_toBottomOf="@id/manner_progress_barrier"
+                    app:layout_constraintTop_toBottomOf="@id/profile_user_info_button_layout">
+
+                    <TextView
+                        android:id="@+id/manner_temperature_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/profile_manner_temperature_text"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/temperature"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5dp"
+                        android:text="@string/profile_manner_current_temperature"
+                        android:textColor="@color/profile_progress"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@id/smile"
+                        app:layout_constraintEnd_toStartOf="@id/smile"
+                        app:layout_constraintTop_toTopOf="@id/smile" />
+
+                    <ImageView
+                        android:id="@+id/smile"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginBottom="10dp"
+                        android:src="@drawable/smile"
+                        app:layout_constraintBottom_toTopOf="@id/profile_temperature_seek_bar"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <TextView
+                        android:id="@+id/temperature_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/profile_manner_first_temperature"
+                        android:textColor="@color/not_deal_color"
+                        app:layout_constraintEnd_toEndOf="@id/profile_temperature_seek_bar"
+                        app:layout_constraintHorizontal_bias=".33"
+                        app:layout_constraintStart_toStartOf="@id/profile_temperature_seek_bar"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/temperature_pointer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="▼"
+                        android:textColor="@color/not_deal_color"
+                        android:textSize="8sp"
+                        app:layout_constraintEnd_toEndOf="@id/temperature_text"
+                        app:layout_constraintStart_toStartOf="@id/temperature_text"
+                        app:layout_constraintTop_toBottomOf="@id/temperature_text" />
+                    <!--splitTrack은 thumb의 background를 지워준다.-->
+                    <SeekBar
+                        android:id="@+id/profile_temperature_seek_bar"
+                        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/pure_trans"
+                        android:progress="37"
+                        android:progressDrawable="@drawable/profile_progress_bar_shape"
+                        android:progressTint="@color/profile_progress"
+                        android:splitTrack="false"
+                        android:thumb="@null"
+                        android:thumbOffset="0dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias=".6" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/manner_progress_barrier"
+                    android:layout_width="1dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:barrierDirection="bottom"
+                    app:constraint_referenced_ids="manner_progress" />
+
+                <LinearLayout
+                    android:id="@+id/user_popular"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/manner_progress_barrier">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:id="@+id/heart_image"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/empty_heart"
+                            app:layout_constraintEnd_toStartOf="@id/remember_wanted"
+                            app:layout_constraintHorizontal_bias="0"
+                            app:layout_constraintHorizontal_chainStyle="packed"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/remember_wanted"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            app:layout_constraintBottom_toTopOf="@id/satisfy"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/heart_image"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0"
+                            app:layout_constraintVertical_chainStyle="packed"
+                            tools:text="@string/profile_remember_wanted_percent" />
+
+                        <TextView
+                            android:id="@+id/satisfy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="25dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="@id/remember_wanted"
+                            app:layout_constraintTop_toBottomOf="@id/remember_wanted"
+                            tools:text="@string/profile_satisfy" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:id="@+id/chat_image"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/profile_chat"
+                            app:layout_constraintEnd_toStartOf="@id/comment_percent"
+                            app:layout_constraintHorizontal_bias="0"
+                            app:layout_constraintHorizontal_chainStyle="packed"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/comment_percent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:gravity="center"
+                            app:layout_constraintBottom_toTopOf="@id/comment_averrage_time"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/chat_image"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0"
+                            app:layout_constraintVertical_chainStyle="packed"
+                            tools:text="@string/profile_comment_percent" />
+
+                        <TextView
+                            android:id="@+id/comment_averrage_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="25dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="@id/comment_percent"
+                            app:layout_constraintTop_toBottomOf="@id/comment_percent"
+                            tools:text="@string/profile_comment_time" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:id="@+id/user_town_auth_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/my_carrot_bg"
+                android:gravity="center|start"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/profile_user_info">
+
+                <TextView
+                    android:id="@+id/auth_count"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_auth_count" />
+
+                <TextView
+                    android:id="@+id/sign_up_day"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="2020년 8월 16일 가입 (최근 3일 이내 활동)" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/profile_user_other_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <LinearLayout
+                    android:id="@+id/action_badge_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/action_badge_text"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="9"
+                        android:text="@string/profile_action_badge"/>
+
+                    <ImageView
+                        android:id="@+id/action_badge_next_arrow"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/next_arrow_30" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/sale_product_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/sale_product_text"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="9"
+                        android:text="@string/sold_count"/>
+
+                    <ImageView
+                        android:id="@+id/sale_product_next_arrow"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/next_arrow_30" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/town_life_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/town_life_text"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/town_count"
+                        android:layout_weight="9" />
+
+                    <ImageView
+                        android:id="@+id/town_life_next_arrow"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/next_arrow_30" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/manner_comment_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/manner_comment_text"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/comment_manner"
+                        android:layout_weight="9" />
+
+                    <ImageView
+                        android:id="@+id/manner_comment_next_arrow"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/next_arrow_30" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/sold_comment_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/sold_comment_text"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/comment_sold"
+                        android:layout_weight="9" />
+
+                    <ImageView
+                        android:id="@+id/sold_comment_next_arrow"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/next_arrow_30" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

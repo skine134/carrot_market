@@ -61,6 +61,9 @@
         <activity android:name=".src.main.delete_user.DeleteUserActivity"
             android:fitsSystemWindows="true"
             android:screenOrientation="portrait"/>
+        <activity android:name=".src.main.profile.ProfileActivity"
+            android:fitsSystemWindows="true"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

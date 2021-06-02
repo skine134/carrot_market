@@ -1,6 +1,7 @@
 package com.skott.softsquared.outsourcing_simulation.src.main.product_detail
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.LightingColorFilter
 import android.graphics.PorterDuff
@@ -10,6 +11,7 @@ import android.text.style.UnderlineSpan
 import android.util.Log
 import android.view.MotionEvent
 import android.view.View
+import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.CheckBox
 import android.widget.ImageButton
@@ -23,6 +25,7 @@ import com.skott.softsquared.outsourcing_simulation.databinding.ProductDetailLay
 import com.skott.softsquared.outsourcing_simulation.src.config.BaseActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.gallery_picker.model.Picture
 import com.skott.softsquared.outsourcing_simulation.src.main.product_detail.model.ProductDetailResponse
+import com.skott.softsquared.outsourcing_simulation.src.main.profile.ProfileActivity
 import com.skott.softsquared.outsourcing_simulation.src.util.lib.SpacesItemDecoration
 import java.text.DecimalFormat
 
@@ -37,6 +40,7 @@ class ProductDetailActivity :
     private lateinit var recommendProductAdapter: SmallProductAdapter
     private lateinit var productDetailService: ProductDetailService
     private var productId = -1
+    private lateinit var productDetailResponse: ProductDetailResponse
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         context = this
@@ -45,9 +49,8 @@ class ProductDetailActivity :
         binding.backButton.setColorFilter(Color.parseColor("#ffffffff"))
         binding.productDetailShareImageButton.setColorFilter(Color.parseColor("#ffffffff"))
         binding.productDetailMoreImageButton.setColorFilter(Color.parseColor("#ffffffff"))
-        setCollapsingToolbarEvent(binding.mainAppBar)
+        setCollapsingToolbarEvent(binding.productDetailMainAppBar)
         setSupportActionBar(binding.mainToolBar)
-
         supportActionBar?.setDisplayHomeAsUpEnabled(false)
 ///      status bar 조절 함수들
 
@@ -59,7 +62,6 @@ class ProductDetailActivity :
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
         )
-
 //        window.apply{
 //            this.statusBarColor= context.getColor(R.color.pure_trans)
 //            decorView.systemUiVisibility= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR or View.SYSTEM_UI_FLAG_FULLSCREEN
@@ -78,6 +80,15 @@ class ProductDetailActivity :
         setToolbarEvent()
         setBackButtonEvent(binding.backButton)
         setFavoriteEvent(binding.productDetailFavoriteImageButton)
+        setProfileIntentEvent(binding.productDetailUserLayout)
+    }
+    private fun setProfileIntentEvent(layout:ViewGroup)
+    {
+        layout.setOnClickListener{
+            val intent = Intent(context,ProfileActivity::class.java)
+            intent.putExtra(context.getString(R.string.profile_intent_key),productDetailResponse.idx)
+            startActivity(intent)
+        }
     }
     private fun setFavoriteEvent(checkBox: CheckBox)
     {
@@ -124,12 +135,12 @@ class ProductDetailActivity :
     override fun onGetProductDetailSuccess(productDetailResponse: ProductDetailResponse) {
         /*
         //TODO 아직 처리안한 항목
-          sellerIdx	int	Y	1		판매자 식별자
           sellerMannerTemperature	float	Y	36.5		판매자 매너온도
           status	String	Y	ONSALE		글 상태
           chatNum	int	Y	10		채팅수
           isLiked	String	Y	NO		좋아요 여부
          */
+        this.productDetailResponse = productDetailResponse
         productId = productDetailResponse.idx
         if (productDetailResponse.pictures != null && productDetailResponse.pictures.size > 0)
             setImageToViewPager(productDetailResponse.pictures)

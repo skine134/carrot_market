@@ -1,4 +1,4 @@
-package com.skott.softsquared.outsourcing_simulation.src.main.profile
+package com.skott.softsquared.outsourcing_simulation.src.main.profile_setting
 
 import android.os.Bundle
 import android.view.LayoutInflater

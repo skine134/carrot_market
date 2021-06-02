@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.CarrotMarketAppbar
-        android:id="@+id/main_app_bar"
+        android:id="@+id/near_by_main_app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
@@ -46,6 +46,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/main_app_bar"
+        app:layout_constraintTop_toBottomOf="@id/near_by_main_app_bar"
         app:message="@string/main_not_found_list" />
 </androidx.constraintlayout.widget.ConstraintLayout>
