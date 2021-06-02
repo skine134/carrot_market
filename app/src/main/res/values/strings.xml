@@ -238,7 +238,7 @@
     <string name="sold_app_bar_title">구매자 선택</string>
     <string name="sold_success"><b>거래가 완료됐어요.</b></string>
     <string name="please_select_buyer">구매자를 선택해주세요.</string>
-    <string name="sold_product">거래한 물걸</string>
+    <string name="sold_product">거래한 물건</string>
     <string name="sold_product_name">name</string>
     <string name="not_select_now">지금 안할래요.</string>
     <string name="find_buyer_in_recent_chat"><u>최근 채팅 목록에서 구매자 찾기</u></string>
