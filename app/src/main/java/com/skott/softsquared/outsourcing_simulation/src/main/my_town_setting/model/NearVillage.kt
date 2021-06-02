@@ -1,4 +1,4 @@
-package com.skott.softsquared.outsourcing_simulation.src.main.seek_town.model
+package com.skott.softsquared.outsourcing_simulation.src.main.my_town_setting.model
 
 data class NearVillage(
     val dongs: ArrayList<String>,

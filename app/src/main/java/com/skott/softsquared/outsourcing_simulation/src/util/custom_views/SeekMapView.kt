@@ -57,16 +57,16 @@ class SeekMapView(context: Context, attrs: AttributeSet) : ConstraintLayout(cont
 
     fun setMapFilter(percent: Int) {
         //TODO: stroke가 나타나고 사라지는 형식으로 바꿔야함.
-        if (percent < 33) {
-            binding.map2km.colorFilter = null
-            binding.map2km.setColorFilter(Color.parseColor(getHexColor(percent,MapRange.KM2)), PorterDuff.Mode.SRC_ATOP)
-        } else if (percent in 33..66) {
-            binding.map4km.colorFilter = null
-            binding.map4km.setColorFilter(Color.parseColor(getHexColor(percent,MapRange.KM4)), PorterDuff.Mode.SRC_ATOP)
-        } else {
-            binding.map5km.colorFilter = null
-            binding.map5km.setColorFilter(Color.parseColor(getHexColor(percent,MapRange.KM5)), PorterDuff.Mode.SRC_ATOP)
-        }
+//        if (percent < 33) {
+//            binding.map2km.colorFilter = null
+//            binding.map2km.setColorFilter(Color.parseColor(getHexColor(percent,MapRange.KM2)), PorterDuff.Mode.SRC_ATOP)
+//        } else if (percent in 33..66) {
+//            binding.map4km.colorFilter = null
+//            binding.map4km.setColorFilter(Color.parseColor(getHexColor(percent,MapRange.KM4)), PorterDuff.Mode.SRC_ATOP)
+//        } else {
+//            binding.map5km.colorFilter = null
+//            binding.map5km.setColorFilter(Color.parseColor(getHexColor(percent,MapRange.KM5)), PorterDuff.Mode.SRC_ATOP)
+//        }
     }
 
     fun getCalCulFilter(percent: Int, mapRange: MapRange): Int {

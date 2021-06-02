@@ -17,16 +17,19 @@ import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.FindTownByCurrentLocationBinding
 import com.skott.softsquared.outsourcing_simulation.src.config.BaseActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.find_town.model.FindMyTownResponse
+import com.skott.softsquared.outsourcing_simulation.src.main.find_town.model.RegisterAddressRequest
 import com.skott.softsquared.outsourcing_simulation.src.util.lib.convertDpToPixel
 
 class FindTownActivity :BaseActivity<FindTownByCurrentLocationBinding>(FindTownByCurrentLocationBinding::inflate),FindMyTownView{
     private lateinit var context: Context
     private lateinit var adapter:FindMyTownAdapter
+    private var intentValue = -1
     private lateinit var findTownService:FindMyTownService
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         context = this
         findTownService = FindMyTownService(this)
+        intentValue = intent.getIntExtra(context.getString(R.string.my_carrot_find_my_address_intent_key),-1)
         setSearchEvent(binding.searchTownByLocation.getEditText())
         val itemDecoration=object:
             DividerItemDecoration(binding.findTownRecyclerMessageView.context,LinearLayoutManager(context).orientation){
@@ -50,13 +53,6 @@ class FindTownActivity :BaseActivity<FindTownByCurrentLocationBinding>(FindTownB
     }
     private fun setSearchEvent(editText: EditText)
     {
-//        { view: View, keyCode: Int, keyEvent: KeyEvent ->
-//            if(keyCode==KeyEvent.KEYCODE_ENTER) {
-//                searchAddress(editText)
-//                return@setOnKeyListener false
-//            }
-//            return@setOnKeyListener false
-//        }
         editText.addTextChangedListener{
             searchAddress(editText)
         }
@@ -73,11 +69,22 @@ class FindTownActivity :BaseActivity<FindTownByCurrentLocationBinding>(FindTownB
     }
 
     override fun onPostRegisterAddressSuccess() {
-        intent.putExtra(context.getString(R.string.my_carrot_find_my_address_intent_key),adapter.getClickPosition())
-        finish()
+        findTownService.tryPostRegisterAddress(RegisterAddressRequest(adapter.getClickPosition()))
+        if(intentValue!=-1)
+            findTownService.tryPatchDeleteAddress(RegisterAddressRequest(intentValue))
+        else
+            finish()
     }
 
     override fun onPostRegisterAddressFailure(message: String) {
+        Log.e("api error",message)
+    }
+
+    override fun onPatchDeleteAddressSuccess() {
+        finish()
+    }
+
+    override fun onPatchDeleteAddressFailure(message: String) {
         Log.e("api error",message)
     }
 

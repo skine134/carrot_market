@@ -69,24 +69,37 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 android:text="@string/my_town_setting_my_town_notice"
                 />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/top_button_guideline"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent=".6"
+                />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/bottom_button_guideline"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent=".85"
+                />
             <LinearLayout
                 android:id="@+id/my_town_buttons_layout"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:paddingVertical="10dp"
-                android:layout_marginBottom="30dp"
-                app:layout_constraintTop_toBottomOf="@id/my_town_setting_my_town_notice"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/top_button_guideline"
+                app:layout_constraintBottom_toBottomOf="@id/bottom_button_guideline"
                 >
 
                 <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.MyTownButtonView
                     android:id="@+id/my_town_first_button"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    app:is_active="false"
-                    android:layout_weight="1"
                     android:layout_marginEnd="10dp"
-                    />
+                    android:layout_weight="1"
+                    app:is_active="false" />
+
                 <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.MyTownButtonView
                     android:id="@+id/my_town_second_button"
                     android:layout_width="0dp"

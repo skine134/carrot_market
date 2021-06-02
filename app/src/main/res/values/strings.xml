@@ -84,7 +84,10 @@
     <!--                 MY_TOWN_SETTING                 -->
     <string name="my_town_setting_app_bar_title">내 동네 설정</string>
     <string name="my_town_setting_select">동네 선택</string>
-    <string name="my_town_setting_my_town_notice">지역은 최소 1개 이상 최대 2개까지 설정 가능해요.</string>
+    <string name="my_town_setting_my_town_notice">선택한 지역을 삭제하시겠습니까?</string>
+    <string name="my_town_setting_my_town_warning">지역은 최소 1개 이상 선택되어있어야합니다. 현재 설정된 동네를 변경하시겠어요?</string>
+    <string name="my_town_setting_my_town_warning_check">네, 변경할게요</string>
+
     <string name="my_town_setting_find_town_by_currenct_location">내 동네 이름(동,읍,면)으로 검색</string>
     <string name="my_town_setting_find_town_by_currenct_location_button">현재 위치로 찾기</string>
     <string name="my_town_setting_related_town">관련주소 <b>도농동</b></string>

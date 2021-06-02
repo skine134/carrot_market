@@ -10,19 +10,20 @@ import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.SeekTownFragmentBinding
 import com.skott.softsquared.outsourcing_simulation.src.config.BaseFragment
 import com.skott.softsquared.outsourcing_simulation.src.config.TOWN_SCOPE
-import com.skott.softsquared.outsourcing_simulation.src.main.seek_town.model.NearVillage
-import com.skott.softsquared.outsourcing_simulation.src.main.seek_town.model.TownResponse
+import com.skott.softsquared.outsourcing_simulation.src.main.my_town_setting.model.MyTownSettingResponse
+import com.skott.softsquared.outsourcing_simulation.src.main.my_town_setting.model.NearVillage
 import com.skott.softsquared.outsourcing_simulation.src.util.custom_views.RulerSeekBar
 import com.skott.softsquared.outsourcing_simulation.src.util.custom_views.SeekMapView
 
 class SeekTownFragment : BaseFragment<SeekTownFragmentBinding>(
     SeekTownFragmentBinding::bind,
     R.layout.seek_town_fragment
-), SeekTownView {
+) {
     private var currentPercent = 0
-    private lateinit var townResponse: TownResponse
+    private lateinit var townResponse: MyTownSettingResponse
     private lateinit var currentScopeInfo: NearVillage
-    private lateinit var seekTownService: SeekTownService
+    private var arrayList = ArrayList<MyTownSettingResponse>()
+    private var position = -1
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -30,8 +31,6 @@ class SeekTownFragment : BaseFragment<SeekTownFragmentBinding>(
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         setSeekBarEvent(binding.myTownSetRangeProgressBar, binding.myTownVisualImageView)
-        seekTownService=SeekTownService(this)
-        seekTownService.tryGetTowns()
         return binding.root
     }
 
@@ -66,21 +65,23 @@ class SeekTownFragment : BaseFragment<SeekTownFragmentBinding>(
                 }
                 seekBar!!.progress = scope.seekVale()
                 currentPercent = seekBar.progress
-                if(::townResponse.isInitialized)
-                {
+                if (!arrayList.isEmpty()) {
                     requireActivity().intent.putExtra(
                         requireContext().getString(R.string.seekmap_fragment_to_activity_intent_key),
                         scope.index()
                     )
-                    currentScopeInfo = townResponse.nearVillages[scope.index()]
+                    currentScopeInfo = arrayList[position].nearVillages[scope.index()]
                     binding.seekTownNearByTownTextView.text =
-                        binding.seekTownNearByTownTextView.text.toString()
+                        requireContext().getString(R.string.seek_town_near_by_town)
                             .replace("town", townResponse.dong).replace(
                                 "count",
                                 currentScopeInfo.toString()
                             )
-                }
-                else{
+                    binding.seekTownNearByTownTextView.text =
+                        requireContext().getString(R.string.seek_town_near_by_town)
+                            .replace("town", townResponse.dong)
+                            .replace("count", arrayList[position].nearVillages[scope.index()].dongs.size.toString())
+                } else {
                     showCustomToast("동네 인증을 해야 설정이 가능합니다.")
                 }
             }
@@ -88,11 +89,14 @@ class SeekTownFragment : BaseFragment<SeekTownFragmentBinding>(
         })
     }
 
-    override fun onGetTownsSuccess(townResponse: TownResponse) {
-        this.townResponse = townResponse
-    }
-
-    override fun onGetTownsFailure(message: String) {
-        Log.e("api error", message)
+    fun changeSeekTownEvent(arrayList: ArrayList<MyTownSettingResponse>, position: Int) {
+        this.arrayList = arrayList
+        this.position = position
+        binding.myTownSetRangeProgressBar.setProgress(arrayList[position].rangeLevel * 33)
+        binding.seekTownNearByTownTextView.text =
+            requireContext().getString(R.string.seek_town_near_by_town)
+                .replace("town", arrayList[position].dong)
+                .replace("count", arrayList[position].nearVillages[arrayList[position].rangeLevel].dongs.size.toString())
+        this.townResponse = arrayList[position]
     }
 }

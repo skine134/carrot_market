@@ -7,4 +7,6 @@ interface FindMyTownView {
     fun onGetSearchTownFailure(message:String)
     fun onPostRegisterAddressSuccess()
     fun onPostRegisterAddressFailure(message:String)
+    fun onPatchDeleteAddressSuccess()
+    fun onPatchDeleteAddressFailure(message:String)
 }

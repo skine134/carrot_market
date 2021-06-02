@@ -42,13 +42,32 @@ class FindMyTownService(val view:FindTownActivity) {
                 call: Call<BaseResponse<String>>,
                 response: Response<BaseResponse<String>>
             ) {
-                if(response.body()!!.code!=100)
+                if(response.body()!!.code!=1000)
                     view.onPostRegisterAddressFailure(response.body()!!.message!!)
                 view.onPostRegisterAddressSuccess()
             }
 
             override fun onFailure(call: Call<BaseResponse<String>>, t: Throwable) {
                 view.onPostRegisterAddressFailure(t.message?:"동네 등록 api 에러")
+            }
+
+        })
+    }
+    fun tryPatchDeleteAddress(registerAddressRequest: RegisterAddressRequest)
+    {
+        val api = ApplicationClass.sRetrofit.create(FindMyTownRetrofitInterface::class.java)
+        api.patchDeleteMyTown(registerAddressRequest).enqueue(object:Callback<BaseResponse<String>>{
+            override fun onResponse(
+                call: Call<BaseResponse<String>>,
+                response: Response<BaseResponse<String>>
+            ) {
+                if(response.body()!!.code!=1000)
+                    view.onPostRegisterAddressFailure(response.body()!!.message!!)
+                view.onPostRegisterAddressSuccess()
+            }
+
+            override fun onFailure(call: Call<BaseResponse<String>>, t: Throwable) {
+                view.onPostRegisterAddressFailure(t.message?:"동네 삭제 api 에러")
             }
 
         })

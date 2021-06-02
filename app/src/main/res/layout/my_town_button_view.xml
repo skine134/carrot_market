@@ -6,8 +6,12 @@
         android:id="@+id/my_town_active_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-    <ImageButton
+    <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.MyTownButtonInActiveView
         android:id="@+id/my_town_inactive_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <ImageButton
+        android:id="@+id/my_town_empty_view"
         android:src="@drawable/add_30"
         android:background="@drawable/my_town_inactive_box_shape"
         android:layout_width="match_parent"
