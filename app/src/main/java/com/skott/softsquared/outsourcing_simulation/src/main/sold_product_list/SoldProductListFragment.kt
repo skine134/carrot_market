@@ -36,4 +36,12 @@ class SoldProductListFragment: BaseSellFragment() ,SoldProductListView{
     override fun onGetSoldProductListViewFailure(message: String) {
         Log.e("api error",message)
     }
+
+    override fun onPatchSaleSuccess() {
+        TODO("Not yet implemented")
+    }
+
+    override fun onPatchSaleFailure(message: String) {
+        Log.e("api error",message)
+    }
 }

@@ -7,4 +7,7 @@ interface SoldProductListView {
 
     fun onGetSoldProductListViewSuccess(soldProductListResponseArray: ArrayList<SoldProductListResponse>)
     fun onGetSoldProductListViewFailure(message:String)
+
+    fun onPatchSaleSuccess()
+    fun onPatchSaleFailure(message: String)
 }

@@ -68,22 +68,21 @@ class ProductListFragment:BaseFragment<ProductListFragmentBinding>(ProductListFr
 
         //리사이클러뷰 무한스크롤
         binding.productList.addOnScrollListener(getScrollListener{
-            ++page
-            productListService.tryGetProductList(
-                villageIdx = 1,
-                rangeLevel = 1,
-                categories = allCategory,
-                lastItemIdx = page
-            )
+            getProductList(allCategory)
         })
+        getProductList(allCategory)
         setFabEvent(binding.productListFab)
         return binding.root
     }
-
-    override fun onStart() {
-        super.onStart()
-        val allCategory = userCategory.substring(0,userCategory.lastIndex)
-        productListService.tryGetProductList(villageIdx = 1,rangeLevel = 1,categories = allCategory,lastItemIdx =page)
+    private fun getProductList(category:String)
+    {
+        ++page
+        productListService.tryGetProductList(
+            villageIdx = 1,
+            rangeLevel = 1,
+            categories = category,
+            lastItemIdx = page
+        )
     }
     private fun setFabEvent(fab:FloatingActionButton)
     {

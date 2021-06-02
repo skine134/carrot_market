@@ -45,6 +45,7 @@ class RecyclerMessageView(context: Context, attrs: AttributeSet?=null) :
             }
 
             override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+                notifyChanged()
             }
         }
         binding.recyclerView.adapter = adapter

@@ -242,11 +242,12 @@
     <string name="sold_product_name">name</string>
     <string name="not_select_now">지금 안할래요.</string>
     <string name="find_buyer_in_recent_chat"><u>최근 채팅 목록에서 구매자 찾기</u></string>
-
+    <string name="buyer_name">name</string>
+    <string name="buyer_town">town</string>
+    <string name="last_chat_time">time</string>
     <!--             COLLECT_USER_SALE_PRODUCT_LAYOUT     -->
     <string name="collect_user_sale_product_app_bar_title">모아보기</string>
     <string name="collect_user_sale_product_management">관리</string>
-
 
 
 

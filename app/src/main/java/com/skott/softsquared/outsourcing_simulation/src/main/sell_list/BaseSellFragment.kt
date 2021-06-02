@@ -46,7 +46,11 @@ abstract class BaseSellFragment  : BaseFragment<MySellFragmentBinding>(
 //        binding.favoriteList.getRecyclerView().addOnScrollListener(getScrollListener {
 //            service()
 //        })
-        service()
         return binding.root
+    }
+
+    override fun onStart() {
+        service()
+        super.onStart()
     }
 }

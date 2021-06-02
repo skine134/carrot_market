@@ -6,6 +6,8 @@ import com.skott.softsquared.outsourcing_simulation.src.main.favorite_product_li
 import com.skott.softsquared.outsourcing_simulation.src.main.favorite_product_list.FavoriteProductListRetrofitInterface
 import com.skott.softsquared.outsourcing_simulation.src.main.favorite_product_list.model.FavoriteItemResponse
 import com.skott.softsquared.outsourcing_simulation.src.main.sale_product_list.model.SaleProductListResponse
+import com.skott.softsquared.outsourcing_simulation.src.main.sale_product_list.model.SoldOutRequest
+import com.skott.softsquared.outsourcing_simulation.src.main.sale_product_list.model.SoldResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -30,6 +32,30 @@ class SaleProductListService(val view: SaleProductListFragment) {
 
             override fun onFailure(call: Call<BaseResponse<ArrayList<SaleProductListResponse>>>, t: Throwable) {
                 view.onGetSaleProductListViewFailure(t.message?:"sale product list error")
+            }
+
+        })
+    }
+    fun tryPostSoldOut(soldOutRequest: SoldOutRequest)
+    {
+
+        val api = ApplicationClass.sRetrofit.create(SaleProductListRetrofitInterface::class.java)
+        api.postSoldOut(soldOutRequest).enqueue(object:
+            Callback<BaseResponse<ArrayList<SoldResponse>>> {
+            override fun onResponse(
+                call: Call<BaseResponse<ArrayList<SoldResponse>>>,
+                response: Response<BaseResponse<ArrayList<SoldResponse>>>
+            ) {
+                if(response.body()!!.code!=1000)
+                {
+                    view.onPostSoldOutFailure(response.body()!!.message!!)
+                    return
+                }
+                view.onPostSoldOutSuccess(response.body()!!.result!!)
+            }
+
+            override fun onFailure(call: Call<BaseResponse<ArrayList<SoldResponse>>>, t: Throwable) {
+                view.onPostSoldOutFailure(t.message?:"sale product list error")
             }
 
         })

@@ -21,6 +21,8 @@ import com.skott.softsquared.outsourcing_simulation.src.util.adapters.GalleryPic
 import com.skott.softsquared.outsourcing_simulation.src.util.lib.showImagePicker
 import com.skott.softsquared.outsourcing_simulation.src.util.lib.uploadBitmapToFireBase
 import com.skott.softsquared.outsourcing_simulation.src.util.lib.uploadImageViewToFireBase
+import java.util.*
+import kotlin.collections.ArrayList
 import kotlin.concurrent.thread
 
 interface PictureListener {
@@ -108,7 +110,10 @@ class ImageSelectorView(context: Context, attrs: AttributeSet) : ConstraintLayou
             {
                 Thread.sleep(5)
             }
-            event(pictureArray.toList() as ArrayList<Picture>)
+            val arrayList=ArrayList<Picture>()
+            for(item in pictureArray)
+                arrayList.add(item!!)
+            event(arrayList)
         }
     }
 }

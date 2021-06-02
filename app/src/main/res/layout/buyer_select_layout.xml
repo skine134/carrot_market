@@ -118,7 +118,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/buyer_selector_recycler_view"/>
-    <TextView
+    <android.widget.Button
+        android:id="@+id/not_check_buyer_now_Button"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:text="@string/not_select_now"

@@ -14,6 +14,7 @@ import com.skott.softsquared.outsourcing_simulation.databinding.SaleItemAdapterB
 import com.skott.softsquared.outsourcing_simulation.src.main.product_detail.ProductDetailActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.product_detail.ProductDetailService
 import com.skott.softsquared.outsourcing_simulation.src.main.sale_product_list.model.SaleProductListResponse
+import com.skott.softsquared.outsourcing_simulation.src.main.sale_product_list.model.SoldOutRequest
 import com.skott.softsquared.outsourcing_simulation.src.main.sell_list.SellListActivity
 import com.skott.softsquared.outsourcing_simulation.src.util.adapters.BaseRecyclerMessageViewAdapter
 import com.skott.softsquared.outsourcing_simulation.src.util.custom_views.RecyclerMessageView
@@ -30,6 +31,7 @@ class SaleProductListAdapter(
     recyclerMessageView
 ) {
     val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+    private var clickSoldOut= -1
     protected lateinit var binding: SaleItemAdapterBinding
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): SaleProductListViewHolder {
         binding = SaleItemAdapterBinding.inflate(inflater,parent,false)
@@ -39,15 +41,19 @@ class SaleProductListAdapter(
             (context as Activity).startActivity(intent)
         }
         binding.changeReservation.setOnClickListener{
-//            saleProductListService.tryPostDeal()
         }
         binding.changeSoldOut.setOnClickListener{
-
+            saleProductListService.tryPostSoldOut(SoldOutRequest(arrayList[position].idx))
+            clickSoldOut=position
         }
         return SaleProductListViewHolder(context,binding)
     }
 
     override fun onBindViewHolder(holder: SaleProductListViewHolder, position: Int) {
         holder.bind(arrayList[position])
+    }
+    fun getSoldItemPosition():Int
+    {
+        return clickSoldOut
     }
 }

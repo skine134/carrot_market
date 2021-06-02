@@ -25,6 +25,7 @@
     <color name="carrot_market_disable_color">#8F878A95</color>
     <color name="carrot_market_text_hyperlink_color">#8F888B92</color>
     <color name="carrot_market_start_auth_bg">#8FF2F3F7</color>
+    <color name="carrot_market_tab_layout_color">#ADB0BA</color>
 
     <color name="ted_image_picker_primary">#FE7E35</color>
     <color name="ted_image_picker_primary_pressed">#FE7E35</color>
