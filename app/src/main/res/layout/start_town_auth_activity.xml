@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/carrot_market_start_auth_bg">
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/top_image_guideline"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".1"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bottom_image_guideline"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".6"
+        />
+
+    <ImageView
+        android:id="@+id/auth_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/start_auth_image"
+        app:layout_constraintBottom_toBottomOf="@id/bottom_image_guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/top_image_guideline"
+        app:layout_constraintVertical_bias=".3" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="우리 동네 중고 직거래"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        android:paddingBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@id/content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bottom_image_guideline" />
+    <TextView
+        android:id="@+id/content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="13"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:singleLine="false"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="당근마켓은 동네 직거래 마켓이에요.내 동네를 설정하고 시작해보세요!"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/button_guideline"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".80"/>
+    <android.widget.Button
+        android:id="@+id/start_auth_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="내 동네 설정하고 시작하기"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_marginHorizontal="20dp"
+        android:background="@drawable/start_auth_button_shape"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintTop_toBottomOf="@+id/button_guideline"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
