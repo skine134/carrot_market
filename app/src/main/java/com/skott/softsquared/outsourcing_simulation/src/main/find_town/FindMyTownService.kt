@@ -3,6 +3,7 @@ package com.skott.softsquared.outsourcing_simulation.src.main.find_town
 import com.skott.softsquared.outsourcing_simulation.src.config.ApplicationClass
 import com.skott.softsquared.outsourcing_simulation.src.config.BaseResponse
 import com.skott.softsquared.outsourcing_simulation.src.main.find_town.model.FindMyTownResponse
+import com.skott.softsquared.outsourcing_simulation.src.main.find_town.model.RegisterAddressRequest
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -17,8 +18,10 @@ class FindMyTownService(val view:FindTownActivity) {
                 call: Call<BaseResponse<ArrayList<FindMyTownResponse>>>,
                 response: Response<BaseResponse<ArrayList<FindMyTownResponse>>>
             ) {
-                if(response.body()!!.code!=100)
+                if(response.body()!!.code!=1000) {
                     view.onGetSearchTownFailure(response.body()!!.message!!)
+                    return
+                }
                 view.onGetSearchTownSuccess(response.body()!!.result!!)
             }
 
@@ -27,6 +30,25 @@ class FindMyTownService(val view:FindTownActivity) {
                 t: Throwable
             ) {
                 view.onGetSearchTownFailure(t.message?:"동네 검색 api 에러")
+            }
+
+        })
+    }
+    fun tryPostRegisterAddress(registerAddressRequest: RegisterAddressRequest)
+    {
+        val api = ApplicationClass.sRetrofit.create(FindMyTownRetrofitInterface::class.java)
+        api.postRegisterAddress(registerAddressRequest).enqueue(object:Callback<BaseResponse<String>>{
+            override fun onResponse(
+                call: Call<BaseResponse<String>>,
+                response: Response<BaseResponse<String>>
+            ) {
+                if(response.body()!!.code!=100)
+                    view.onPostRegisterAddressFailure(response.body()!!.message!!)
+                view.onPostRegisterAddressSuccess()
+            }
+
+            override fun onFailure(call: Call<BaseResponse<String>>, t: Throwable) {
+                view.onPostRegisterAddressFailure(t.message?:"동네 등록 api 에러")
             }
 
         })

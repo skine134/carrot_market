@@ -8,4 +8,5 @@
     <string name="home_activity_to_product_detail_activity_intent_key">homeActivityToProductDetailActivityIntentKey</string>
     <string name="profile_intent_key">ProfileIntentKey</string>
     <string name="buyer_select_activity_intent_key">BuyerSelectActivityIntentKey</string>
+    <string name="my_carrot_find_my_address_intent_key">MyCarrotFindMyAddressIntentKey</string>
 </resources>

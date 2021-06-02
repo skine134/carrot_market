@@ -3,14 +3,17 @@ package com.skott.softsquared.outsourcing_simulation.src.main.find_town
 import android.content.Context
 import android.graphics.Rect
 import android.os.Bundle
+import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.FindTownByCurrentLocationBinding
 import com.skott.softsquared.outsourcing_simulation.src.config.BaseActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.find_town.model.FindMyTownResponse
@@ -41,25 +44,41 @@ class FindTownActivity :BaseActivity<FindTownByCurrentLocationBinding>(FindTownB
         }
         binding.findTownRecyclerMessageView.getRecyclerView().addItemDecoration(itemDecoration)
     }
+    private fun searchAddress(editText: EditText)
+    {
+        findTownService.tryGetTown(editText.text.toString())
+    }
     private fun setSearchEvent(editText: EditText)
     {
-        editText.setOnKeyListener{ view: View, keyCode: Int, keyEvent: KeyEvent ->
-            if(keyCode==KeyEvent.KEYCODE_ENTER) {
-                findTownService.tryGetTown(editText.text.toString())
-                return@setOnKeyListener false
-            }
-            return@setOnKeyListener false
+//        { view: View, keyCode: Int, keyEvent: KeyEvent ->
+//            if(keyCode==KeyEvent.KEYCODE_ENTER) {
+//                searchAddress(editText)
+//                return@setOnKeyListener false
+//            }
+//            return@setOnKeyListener false
+//        }
+        editText.addTextChangedListener{
+            searchAddress(editText)
         }
     }
     override fun onGetSearchTownSuccess(findMyTownResponseArray: ArrayList<FindMyTownResponse>) {
 
-        adapter = FindMyTownAdapter(context,findMyTownResponseArray,binding.findTownRecyclerMessageView)
+        adapter = FindMyTownAdapter(context,findMyTownResponseArray,findTownService,binding.findTownRecyclerMessageView)
         binding.findTownRecyclerMessageView.getRecyclerView().layoutManager = LinearLayoutManager(context)
         binding.findTownRecyclerMessageView.getRecyclerView().adapter = adapter
     }
 
     override fun onGetSearchTownFailure(message: String) {
         showCustomToast(message)
+    }
+
+    override fun onPostRegisterAddressSuccess() {
+        intent.putExtra(context.getString(R.string.my_carrot_find_my_address_intent_key),adapter.getClickPosition())
+        finish()
+    }
+
+    override fun onPostRegisterAddressFailure(message: String) {
+        Log.e("api error",message)
     }
 
 }

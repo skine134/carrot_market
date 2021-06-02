@@ -5,4 +5,6 @@ import com.skott.softsquared.outsourcing_simulation.src.main.find_town.model.Fin
 interface FindMyTownView {
     fun onGetSearchTownSuccess(findMyTownResponseArray:ArrayList<FindMyTownResponse>)
     fun onGetSearchTownFailure(message:String)
+    fun onPostRegisterAddressSuccess()
+    fun onPostRegisterAddressFailure(message:String)
 }
