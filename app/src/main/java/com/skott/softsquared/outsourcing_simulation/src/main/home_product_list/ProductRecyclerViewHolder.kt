@@ -60,7 +60,7 @@ class ProductRecyclerViewHolder(val context: Context, val item: ViewBinding) :
             image.setImageResource(R.drawable.item_default_image)
 
         }
-        if(!price.equals(""))
+        if(price.text.equals("null"))
             price.text = context.getString(R.string.product_price).replace("price", DecimalFormat("###,###").format(productListResponse.price.toInt()).toString())
         favorite.setCount(productListResponse.numOfLikes)
         chat.setCount(productListResponse.numOfChats)

@@ -114,4 +114,14 @@
         <item name="chipStrokeColor">@color/near_by_search_bg</item>
         <item name="chipStrokeWidth">2dp</item>
     </style>
+    <style name="town_news_chip_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="chipBackgroundColor">@color/white</item>
+        <item name="chipStrokeColor">@color/near_by_search_bg</item>
+        <item name="chipStrokeWidth">2dp</item>
+        <item name="chipCornerRadius">0dp</item>
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">0dp</item>
+    </style>
 </resources>
