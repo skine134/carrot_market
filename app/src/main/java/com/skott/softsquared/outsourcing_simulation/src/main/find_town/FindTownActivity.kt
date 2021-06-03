@@ -1,6 +1,7 @@
 package com.skott.softsquared.outsourcing_simulation.src.main.find_town
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Rect
 import android.os.Bundle
 import android.util.Log
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.FindTownByCurrentLocationBinding
 import com.skott.softsquared.outsourcing_simulation.src.config.BaseActivity
+import com.skott.softsquared.outsourcing_simulation.src.main.create_profile.CreateProfileActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.find_town.model.FindMyTownResponse
 import com.skott.softsquared.outsourcing_simulation.src.main.find_town.model.RegisterAddressRequest
 import com.skott.softsquared.outsourcing_simulation.src.util.lib.convertDpToPixel
@@ -69,13 +71,18 @@ class FindTownActivity :BaseActivity<FindTownByCurrentLocationBinding>(FindTownB
     }
 
     override fun onPostRegisterAddressSuccess() {
-        findTownService.tryPostRegisterAddress(RegisterAddressRequest(adapter.getClickPosition()))
-        if(intentValue!=-1)
-            findTownService.tryPatchDeleteAddress(RegisterAddressRequest(intentValue))
-        else
+        // 일반 동네 등록
+        if(intentValue==-1)
+        {
             finish()
+            return
+        }
+        // 동네 모두 삭제 후 동네 등록
+        findTownService.tryPatchDeleteAddress(RegisterAddressRequest(intentValue))
     }
-
+    fun getIntentVale(): Int {
+        return intentValue
+    }
     override fun onPostRegisterAddressFailure(message: String) {
         Log.e("api error",message)
     }

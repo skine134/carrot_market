@@ -5,5 +5,6 @@ import com.skott.softsquared.outsourcing_simulation.src.main.gallery_picker.mode
 data class SignUpRequest(
     val mobile: String,
     val nickname: String,
-    val userImageUrl: Picture
+    val pictureId: String,
+    val pictureUrl: String
 )

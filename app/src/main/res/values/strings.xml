@@ -266,4 +266,30 @@
     <string name="collect_user_management_add_message">모아보기에 추가되었습니다.</string>
     <string name="collect_user_management_delete_message">name님이 모아보기에서 해제되었습니다.</string>
 
+    <!--            SOLD_COMMENT        -->
+    <string name="sold_comment_app_bar_title">거래 후기 보내기</string>
+    <string name="sold_out_product_text">거래한 물건</string>
+    <string name="how_do_sold">name님과 거래가 어떠셨나요?</string>
+    <string name="buyer_dont_know">선택항목은 상대방이 알 수 없어요.</string>
+    <string name="great_comment">최고에요!</string>
+    <string name="normal_comment">좋아요!</string>
+    <string name="come_to_me">제가 있는 곳 까지 와서 거래했어요.</string>
+    <string name="kind_and_manner">친절하고 매너가 좋아요.</string>
+    <string name="absolute_time">시간 약속을 잘 지켜요.</string>
+    <string name="fast_recomment">응답이 빨라요.</string>
+
+    <string name="bad_comment">별로에요</string>
+    <string name="no_more_sold_this_people">이 분과 거래하고 싶지 않아요.</string>
+    <string name="car_man">차에서 내리지도 않고 창문만 열고 거래하려고 해요.</string>
+    <string name="deal_man">무리하게 가격을 깎아요.</string>
+    <string name="break_time_rule">시간약속을 안 지켜요.</string>
+    <string name="absolute_express">무조건 택배거래만 하려고 해요.</string>
+    <string name="not_read_chat">채팅 메시지를 보내도 답이 없어요.</string>
+    <string name="not_set_time">예약만 해놓고 거래 시간을 명확하게 알려주지 않아요.</string>
+    <string name="late_time_promise">너무 늦은 시간이나 새벽에 연락해요</string>
+    <string name="dont_come_promise_location">약속 장소에 나타나지 않았어요.</string>
+    <string name="delete_time">거래 시간과 장소를 정한 후 거래 직전에 취소했어요.</string>
+    <string name="refuse">단순 변심으로 환불을 요구해요.</string>
+    <string name="not_kind">불친절해요.</string>
+
 </resources>

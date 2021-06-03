@@ -17,6 +17,7 @@
     <declare-styleable name="IconTextView">
         <attr name="title" format="string"/>
         <attr name="src" format="integer"/>
+        <attr name="textColor" format="color"/>
     </declare-styleable>
     <declare-styleable name="IconCounterView">
         <attr name="type"  format="enum">
@@ -25,5 +26,9 @@
             <enum name="multi_chat" value="2"/>
         </attr>
         <attr name="count" format="integer"/>
+    </declare-styleable>
+    <declare-styleable name="SoldCommentView">
+        <attr name="is_checked" format="boolean"/>
+        <attr name="comment" format="string"/>
     </declare-styleable>
 </resources>

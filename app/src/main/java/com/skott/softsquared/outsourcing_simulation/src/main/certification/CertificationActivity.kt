@@ -29,6 +29,7 @@ import com.skott.softsquared.outsourcing_simulation.src.main.certification.model
 import com.skott.softsquared.outsourcing_simulation.src.main.create_profile.CreateProfileActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.findid.FindIdForEmailActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.home.HomeActivity
+import com.skott.softsquared.outsourcing_simulation.src.main.start_auth.StartAuthActivity
 import java.util.*
 import kotlin.concurrent.fixedRateTimer
 
@@ -194,7 +195,6 @@ class CertificationActivity : BaseActivity<CertificationLayoutBinding>(Certifica
         phonenumberEditText:EditText
     ) {
 
-        //TODO: 로그아웃 또는 회원 탈퇴시 어떻게?
         button.setOnClickListener {
             mobileCheckRequest=MobileCheckRequest(phonenumberEditText.text.toString().replace(" ", ""),authEditext.text.toString())
             if(ApplicationClass.sSharedPreferences.getString(context.getString(R.string.jwt_key),"").equals(""))
@@ -222,9 +222,10 @@ class CertificationActivity : BaseActivity<CertificationLayoutBinding>(Certifica
     }
 
     override fun onSignUpMobileCheckSuccess() {
-        val nextActivity = CreateProfileActivity::class.java
+        //회원 가입 전 사용자 위치 인증
+        val nextActivity = StartAuthActivity::class.java
         val intent = Intent(this,nextActivity)
-        intent.putExtra(context.getString(R.string.certificate_to_create_profile_phone_number_intent_key),mobileCheckRequest.mobile)
+        ApplicationClass.sSharedPreferences.edit().putString(context.getString(R.string.phone_number_key),mobileCheckRequest.mobile).apply()
         showCustomToast("사용자 인증 성공!")
         startActivity(intent)
         finish()
@@ -234,8 +235,8 @@ class CertificationActivity : BaseActivity<CertificationLayoutBinding>(Certifica
         Log.e("api error",message)
     }
 
-    override fun onSignInSuccess(certificateResponse: SignInResponse) {
-        editor.putString(context.getString(R.string.jwt_key), certificateResponse.jwt)
+    override fun onSignInSuccess(signInResponse: SignInResponse) {
+        editor.putString(context.getString(R.string.jwt_key), signInResponse.jwt)
         editor.putString(context.getString(R.string.phone_number_key),mobileCheckRequest.mobile)
         editor.apply()
         val nextActivity = HomeActivity::class.java

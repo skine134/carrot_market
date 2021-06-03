@@ -42,8 +42,10 @@ class FindMyTownService(val view:FindTownActivity) {
                 call: Call<BaseResponse<String>>,
                 response: Response<BaseResponse<String>>
             ) {
-                if(response.body()!!.code!=1000)
+                if(response.body()!!.code!=1000) {
                     view.onPostRegisterAddressFailure(response.body()!!.message!!)
+                    return
+                }
                 view.onPostRegisterAddressSuccess()
             }
 
@@ -61,9 +63,11 @@ class FindMyTownService(val view:FindTownActivity) {
                 call: Call<BaseResponse<String>>,
                 response: Response<BaseResponse<String>>
             ) {
-                if(response.body()!!.code!=1000)
+                if(response.body()!!.code!=1000) {
                     view.onPostRegisterAddressFailure(response.body()!!.message!!)
-                view.onPostRegisterAddressSuccess()
+                    return
+                }
+                view.onPatchDeleteAddressSuccess()
             }
 
             override fun onFailure(call: Call<BaseResponse<String>>, t: Throwable) {

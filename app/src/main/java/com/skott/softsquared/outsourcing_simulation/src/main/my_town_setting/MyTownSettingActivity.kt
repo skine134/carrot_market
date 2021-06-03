@@ -170,6 +170,7 @@ class MyTownSettingActivity : BaseActivity<MyTownSettingBinding>(MyTownSettingBi
         {
             clickButtonView.setDelete(true)
         }
+        seekTownFragment.changeSeekTownEvent(townInfo, if(clickButtonView != binding.myTownSecondButton) 1 else 0)
     }
 
     override fun onGetMyTownFailure(message: String) {

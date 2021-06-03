@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.CarrotMarketAppbar
+        android:id="@+id/soid_comment_main_app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:back_button="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/sold_comment_app_bar_title" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/sold_comment_nested_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:scrollbars="vertical"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/soid_comment_main_app_bar"
+        app:layout_constraintBottom_toTopOf="@id/bottom_next_button">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:descendantFocusability="blocksDescendants">
+
+
+            <LinearLayout
+                android:id="@+id/sold_out_product_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/my_carrot_bg"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="10dp"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/sold_out_product_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sold_out_product_text" />
+
+                <TextView
+                    android:id="@+id/sold_out_product_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    tools:text="테스트" />
+            </LinearLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/sticker_layout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="10dp"
+                app:layout_constraintTop_toBottomOf="@id/sold_out_product_layout">
+
+                <TextView
+                    android:id="@+id/how_do_sold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingVertical="10dp"
+                    android:text="@string/how_do_sold"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/buyer_dont_know"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/buyer_dont_know"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingVertical="10dp"
+                    android:text="@string/buyer_dont_know"
+                    app:layout_constraintBottom_toTopOf="@id/bad_sticker"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/how_do_sold" />
+
+                <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.IconTextView
+                    android:id="@+id/bad_sticker"
+                    android:layout_width="80dp"
+                    android:layout_height="100dp"
+                    android:gravity="center"
+                    app:textColor="@color/sold_comment_sticker_text_bg"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/normal_sticker"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/buyer_dont_know"
+                    app:src="@drawable/bad_disable"
+                    app:title="@string/bad_comment" />
+
+                <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.IconTextView
+                    android:id="@+id/normal_sticker"
+                    android:layout_width="80dp"
+                    android:layout_height="100dp"
+                    app:textColor="@color/sold_comment_sticker_text_bg"
+                    app:layout_constraintBottom_toBottomOf="@id/bad_sticker"
+                    app:layout_constraintEnd_toStartOf="@id/great_sticker"
+                    app:layout_constraintStart_toEndOf="@id/bad_sticker"
+                    app:layout_constraintTop_toTopOf="@id/bad_sticker"
+                    app:src="@drawable/normal_disable"
+                    app:title="@string/normal_comment" />
+
+                <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.IconTextView
+                    android:id="@+id/great_sticker"
+                    android:layout_width="80dp"
+                    android:layout_height="100dp"
+                    app:textColor="@color/sold_comment_sticker_text_bg"
+                    app:layout_constraintBottom_toBottomOf="@id/bad_sticker"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/normal_sticker"
+                    app:layout_constraintTop_toTopOf="@id/bad_sticker"
+                    app:src="@drawable/great_disable"
+                    app:title="@string/great_comment" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:orientation="horizontal"
+                app:constraint_referenced_ids="sticker_layout"
+                app:barrierDirection="bottom"
+                />
+            <LinearLayout
+                android:id="@+id/good_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="30dp"
+                app:layout_constraintVertical_bias="0.2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/guideline">
+
+                <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.SoldCommentView
+                    android:id="@+id/sold_comment_good_come_to_me"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    style="@style/sold_comment_style"
+                    app:comment="@string/come_to_me"/>
+
+                <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.SoldCommentView
+                    android:id="@+id/sold_comment_good_kind_and_manner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    style="@style/sold_comment_style"
+                    app:comment="@string/kind_and_manner"/>
+
+                <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.SoldCommentView
+                    android:id="@+id/sold_comment_good_absolute_express"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    style="@style/sold_comment_style"
+                    app:comment="@string/absolute_express"/>
+
+                <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.SoldCommentView
+                    android:id="@+id/sold_comment_good_fast_recomment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    style="@style/sold_comment_style"
+                    app:comment="@string/fast_recomment"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/bad_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="30dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/guideline">
+
+                <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.SoldCommentView
+                    android:id="@+id/sold_comment_bad_no_more_sold_this_people"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="25dp"
+                    app:comment="@string/no_more_sold_this_people" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/carrot_market_guide_line"
+                    />
+
+                <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.SoldCommentView
+                    android:id="@+id/sold_comment_bad_car_man"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/sold_comment_style"
+                    app:comment="@string/car_man" />
+
+                <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.SoldCommentView
+                    android:id="@+id/sold_comment_bad_deal_man"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/sold_comment_style"
+                    app:comment="@string/deal_man" />
+
+                <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.SoldCommentView
+                    android:id="@+id/sold_comment_bad_break_time_rule"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/sold_comment_style"
+                    app:comment="@string/break_time_rule" />
+
+                <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.SoldCommentView
+                    android:id="@+id/sold_comment_bad_absolute_express"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/sold_comment_style"
+                    app:comment="@string/absolute_express" />
+
+
+                <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.SoldCommentView
+                    android:id="@+id/sold_comment_bad_not_read_chat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/sold_comment_style"
+                    app:comment="@string/not_read_chat" />
+
+
+                <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.SoldCommentView
+                    android:id="@+id/sold_comment_bad_not_set_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/sold_comment_style"
+                    app:comment="@string/not_set_time" />
+
+
+                <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.SoldCommentView
+                    android:id="@+id/sold_comment_bad_late_time_promise"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/sold_comment_style"
+                    app:comment="@string/late_time_promise" />
+
+                <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.SoldCommentView
+                    android:id="@+id/sold_comment_bad_dont_come_promise_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/sold_comment_style"
+                    app:comment="@string/dont_come_promise_location" />
+
+                <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.SoldCommentView
+                    android:id="@+id/sold_comment_bad_delete_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/sold_comment_style"
+                    app:comment="@string/delete_time" />
+
+
+                <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.SoldCommentView
+                    android:id="@+id/sold_comment_bad_refuse"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/sold_comment_style"
+                    app:comment="@string/refuse" />
+
+                <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.SoldCommentView
+                    android:id="@+id/sold_comment_bad_not_kind"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/sold_comment_style"
+                    app:comment="@string/not_kind" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+    <android.widget.Button
+        android:id="@+id/bottom_next_button"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:text="다음"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:background="@color/sold_comment_bottom_bg"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

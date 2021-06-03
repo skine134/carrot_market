@@ -65,4 +65,13 @@
     <!--            PROFILE         -->
     <color name="profile_progress">#186EC1</color>
     <color name="near_by_search_bg">#F2F3F7</color>
+
+    <!--            BUYER_COMMENT        -->
+
+    <color name="sold_comment_great_sticker_text_bg">#F9803B</color>
+    <color name="sold_comment_normal_sticker_text_bg">#06B191</color>
+    <color name="sold_comment_bad_sticker_text_bg">#868F96</color>
+    <color name="sold_comment_sticker_text_bg">#D2D4DA</color>
+    <color name="sold_comment_bottom_bg">#DDDEE3</color>
+
 </resources>
