@@ -11,6 +11,7 @@ import com.skott.softsquared.outsourcing_simulation.src.config.BaseActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.find_town.FindTownActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.my_town_setting.model.ChangeMyTownRequest
 import com.skott.softsquared.outsourcing_simulation.src.main.my_town_setting.model.MyTownSettingResponse
+import com.skott.softsquared.outsourcing_simulation.src.main.my_town_setting.model.RangeUpdateRequest
 import com.skott.softsquared.outsourcing_simulation.src.main.seek_town.SeekTownFragment
 import com.skott.softsquared.outsourcing_simulation.src.util.custom_views.MyTownButtonView
 import com.skott.softsquared.outsourcing_simulation.src.util.lib.getAlertDialog
@@ -28,6 +29,9 @@ class MyTownSettingActivity : BaseActivity<MyTownSettingBinding>(MyTownSettingBi
         super.onCreate(savedInstanceState)
         seekTownFragment =
             context.supportFragmentManager.findFragmentById(R.id.my_town_range_fragment) as SeekTownFragment
+        seekTownFragment.seekMapUdpateEvent { myTownService.tryPatchRangeUpdate(
+            RangeUpdateRequest(seekTownFragment.getCurrentTownRange()+1,townInfo[getCurrentFocusIndex()].idx)
+        ) }
     }
 
     override fun onStart() {
@@ -152,14 +156,17 @@ class MyTownSettingActivity : BaseActivity<MyTownSettingBinding>(MyTownSettingBi
         activeTownCount = myTownSettingResponseArray.size
     }
 
-
+    private fun getCurrentFocusIndex():Int
+    {
+        return if(clickButtonView == binding.myTownSecondButton) 1 else 0
+    }
     override fun onPatchMyTownSuccess() {
 
         binding.myTownSecondButton.setDelete(false)
         binding.myTownSecondButton.setActive(clickButtonView != binding.myTownFirstButton)
         binding.myTownFirstButton.setDelete(false)
         binding.myTownFirstButton.setActive(clickButtonView != binding.myTownSecondButton)
-        seekTownFragment.changeSeekTownEvent(townInfo,if(clickButtonView != binding.myTownSecondButton) 1 else 0)
+        seekTownFragment.changeSeekTownEvent(townInfo,getCurrentFocusIndex())
     }
 
     override fun onPatchDeleteMyTownSuccess() {
@@ -170,7 +177,11 @@ class MyTownSettingActivity : BaseActivity<MyTownSettingBinding>(MyTownSettingBi
         {
             clickButtonView.setDelete(true)
         }
-        seekTownFragment.changeSeekTownEvent(townInfo, if(clickButtonView != binding.myTownSecondButton) 1 else 0)
+        seekTownFragment.changeSeekTownEvent(townInfo, getCurrentFocusIndex())
+    }
+
+    override fun onPatchRangeUpdateSuccess() {
+        townInfo[getCurrentFocusIndex()].rangeLevel = seekTownFragment.getCurrentTownRange()
     }
 
     override fun onGetMyTownFailure(message: String) {
@@ -182,6 +193,10 @@ class MyTownSettingActivity : BaseActivity<MyTownSettingBinding>(MyTownSettingBi
     }
 
     override fun onPatchDeleteMyTownFailure(message: String) {
+        Log.e("api error", message)
+    }
+
+    override fun onPatchRangeUpdateFailure(message: String) {
         Log.e("api error", message)
     }
 }

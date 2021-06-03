@@ -24,7 +24,6 @@ class FindMyTownService(val view:FindTownActivity) {
                 }
                 view.onGetSearchTownSuccess(response.body()!!.result!!)
             }
-
             override fun onFailure(
                 call: Call<BaseResponse<ArrayList<FindMyTownResponse>>>,
                 t: Throwable

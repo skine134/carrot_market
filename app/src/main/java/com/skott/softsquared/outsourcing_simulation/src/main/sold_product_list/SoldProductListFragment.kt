@@ -14,7 +14,8 @@ class SoldProductListFragment: BaseSellFragment() ,SoldProductListView{
     private lateinit var adapter: SoldProductListAdapter
     override var tabName: String = ""
     override var emptyMessage = ""
-    override var service = { SoldProductListService(this).tryGetSoldProductList()}
+    private val soldService = SoldProductListService(this)
+    override var service = { soldService.tryGetSoldProductList()}
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -29,8 +30,9 @@ class SoldProductListFragment: BaseSellFragment() ,SoldProductListView{
     }
 
     override fun onGetSoldProductListViewSuccess(soldProductListResponseArray: ArrayList<SoldProductListResponse>) {
-        adapter=SoldProductListAdapter(requireContext(),soldProductListResponseArray,binding.mySellRecyclerMessageView)
+        adapter=SoldProductListAdapter(requireContext(),soldProductListResponseArray,soldService,binding.mySellRecyclerMessageView)
         binding.mySellRecyclerMessageView.getRecyclerView().adapter=adapter
+        binding.mySellRecyclerMessageView.notifyChange()
     }
 
     override fun onGetSoldProductListViewFailure(message: String) {
@@ -38,7 +40,8 @@ class SoldProductListFragment: BaseSellFragment() ,SoldProductListView{
     }
 
     override fun onPatchSaleSuccess() {
-        TODO("Not yet implemented")
+        //최신 정보를 불러와서 업데이트
+        soldService.tryGetSoldProductList()
     }
 
     override fun onPatchSaleFailure(message: String) {

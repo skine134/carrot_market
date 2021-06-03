@@ -5,6 +5,6 @@ data class MyTownSettingResponse(
     val idx: Int,
     val isCurrent: String,
     val nearVillages: ArrayList<NearVillage>,
-    val rangeLevel: Int,
+    var rangeLevel: Int,
     val villageIdx: Int
 )

@@ -4,7 +4,9 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentActivity
 import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.SaleItemAdapterBinding
 import com.skott.softsquared.outsourcing_simulation.databinding.SoldItemAdapterBinding
@@ -12,12 +14,14 @@ import com.skott.softsquared.outsourcing_simulation.src.main.product_detail.Prod
 import com.skott.softsquared.outsourcing_simulation.src.main.product_detail.ProductDetailService
 import com.skott.softsquared.outsourcing_simulation.src.main.sale_product_list.SaleProductListViewHolder
 import com.skott.softsquared.outsourcing_simulation.src.main.sold_product_list.model.SoldProductListResponse
+import com.skott.softsquared.outsourcing_simulation.src.sold_comment.SoldCommentActivity
 import com.skott.softsquared.outsourcing_simulation.src.util.adapters.BaseRecyclerMessageViewAdapter
 import com.skott.softsquared.outsourcing_simulation.src.util.custom_views.RecyclerMessageView
 
 class SoldProductListAdapter(
     context: Context,
     arrayList: ArrayList<SoldProductListResponse>,
+    val service: SoldProductListService,
     recyclerMessageView: RecyclerMessageView
 ) : BaseRecyclerMessageViewAdapter<SoldProductListResponse, SoldProductListViewHolder>(
     context,
@@ -32,6 +36,19 @@ class SoldProductListAdapter(
             val intent = Intent(context, ProductDetailActivity::class.java)
             intent.putExtra(context.getString(R.string.home_activity_to_product_detail_activity_intent_key),arrayList[position].idx)
             (context as Activity).startActivity(intent)
+        }
+        binding.sendSoldComment.setOnClickListener{
+            val intent = Intent(context, SoldCommentActivity::class.java)
+            intent.putExtra(context.getString(R.string.sold_comment_intent_key),arrayList[position].idx)
+            (context as Activity).startActivity(intent)
+        }
+        binding.moreButton.setOnClickListener{
+            val soldBottomSheetDialog=SoldBottomSheetDialog()
+            soldBottomSheetDialog.soldEvent = View.OnClickListener{
+                service.tryPatchSale(arrayList[position].idx)
+                soldBottomSheetDialog.dismiss()
+            }
+            soldBottomSheetDialog.show((context as Activity as FragmentActivity).supportFragmentManager,soldBottomSheetDialog.tag)
         }
         return SoldProductListViewHolder(context,binding)
     }

@@ -83,12 +83,12 @@ class FindTownActivity :BaseActivity<FindTownByCurrentLocationBinding>(FindTownB
     fun getIntentVale(): Int {
         return intentValue
     }
-    override fun onPostRegisterAddressFailure(message: String) {
-        Log.e("api error",message)
-    }
-
     override fun onPatchDeleteAddressSuccess() {
         finish()
+    }
+
+    override fun onPostRegisterAddressFailure(message: String) {
+        Log.e("api error",message)
     }
 
     override fun onPatchDeleteAddressFailure(message: String) {

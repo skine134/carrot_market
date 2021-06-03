@@ -23,7 +23,9 @@ class SeekTownFragment : BaseFragment<SeekTownFragmentBinding>(
     private lateinit var townResponse: MyTownSettingResponse
     private lateinit var currentScopeInfo: NearVillage
     private var arrayList = ArrayList<MyTownSettingResponse>()
+    private var range=-1
     private var position = -1
+    private lateinit var event : ()->Unit
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -31,6 +33,7 @@ class SeekTownFragment : BaseFragment<SeekTownFragmentBinding>(
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         setSeekBarEvent(binding.myTownSetRangeProgressBar, binding.myTownVisualImageView)
+        event  = {}
         return binding.root
     }
 
@@ -47,22 +50,8 @@ class SeekTownFragment : BaseFragment<SeekTownFragmentBinding>(
 
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
                 val value = currentPercent
-                var scope: TOWN_SCOPE = TOWN_SCOPE.CLOSEST
                 Log.d("test1", value.toString())
-                when (value) {
-                    in 0..16 -> {
-                        scope = TOWN_SCOPE.CLOSEST
-                    }
-                    in 16..49 -> {
-                        scope = TOWN_SCOPE.CLOSE
-                    }
-                    in 50..83 -> {
-                        scope = TOWN_SCOPE.FAR
-                    }
-                    in 84..100 -> {
-                        scope = TOWN_SCOPE.FARTHEST
-                    }
-                }
+                val scope = getScope(value)
                 seekBar!!.progress = scope.seekVale()
                 currentPercent = seekBar.progress
                 if (!arrayList.isEmpty()) {
@@ -81,6 +70,8 @@ class SeekTownFragment : BaseFragment<SeekTownFragmentBinding>(
                         requireContext().getString(R.string.seek_town_near_by_town)
                             .replace("town", townResponse.dong)
                             .replace("count", arrayList[position].nearVillages[scope.index()].dongs.size.toString())
+                    range=scope.index()
+                    event()
                 } else {
                     showCustomToast("동네 인증을 해야 설정이 가능합니다.")
                 }
@@ -88,7 +79,25 @@ class SeekTownFragment : BaseFragment<SeekTownFragmentBinding>(
 
         })
     }
+    fun getScope(value:Int): TOWN_SCOPE {
 
+        var scope: TOWN_SCOPE = TOWN_SCOPE.CLOSEST
+        when (value) {
+            in 0..16 -> {
+                scope = TOWN_SCOPE.CLOSEST
+            }
+            in 16..49 -> {
+                scope = TOWN_SCOPE.CLOSE
+            }
+            in 50..83 -> {
+                scope = TOWN_SCOPE.FAR
+            }
+            in 84..100 -> {
+                scope = TOWN_SCOPE.FARTHEST
+            }
+        }
+        return scope
+    }
     fun changeSeekTownEvent(arrayList: ArrayList<MyTownSettingResponse>, position: Int) {
         this.arrayList = arrayList
         this.position = position
@@ -98,5 +107,12 @@ class SeekTownFragment : BaseFragment<SeekTownFragmentBinding>(
                 .replace("town", arrayList[position].dong)
                 .replace("count", arrayList[position].nearVillages[arrayList[position].rangeLevel].dongs.size.toString())
         this.townResponse = arrayList[position]
+    }
+    fun getCurrentTownRange(): Int {
+        return range
+    }
+    fun seekMapUdpateEvent(event:()->Unit)
+    {
+        this.event = event
     }
 }
