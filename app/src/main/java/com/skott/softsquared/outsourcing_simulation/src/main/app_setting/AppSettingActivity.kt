@@ -6,6 +6,7 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Rect
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,7 +24,7 @@ import com.skott.softsquared.outsourcing_simulation.src.util.lib.getAlertDialog
 class AppSettingActivity : BaseActivity<AppSettingLayoutBinding>(AppSettingLayoutBinding::inflate),
     TextViewListener {
     private lateinit var context: Context
-    private lateinit var signOutAlertDialog: AlertDialog
+    private lateinit var signOutAlertDialog: androidx.appcompat.app.AlertDialog
     private lateinit var userSettingAdapter: AppSettingAdapter
     private lateinit var otherSettingAdapter: AppSettingAdapter
 

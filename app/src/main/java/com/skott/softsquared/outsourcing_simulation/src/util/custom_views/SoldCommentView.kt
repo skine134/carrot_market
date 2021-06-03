@@ -24,6 +24,10 @@ class SoldCommentView(context: Context, attrs:AttributeSet):LinearLayout(context
 
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         binding = SoldCommentOptionBinding.inflate(inflater,this,false)
+        binding.root.setOnClickListener{
+            binding.checkbox.isChecked = !binding.checkbox.isChecked
+
+        }
         addView(binding.root)
     }
 }

@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.BuyerSelectLayoutBinding
 import com.skott.softsquared.outsourcing_simulation.src.main.buyer_select.BuyerSelectActivity
+import com.skott.softsquared.outsourcing_simulation.src.main.buyer_select.model.BuyerInfo
 import com.skott.softsquared.outsourcing_simulation.src.main.favorite_product_list.FavoriteProductListAdapter
 import com.skott.softsquared.outsourcing_simulation.src.main.sale_product_list.model.SaleProductListResponse
 import com.skott.softsquared.outsourcing_simulation.src.main.sale_product_list.model.SoldOutRequest
@@ -52,6 +53,17 @@ class SaleProductListFragment: BaseSellFragment() ,SaleProductListView{
             val serializedData = Json.encodeToJsonElement(soldOutResponseArray).toString()
             intent.putExtra(requireContext().getString(R.string.buyer_select_activity_intent_key),serializedData)
         }
+        else
+        {
+            //사용자 정보가 없으면 덤프데이터로 생성. 테스트용
+            val arrayList = ArrayList<BuyerInfo>()
+            val dumpData = BuyerInfo("NO",1,"토끼마켓", "https://igor-for-test-bucket.s3.ap-northeast-2.amazonaws.com/imageSample/keyboard1.jpeg")
+            arrayList.add(dumpData)
+            intent.putExtra(requireContext().getString(R.string.buyer_select_activity_sold_or_sale_intent_key),false)
+            intent.putExtra(requireContext().getString(R.string.buyer_select_activity_product_intent_key), adapter.arrayList[adapter.getSoldItemPosition()].toString())
+            intent.putExtra(requireContext().getString(R.string.buyer_select_activity_intent_key),arrayList)
+        }
+        //TODO WHY?
         adapter.arrayList.removeAt(adapter.getSoldItemPosition())
         startActivity(intent)
     }

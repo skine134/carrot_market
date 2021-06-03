@@ -20,7 +20,14 @@
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
         app:constraint_referenced_ids="auth_my_location_app_bar" />
-    <!-- naver fragment -->
+    <fragment
+        android:id="@+id/nave_map"
+        android:name="com.naver.maps.map.MapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/barrier"
+        app:layout_constraintBottom_toTopOf="@id/guideline"
+        />
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
         android:layout_width="1dp"
@@ -31,11 +38,22 @@
         android:id="@+id/my_location_message"
         android:text="현재 위치가 내 동네로 설정한 '다산2동'내에 있어요"
         android:textSize="18sp"
-        android:paddingHorizontal="10dp"
-        android:paddingVertical="20dp"
+        android:padding="20dp"
+        android:layout_marginEnd="45dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/guideline"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.04" />
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.96" />
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -45,8 +63,7 @@
         android:id="@+id/why_auth_town_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="10dp"
-        android:paddingVertical="20dp"
+        android:padding="20dp"
         app:layout_constraintTop_toBottomOf="@id/my_location_message">
         <TextView
             android:text="왜 동네인증을 해야하나요?"

@@ -3,7 +3,6 @@ package com.skott.softsquared.outsourcing_simulation.src.main.product_detail.mod
 import com.skott.softsquared.outsourcing_simulation.src.main.gallery_picker.model.Picture
 import kotlinx.serialization.Serializable
 
-@Serializable
 data class ProductDetailResponse(
     val category: String,
     val chatNum: Int,

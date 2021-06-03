@@ -1,5 +1,10 @@
 package com.skott.softsquared.outsourcing_simulation.src.main.sale_product_list.model
 
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
+
+@Serializable
 data class SaleProductListResponse(
     val dong: String,
     val idx: Int,
@@ -7,8 +12,13 @@ data class SaleProductListResponse(
     val numOfChats: Int,
     val numOfLikes: Int,
     val passedTime: String,
-    val pictureUrl: Any?,
+    val pictureUrl: String?,
     val price: String,
     val status: String,
     val title: String
 )
+{
+    override fun toString(): String {
+        return Json.encodeToString(this)
+    }
+}

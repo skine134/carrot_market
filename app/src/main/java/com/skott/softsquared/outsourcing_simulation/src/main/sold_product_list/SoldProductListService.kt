@@ -3,11 +3,12 @@ package com.skott.softsquared.outsourcing_simulation.src.main.sold_product_list
 import com.skott.softsquared.outsourcing_simulation.src.config.ApplicationClass
 import com.skott.softsquared.outsourcing_simulation.src.config.BaseResponse
 import com.skott.softsquared.outsourcing_simulation.src.main.sale_product_list.SaleProductListRetrofitInterface
+import com.skott.softsquared.outsourcing_simulation.src.main.sold_product_list.model.BuyerListResponse
 import com.skott.softsquared.outsourcing_simulation.src.main.sold_product_list.model.SoldProductListResponse
+import kotlinx.serialization.Serializable
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-
 class SoldProductListService(val view:SoldProductListFragment) {
     fun tryGetSoldProductList()
     {
@@ -55,6 +56,29 @@ class SoldProductListService(val view:SoldProductListFragment) {
 
             override fun onFailure(call: Call<BaseResponse<String>>, t: Throwable) {
                 view.onPatchSaleFailure(t.message?:"sale product list error")
+            }
+
+        })
+    }
+    fun tryGetBuyerList(itemIndex:Int)
+    {
+
+        val api = ApplicationClass.sRetrofit.create(SoldProductListRetrofitInterface::class.java)
+        api.getBuyerList(itemIndex).enqueue(object :Callback<BaseResponse<ArrayList<BuyerListResponse>>>{
+            override fun onResponse(
+                call: Call<BaseResponse<ArrayList<BuyerListResponse>>>,
+                response: Response<BaseResponse<ArrayList<BuyerListResponse>>>
+            ) {
+                if(response.body()!!.code!=1000)
+                {
+                    view.onGetBuyerResponseFailure(response.body()!!.message!!)
+                    return
+                }
+                view.onGetBuyerResponseSuccess(response.body()!!.result!!)
+            }
+
+            override fun onFailure(call: Call<BaseResponse<ArrayList<BuyerListResponse>>>, t: Throwable) {
+                view.onPatchSaleFailure(t.message?:"sold buyer user api error")
             }
 
         })

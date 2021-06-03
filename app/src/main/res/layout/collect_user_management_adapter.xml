@@ -6,9 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="100dp"
     android:background="@color/white"
-    android:padding="20dp"
-    app:layout_constraintBottom_toTopOf="@id/product_check_guideline"
-    app:layout_constraintTop_toBottomOf="@id/sell_success_guideline">
+    android:padding="20dp">
 
     <ImageView
         android:id="@+id/user_image_view"

@@ -7,7 +7,9 @@
     <string name="seekmap_activity_to_post_activity_intent_key">seekMapFragmentToPostActivityIntentKey</string>
     <string name="home_activity_to_product_detail_activity_intent_key">homeActivityToProductDetailActivityIntentKey</string>
     <string name="profile_intent_key">ProfileIntentKey</string>
+    <string name="buyer_select_activity_sold_or_sale_intent_key">BuyerSelectActivitySoldOrSaleIntentKey</string>
     <string name="buyer_select_activity_intent_key">BuyerSelectActivityIntentKey</string>
+    <string name="buyer_select_activity_product_intent_key">BuyerSelectActivityImageIntentKey</string>
     <string name="my_carrot_find_my_address_intent_key">MyCarrotFindMyAddressIntentKey</string>
     <string name="intent_key">MyCarrotFindMyAddressIntentKey</string>
     <string name="sold_comment_intent_key">soldCommentIntentKey</string>

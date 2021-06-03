@@ -24,7 +24,7 @@ class MyTownSettingActivity : BaseActivity<MyTownSettingBinding>(MyTownSettingBi
     private lateinit var clickButtonView: MyTownButtonView
     private lateinit var seekTownFragment: SeekTownFragment
     private lateinit var townInfo: ArrayList<MyTownSettingResponse>
-    private lateinit var alertDialog: AlertDialog
+    private lateinit var alertDialog: androidx.appcompat.app.AlertDialog
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         seekTownFragment =

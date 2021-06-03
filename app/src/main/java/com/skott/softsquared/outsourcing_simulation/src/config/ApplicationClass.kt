@@ -8,6 +8,7 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.ktx.storage
+import com.naver.maps.map.NaverMapSdk
 import com.skott.softsquared.outsourcing_simulation.BuildConfig
 import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.src.splash.model.AutoSignInResponse
@@ -39,6 +40,8 @@ class ApplicationClass : Application() {
     // 앱이 처음 생성되는 순간, SP를 새로 만들어주고, 레트로핏 인스턴스를 생성합니다.
     override fun onCreate() {
         super.onCreate()
+        NaverMapSdk.getInstance(this).client = NaverMapSdk.NaverCloudPlatformClient(BuildConfig.NAVER_ID)
+
         sSharedPreferences =
             applicationContext.getSharedPreferences(this.getString(R.string.default_key), MODE_PRIVATE)
         storageReference=Firebase.storage.reference

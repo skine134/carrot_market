@@ -1,13 +1,16 @@
 package com.skott.softsquared.outsourcing_simulation.src.main.sold_product_list
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.skott.softsquared.outsourcing_simulation.R
+import com.skott.softsquared.outsourcing_simulation.src.main.buyer_select.BuyerSelectActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.sale_product_list.SaleProductListService
 import com.skott.softsquared.outsourcing_simulation.src.main.sell_list.BaseSellFragment
+import com.skott.softsquared.outsourcing_simulation.src.main.sold_product_list.model.BuyerListResponse
 import com.skott.softsquared.outsourcing_simulation.src.main.sold_product_list.model.SoldProductListResponse
 
 class SoldProductListFragment: BaseSellFragment() ,SoldProductListView{
@@ -45,6 +48,18 @@ class SoldProductListFragment: BaseSellFragment() ,SoldProductListView{
     }
 
     override fun onPatchSaleFailure(message: String) {
+        Log.e("api error",message)
+    }
+
+    override fun onGetBuyerResponseSuccess(BuyerListArray: ArrayList<BuyerListResponse>) {
+        val intent = Intent(requireContext(),BuyerSelectActivity::class.java)
+        intent.putExtra(requireContext().getString(R.string.buyer_select_activity_sold_or_sale_intent_key),true)
+        intent.putExtra(requireContext().getString(R.string.buyer_select_activity_intent_key),BuyerListArray.toString())
+        intent.putExtra(requireContext().getString(R.string.buyer_select_activity_product_intent_key),adapter.arrayList[adapter.getClickItemPosition()].toString())
+        startActivity(intent)
+    }
+
+    override fun onGetBuyerResponseFailure(message: String) {
         Log.e("api error",message)
     }
 }

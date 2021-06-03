@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.skott.softsquared.outsourcing_simulation">
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OutSourcingSimulating"
         >
+        <meta-data
+            android:name="com.naver.maps.map.CLIENT_ID"
+            android:value="n1umj6p2bz"/>
         <activity android:name=".src.splash.SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -74,6 +79,12 @@
             android:fitsSystemWindows="true"
             android:screenOrientation="portrait"/>
         <activity android:name=".src.main.start_auth.StartAuthActivity"
+            android:fitsSystemWindows="true"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".src.main.auth_location.AuthLocationActivity"
+            android:fitsSystemWindows="true"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".src.main.sold_comment.SoldCommentActivity"
             android:fitsSystemWindows="true"
             android:screenOrientation="portrait"/>
     </application>

@@ -4,9 +4,12 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
+import android.view.Gravity
 import android.widget.BaseAdapter
 import android.widget.ImageButton
 import android.widget.ListPopupWindow
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.skott.softsquared.outsourcing_simulation.R
 
 
 fun getPopupMenu(
@@ -50,9 +53,10 @@ fun getAlertDialog(
     cancelEvent: DialogInterface.OnClickListener,
     checkText:String="확인",
     cancelText:String="취소",
-): AlertDialog {
-    val builder = AlertDialog.Builder(context as Activity)
+): androidx.appcompat.app.AlertDialog {
+    val builder = MaterialAlertDialogBuilder(context as Activity,R.style.AlertDialogTheme)
     builder.setMessage(message).setPositiveButton(checkText,checkEvent).setNeutralButton(cancelText,cancelEvent)
     builder.setTitle(title)
-    return builder.create()
+    val dialog = builder.create()
+    return dialog
 }
