@@ -61,7 +61,7 @@ class SaleProductListFragment: BaseSellFragment() ,SaleProductListView{
             arrayList.add(dumpData)
             intent.putExtra(requireContext().getString(R.string.buyer_select_activity_sold_or_sale_intent_key),false)
             intent.putExtra(requireContext().getString(R.string.buyer_select_activity_product_intent_key), adapter.arrayList[adapter.getSoldItemPosition()].toString())
-            intent.putExtra(requireContext().getString(R.string.buyer_select_activity_intent_key),arrayList)
+            intent.putExtra(requireContext().getString(R.string.buyer_select_activity_intent_key),arrayList.toString())
         }
         //TODO WHY?
         adapter.arrayList.removeAt(adapter.getSoldItemPosition())

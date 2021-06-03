@@ -58,7 +58,7 @@ class BuyerSelectActivity:BaseActivity<BuyerSelectLayoutBinding>(BuyerSelectLayo
         if(!productInfo.pictureUrl.toString().equals("")&&!productInfo.pictureUrl.toString().equals("null")) {
             getRoundedAllCornerBitmap(context,productInfo.pictureUrl.toString(),5,binding.productImageView)
         }
-        binding.buyerSelectorRecyclerView.adapter = buyerAdapter
+        binding.soldProductName.text=productInfo.title
         setFinishSoldActivity(binding.notCheckBuyerNowButton)
     }
     private fun setFinishSoldActivity(button: Button)
