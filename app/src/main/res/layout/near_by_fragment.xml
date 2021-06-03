@@ -63,54 +63,63 @@
                 android:layout_marginVertical="10dp"
                 android:layout_marginHorizontal="15dp"
                 android:background="@color/near_by_search_bg"/>
-            <com.google.android.material.chip.ChipGroup
+
+            <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:singleLine="true"
-                android:layout_marginHorizontal="13dp">
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:scrollbars="none">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/near_by_chip_style"
-                    android:text="다이어트"
-                    />
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/near_by_chip_style"
-                    android:text="토익"
-                    />
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/near_by_chip_style"
-                    android:text="타이어"
-                    />
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/near_by_chip_style"
-                    android:text="부업"
-                    />
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/near_by_chip_style"
-                    android:text="고양이"
-                    />
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/near_by_chip_style"
-                    android:text="부업"
-                    />
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/near_by_chip_style"
-                    android:text="부업"
-                    />
-            </com.google.android.material.chip.ChipGroup>
+                    android:layout_marginHorizontal="13dp"
+                    app:singleLine="true">
+
+                    <com.google.android.material.chip.Chip
+                        style="@style/near_by_chip_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="다이어트" />
+
+                    <com.google.android.material.chip.Chip
+                        style="@style/near_by_chip_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="토익" />
+
+                    <com.google.android.material.chip.Chip
+                        style="@style/near_by_chip_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="타이어" />
+
+                    <com.google.android.material.chip.Chip
+                        style="@style/near_by_chip_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="부업" />
+
+                    <com.google.android.material.chip.Chip
+                        style="@style/near_by_chip_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="고양이" />
+
+                    <com.google.android.material.chip.Chip
+                        style="@style/near_by_chip_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="부업" />
+
+                    <com.google.android.material.chip.Chip
+                        style="@style/near_by_chip_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="부업" />
+                </com.google.android.material.chip.ChipGroup>
+            </HorizontalScrollView>
         </LinearLayout>
 
         <View

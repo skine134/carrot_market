@@ -13,6 +13,7 @@
     <color name="pure_trans">#00FFFFFF</color>
     <color name="hint_color">#D2D3D8</color>
     <color name="bottom_action_bar">#F2F2F2</color>
+    <color name ="near_by_text_color">#5B5B63</color>
     <!--            CARROT_MARKET        -->
 
     <color name="carrot_market_main_bottom_back">#1E1E20</color>
