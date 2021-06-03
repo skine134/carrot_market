@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingVertical="5dp">
+
+    <TextView
+        android:id="@+id/change_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="이런 거래한 적 없어요"
+        style="@style/sold_bottom_sheet_dialog"/>
+
+    <TextView
+        android:id="@+id/update_post"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="목록에서 지우기"
+        style="@style/sold_bottom_sheet_dialog"/>
+</LinearLayout>
