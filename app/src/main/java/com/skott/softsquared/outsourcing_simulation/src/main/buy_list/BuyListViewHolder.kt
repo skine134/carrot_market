@@ -3,6 +3,7 @@ package com.skott.softsquared.outsourcing_simulation.src.main.buy_list
 import android.content.Context
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.isGone
 import androidx.recyclerview.widget.RecyclerView
 import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.BuyListItemAdapterBinding
@@ -21,10 +22,11 @@ class BuyListViewHolder(val context: Context, val binding: BuyListItemAdapterBin
     val image: ImageView = binding.productImageView
     val price: TextView = binding.productPriceTextView
     val time: TextView = binding.productUploadTimeTextView
-    var status = "ONSALE"
+    var status:ImageView=binding.status
     fun bind(buyListResponse: BuyListResponse) {
         name.text = buyListResponse.title
         town.text = buyListResponse.dong
+        status.isGone=if(buyListResponse.status.equals("ONSALE")) true else false
         val imageString = buyListResponse.pictureUrl.toString()
         try{
             getRoundedAllCornerBitmap(context, imageString, 10, image)
@@ -37,6 +39,5 @@ class BuyListViewHolder(val context: Context, val binding: BuyListItemAdapterBin
             DecimalFormat("###,###").format(buyListResponse.price.toInt()).toString()
         )
         time.text = buyListResponse.passedTime
-        status = buyListResponse.status
     }
 }

@@ -13,6 +13,7 @@
         app:title="@string/main_chat_app_bar_title"
         />
     <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.RecyclerMessageView
+        android:id="@+id/chat_recycler_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/my_carrot_bg"

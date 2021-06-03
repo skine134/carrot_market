@@ -5,6 +5,7 @@ import android.net.Uri
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.isGone
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import com.skott.softsquared.outsourcing_simulation.R
@@ -30,7 +31,7 @@ class ProductRecyclerViewHolder(val context: Context, val item: ViewBinding) :
     private lateinit var time: TextView
     private lateinit var pullUp: TextView
     private lateinit var noticeView: ConstraintLayout
-    var status: String = "ONSALE"
+    private lateinit var status: ImageView
 
     init {
         if (item is ProductItemAdapterBinding) {
@@ -43,6 +44,7 @@ class ProductRecyclerViewHolder(val context: Context, val item: ViewBinding) :
             multiChat = item.multiChatCount
             time = item.productUploadTimeTextView
             pullUp = item.pullUpTextView
+            status = item.status
         } else {
             noticeView = (item as PleaseTownAuthFragmentBinding).root
         }
@@ -66,6 +68,6 @@ class ProductRecyclerViewHolder(val context: Context, val item: ViewBinding) :
         chat.setCount(productListResponse.numOfChats)
         time.text = productListResponse.passedTime
         pullUp.text = if (productListResponse.isOnTop.equals("NO")) "" else "끌올"
-        status = productListResponse.status
+        status.isGone = productListResponse.status.equals("ONSALE")
     }
 }

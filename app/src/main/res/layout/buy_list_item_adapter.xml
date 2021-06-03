@@ -92,16 +92,30 @@
             app:layout_constraintVertical_bias="0"
             android:visibility="gone"
             />
+
+        <ImageView
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:src="@drawable/sold"
+            android:visibility="gone"
+            android:layout_marginTop="5dp"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/product_price_text_view"
+            app:layout_constraintStart_toEndOf="@id/sale_type"
+            app:layout_constraintTop_toBottomOf="@id/seller_town_text_view"
+            />
         <TextView
             android:id="@+id/product_price_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="@id/status"
+            app:layout_constraintBottom_toBottomOf="@id/status"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/sale_type"
-            app:layout_constraintTop_toBottomOf="@id/seller_town_text_view"
+            app:layout_constraintStart_toEndOf="@id/status"
             tools:text="10,000원" />
         <ImageButton
             android:id="@+id/more_button"

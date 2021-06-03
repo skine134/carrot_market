@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         tools:src="@drawable/home_post_heart"
         android:background="@color/pure_trans"
         app:layout_constraintStart_toStartOf="parent"

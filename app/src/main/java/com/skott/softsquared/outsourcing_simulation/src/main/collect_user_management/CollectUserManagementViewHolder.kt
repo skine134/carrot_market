@@ -13,7 +13,8 @@ class CollectUserManagementViewHolder(val context: Context, collectUserManagemen
     private val address = collectUserManagementAdapterBinding.address
     fun bind(collectUserManagementResponse:CollectUserManagementResponse)
     {
-        getRoundedAllCornerBitmap(context,collectUserManagementResponse.profilePictureUrl,5,imageView)
+        if(collectUserManagementResponse.profilePictureUrl!=null)
+            getRoundedAllCornerBitmap(context,collectUserManagementResponse.profilePictureUrl,5,imageView)
         nickname.text = collectUserManagementResponse.nickName
         address.text = "${collectUserManagementResponse.siGunGu} ${collectUserManagementResponse.dong}"
     }

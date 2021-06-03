@@ -57,7 +57,7 @@ class SeekTownFragment : BaseFragment<SeekTownFragmentBinding>(
                 if (!arrayList.isEmpty()) {
                     requireActivity().intent.putExtra(
                         requireContext().getString(R.string.seekmap_fragment_to_activity_intent_key),
-                        scope.index()
+                        scope.scope()
                     )
                     currentScopeInfo = arrayList[position].nearVillages[scope.index()]
                     binding.seekTownNearByTownTextView.text =
@@ -70,7 +70,7 @@ class SeekTownFragment : BaseFragment<SeekTownFragmentBinding>(
                         requireContext().getString(R.string.seek_town_near_by_town)
                             .replace("town", townResponse.dong)
                             .replace("count", arrayList[position].nearVillages[scope.index()].dongs.size.toString())
-                    range=scope.index()
+                    range=scope.scope()
                     event()
                 } else {
                     showCustomToast("동네 인증을 해야 설정이 가능합니다.")
@@ -105,7 +105,7 @@ class SeekTownFragment : BaseFragment<SeekTownFragmentBinding>(
         binding.seekTownNearByTownTextView.text =
             requireContext().getString(R.string.seek_town_near_by_town)
                 .replace("town", arrayList[position].dong)
-                .replace("count", arrayList[position].nearVillages[arrayList[position].rangeLevel].dongs.size.toString())
+                .replace("count", arrayList[position].nearVillages[arrayList[position].rangeLevel-1].dongs.size.toString())
         this.townResponse = arrayList[position]
     }
     fun getCurrentTownRange(): Int {

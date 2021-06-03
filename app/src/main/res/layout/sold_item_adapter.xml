@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="180dp"
+    android:layout_height="140dp"
     android:background="@color/white"
     >
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -93,6 +93,19 @@
         app:layout_constraintVertical_bias="0"
         android:visibility="gone"
         />
+    <ImageView
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:src="@drawable/sold"
+        android:visibility="gone"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="@id/seller_town_text_view"
+        app:layout_constraintEnd_toStartOf="@+id/product_price_text_view"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintTop_toTopOf="@id/product_price_text_view"
+        app:layout_constraintBottom_toBottomOf="@id/product_price_text_view"
+        />
     <TextView
         android:id="@+id/product_price_text_view"
         android:layout_width="wrap_content"
@@ -101,7 +114,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/sale_type"
+        app:layout_constraintStart_toEndOf="@id/status"
         app:layout_constraintTop_toBottomOf="@id/seller_town_text_view"
         tools:text="10,000원" />
     <ImageButton

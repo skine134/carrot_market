@@ -15,7 +15,8 @@ class FavoriteProductListFragment() : BaseFavoriteListFragment(),
     private lateinit var adapter: FavoriteProductListAdapter
     override var tabName: String = ""
     override var emptyMessage=""
-    override var service= {FavoriteProductListService(this).tryGetFavoriteList()}
+    val favoriteProductService = FavoriteProductListService(this)
+    override var service= {favoriteProductService.tryGetFavoriteList()}
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -28,11 +29,18 @@ class FavoriteProductListFragment() : BaseFavoriteListFragment(),
     }
 
     override fun onGetFavoriteListViewSuccess(favoriteItemResponseArray:ArrayList<FavoriteItemResponse>) {
-        adapter= FavoriteProductListAdapter(requireContext(),favoriteItemResponseArray,binding.favoriteList)
+        adapter= FavoriteProductListAdapter(requireContext(),favoriteItemResponseArray,favoriteProductService,binding.favoriteList)
         binding.favoriteList.getRecyclerView().adapter=adapter
     }
 
     override fun onGetFavoriteListViewFailure(message:String) {
+        Log.e("api error",message)
+    }
+
+    override fun onGetFavoriteProductSuccess() {
+    }
+
+    override fun onGetFavoriteProductFailure(message: String) {
         Log.e("api error",message)
     }
 }

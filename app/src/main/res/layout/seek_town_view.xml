@@ -6,6 +6,13 @@
     android:layout_height="wrap_content"
     android:padding="20dp"
     >
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:src="@drawable/base_map"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="1.25:1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
     <ImageView
         android:id="@+id/map_5km"
         android:src="@drawable/map_5_km"

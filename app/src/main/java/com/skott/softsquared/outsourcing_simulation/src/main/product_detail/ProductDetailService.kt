@@ -42,7 +42,7 @@ class ProductDetailService(val view:ProductDetailActivity){
             ) {
                 if(response.body()!!.code!=1000)
                 {
-                    view.onGetProductDetailFailure(response.body()!!.message?:"상세 정보 api 에러 발생.")
+                    view.onGetFavoriteProductFailure(response.body()!!.message?:"상세 정보 api 에러 발생.")
                     return
                 }
                 view.onGetFavoriteProductSuccess()

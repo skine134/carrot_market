@@ -3,6 +3,7 @@ package com.skott.softsquared.outsourcing_simulation.src.main.sold_product_list
 import android.content.Context
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.isGone
 import androidx.recyclerview.widget.RecyclerView
 import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.SoldItemAdapterBinding
@@ -19,7 +20,7 @@ class SoldProductListViewHolder(val context: Context,val binding: SoldItemAdapte
     val image: ImageView = binding.productImageView
     val price: TextView = binding.productPriceTextView
     val time: TextView = binding.productUploadTimeTextView
-    var status = "ONSALE"
+    var status :ImageView = binding.status
     fun bind(soldProductListResponse: SoldProductListResponse) {
         name.text = soldProductListResponse.title
         town.text = soldProductListResponse.dong
@@ -34,6 +35,6 @@ class SoldProductListViewHolder(val context: Context,val binding: SoldItemAdapte
             DecimalFormat("###,###").format(soldProductListResponse.price.toInt()).toString()
         )
         time.text = soldProductListResponse.passedTime
-        status = soldProductListResponse.status
+        status.isGone = soldProductListResponse.status.equals("ONSALE")
     }
 }

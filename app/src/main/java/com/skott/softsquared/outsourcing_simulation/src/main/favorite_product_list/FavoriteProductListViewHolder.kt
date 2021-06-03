@@ -4,6 +4,7 @@ import android.content.Context
 import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.isGone
 import androidx.recyclerview.widget.RecyclerView
 import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.FavoriteListAdapterBinding
@@ -25,7 +26,7 @@ class FavoriteProductListViewHolder(val context: Context, binding: FavoriteListA
     private var time: TextView = binding.productUploadTimeTextView
     private var pullUp: TextView = binding.pullUpTextView
     private var favoriteCheckBox:CheckBox = binding.favoriteCheckBox
-    var status: String = "ONSALE"
+    var status=binding.status
 
     fun bind(favoriteItemResponse: FavoriteItemResponse?) {
         if (favoriteItemResponse == null)
@@ -45,7 +46,7 @@ class FavoriteProductListViewHolder(val context: Context, binding: FavoriteListA
         chat.setCount(favoriteItemResponse.numOfChats)
         time.text = favoriteItemResponse.passedTime
         pullUp.text = if (favoriteItemResponse.isOnTop.equals("NO")) "" else "끌올"
-        status = favoriteItemResponse.status
+        status.isGone = favoriteItemResponse.status.equals("ONSALE")
         favoriteCheckBox.isChecked = favoriteItemResponse.isliked.equals("YES")
     }
 }

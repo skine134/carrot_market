@@ -5,4 +5,7 @@ import com.skott.softsquared.outsourcing_simulation.src.main.favorite_product_li
 interface FavoriteProductListView {
     fun onGetFavoriteListViewSuccess(favoriteItemResponseArray: ArrayList<FavoriteItemResponse>)
     fun onGetFavoriteListViewFailure(message:String)
+
+    fun onGetFavoriteProductSuccess()
+    fun onGetFavoriteProductFailure(message:String)
 }
