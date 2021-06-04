@@ -16,6 +16,7 @@ import com.skott.softsquared.outsourcing_simulation.src.main.certification.Certi
 import com.skott.softsquared.outsourcing_simulation.src.main.certification.models.MobileCheckRequest
 import com.skott.softsquared.outsourcing_simulation.src.main.certification.models.SignInResponse
 import com.skott.softsquared.outsourcing_simulation.src.main.home.HomeActivity
+import com.skott.softsquared.outsourcing_simulation.src.main.start_auth.StartAuthActivity
 import com.skott.softsquared.outsourcing_simulation.src.splash.model.AutoSignInResponse
 
 class SplashActivity : BaseActivity<SplasherLayoutBinding>(SplasherLayoutBinding::inflate)
@@ -35,7 +36,7 @@ class SplashActivity : BaseActivity<SplasherLayoutBinding>(SplasherLayoutBinding
                 autoSignInService.tryGetAutoSignIn()
                 return@postDelayed
             }
-            val nextActivity = CertificationActivity::class.java
+            val nextActivity = StartAuthActivity::class.java
             val intent = Intent(this, nextActivity)
             startActivity(intent)
             finish()

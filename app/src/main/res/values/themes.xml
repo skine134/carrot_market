@@ -21,8 +21,10 @@
     <style name="MyAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog">
         <item name="colorAccent">@color/carrot_market_default_color</item>
         <item name="colorPrimary">@color/carrot_market_default_color</item>
+        <item name="android:textSize">20sp</item>
 
     </style>
+
     <style name="AppTheme.Picker" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorControlNormal">@color/teal_200</item>
         <item name="android:textColorPrimary">@color/teal_200</item>

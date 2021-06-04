@@ -5,4 +5,5 @@
     <string name="phone_number_key">"PHONE_NUMBER"</string>
     <string name="post_scope_key">POST_TOWN_SCOPE</string>
     <string name="view_scope_key">VIEW_TOWN_SCOPE</string>
+    <string name="location_key">LOCATION_KEY</string>
 </resources>
