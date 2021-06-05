@@ -16,6 +16,8 @@ class MyCarrotService(val view:MyCarrotFragment) {
                 call: Call<BaseResponse<MyCarrotResponse>>,
                 response: Response<BaseResponse<MyCarrotResponse>>
             ) {
+                if(response.body()!!.code!=1000)
+                    view.onGetMyCarrotFailure(response.body()!!.message!!)
                 view.onGetMyCarrotSuccess(response.body()!!.result!!)
             }
 

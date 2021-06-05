@@ -41,7 +41,7 @@
     </com.skott.softsquared.outsourcing_simulation.src.util.custom_views.CarrotMarketAppbar>
 <androidx.core.widget.NestedScrollView
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     app:layout_constraintTop_toBottomOf="@id/near_by_main_app_bar">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -277,14 +277,15 @@
             app:layout_constraintVertical_bias="0"
             app:layout_constraintTop_toBottomOf="@id/category_layout"
             app:layout_constraintBottom_toTopOf="@id/near_by_news_recycler_view"/>
+
         <com.skott.softsquared.outsourcing_simulation.src.util.custom_views.RecyclerMessageView
             android:id="@+id/near_by_news_recycler_view"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/near_by_news_title"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/near_by_news_title"
             app:message="@string/main_not_found_list" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

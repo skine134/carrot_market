@@ -118,7 +118,9 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="5dp"
                         android:button="@null"
-                        android:checked="true"
+                        android:gravity="center"
+                        android:text="모아보기"
+                        android:checked="false"
                         android:layout_weight="1"
                         android:background="@drawable/collect_user_selector"
                         android:textStyle="bold" />
@@ -350,7 +352,8 @@
                     <ImageView
                         android:id="@+id/action_badge_next_arrow"
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
+                        android:scaleType="centerInside"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:src="@drawable/next_arrow_30" />
                 </LinearLayout>

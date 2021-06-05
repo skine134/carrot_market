@@ -8,10 +8,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewGroup.FOCUS_BLOCK_DESCENDANTS
-import androidx.core.view.isVisible
-import androidx.core.widget.NestedScrollView
-import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,18 +15,24 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.PleaseTownAuthFragmentBinding
 import com.skott.softsquared.outsourcing_simulation.databinding.ProductListFragmentBinding
+import com.skott.softsquared.outsourcing_simulation.src.config.ApplicationClass
 import com.skott.softsquared.outsourcing_simulation.src.config.BaseFragment
+import com.skott.softsquared.outsourcing_simulation.src.main.find_town.model.FindMyTownResponse
 import com.skott.softsquared.outsourcing_simulation.src.main.home_product_list.model.ProductListResponse
+import com.skott.softsquared.outsourcing_simulation.src.main.certification.models.UserLocation
 import com.skott.softsquared.outsourcing_simulation.src.main.used_product_post.UsedProductCategory
 import com.skott.softsquared.outsourcing_simulation.src.main.used_product_post.UsedProductPostActivity
 import com.skott.softsquared.outsourcing_simulation.src.util.lib.convertDpToPixel
 import com.skott.softsquared.outsourcing_simulation.src.util.lib.getScrollListener
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.json.Json
 
 class ProductListFragment:BaseFragment<ProductListFragmentBinding>(ProductListFragmentBinding::bind,R.layout.product_list_fragment),ProductListView {
     private lateinit var productRecyclerAdapter: ProductRecyclerAdapter
     private lateinit var productListService: ProductListService
     private var page =0
     private lateinit var userCategory:String
+    private val dong= ArrayList<String>()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -39,6 +41,22 @@ class ProductListFragment:BaseFragment<ProductListFragmentBinding>(ProductListFr
         super.onCreateView(inflater, container, savedInstanceState)
         val arrayList = ArrayList<ProductListResponse>()
         productListService= ProductListService(this)
+        val location = ApplicationClass.sSharedPreferences.getString(requireContext().getString(R.string.location_key),"")
+        if(!location.equals(""))
+        {
+            try{
+                val data = Json.decodeFromString<ArrayList<UserLocation>>(location!!)
+                for(item in data)
+                {
+                    dong.add(item.dong)
+                }
+            }catch (e:Exception)
+            {
+                val data = Json.decodeFromString<FindMyTownResponse>(location!!)
+                dong.add(data.village)
+            }
+            binding.town.text = dong[0]
+        }
         userCategory = ""
         for(item in UsedProductCategory.values())
         {
@@ -74,6 +92,7 @@ class ProductListFragment:BaseFragment<ProductListFragmentBinding>(ProductListFr
         setFabEvent(binding.productListFab)
         return binding.root
     }
+
     private fun getProductList(category:String)
     {
         ++page

@@ -222,10 +222,9 @@ class CertificationActivity : BaseActivity<CertificationLayoutBinding>(Certifica
     }
 
     override fun onSignUpMobileCheckSuccess() {
-        //회원 가입 전 사용자 위치 인증
-        val nextActivity = StartAuthActivity::class.java
+        val nextActivity = CreateProfileActivity::class.java
         val intent = Intent(this,nextActivity)
-        ApplicationClass.sSharedPreferences.edit().putString(context.getString(R.string.phone_number_key),mobileCheckRequest.mobile).apply()
+        ApplicationClass.sSharedPreferences.edit().putString(context.getString(R.string.phone_number_key),mobileCheckRequest.mobile).commit()
         showCustomToast("사용자 인증 성공!")
         startActivity(intent)
         finish()
@@ -240,6 +239,7 @@ class CertificationActivity : BaseActivity<CertificationLayoutBinding>(Certifica
         editor.putString(context.getString(R.string.phone_number_key),mobileCheckRequest.mobile)
         editor.apply()
         val nextActivity = HomeActivity::class.java
+        ApplicationClass.sSharedPreferences.edit().putString(context.getString(R.string.location_key),signInResponse.userLocations.toString()).commit()
         val intent = Intent(this,nextActivity)
         showCustomToast("로그인 인증 성공!")
         startActivity(intent)

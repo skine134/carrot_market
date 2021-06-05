@@ -6,5 +6,6 @@ data class SignUpRequest(
     val mobile: String,
     val nickname: String,
     val pictureId: String,
-    val pictureUrl: String
+    val pictureUrl: String,
+    val villigeIdx:Int
 )
