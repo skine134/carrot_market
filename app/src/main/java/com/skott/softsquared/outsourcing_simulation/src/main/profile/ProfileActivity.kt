@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.CheckBox
-import android.widget.SeekBar
 import androidx.core.os.bundleOf
 import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.ProfileLayoutBinding
@@ -27,11 +26,6 @@ class ProfileActivity : BaseActivity<ProfileLayoutBinding>(ProfileLayoutBinding:
         else
             showCustomToast("사용자 정보를 불러오지 못하였습니다.")
         setCollectSeller(binding.productCollect)
-        setDontTouchSeekBar(binding.profileTemperatureSeekBar)
-    }
-    private fun setDontTouchSeekBar(seekBar: SeekBar)
-    {
-        seekBar.setOnTouchListener { v, event ->  return@setOnTouchListener true}
     }
     private fun setCollectSeller(checkBox: CheckBox)
     {
@@ -42,11 +36,9 @@ class ProfileActivity : BaseActivity<ProfileLayoutBinding>(ProfileLayoutBinding:
 
                 checkBox.setTextColor(context.getColor(R.color.white))
                 checkBox.text = context.getString(R.string.collect_user_management_enable_button)
-                showCustomToast("모아보기에 추가 되었습니다.")
             }else
             {   checkBox.setTextColor(context.getColor(R.color.black))
                 checkBox.text = context.getString(R.string.collect_user_management_disable_button)
-                showCustomToast("모아보기에서 삭제 되었습니다.")
             }
         }
     }
@@ -83,6 +75,7 @@ class ProfileActivity : BaseActivity<ProfileLayoutBinding>(ProfileLayoutBinding:
     }
 
     override fun onPostCollectUserSuccess() {
+        showCustomToast("모아보기에 추가 되었습니다.")
     }
 
     override fun onPostCollectUserFailure(message: String) {
