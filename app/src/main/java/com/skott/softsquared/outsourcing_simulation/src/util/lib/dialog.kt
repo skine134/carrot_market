@@ -55,7 +55,7 @@ fun getAlertDialog(
     cancelText:String="취소",
 ): androidx.appcompat.app.AlertDialog {
     val builder = MaterialAlertDialogBuilder(context as Activity,R.style.AlertDialogTheme)
-    builder.setMessage(message).setPositiveButton(checkText,checkEvent).setNegativeButton(cancelText,cancelEvent)
+    builder.setMessage(message).setPositiveButton(checkText,checkEvent).setNeutralButton(cancelText,cancelEvent)
     builder.setTitle(title)
     val dialog = builder.create()
     return dialog

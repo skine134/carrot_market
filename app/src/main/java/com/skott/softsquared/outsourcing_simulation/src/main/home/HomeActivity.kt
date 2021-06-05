@@ -2,13 +2,11 @@ package com.skott.softsquared.outsourcing_simulation.src.main.home
 
 import android.os.Bundle
 import android.view.MenuItem
-import android.view.View
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.skott.softsquared.outsourcing_simulation.src.config.BaseActivity
 import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.HomeLayoutBinding
-import kotlin.math.abs
 
 class HomeActivity : BaseActivity<HomeLayoutBinding>(HomeLayoutBinding::inflate) {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,9 +14,7 @@ class HomeActivity : BaseActivity<HomeLayoutBinding>(HomeLayoutBinding::inflate)
         binding.mainContentViewPager.adapter= HomePaerAdapter(supportFragmentManager)
         binding.mainContentViewPager.offscreenPageLimit=5
         setViewPagerEvent(binding.mainContentViewPager,binding.homeBottomNavView)
-
     }
-
     private fun setViewPagerEvent(viewPager:ViewPager,bottomNavigationView: BottomNavigationView)
     {
         viewPager.addOnPageChangeListener(object:ViewPager.OnPageChangeListener{

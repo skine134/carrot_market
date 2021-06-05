@@ -29,8 +29,6 @@
         app:layout_constraintBottom_toTopOf="@id/contents"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/image"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintVertical_bias="0"
         android:textSize="20sp"
         android:textStyle="bold"
         tools:text="보드게임 1:1 방문수업합니다." />
@@ -54,8 +52,8 @@
 
     <ImageView
         android:id="@+id/profile"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
         app:layout_constraintStart_toStartOf="@+id/contents"
         app:layout_constraintEnd_toStartOf="@id/name"
         app:layout_constraintHorizontal_chainStyle="packed"
@@ -69,7 +67,6 @@
         android:layout_height="0dp"
         android:gravity="center"
         android:textColor="@color/near_by_text_color"
-        android:layout_marginStart="12dp"
         app:layout_constraintStart_toEndOf="@id/profile"
         app:layout_constraintEnd_toStartOf="@id/dong"
         app:layout_constraintTop_toTopOf="@id/profile"
@@ -82,7 +79,6 @@
         android:layout_height="0dp"
         android:gravity="center|start"
         android:textColor="#B4B5B9"
-        android:layout_marginStart="5dp"
         app:layout_constraintStart_toEndOf="@id/name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/profile"

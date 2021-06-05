@@ -3,17 +3,12 @@ package com.skott.softsquared.outsourcing_simulation.src.util.lib
 import android.animation.Animator
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
-import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.ListView
 import androidx.core.animation.addListener
 import androidx.core.animation.doOnEnd
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlin.math.abs
-
-
-
 
 fun animToRecyclerView(position: Int,recyclerView: RecyclerView,animType: String,duration: Long)
 {

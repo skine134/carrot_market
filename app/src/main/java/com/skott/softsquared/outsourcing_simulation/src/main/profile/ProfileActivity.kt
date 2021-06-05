@@ -1,11 +1,9 @@
 package com.skott.softsquared.outsourcing_simulation.src.main.profile
 
 import android.content.Context
-import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
-import android.widget.CheckBox
 import androidx.core.os.bundleOf
 import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.ProfileLayoutBinding
@@ -27,19 +25,10 @@ class ProfileActivity : BaseActivity<ProfileLayoutBinding>(ProfileLayoutBinding:
             showCustomToast("사용자 정보를 불러오지 못하였습니다.")
         setCollectSeller(binding.productCollect)
     }
-    private fun setCollectSeller(checkBox: CheckBox)
+    private fun setCollectSeller(button: Button)
     {
-        checkBox.setOnClickListener{
+        button.setOnClickListener{
             profileService.tryPostCollectUser(userIndex)
-            if(checkBox.isChecked)
-            {
-
-                checkBox.setTextColor(context.getColor(R.color.white))
-                checkBox.text = context.getString(R.string.collect_user_management_disable_button)
-            }else
-            {   checkBox.setTextColor(context.getColor(R.color.black))
-                checkBox.text = context.getString(R.string.collect_user_management_enable_button)
-            }
         }
     }
     override fun onGetProfileSuccess(profileResponse: ProfileResponse) {

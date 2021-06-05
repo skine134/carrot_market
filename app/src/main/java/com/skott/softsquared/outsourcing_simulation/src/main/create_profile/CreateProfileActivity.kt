@@ -4,8 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
@@ -17,13 +15,10 @@ import com.skott.softsquared.outsourcing_simulation.src.config.ApplicationClass.
 import com.skott.softsquared.outsourcing_simulation.src.config.BaseActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.create_profile.models.SignUpRequest
 import com.skott.softsquared.outsourcing_simulation.src.main.create_profile.models.SignupResponse
-import com.skott.softsquared.outsourcing_simulation.src.main.find_town.model.FindMyTownResponse
 import com.skott.softsquared.outsourcing_simulation.src.main.find_town.model.RegisterAddressRequest
 import com.skott.softsquared.outsourcing_simulation.src.main.home.HomeActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.profile_setting.ProfileFragment
 import com.skott.softsquared.outsourcing_simulation.src.util.custom_views.ProfileImageView
-import kotlinx.serialization.decodeFromString
-import kotlinx.serialization.json.Json
 
 class CreateProfileActivity :
     BaseActivity<CreateProfileLayoutBinding>(CreateProfileLayoutBinding::inflate),
@@ -37,14 +32,14 @@ class CreateProfileActivity :
     private lateinit var nickname: EditText
     private lateinit var profilImage: ImageView
     private lateinit var profileImageView: ProfileImageView
-    private lateinit var dongIdx: FindMyTownResponse
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         context = this
         cellphone = sSharedPreferences.getString(context.getString(R.string.phone_number_key), "")
             .toString()
-        dongIdx = Json.decodeFromString<FindMyTownResponse>(sSharedPreferences.getString(context.getString(R.string.location_key),"").toString())
-        if (cellphone.equals("")) {
+
+        dongIndex = intent.getIntExtra(context.getString(R.string.create_profile_intent_key),-1)
+        if (cellphone.equals("")||dongIndex==-1) {
             showCustomToast("회원 정보를 처리 중 오류가 발생했습니다 다시 회원가입 해주세요.")
             finishAffinity()
             System.runFinalization()
@@ -89,7 +84,7 @@ class CreateProfileActivity :
                                 "image/",
                                 "image%2F"
                             )
-                        }?alt=media",dongIdx.idx
+                        }?alt=media"
                     )
                 )
             }
@@ -110,13 +105,7 @@ class CreateProfileActivity :
             editor.putString(context.getString(R.string.jwt_key), signupResponse.jwt)
             editor.putString(context.getString(R.string.phone_number_key), cellphone)
             editor.commit()
-            val handler = Handler(Looper.getMainLooper())
-            handler.postDelayed(
-                {
-                    createProfileService.tryPostRegisterAddress(RegisterAddressRequest(dongIdx.idx))
-                },150
-            )
-
+            createProfileService.tryPostRegisterAddress(RegisterAddressRequest(dongIndex))
         }
     }
 
