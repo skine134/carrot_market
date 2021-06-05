@@ -35,10 +35,12 @@ class ProfileActivity : BaseActivity<ProfileLayoutBinding>(ProfileLayoutBinding:
             {
 
                 checkBox.setTextColor(context.getColor(R.color.white))
-                checkBox.text = context.getString(R.string.collect_user_management_disable_button)
+                checkBox.text = context.getString(R.string.collect_user_management_enable_button)
+                showCustomToast("모아보기에 추가 되었습니다.")
             }else
             {   checkBox.setTextColor(context.getColor(R.color.black))
-                checkBox.text = context.getString(R.string.collect_user_management_enable_button)
+                checkBox.text = context.getString(R.string.collect_user_management_disable_button)
+                showCustomToast("모아보기에서 삭제 되었습니다.")
             }
         }
     }
@@ -75,7 +77,6 @@ class ProfileActivity : BaseActivity<ProfileLayoutBinding>(ProfileLayoutBinding:
     }
 
     override fun onPostCollectUserSuccess() {
-        showCustomToast("모아보기에 추가 되었습니다.")
     }
 
     override fun onPostCollectUserFailure(message: String) {
