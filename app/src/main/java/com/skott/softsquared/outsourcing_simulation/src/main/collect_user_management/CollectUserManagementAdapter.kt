@@ -4,7 +4,6 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.CollectUserManagementAdapterBinding
 import com.skott.softsquared.outsourcing_simulation.src.main.collect_user_management.model.CollectUserManagementResponse
 
@@ -19,15 +18,6 @@ class CollectUserManagementAdapter(val context: Context,val arrayList: ArrayList
         binding = CollectUserManagementAdapterBinding.inflate(inflate,parent,false)
         binding.collectUserButton.setOnClickListener {
             service.tryPostCollectUser(arrayList[position].sellerIdx)
-            if(binding.collectUserButton.isChecked)
-            {
-
-                binding.collectUserButton.setTextColor(context.getColor(R.color.white))
-                binding.collectUserButton.text = context.getString(R.string.collect_user_management_enable_button)
-            }else
-            {   binding.collectUserButton.setTextColor(context.getColor(R.color.black))
-                binding.collectUserButton.text = context.getString(R.string.collect_user_management_disable_button)
-            }
         }
         return CollectUserManagementViewHolder(context,binding)
     }

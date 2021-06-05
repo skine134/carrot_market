@@ -35,10 +35,10 @@ class ProfileActivity : BaseActivity<ProfileLayoutBinding>(ProfileLayoutBinding:
             {
 
                 checkBox.setTextColor(context.getColor(R.color.white))
-                checkBox.text = context.getString(R.string.collect_user_management_enable_button)
+                checkBox.text = context.getString(R.string.collect_user_management_disable_button)
             }else
             {   checkBox.setTextColor(context.getColor(R.color.black))
-                checkBox.text = context.getString(R.string.collect_user_management_disable_button)
+                checkBox.text = context.getString(R.string.collect_user_management_enable_button)
             }
         }
     }
