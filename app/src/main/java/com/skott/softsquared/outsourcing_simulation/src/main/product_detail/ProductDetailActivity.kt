@@ -17,6 +17,7 @@ import android.widget.CheckBox
 import android.widget.ImageButton
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
+import androidx.core.view.size
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.appbar.AppBarLayout
@@ -62,6 +63,16 @@ class ProductDetailActivity :
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
         )
+        binding.productDetailContentView.setOnScrollChangeListener{ view: View, i: Int, i1: Int, i2: Int, i3: Int ->
+            val outValue = IntArray(2)//outValue[0] - x. outValue[1] - y
+            binding.productDetailContentTitleTextView.getLocationOnScreen(outValue)
+            val hideHeight = binding.mainToolBar.height-binding.productDetailContentTitleTextView.height
+            Log.d("Height",hideHeight.toString())
+            if(outValue[1]<hideHeight)
+                binding.title.text = binding.productDetailContentTitleTextView.text
+            else
+                binding.title.text = ""
+        }
 //        window.apply{
 //            this.statusBarColor= context.getColor(R.color.pure_trans)
 //            decorView.systemUiVisibility= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR or View.SYSTEM_UI_FLAG_FULLSCREEN
@@ -112,7 +123,6 @@ class ProductDetailActivity :
             if(calcul<=0||15<=calcul)
                 return@OnOffsetChangedListener
 
-            Log.d("result",calcul.toString())
             val hexValue = Integer.toString(calcul,16)
             val result = "#ff$hexValue$hexValue$hexValue$hexValue$hexValue$hexValue"
             Log.d("hexColor",result)
@@ -123,11 +133,11 @@ class ProductDetailActivity :
             binding.productDetailShareImageButton.setColorFilter(Color.parseColor(result),PorterDuff.Mode.SRC_ATOP)
             binding.productDetailMoreImageButton.setColorFilter(Color.parseColor(result),PorterDuff.Mode.SRC_ATOP)
 
-
-            //TODO text 가려짐 감지.
-            //965 how...?
-            Log.d("offset",verticalOffset.toString())
-            binding.title.isInvisible = verticalOffset > -700
+//
+//            //TODO text 가려짐 감지.
+//            //965 how...?
+//            Log.d("offset",verticalOffset.toString())
+//            binding.title.isInvisible = verticalOffset > -700
             preOffset=verticalOffset
         }
         )
@@ -146,8 +156,8 @@ class ProductDetailActivity :
             setImageToViewPager(productDetailResponse.pictures)
         binding.productDetailContentTitleTextView.text = productDetailResponse.title
 
-        binding.title.text = productDetailResponse.title
-        binding.title.isInvisible=true
+//        binding.title.text = productDetailResponse.title
+//        binding.title.isInvisible=true
             binding.productDetailContentFavoriteAndViewCountTextView.text =
             context.getString(R.string.product_detail_favorite_and_view_count)
                 .replace("favorite", productDetailResponse.likeNum.toString())
