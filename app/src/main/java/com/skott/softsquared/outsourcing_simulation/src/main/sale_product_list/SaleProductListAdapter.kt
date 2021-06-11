@@ -23,12 +23,10 @@ import com.skott.softsquared.outsourcing_simulation.src.util.lib.convertDpToPixe
 class SaleProductListAdapter(
     context: Context
     ,val saleProductListService: SaleProductListService,
-    arrayList: ArrayList<SaleProductListResponse>,
-    recyclerMessageView: RecyclerMessageView
+    arrayList: ArrayList<SaleProductListResponse>
 ) : BaseRecyclerMessageViewAdapter<SaleProductListResponse, SaleProductListViewHolder>(
     context,
-    arrayList,
-    recyclerMessageView
+    arrayList
 ) {
     val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
     private var clickSoldOut= -1

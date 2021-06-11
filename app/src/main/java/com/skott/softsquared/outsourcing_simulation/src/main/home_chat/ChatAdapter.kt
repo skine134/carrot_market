@@ -9,7 +9,7 @@ import com.skott.softsquared.outsourcing_simulation.src.main.home_chat.model.Cha
 import com.skott.softsquared.outsourcing_simulation.src.util.adapters.BaseRecyclerMessageViewAdapter
 import com.skott.softsquared.outsourcing_simulation.src.util.custom_views.RecyclerMessageView
 
-class ChatAdapter(context: Context, arrayList:ArrayList<ChatModel>,recyclerMessageView: RecyclerMessageView) :BaseRecyclerMessageViewAdapter<ChatModel,ChatViewHolder>(context,arrayList,recyclerMessageView){
+class ChatAdapter(context: Context, arrayList:ArrayList<ChatModel>) :BaseRecyclerMessageViewAdapter<ChatModel,ChatViewHolder>(context,arrayList){
     private lateinit var binding: ChatAdapterBinding
     private val inflate = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): ChatViewHolder {

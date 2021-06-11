@@ -17,12 +17,10 @@ import com.skott.softsquared.outsourcing_simulation.src.util.custom_views.Recycl
 
 class BuyListAdapter(
     context: Context,
-    arrayList: ArrayList<BuyListResponse>,
-    recyclerMessageView: RecyclerMessageView
+    arrayList: ArrayList<BuyListResponse>
 ) : BaseRecyclerMessageViewAdapter<BuyListResponse, BuyListViewHolder>(
     context,
-    arrayList,
-    recyclerMessageView
+    arrayList
 ) {
     private val inflater=context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
     private lateinit var binding: BuyListItemAdapterBinding

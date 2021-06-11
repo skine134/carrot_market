@@ -206,10 +206,9 @@ class ProductDetailActivity :
         sellerProductsAdapter =
             SmallProductAdapter(
                 context,
-                productDetailResponse.sellerItems,
-                binding.productDetailSellerOtherProductRecyclerView
+                productDetailResponse.sellerItems
             )
-        sellerProductsRecyclerView.adapter = sellerProductsAdapter
+        binding.productDetailSellerOtherProductRecyclerView.setAdapter(sellerProductsAdapter)
 
 //        recommendProductsRecyclerView
         binding.productDetailRecommendTextView.text =
@@ -227,10 +226,9 @@ class ProductDetailActivity :
         recommendProductAdapter =
             SmallProductAdapter(
                 context,
-                productDetailResponse.recommendedItems,
-                binding.productDetailRecommendRecyclerView
+                productDetailResponse.recommendedItems
             )
-        recommendProductRecyclerView.adapter = recommendProductAdapter
+        binding.productDetailRecommendRecyclerView.setAdapter(recommendProductAdapter)
     }
 
     override fun onGetProductDetailFailure(message: String) {

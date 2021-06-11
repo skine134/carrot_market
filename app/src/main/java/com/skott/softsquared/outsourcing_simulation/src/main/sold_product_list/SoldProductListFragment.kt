@@ -33,9 +33,8 @@ class SoldProductListFragment: BaseSellFragment() ,SoldProductListView{
     }
 
     override fun onGetSoldProductListViewSuccess(soldProductListResponseArray: ArrayList<SoldProductListResponse>) {
-        adapter=SoldProductListAdapter(requireContext(),soldProductListResponseArray,soldService,binding.mySellRecyclerMessageView)
-        binding.mySellRecyclerMessageView.getRecyclerView().adapter=adapter
-        binding.mySellRecyclerMessageView.notifyChange()
+        adapter=SoldProductListAdapter(requireContext(),soldProductListResponseArray,soldService)
+        binding.mySellRecyclerMessageView.setAdapter(adapter)
     }
 
     override fun onGetSoldProductListViewFailure(message: String) {

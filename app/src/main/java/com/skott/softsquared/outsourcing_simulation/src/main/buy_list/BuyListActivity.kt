@@ -48,8 +48,8 @@ class BuyListActivity:BaseActivity<MyBuyListLayoutBinding>(MyBuyListLayoutBindin
         }
     }
     override fun onGetBuyListSuccess(buyListResponseArray: ArrayList<BuyListResponse>) {
-        adapter = BuyListAdapter(context,buyListResponseArray,binding.buyListRecyclerView)
-        binding.buyListRecyclerView.getRecyclerView().adapter=adapter
+        adapter = BuyListAdapter(context,buyListResponseArray)
+        binding.buyListRecyclerView.setAdapter(adapter)
     }
 
     override fun onGetBuyListFailure(message: String) {

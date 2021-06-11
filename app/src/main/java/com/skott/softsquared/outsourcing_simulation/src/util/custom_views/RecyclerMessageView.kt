@@ -26,8 +26,8 @@ class RecyclerMessageView(context: Context, attrs: AttributeSet?=null) :
             context.obtainStyledAttributes(this, R.styleable.RecyclerMessageView)
         }.run {
             message = getString(R.styleable.RecyclerMessageView_message)?:""
-            binding.recyclerTextMessage.text=message
-            binding.recyclerTextMessage.isGone=true
+            messageTextView.text=message
+            messageTextView.isGone=true
         }
     }
 
@@ -44,7 +44,8 @@ class RecyclerMessageView(context: Context, attrs: AttributeSet?=null) :
     }
     fun <T,VH : RecyclerView.ViewHolder>setAdapter(adapter:BaseRecyclerMessageViewAdapter<T,VH>)
     {
-        binding.recyclerView.adapter = adapter
+        this.adapter = adapter
+        binding.recyclerView.adapter = this.adapter
         notifyDataSet()
     }
     fun <T>add(item:T,position:Int=0)
@@ -60,7 +61,9 @@ class RecyclerMessageView(context: Context, attrs: AttributeSet?=null) :
     fun notifyDataSet()
     {
         adapter.notifyDataSetChanged()
+        binding.recyclerTextMessage.text = message
         binding.recyclerTextMessage.isGone = adapter.arrayList.isNotEmpty()
+        binding.recyclerView.isGone = adapter.arrayList.isEmpty()
     }
     fun getTextView():TextView
     {

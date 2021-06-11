@@ -23,9 +23,9 @@ class NearByFragment :
         val arrayList = ArrayList<NearbyPostModel>()
         setModel(arrayList)
         val layoutManager= LinearLayoutManager(context)
-        val adapter = NearbyAdapter(requireContext(),arrayList,binding.nearByNewsRecyclerView)
+        val adapter = NearbyAdapter(requireContext(),arrayList)
         binding.nearByNewsRecyclerView.getRecyclerView().layoutManager=layoutManager
-        binding.nearByNewsRecyclerView.getRecyclerView().adapter=adapter
+        binding.nearByNewsRecyclerView.setAdapter(adapter)
         return binding.root
     }
 

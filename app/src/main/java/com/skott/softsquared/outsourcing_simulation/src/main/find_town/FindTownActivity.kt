@@ -61,9 +61,8 @@ class FindTownActivity :BaseActivity<FindTownByCurrentLocationBinding>(FindTownB
     }
     override fun onGetSearchTownSuccess(findMyTownResponseArray: ArrayList<FindMyTownResponse>) {
 
-        adapter = FindMyTownAdapter(context,findMyTownResponseArray,findTownService,binding.findTownRecyclerMessageView)
-        binding.findTownRecyclerMessageView.getRecyclerView().layoutManager = LinearLayoutManager(context)
-        binding.findTownRecyclerMessageView.getRecyclerView().adapter = adapter
+        adapter = FindMyTownAdapter(context,findMyTownResponseArray,findTownService)
+        binding.findTownRecyclerMessageView.setAdapter(adapter)
     }
 
     override fun onGetSearchTownFailure(message: String) {

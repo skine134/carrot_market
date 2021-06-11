@@ -15,7 +15,7 @@ import com.skott.softsquared.outsourcing_simulation.src.main.find_town.model.Reg
 import com.skott.softsquared.outsourcing_simulation.src.util.adapters.BaseRecyclerMessageViewAdapter
 import com.skott.softsquared.outsourcing_simulation.src.util.custom_views.RecyclerMessageView
 
-class FindMyTownAdapter(context: Context,arrayList: ArrayList<FindMyTownResponse>,val service: FindMyTownService,recyclerMessageView: RecyclerMessageView):BaseRecyclerMessageViewAdapter<FindMyTownResponse,FindMyTownViewHolder>(context,arrayList,recyclerMessageView) {
+class FindMyTownAdapter(context: Context,arrayList: ArrayList<FindMyTownResponse>,val service: FindMyTownService):BaseRecyclerMessageViewAdapter<FindMyTownResponse,FindMyTownViewHolder>(context,arrayList) {
     private val inflater=context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
     private lateinit var binding: FindTownNearByTownAdapterBinding
     private var clickPosition=-1

@@ -16,12 +16,10 @@ import com.skott.softsquared.outsourcing_simulation.src.util.custom_views.Recycl
 class FavoriteProductListAdapter(
     context:Context,
     arrayList: ArrayList<FavoriteItemResponse>,
-    val service: FavoriteProductListService,
-    recyclerMessageView: RecyclerMessageView
+    val service: FavoriteProductListService
 ) : BaseRecyclerMessageViewAdapter<FavoriteItemResponse, FavoriteProductListViewHolder>(
     context,
-    arrayList,
-    recyclerMessageView
+    arrayList
 ) {
     val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
     protected lateinit var binding: FavoriteListAdapterBinding

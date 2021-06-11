@@ -15,9 +15,8 @@ import com.skott.softsquared.outsourcing_simulation.src.util.custom_views.Recycl
 
 class SmallProductAdapter(
     context:Context,
-    arrayList: ArrayList<SmallProduct>,
-    recyclerMessageView: RecyclerMessageView
-) : BaseRecyclerMessageViewAdapter<SmallProduct,SmallProductViewHolder>(context, arrayList, recyclerMessageView) {
+    arrayList: ArrayList<SmallProduct>
+) : BaseRecyclerMessageViewAdapter<SmallProduct,SmallProductViewHolder>(context, arrayList) {
     private val inflater=context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
     private lateinit var binding:SmallProductAdapterBinding
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): SmallProductViewHolder {

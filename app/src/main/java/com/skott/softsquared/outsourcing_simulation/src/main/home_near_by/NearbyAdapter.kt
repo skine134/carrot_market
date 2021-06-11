@@ -10,12 +10,10 @@ import com.skott.softsquared.outsourcing_simulation.src.util.custom_views.Recycl
 
 class NearbyAdapter(
     context: Context,
-    arrayList: ArrayList<NearbyPostModel>,
-    recyclerMessageView: RecyclerMessageView
+    arrayList: ArrayList<NearbyPostModel>
 ) : BaseRecyclerMessageViewAdapter<NearbyPostModel, NearbyViewHolder>(
     context,
-    arrayList,
-    recyclerMessageView
+    arrayList
 ) {
     private lateinit var binding: NearByAdapterBinding
     private val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater

@@ -11,7 +11,7 @@ import com.skott.softsquared.outsourcing_simulation.src.util.lib.getRoundedAllCo
 
 class NearbyViewHolder(val context: Context, binding:NearByAdapterBinding):RecyclerView.ViewHolder(binding.root) {
     private val image=binding.image
-    private val title=binding.contents
+    private val title=binding.title
     private val profile=binding.profile
     private val town=binding.dong
     private val name=binding.name

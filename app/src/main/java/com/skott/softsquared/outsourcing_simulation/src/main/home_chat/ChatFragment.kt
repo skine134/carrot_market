@@ -16,6 +16,7 @@ import com.skott.softsquared.outsourcing_simulation.src.util.lib.convertDpToPixe
 
 class ChatFragment :
     BaseFragment<ChatFragmentBinding>(ChatFragmentBinding::bind, R.layout.chat_fragment) {
+    private lateinit var adapter: ChatAdapter
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -42,8 +43,9 @@ class ChatFragment :
         val arrayList = ArrayList<ChatModel>()
         dumpChatModel(arrayList)
         binding.chatRecyclerView.getRecyclerView().layoutManager = LinearLayoutManager(context)
-        binding.chatRecyclerView.getRecyclerView().addItemDecoration(DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL))
-        binding.chatRecyclerView.getRecyclerView().adapter = ChatAdapter(requireContext(),arrayList,binding.chatRecyclerView)
+        binding.chatRecyclerView.getRecyclerView().addItemDecoration(DividerItemDecoration(activity, DividerItemDecoration.VERTICAL))
+        adapter = ChatAdapter(requireContext(),arrayList)
+        binding.chatRecyclerView.setAdapter(adapter)
             return binding.root
     }
 

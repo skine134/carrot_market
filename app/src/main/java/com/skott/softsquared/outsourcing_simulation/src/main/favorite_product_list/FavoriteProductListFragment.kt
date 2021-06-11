@@ -29,8 +29,8 @@ class FavoriteProductListFragment() : BaseFavoriteListFragment(),
     }
 
     override fun onGetFavoriteListViewSuccess(favoriteItemResponseArray:ArrayList<FavoriteItemResponse>) {
-        adapter= FavoriteProductListAdapter(requireContext(),favoriteItemResponseArray,favoriteProductService,binding.favoriteList)
-        binding.favoriteList.getRecyclerView().adapter=adapter
+        adapter= FavoriteProductListAdapter(requireContext(),favoriteItemResponseArray,favoriteProductService)
+        binding.favoriteList.setAdapter(adapter)
     }
 
     override fun onGetFavoriteListViewFailure(message:String) {
