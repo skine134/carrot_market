@@ -3,15 +3,13 @@ package com.skott.softsquared.outsourcing_simulation.src.util.custom_views
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.isGone
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.RecyclerMessageViewFragmentBinding
-import com.skott.softsquared.outsourcing_simulation.src.main.home_product_list.ProductRecyclerAdapter
 import com.skott.softsquared.outsourcing_simulation.src.util.adapters.BaseRecyclerMessageViewAdapter
 
 class RecyclerMessageView(context: Context, attrs: AttributeSet?=null) :
@@ -19,7 +17,7 @@ class RecyclerMessageView(context: Context, attrs: AttributeSet?=null) :
     var message: String = ""
     lateinit var messageTextView: TextView
     private lateinit var inflater: LayoutInflater
-    private  lateinit var adapter:BaseRecyclerMessageViewAdapter<String,RecyclerView.ViewHolder>
+    private  lateinit var adapter:BaseRecyclerMessageViewAdapter<*,*>
     private lateinit var binding: RecyclerMessageViewFragmentBinding
 
     init {
@@ -28,6 +26,8 @@ class RecyclerMessageView(context: Context, attrs: AttributeSet?=null) :
             context.obtainStyledAttributes(this, R.styleable.RecyclerMessageView)
         }.run {
             message = getString(R.styleable.RecyclerMessageView_message)?:""
+            binding.recyclerTextMessage.text=message
+            binding.recyclerTextMessage.isGone=true
         }
     }
 
@@ -36,32 +36,34 @@ class RecyclerMessageView(context: Context, attrs: AttributeSet?=null) :
         binding = RecyclerMessageViewFragmentBinding.inflate(inflater, this, false)
         messageTextView = binding.recyclerTextMessage
         binding.recyclerView.layoutManager =LinearLayoutManager(context)
-        adapter = object:BaseRecyclerMessageViewAdapter<String,RecyclerView.ViewHolder>(context,ArrayList(),this){
-            override fun onCreateViewHolder(
-                parent: ViewGroup,
-                viewType: Int
-            ): RecyclerView.ViewHolder {
-                return object:RecyclerView.ViewHolder(TextView(context)){}
-            }
-
-            override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-                notifyChanged()
-            }
-        }
-        binding.recyclerView.adapter = adapter
-        adapter.notifyChanged()
         addView(binding.root)
     }
     fun getRecyclerView():RecyclerView
     {
         return binding.recyclerView
     }
+    fun <T,VH : RecyclerView.ViewHolder>setAdapter(adapter:BaseRecyclerMessageViewAdapter<T,VH>)
+    {
+        binding.recyclerView.adapter = adapter
+        notifyDataSet()
+    }
+    fun <T>add(item:T,position:Int=0)
+    {
+            (adapter.arrayList as ArrayList<T>).add(position, item)
+            notifyDataSet()
+    }
+    fun remove(position: Int)
+    {
+        adapter.arrayList.removeAt(position)
+        notifyDataSet()
+    }
+    fun notifyDataSet()
+    {
+        adapter.notifyDataSetChanged()
+        binding.recyclerTextMessage.isGone = adapter.arrayList.isNotEmpty()
+    }
     fun getTextView():TextView
     {
         return binding.recyclerTextMessage
-    }
-    fun notifyChange()
-    {
-        adapter.notifyChanged()
     }
 }
