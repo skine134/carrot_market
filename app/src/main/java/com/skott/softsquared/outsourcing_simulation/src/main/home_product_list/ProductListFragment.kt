@@ -55,7 +55,11 @@ class ProductListFragment:BaseFragment<ProductListFragmentBinding>(ProductListFr
                 val data = Json.decodeFromString<FindMyTownResponse>(location!!)
                 dong.add(data.village)
             }
-            binding.town.text = dong[0]
+            val splitTownName = dong[0].split(" ")
+            if (splitTownName.isNotEmpty())
+                binding.town.text = splitTownName[splitTownName.size-1]
+            else
+                binding.town.text = dong[0]
         }
         userCategory = ""
         for(item in UsedProductCategory.values())

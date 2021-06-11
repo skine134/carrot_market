@@ -18,12 +18,16 @@ import com.skott.softsquared.outsourcing_simulation.R
 import com.skott.softsquared.outsourcing_simulation.databinding.UsedProductPostingLayoutBinding
 import com.skott.softsquared.outsourcing_simulation.src.config.ApplicationClass
 import com.skott.softsquared.outsourcing_simulation.src.config.BaseActivity
+import com.skott.softsquared.outsourcing_simulation.src.main.certification.models.UserLocation
+import com.skott.softsquared.outsourcing_simulation.src.main.find_town.model.FindMyTownResponse
 import com.skott.softsquared.outsourcing_simulation.src.main.gallery_picker.model.Picture
 import com.skott.softsquared.outsourcing_simulation.src.main.seek_town.SeekTownActivity
 import com.skott.softsquared.outsourcing_simulation.src.main.used_product_post.model.UsedProductPostRequest
 import com.skott.softsquared.outsourcing_simulation.src.util.lib.dispatchKeyboardEvent
 import com.skott.softsquared.outsourcing_simulation.src.util.lib.getListDialog
 import gun0912.tedkeyboardobserver.TedKeyboardObserver
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.json.Json
 
 enum class UsedProductCategory(val value: String) {
     DIGITAL("디지털/가전"),
@@ -58,6 +62,29 @@ class UsedProductPostActivity :
         context = this
         usedProductPostService = UsedProductPostService(this)
         scope = ApplicationClass.sSharedPreferences.getInt(context.getString(R.string.post_scope_key),1)
+        val location = ApplicationClass.sSharedPreferences.getString(context.getString(R.string.location_key),"")
+        val dong=ArrayList<String>()
+        var townText=""
+        if(!location.equals(""))
+        {
+            try{
+                val data = Json.decodeFromString<ArrayList<UserLocation>>(location!!)
+                for(item in data)
+                {
+                    dong.add(item.dong)
+                }
+            }catch (e:Exception)
+            {
+                val data = Json.decodeFromString<FindMyTownResponse>(location!!)
+                dong.add(data.village)
+            }
+            val splitTownName = dong[0].split(" ")
+            if (splitTownName.isNotEmpty())
+                townText = splitTownName[splitTownName.size-1]
+            else
+                townText = dong[0]
+        }
+        binding.usedProductPostingContentEditText.hint=context.getString(R.string.used_product_posting_hint_content).replace("town",townText)
         setTitleEvent(binding.usedProductPostingTitleEditText)
         showCategoryDialogEvent(binding.usedProductPostingCategoryLayout)
         showSeekMapEvent(binding.usedProductPostingSelectSeekMapLayout)

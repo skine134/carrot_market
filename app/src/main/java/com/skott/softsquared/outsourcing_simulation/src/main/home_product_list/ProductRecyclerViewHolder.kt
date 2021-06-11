@@ -68,6 +68,6 @@ class ProductRecyclerViewHolder(val context: Context, val item: ViewBinding) :
         chat.setCount(productListResponse.numOfChats)
         time.text = productListResponse.passedTime
         pullUp.text = if (productListResponse.isOnTop.equals("NO")) "" else "끌올"
-        status.isGone = productListResponse.status.equals("ONSALE")
+        status.isGone = true
     }
 }
